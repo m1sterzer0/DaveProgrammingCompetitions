@@ -22,7 +22,7 @@ def main(infn="") :
     infile = open(infn,"r") if infn else open(sys.argv[1],"r") if len(sys.argv) > 1 else sys.stdin
     T = gi()
     for ntc in range(1,T+1) :
-        print(f"Case #{ntc}:")
+        print(f"Case #{ntc}: ",end="")
         ans = solve()
         print(ans)
 
@@ -45,6 +45,7 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
     probList += [f"qual_{x}" for x in ("A","B","C","D1","D2")]
+    probList += [f"1_{x}" for x in ("A1","A2","A3","B","C")]
 
     for prob in probList :
         if not os.path.exists(f"{clargs.dir}/{prob}.py") :
