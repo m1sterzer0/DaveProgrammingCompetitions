@@ -537,7 +537,114 @@ class mfGraph :
                     que.append(e.to)
         return visited
 
+################################################################################
+### MST -- Kruskal
+################################################################################
+class dsu :
+    def __init__(self,n=1) :
+        self.n = n
+        self.parentOrSize = [-1 for i in range(n)]
+    def merge(self,a,b) :
+        x = self.leader(a); y = self.leader(b)
+        if x == y : return x
+        if self.parentOrSize[y] < self.parentOrSize[x] : (x,y) = (y,x)
+        self.parentOrSize[x] += self.parentOrSize[y]
+        self.parentOrSize[y] = x
+        return x
+    def same(self,a,b) :
+        return self.leader(a) == self.leader(b)
+    def leader(self,a) :
+        if self.parentOrSize[a] < 0 : return a
+        ans = self.leader(self.parentOrSize[a])
+        self.parentOrSize[a] = ans
+        return ans
+    def groups(self) :
+        leaderBuf = [0 for i in range(self.n)]
+        groupSize = [0 for i in range(self.n)]
+        for i in range(self.n) :
+            leaderBuf[i] = self.leader(i)
+            groupSize[leaderBuf[i]] += 1
+        preres = [ [] for i in range(self.n) ]
+        for (i,v) in enumerate(leaderBuf) :
+            preres[v].append(i)
+        return [x for x in preres if x]
 
+## Assumes nodes are 0,1,...,n-1
+## Assumes edgelist is of the form (w,n1,n2)
+## Assumes graph is connected## Returns weightMST,mstEdgeList
+def kruskal(n,edgelist) :
+    myedgelist = edgelist.copy()
+    weightMST = 0
+    mstEdgeList = []
+    uf = dsu(n)
+    myedgelist.sort()
+    for (w,n1,n2) in myedgelist :
+        if uf.same(n1,n2) : continue
+        weightMST += w
+        mstEdgeList.append(w,n1,n2)
+        uf.merge(n1,n2)
+    return (weightMST,mstEdgeList)
+
+## Inputs:
+##     Even Variables represent true  nodes
+##     Odd  Variables represent false nodes
+##     Conditions are a list of pairs of nodes (i,j) such that at least one of i and j must be true
+def twosat(n,conditions) :
+    g    = [ [] for i in range(2*n) ]
+    grev = [ [] for i in range(2*n) ]
+    visited = [False] * (2*n)
+    visitedInv = [False] * (2*n)
+    s = []
+    scc = [0] * (2*n)
+    counter = 1
+
+    def addclause(x,y) : 
+        xb = x - 1 if x & 1 else x + 1
+        yb = y - 1 if y & 1 else y + 1
+        g[xb].append(y)
+        g[yb].append(x)
+        grev[x].append(yb)
+        grev[y].append(xb)
+
+    def dfsFirst(u) : ## Non-recursive DFS
+        q = [(u,0)]
+        while q :
+            (n,idx) = q.pop()
+            if idx == 0 :
+                if visited[n] : continue
+                visited[n] = True
+            numnodes = len(g[n])
+            if idx == numnodes :
+                s.append(n)
+                continue
+            q.append((n,idx+1))
+            q.append((g[n][idx],0))
+
+    def dfsSecond(u) : ## Non-recursive DFS
+        q = [(u,0)]
+        while q :
+            (n,idx) = q.pop()
+            if idx == 0 :
+                if visitedInv[n] : continue
+                visitedInv[n] = True
+            numnodes = len(grev[n])
+            if idx == numnodes :
+                scc[n] = counter
+                continue
+            q.append((n,idx+1))
+            q.append((grev[n][idx],0))
+
+    for (x,y) in conditions : addclause(x,y)
+    for i in range(2*n) :
+        if not visited[i] : dfsFirst(i)
+    while s :
+        nn = s.pop()
+        if not visitedInv[nn] : dfsSecond(nn); counter += 1
+    assignment = [False] * n
+    for i in range(n) :
+        if scc[2*i] == scc[2*i+1] : return (False,assignment)
+        assignment[i] = scc[2*i] > scc[2*i+1]
+    return (True,assignment)
 
 
 
