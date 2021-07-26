@@ -1,138 +1,58 @@
 import math
 import collections
 ## Recall heapq has heappush,heappop,heapify for simple minheaps -- faster than this implementation 
+## These routines give both min and maxheaps like heapq
 
-class maxHeap :
-    v = []
-    def __init__(self) : self.v = [0]
-    def len(self) : return len(self.v)-1
-    def isempty(self) : return len(self.v) == 1
-    def top(self) : return self.v[1]
-    def push(self,val) :
-        self.v.append(val)
-        self._bubbleup(len(self.v)-1)
-    def pop(self) :
-        ans = self.v[1]
-        xx = self.v.pop()
-        if len(self.v) > 1 :
-            self.v[1] = xx
-            self._bubbledown(1)
-        return ans
-    def _bubbleup(self,idx) :
-        if idx == 1 : return
-        j = idx >> 1
-        if self.v[j] < self.v[idx] :
-            self.v[j],self.v[idx] = self.v[idx],self.v[j]
-            self._bubbleup(j)
-    def _bubbledown(self,idx) :
-        l = idx << 1; r = l + 1
-        ll = len(self.v)
-        res1 = l >= ll or self.v[idx] >= self.v[l]
-        res2 = r >= ll or self.v[idx] >= self.v[r]
-        if res1 and res2 : return
-        if res1 : self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r); return
-        if res2 : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        if self.v[l] >= self.v[r] : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r)
-
-class minHeap :
-    v = []
-    def __init__(self) : self.v = [0]
-    def len(self) : return len(self.v)-1
-    def isempty(self) : return len(self.v) == 1
-    def top(self) : return self.v[1]
-    def push(self,val) :
-        self.v.append(val)
-        self._bubbleup(len(self.v)-1)
-    def pop(self) :
-        ans = self.v[1]
-        xx = self.v.pop()
-        if len(self.v) > 1 :
-            self.v[1] = xx
-            self._bubbledown(1)
-        return ans
-    def _bubbleup(self,idx) :
-        if idx == 1 : return
-        j = idx >> 1
-        if self.v[j] > self.v[idx] :
-            self.v[j],self.v[idx] = self.v[idx],self.v[j]
-            self._bubbleup(j)
-    def _bubbledown(self,idx) :
-        l = idx << 1; r = l + 1
-        ll = len(self.v)
-        res1 = l >= ll or self.v[idx] <= self.v[l]
-        res2 = r >= ll or self.v[idx] <= self.v[r]
-        if res1 and res2 : return
-        if res1 : self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r); return
-        if res2 : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        if self.v[l] <= self.v[r] : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r)
-
-class maxHeap :
-    v = []
-    def __init__(self) : self.v = [0]
-    def len(self) : return len(self.v)-1
-    def isempty(self) : return len(self.v) == 1
-    def top(self) : return self.v[1]
-    def push(self,val) :
-        self.v.append(val)
-        self._bubbleup(len(self.v)-1)
-    def pop(self) :
-        ans = self.v[1]
-        xx = self.v.pop()
-        if len(self.v) > 1 :
-            self.v[1] = xx
-            self._bubbledown(1)
-        return ans
-    def _bubbleup(self,idx) :
-        if idx == 1 : return
-        j = idx >> 1
-        if self.v[j] < self.v[idx] :
-            self.v[j],self.v[idx] = self.v[idx],self.v[j]
-            self._bubbleup(j)
-    def _bubbledown(self,idx) :
-        l = idx << 1; r = l + 1
-        ll = len(self.v)
-        res1 = l >= ll or self.v[idx] >= self.v[l]
-        res2 = r >= ll or self.v[idx] >= self.v[r]
-        if res1 and res2 : return
-        if res1 : self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r); return
-        if res2 : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        if self.v[l] >= self.v[r] : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r)
-
-class minHeap :
-    v = []
-    def __init__(self) : self.v = [0]
-    def len(self) : return len(self.v)-1
-    def isempty(self) : return len(self.v) == 1
-    def top(self) : return self.v[1]
-    def push(self,val) :
-        self.v.append(val)
-        self._bubbleup(len(self.v)-1)
-    def pop(self) :
-        ans = self.v[1]
-        xx = self.v.pop()
-        if len(self.v) > 1 :
-            self.v[1] = xx
-            self._bubbledown(1)
-        return ans
-    def _bubbleup(self,idx) :
-        if idx == 1 : return
-        j = idx >> 1
-        if self.v[j] > self.v[idx] :
-            self.v[j],self.v[idx] = self.v[idx],self.v[j]
-            self._bubbleup(j)
-    def _bubbledown(self,idx) :
-        l = idx << 1; r = l + 1
-        ll = len(self.v)
-        res1 = l >= ll or self.v[idx] <= self.v[l]
-        res2 = r >= ll or self.v[idx] <= self.v[r]
-        if res1 and res2 : return
-        if res1 : self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r); return
-        if res2 : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        if self.v[l] <= self.v[r] : self.v[idx],self.v[l] = self.v[l],self.v[idx]; self._bubbledown(l); return
-        self.v[idx],self.v[r] = self.v[r],self.v[idx]; self._bubbledown(r)
+def minheappush(heap,item) : heap.append(item); _minsiftdown(heap,0,len(heap)-1)
+def maxheappush(heap,item) : heap.append(item); _maxsiftdown(heap,0,len(heap)-1)
+def minheappop(heap) :
+    last = heap.pop()
+    if heap : retval,heap[0] = heap[0],last; _minsiftup(heap,0); return retval
+    return last
+def maxheappop(heap) :
+    last = heap.pop()
+    if heap : retval,heap[0] = heap[0],last; _maxsiftup(heap,0); return retval
+    return last
+def minheapify(x) :
+    n = len(x)
+    for i in reversed(range(n//2)) : _minsiftup(x,i)
+def maxheapify(x) :
+    n = len(x)
+    for i in reversed(range(n//2)) : _maxsiftup(x,i)
+def _minsiftdown(heap,startpos,pos) :
+    newitem = heap[pos]
+    while pos > startpos :
+        parentpos = (pos-1) >> 1
+        parent = heap[parentpos]
+        if newitem >= parent : break
+        heap[pos],pos = parent,parentpos
+    heap[pos] = newitem
+def _maxsiftdown(heap,startpos,pos) :
+    newitem = heap[pos]
+    while pos > startpos :
+        parentpos = (pos-1) >> 1
+        parent = heap[parentpos]
+        if newitem <= parent : break
+        heap[pos],pos = parent,parentpos
+    heap[pos] = newitem
+def _minsiftup(heap,pos) :
+    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
+    while childpos < endpos :
+        rightpos = childpos + 1
+        if rightpos < endpos and not heap[childpos] < heap[rightpos] : childpos = rightpos
+        heap[pos],pos = heap[childpos],childpos
+        childpos = 2*pos+1
+    heap[pos] = newitem
+    _minsiftdown(heap,startpos,pos)
+def _maxsiftup(heap,pos) :
+    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
+    while childpos < endpos :
+        rightpos = childpos + 1
+        if rightpos < endpos and not heap[childpos] > heap[rightpos] : childpos = rightpos
+        heap[pos],pos = heap[childpos],childpos
+        childpos = 2*pos+1
+    heap[pos] = newitem
+    _maxsiftdown(heap,startpos,pos)
 
 class minHeapEnh :
     vt = []; pos = {}
@@ -425,14 +345,14 @@ class lazysegtree :
 ################################################################################
 
 class mfEdge :
-    def __init__(self,from=0,to=0,cap=0,flow=0) :
-        self.from = from
-        self.to   = to
+    def __init__(self, src=0, dest=0, cap=0, flow=0) :
+        self.src  = src
+        self.dest = dest
         self.cap  = cap
         self.flow = flow
 
 class _mfEdge :
-    def __init__(self,to=0,rev=0,cap=0) :
+    def __init__(self, to=0, rev=0, cap=0) :
         self.to  = to
         self.rev = rev
         self.cap = cap
@@ -443,14 +363,14 @@ class mfGraph :
         self.pos = []
         self.g = [[] for i in range(n)]
 
-    def addEdge(self,from,to,cap,revcap=0) :
+    def addEdge(self,src,to,cap,revcap=0) :
         m = len(self.pos)
-        fromid = len(self.g[from])
+        fromid = len(self.g[src])
         toid   = len(self.g[to])
-        if from == to : toid += 1
-        self.pos.append((from,fromid))
-        self.g[from].append(_mfEdge(to,toid,cap))
-        self.g[to].append(_mfEdge(from,fromid,revcap))
+        if src == to : toid += 1
+        self.pos.append((src,fromid))
+        self.g[src].append(_mfEdge(to,toid,cap))
+        self.g[to].append(_mfEdge(src,fromid,revcap))
         return m
 
     def getEdge(self,i) :
@@ -645,7 +565,6 @@ def twosat(n,conditions) :
         if scc[2*i] == scc[2*i+1] : return (False,assignment)
         assignment[i] = scc[2*i] > scc[2*i+1]
     return (True,assignment)
-
 
 
         
