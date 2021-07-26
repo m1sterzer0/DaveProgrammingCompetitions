@@ -23,6 +23,8 @@ def main(infn="") :
     T = gi()
     for ntc in range(1,T+1) :
         print(f"Case #{ntc}: ",end="")
+        N = gi()
+        print(f"Case {ntc} N:{N}",file=sys.stderr)
         ans = solve()
         print(ans)
 
@@ -45,7 +47,7 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
     probList += [f"qual_{x}" for x in ("A","B","C","D")]
-    #probList += [f"1_{x}" for x in ("A1","A2","A3","B","C")]
+    probList += [f"1_{x}" for x in ("A","B","C","D")]
     #probList += [f"2_{x}" for x in ("A","B","C","D")]
 
     for prob in probList :
