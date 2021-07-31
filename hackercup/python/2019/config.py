@@ -48,7 +48,7 @@ if __name__ == "__main__" :
     probList = []
     probList += [f"qual_{x}" for x in ("A","B","C","D")]
     probList += [f"1_{x}" for x in ("A","B","C","D")]
-    #probList += [f"2_{x}" for x in ("A","B","C","D")]
+    probList += [f"2_{x}" for x in ("A","B","C","D")]
 
     for prob in probList :
         if not os.path.exists(f"{clargs.dir}/{prob}.py") :
