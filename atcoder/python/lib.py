@@ -1,7 +1,11 @@
 import math
 import collections
+import random
+import heapq
 ## Recall heapq has heappush,heappop,heapify for simple minheaps -- faster than this implementation 
 ## These routines give both min and maxheaps like heapq
+
+MOD = 998244353
 
 def minheappush(heap,item) : heap.append(item); _minsiftdown(heap,0,len(heap)-1)
 def maxheappush(heap,item) : heap.append(item); _maxsiftdown(heap,0,len(heap)-1)
@@ -567,9 +571,143 @@ def twosat(n,conditions) :
     return (True,assignment)
 
 
-        
+######################################################################
+## SkipLists as an alternative to B-trees for an ordered collection
+######################################################################
+class SkipNode(object) :
+    def __init__(self,level=24,val=0) :
+        self.val = val
+        self.nexts = [None] * level
+        self.prevs = [None] * level
+    def next(self) : return self.nexts[0]
+    def prev(self) : return self.prevs[0]
 
+def mylt(a,b) : return a < b
+def mygt(a,b) : return a > b
+class SkipList(object) :
+    def __init__(self,numlev=32,beginval=-10**18,endval=10**18,lt=mylt,allowduplicates=False) :
+        self.lt = lt
+        self.numlev = numlev
+        self.beginval = beginval
+        self.endval = endval
+        self.numnodes = 0
+        self.begin = SkipNode(self.numlev,beginval)
+        self.end   = SkipNode(self.numlev,endval)
+        for i in range(self.numlev) :
+            self.begin.nexts[i] = self.end
+            self.end.prevs[i] = self.begin
+ 
+    def _genrandlevel(self) :
+        h = 0
+        r = random.randrange(1<<self.numlev)
+        for i in range(self.numlev-1) :
+            if r & 1 : return h
+            r = r >> 1; h += 1
+        return h
 
+    def add(self,val) :
+        mylev = self._genrandlevel()
+        mynode = SkipNode(mylev+1,val)
+        n = self.begin
+        for idx in range(self.numlev-1,-1,-1) :
+            while self.lt(n.nexts[idx].val,val) : n = n.nexts[idx]
+            if idx <= mylev :
+                left,right = n,n.nexts[idx]
+                left.nexts[idx],mynode.nexts[idx]  = mynode,right
+                mynode.prevs[idx],right.prevs[idx] = left,mynode
+        self.numnodes += 1
+        return mynode
 
+    def remove(self,val,must=True) :
+        n = self.begin
+        for idx in range(self.numlev-1,-1,-1) :
+            while self.lt(n.nexts[idx].val,val) : n = n.nexts[idx]
+        n = n.nexts[0]
+        if must and n.val != val: raise Exception(f"Value {val} not found in the skiplist.  Exiting...")
+        if n.val != val : return
+        for idx in range(len(n.nexts)) :
+            if n.nexts[idx] is None : continue
+            l,r = n.prevs[idx],n.nexts[idx]
+            l.nexts[idx],n.nexts[idx] = r,None
+            n.prevs[idx],r.prevs[idx] = None,l
+        self.numnodes -= 1
 
-     
+    ## Finds the greatest element less than val            
+    def findleft(self,val) :
+        n = self.begin
+        for idx in range(self.numlev-1,-1,-1) :
+            while self.lt(n.nexts[idx].val,val) : n = n.nexts[idx]
+        return n
+
+    ## Finds the greatest element less than or equal to val
+    def findright(self,val) :
+        n = self.begin
+        for idx in range(self.numlev-1,-1,-1) :
+            while self.lt(n.nexts[idx].val,val) : n = n.nexts[idx]
+            while n.nexts[idx].val == val : n = n.nexts[idx]
+        return n
+
+######################################################################
+## Hamarad transformation for bitwise or,and, and xor.
+## Generalization of fft.
+## Requires a power of 2 long list
+######################################################################
+
+def hamarad_or(n,a,inv=False) :
+    A = a.copy()
+    s,h = 2,1
+    while (s <= n) :
+        if not inv :
+            for l in range(0,n,s) :
+                for i in range(h) : A[l+h+i] += A[l+i]
+        else :
+            for l in range(0,n,s) :
+                for i in range(h) : A[l+h+i] -= A[l+i]
+        s <<= 1; h <<= 1
+    return A
+def invhamarad_or(n,a) : return hamarad_or(n,a,True)
+
+def hamarad_and(n,a,inv=False) :
+    A = a.copy()
+    s,h = 2,1
+    while (s <= n) :
+        if not inv :
+            for l in range(0,n,s) :
+                for i in range(h) : A[l+i] += A[l+i+h]
+        else :
+            for l in range(0,n,s) :
+                for i in range(h) : A[l+i] -= A[l+i+h]
+        s <<= 1; h <<= 1
+    return A
+def invhamarad_and(n,a) : return hamarad_and(n,a,True)
+
+def hamarad_xor(n,a,inv=False) :
+    A = a.copy()
+    s,h = 2,1
+    while (s <= n) :
+        for l in range(0,n,s) :
+            for i in range(h) :
+                t = A[l+h+i]
+                A[l+h+i] = A[l+i] - t
+                A[l+i] += t
+                if inv : A[l+h+i] >>= 1; A[l+1] >>= 1 
+        s <<= 1; h <<= 1
+    return A
+def invhamarad_xor(n,a) : return hamarad_xor(n,a,True)
+
+## Leveraged from sympy
+def hamarad(n,a,inv=False) :
+    A = a.copy()
+    h = 2
+    while h <= n :
+        hf,ut = h//2,n//h
+        for i in range(0,n,h) :
+            for j in range(hf) :
+                u,v = A[i+j],A[i+j+hf]
+                A[i+j],A[i+j+hf] = (u+v), (u-v)
+        h <<= 1
+    for i in range(n) : A[i] %= MOD
+    if inv :
+        xx = pow(n,MOD-2,MOD)
+        for i in range(n) : A[i] = A[i] * xx % MOD
+    return A
