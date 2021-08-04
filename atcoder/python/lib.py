@@ -7,57 +7,7 @@ import heapq
 
 MOD = 998244353
 
-def minheappush(heap,item) : heap.append(item); _minsiftdown(heap,0,len(heap)-1)
-def maxheappush(heap,item) : heap.append(item); _maxsiftdown(heap,0,len(heap)-1)
-def minheappop(heap) :
-    last = heap.pop()
-    if heap : retval,heap[0] = heap[0],last; _minsiftup(heap,0); return retval
-    return last
-def maxheappop(heap) :
-    last = heap.pop()
-    if heap : retval,heap[0] = heap[0],last; _maxsiftup(heap,0); return retval
-    return last
-def minheapify(x) :
-    n = len(x)
-    for i in reversed(range(n//2)) : _minsiftup(x,i)
-def maxheapify(x) :
-    n = len(x)
-    for i in reversed(range(n//2)) : _maxsiftup(x,i)
-def _minsiftdown(heap,startpos,pos) :
-    newitem = heap[pos]
-    while pos > startpos :
-        parentpos = (pos-1) >> 1
-        parent = heap[parentpos]
-        if newitem >= parent : break
-        heap[pos],pos = parent,parentpos
-    heap[pos] = newitem
-def _maxsiftdown(heap,startpos,pos) :
-    newitem = heap[pos]
-    while pos > startpos :
-        parentpos = (pos-1) >> 1
-        parent = heap[parentpos]
-        if newitem <= parent : break
-        heap[pos],pos = parent,parentpos
-    heap[pos] = newitem
-def _minsiftup(heap,pos) :
-    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
-    while childpos < endpos :
-        rightpos = childpos + 1
-        if rightpos < endpos and not heap[childpos] < heap[rightpos] : childpos = rightpos
-        heap[pos],pos = heap[childpos],childpos
-        childpos = 2*pos+1
-    heap[pos] = newitem
-    _minsiftdown(heap,startpos,pos)
-def _maxsiftup(heap,pos) :
-    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
-    while childpos < endpos :
-        rightpos = childpos + 1
-        if rightpos < endpos and not heap[childpos] > heap[rightpos] : childpos = rightpos
-        heap[pos],pos = heap[childpos],childpos
-        childpos = 2*pos+1
-    heap[pos] = newitem
-    _maxsiftdown(heap,startpos,pos)
-
+     
 class minHeapEnh :
     vt = []; pos = {}
     def __init__(self) : pass
@@ -267,6 +217,18 @@ class segtree :
         return self.op(sml,smr)
 
     def allprod(self) : return self.d[1]
+
+
+
+##op is a binary operation that is performed on the queried range of the elements of the tree.
+## -- op must be associative
+## -- there must be an identity element e such that op(x,e) == x for all x
+##mapping is a function that takes a "function index" and an element x and computes f_idx(x)
+##Requirements:
+## -- there must be a function index corresponding to the identity element
+## -- we must have that the function indices are closed under composition
+## -- we must have that op(f_idx(x),f_idx(y)) = f_idx(op(x,y)) for all idx,x,y 
+##composition is a function that takes two function indices and computes a new function index
 
 class lazysegtree :
     def __init__(self,n=1,op=sum,e=0,mapping=sum,composition=sum,id=0,v=None) :
