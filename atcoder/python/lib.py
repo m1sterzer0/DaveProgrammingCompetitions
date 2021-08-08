@@ -195,7 +195,7 @@ class segtree :
         self.d = [self.e for i in range(2*self.sz)]
         if v is not None :
             for i in range(n) : self.d[self.sz+i] = v[i]
-            for i in range(n-1,0,-1) : self._update(i)
+            for i in range(self.sz-1,0,-1) : self._update(i)
 
     def _update(self,k) :
         self.d[k] = self.op(self.d[2*k],self.d[2*k+1])
