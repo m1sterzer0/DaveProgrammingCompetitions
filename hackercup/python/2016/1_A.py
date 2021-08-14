@@ -1,9 +1,4 @@
-import argparse
-import os.path
-from pathlib import Path
 
-def mkStarterFile(fn) :
-    ttt = '''
 import sys
 import random
 from multiprocessing import Pool
@@ -20,15 +15,33 @@ MOD = 1_000_000_007
 
 def getInputs(tt) :
     N = gi()
-    return (tt,N)
+    D = gis()
+    return (tt,N,D)
 
 def solvemulti(xx) :
-    (tt,N) = xx
+    (tt,N,D) = xx
     print(f"Solving case {tt} (N={N})...",file=sys.stderr)
-    return solve(N)
+    return solve(N,D)
 
-def solve(N) :
-    return 0
+def solve(N,D) :
+    nc,cidx,last = 0,0,0
+    for d in D :
+        if cidx == 0 :        cidx = 1
+        elif d <= last :      nc += 1; cidx = 1
+        elif d <= last+10 :
+            if cidx == 3 :    nc += 1; cidx = 0
+            else :            cidx += 1
+        elif d <= last + 20 :
+            if cidx == 3 :    nc += 1; cidx = 1
+            elif cidx == 2 :  nc += 1; cidx = 0
+            else :            cidx += 2
+        elif d <= last + 30 :
+            if cidx >= 2 :    nc += 1; cidx = 1
+            else :            nc += 1; cidx = 0
+        else :                nc += 1; cidx = 1
+        last = d
+    if cidx > 0 : nc += 1
+    return 4*nc-N
 
 def main(infn="") :
     global infile
@@ -50,28 +63,4 @@ if __name__ == '__main__' :
     random.seed(8675309)
     main()
     sys.stdout.flush()
-'''
-    with open(fn,'wt') as fp :
-        print(ttt, file=fp)
-
-def parseCLArgs() :
-    clargparse = argparse.ArgumentParser()
-    clargparse.add_argument( '--dir', action='store', default='', help='Parent Directory for the preparations')
-    clargs = clargparse.parse_args()
-    if not clargs.dir  : raise Exception("Need to provide a --dir option.  Exiting...")
-    if not os.path.exists(clargs.dir) : raise Exception(f"Directory '{clargs.dir}' does not exist.  Exiting...")
-    return clargs
-
-if __name__ == "__main__" :
-    clargs = parseCLArgs()
-    probList = []
-    probList += [f"qual_{x}" for x in ("A","B","C","D")]
-    probList += [f"1_{x}" for x in ("A","B","C","D")]
-    #probList += [f"2_{x}" for x in ("A","B","C","D")]
-
-    for prob in probList :
-        if not os.path.exists(f"{clargs.dir}/{prob}.py") :
-            Path(f"{clargs.dir}/{prob}.py").touch()
-            mkStarterFile(f"{clargs.dir}/{prob}.py")
-
 
