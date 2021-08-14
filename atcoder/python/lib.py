@@ -2,12 +2,64 @@ import math
 import collections
 import random
 import heapq
+import functools
+import sys
+sys.setrecursionlimit(2*10**5+10)
 ## Recall heapq has heappush,heappop,heapify for simple minheaps -- faster than this implementation 
 ## These routines give both min and maxheaps like heapq
 
-MOD = 998244353
+def minheappush(heap,item) : heap.append(item); _minsiftdown(heap,0,len(heap)-1)
+def maxheappush(heap,item) : heap.append(item); _maxsiftdown(heap,0,len(heap)-1)
+def minheappop(heap) :
+    last = heap.pop()
+    if heap : retval,heap[0] = heap[0],last; _minsiftup(heap,0); return retval
+    return last
+def maxheappop(heap) :
+    last = heap.pop()
+    if heap : retval,heap[0] = heap[0],last; _maxsiftup(heap,0); return retval
+    return last
+def minheapify(x) :
+    n = len(x)
+    for i in reversed(range(n//2)) : _minsiftup(x,i)
+def maxheapify(x) :
+    n = len(x)
+    for i in reversed(range(n//2)) : _maxsiftup(x,i)
+def _minsiftdown(heap,startpos,pos) :
+    newitem = heap[pos]
+    while pos > startpos :
+        parentpos = (pos-1) >> 1
+        parent = heap[parentpos]
+        if newitem >= parent : break
+        heap[pos],pos = parent,parentpos
+    heap[pos] = newitem
+def _maxsiftdown(heap,startpos,pos) :
+    newitem = heap[pos]
+    while pos > startpos :
+        parentpos = (pos-1) >> 1
+        parent = heap[parentpos]
+        if newitem <= parent : break
+        heap[pos],pos = parent,parentpos
+    heap[pos] = newitem
+def _minsiftup(heap,pos) :
+    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
+    while childpos < endpos :
+        rightpos = childpos + 1
+        if rightpos < endpos and not heap[childpos] < heap[rightpos] : childpos = rightpos
+        heap[pos],pos = heap[childpos],childpos
+        childpos = 2*pos+1
+    heap[pos] = newitem
+    _minsiftdown(heap,startpos,pos)
+def _maxsiftup(heap,pos) :
+    endpos,startpos,newitem,childpos = len(heap),pos,heap[pos],2*pos+1
+    while childpos < endpos :
+        rightpos = childpos + 1
+        if rightpos < endpos and not heap[childpos] > heap[rightpos] : childpos = rightpos
+        heap[pos],pos = heap[childpos],childpos
+        childpos = 2*pos+1
+    heap[pos] = newitem
+    _maxsiftdown(heap,startpos,pos)
 
-     
+MOD = 998244353
 class minHeapEnh :
     vt = []; pos = {}
     def __init__(self) : pass
@@ -673,3 +725,232 @@ def hamarad(n,a,inv=False) :
         xx = pow(n,MOD-2,MOD)
         for i in range(n) : A[i] = A[i] * xx % MOD
     return A
+
+## Atcoder library.  Given a string, returns a list of the start of the suffixes in alphabetical order
+def _sa_naive(s) :  
+    n = len(s)
+    sa = [i for i in range(n)]
+    sa.sort(key=lambda k: s[k:])
+    return sa
+ 
+def _sa_doubling(s) :
+    n = len(s)
+    sa = [i for i in range(n)]
+    rnk = s.copy() + [-1] * n
+    tmp = [0] * n + [-1] * n
+    k = 1
+    while k < n:
+        sa.sort(key=lambda x : (rnk[x],rnk[x+k]))
+        tmp[sa[0]] = 0
+        for i in range(1, n): tmp[sa[i]] = tmp[sa[i-1]] + (1 if (rnk[sa[i-1]],rnk[sa[i-1]+k]) < (rnk[sa[i]],rnk[sa[i]+k]) else 0)
+        tmp,rnk = rnk,tmp
+        k *= 2
+    return sa
+ 
+def _sa_is(s,upper):
+    n = len(s)
+    if n == 0: return []
+    if n == 1: return [0]
+    if n == 2: return [0,1] if s[0] < s[1] else [1,0]
+    if n < 10: return _sa_naive(s)
+    if n < 40: return _sa_doubling(s)
+    sa = [0] * n
+    ls = [False] * n
+    for i in range(n-2, -1, -1): ls[i] = ls[i + 1] if s[i] == s[i + 1] else s[i] < s[i + 1]
+    sum_l = [0] * (upper + 1)
+    sum_s = [0] * (upper + 1)
+    for i in range(n):
+        if ls[i]: sum_l[s[i] + 1] += 1
+        else:     sum_s[s[i]] += 1
+    for i in range(upper):
+        sum_s[i] += sum_l[i]
+        if i < upper : sum_l[i + 1] += sum_s[i]
+    def induce(mylms) :
+        for i in range(n) : sa[i] = -1
+        buf = sum_s.copy()
+        for d in mylms :
+            if d != n : 
+                sa[buf[s[d]]] = d
+                buf[s[d]] += 1
+        for i in range(upper+1) : buf[i] = sum_l[i]
+        sa[buf[s[n-1]]] = n-1; buf[s[n-1]] += 1
+        for i in range(n) :
+            v = sa[i]
+            if (v >= 1 and not ls[v-1]) : sa[buf[s[v-1]]] = v - 1; buf[s[v-1]] += 1
+        for i in range(upper+1) : buf[i] = sum_l[i]
+        for i in range(n-1,-1,-1) :
+            v = sa[i]
+            if (v >= 1 and ls[v-1]) : sa[buf[s[v-1]+1]-1] = v-1; buf[s[v-1]+1] -= 1
+    lms_map=[-1]*(n+1); m=0; lms = []
+    for i in range(1,n):
+        if not(ls[i-1]) and ls[i]: lms_map[i]=m; m+=1; lms.append(i)
+    induce(lms)
+    if (m > 0) :
+        sorted_lms = [v for v in sa if lms_map[v] != -1]
+        rec_s = [0] * m; rec_upper = 0
+        for i in range(1,m) :
+            l,r = sorted_lms[i-1],sorted_lms[i]
+            end_l = n if lms_map[l]+1 >= m else lms[lms_map[l]+1]
+            end_r = n if lms_map[r]+1 >= m else lms[lms_map[r]+1]
+            same=True
+            if end_l-l != end_r-r:
+                same=False
+            else:
+                while(l < end_l):
+                    if s[l] != s[r]: break
+                    l += 1; r += 1
+                if l == n or s[l] != s[r]: same = False
+            if not same: rec_upper += 1
+            rec_s[lms_map[sorted_lms[i]]] = rec_upper
+        rec_sa = _sa_is(rec_s,rec_upper)
+        for i in range(m): sorted_lms[i] = lms[rec_sa[i]]
+        induce(sorted_lms)
+    return sa
+
+def suffix_array(s) :
+    s2 = [ord(c) for c in s]
+    return _sa_is(s2,255)
+
+def lcp_array(s,sa) :
+    n = len(s)
+    if n <= 1 : return []
+    rnk = [0] * n
+    for i in range(n) : rnk[sa[i]] = i
+    lcp = [0] * (n-1); h = 0
+    for i in range(n) :
+        if h > 0 : h -= 1
+        if rnk[i] == 0 : continue
+        j = sa[rnk[i]-1]
+        while(j+h < n and i+h < n) :
+            if s[j+h] != s[i+h] : break
+            h += 1
+        lcp[rnk[i]-1] = h
+    return lcp
+
+def z_algorithm(s) :
+    n = len(s)
+    if n == 0 : return []
+    z = [0] * n; i = 1; j = 0
+    while i < n :
+        z[i] = k = 0 if j + z[j] <= i else min(j + z[j]-i,z[i-j])
+        while (i+z[i] < n and s[k] == s[i+k]) : k += 1; z[i] = k
+        if j + z[j] < i + z[i] : j = i
+        i += 1
+    z[0] = n
+    return z
+
+
+## Sum of subsets -- see this blog: https://codeforces.com/blog/entry/45223  O(N*2^N)
+## Problem:
+## Given: A sequence (or function) A[mask] which maps subsets of N elements to a scalar.
+## Want:  A sequence F[mask] which sums A over all of the subsets of the given mask.
+def sumofsubsets(A,N) :
+    F = [0] * (1<<N)
+    for i in range(1<<N) : F[i] = A[i]
+    for i in range(N) :
+        for mask in range(1<<N) :
+            if mask & (1<<i) : F[mask] += F[mask^(1<<i)]
+    return F
+  
+## Convolution code leveraged from other transcriptions of atcoder library
+MOD = 998244353
+IMAG = 911660635
+IIMAG = 86583718
+rate2 = (0, 911660635, 509520358, 369330050, 332049552, 983190778, 123842337, 238493703, 975955924, 603855026, 856644456, 131300601, 842657263, 730768835, 942482514, 806263778, 151565301, 510815449, 503497456, 743006876, 741047443, 56250497, 867605899, 0)
+irate2 = (0, 86583718, 372528824, 373294451, 645684063, 112220581, 692852209, 155456985, 797128860, 90816748, 860285882, 927414960, 354738543, 109331171, 293255632, 535113200, 308540755, 121186627, 608385704, 438932459, 359477183, 824071951, 103369235, 0)
+rate3 = (0, 372528824, 337190230, 454590761, 816400692, 578227951, 180142363, 83780245, 6597683, 70046822, 623238099, 183021267, 402682409, 631680428, 344509872, 689220186, 365017329, 774342554, 729444058, 102986190, 128751033, 395565204, 0)
+irate3 = (0, 509520358, 929031873, 170256584, 839780419, 282974284, 395914482, 444904435, 72135471, 638914820, 66769500, 771127074, 985925487, 262319669, 262341272, 625870173, 768022760, 859816005, 914661783, 430819711, 272774365, 530924681, 0)
+ 
+def _butterfly(a):
+    n = len(a)
+    h = (n - 1).bit_length()
+    le = 0
+    while le < h:
+        if h - le == 1:
+            p = 1 << (h - le - 1)
+            rot = 1
+            for s in range(1 << le):
+                offset = s << (h - le)
+                for i in range(p):
+                    l = a[i + offset]
+                    r = a[i + offset + p] * rot
+                    a[i + offset] = (l + r) % MOD
+                    a[i + offset + p] = (l - r) % MOD
+                rot *= rate2[(~s & -~s).bit_length()]
+                rot %= MOD
+            le += 1
+        else:
+            p = 1 << (h - le - 2)
+            rot = 1
+            for s in range(1 << le):
+                rot2 = rot * rot % MOD
+                rot3 = rot2 * rot % MOD
+                offset = s << (h - le)
+                for i in range(p):
+                    a0 = a[i + offset]
+                    a1 = a[i + offset + p] * rot
+                    a2 = a[i + offset + p * 2] * rot2
+                    a3 = a[i + offset + p * 3] * rot3
+                    a1na3imag = (a1 - a3) % MOD * IMAG
+                    a[i + offset] = (a0 + a2 + a1 + a3) % MOD
+                    a[i + offset + p] = (a0 + a2 - a1 - a3) % MOD
+                    a[i + offset + p * 2] = (a0 - a2 + a1na3imag) % MOD
+                    a[i + offset + p * 3] = (a0 - a2 - a1na3imag) % MOD
+                rot *= rate3[(~s & -~s).bit_length()]
+                rot %= MOD
+            le += 2
+ 
+def _butterflyinv(a):
+    n = len(a)
+    h = (n - 1).bit_length()
+    le = h
+    while le:
+        if le == 1:
+            p = 1 << (h - le)
+            irot = 1
+            for s in range(1 << (le - 1)):
+                offset = s << (h - le + 1)
+                for i in range(p):
+                    l = a[i + offset]
+                    r = a[i + offset + p]
+                    a[i + offset] = (l + r) % MOD
+                    a[i + offset + p] = (l - r) * irot % MOD
+                irot *= irate2[(~s & -~s).bit_length()]
+                irot %= MOD
+            le -= 1
+        else:
+            p = 1 << (h - le)
+            irot = 1
+            for s in range(1 << (le - 2)):
+                irot2 = irot * irot % MOD
+                irot3 = irot2 * irot % MOD
+                offset = s << (h - le + 2)
+                for i in range(p):
+                    a0 = a[i + offset]
+                    a1 = a[i + offset + p]
+                    a2 = a[i + offset + p * 2]
+                    a3 = a[i + offset + p * 3]
+                    a2na3iimag = (a2 - a3) * IIMAG % MOD
+                    a[i + offset] = (a0 + a1 + a2 + a3) % MOD
+                    a[i + offset + p] = (a0 - a1 + a2na3iimag) * irot % MOD
+                    a[i + offset + p * 2] = (a0 + a1 - a2 - a3) * irot2 % MOD
+                    a[i + offset + p * 3] = (a0 - a1 - a2na3iimag) * irot3 % MOD
+                irot *= irate3[(~s & -~s).bit_length()]
+                irot %= MOD
+            le -= 2
+
+def convolvefftmod(a,b) :
+    finalsz = len(a)+len(b)-1
+    z = 1
+    while z < finalsz : z *= 2
+    la = a.copy()
+    for _ in range(z-len(a)) : la.append(0)
+    lb = b.copy()
+    for _ in range(z-len(b)) : lb.append(0)
+    _butterfly(la)
+    _butterfly(lb)
+    for i in range(z) : la[i] *= lb[i]; la[i] %= MOD
+    _butterflyinv(la)
+    iz = pow(z,MOD-2,MOD)
+    for i in range(z) : la[i] *= iz; la[i] %= MOD
+    return la[:finalsz]
