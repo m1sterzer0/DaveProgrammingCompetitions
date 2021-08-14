@@ -9,7 +9,7 @@ def gss() : return gs().split()
 def gis() : return [int(x) for x in gss()]
 def gfs() : return [float(x) for x in gss()]
 
-## Code leveraged from other transcriptions of atcoder library
+## Convolution code leveraged from other transcriptions of atcoder library
 MOD = 998244353
 IMAG = 911660635
 IIMAG = 86583718
