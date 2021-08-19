@@ -1,7 +1,6 @@
 
 import sys
 from functools import lru_cache
-import random
 infile = sys.stdin.buffer
 
 def gs()  : return infile.readline().rstrip()
@@ -43,28 +42,6 @@ class dsu :
         for (i,v) in enumerate(leaderBuf) :
             preres[v].append(i)
         return [x for x in preres if x]
-
-@lru_cache(maxsize=None)
-def solveline(n,l,forced) :
-    if l==0 or n==0 : return 1
-    if n == l : return 1 if forced else 0
-    if forced : return solveline(n,l,False) + solveline(n-1,l-1,True)
-    else      : return solveline(n-1,l,False) + solveline(n-1,l-1,False) + solveline(n-2,l-1,True)
-
-@lru_cache(maxsize=None)
-def solvering(n) :
-    ans = [0] * (n+1)
-    ans[0] = 1; ans[n] = 1 if n == 1 else 2
-    ## Let i be the first position that doesn't match
-    ## Let j be the total number of matches
-    for i in range(n) :
-        for j in range(max(i,1),n) :
-            v1 = solveline(n-i,j-i,False)
-            v2 = solveline(n-i-1,j-i,True)
-            #print(f"DBG: ans[{j}] += solveline({n-i},{j-i},False) + {i}*solveline({n-i-1},{j-i},True) = {v1} + {i} * {v2} = {v1+i*v2}")
-            ans[j] += v1 + i*v2
-            ans[j] %= MOD
-    return ans
 
 def solvering2(cnt,fact,factinv) :
     def binom(n,r) : return fact[n] * factinv[r] % MOD * factinv[n-r] % MOD
@@ -125,29 +102,7 @@ def main(infn="") :
     ans = solve(N,P,Q)
     sys.stdout.write(str(ans)+'\n')
 
-def test(ntc,Nmin,Nmax) :
-    for tt in range(1,ntc+1) :
-        N = random.randrange(Nmin,Nmax+1)
-        P = [x for x in range(1,N+1)]
-        Q = [x for x in range(1,N+1)]
-        random.shuffle(P); random.shuffle(Q)
-        solve(N,P,Q)
-    print(f"Ran {ntc}/{tt} cases")
-
 if __name__ == '__main__' :
-    #for n in range(2,6+1) :
-    #    for i in range(1,n) :
-    #        #print(f"DBG: solveline({n},{i},False)={solveline(n,i,False)} solveline({n},{i},True)={solveline(n,i,True)}")
-    #for n in range(3,6+1) :
-    #    ways = solvering(n)
-    #    # rint(f"DBG: n:{n} ways:{ways}")
-    #random.seed(8675309)
-    #test(10000,3,10)
-    #test(10000,3,100)
-    #test(1,1000,3000)
-    #test(10,1000,3000)
-    #test(10,1000,3000)
-
     main()
     sys.stdout.flush()
 

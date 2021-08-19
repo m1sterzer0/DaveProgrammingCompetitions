@@ -840,17 +840,6 @@ def z_algorithm(s) :
     return z
 
 
-## Sum of subsets -- see this blog: https://codeforces.com/blog/entry/45223  O(N*2^N)
-## Problem:
-## Given: A sequence (or function) A[mask] which maps subsets of N elements to a scalar.
-## Want:  A sequence F[mask] which sums A over all of the subsets of the given mask.
-def sumofsubsets(A,N) :
-    F = [0] * (1<<N)
-    for i in range(1<<N) : F[i] = A[i]
-    for i in range(N) :
-        for mask in range(1<<N) :
-            if mask & (1<<i) : F[mask] += F[mask^(1<<i)]
-    return F
   
 ## Convolution code leveraged from other transcriptions of atcoder library
 MOD = 998244353
@@ -954,3 +943,128 @@ def convolvefftmod(a,b) :
     iz = pow(z,MOD-2,MOD)
     for i in range(z) : la[i] *= iz; la[i] %= MOD
     return la[:finalsz]
+
+### CODE SNIPPETS
+
+## Sum of subsets -- see this blog: https://codeforces.com/blog/entry/45223  O(N*2^N)
+## Problem:
+## Given: A sequence (or function) A[mask] which maps subsets of N elements to a scalar.
+## Want:  A sequence F[mask] which sums A over all of the subsets of the given mask.
+def sumofsubsets(A,N) :
+    F = [0] * (1<<N)
+    for i in range(1<<N) : F[i] = A[i]
+    for i in range(N) :
+        for mask in range(1<<N) :
+            if mask & (1<<i) : F[mask] += F[mask^(1<<i)]
+    return F
+
+
+## This is how to count subsequences avoiding duplicates
+def subsequencedp(S) :
+    ## dp[i] = number of unique substrings such that char i is always chosen
+    n = len(S)
+    dp = [0] * (n+1)
+    cumdp = [0] * (n+1)
+    dp[0] = 1; cumdp[0] = 1
+    last = {}
+    for (i,c) in enumerate(S) :
+        lb = 0 if c not in last else last[c]
+        dp[i+1] = cumdp[i] - (0 if lb == 0 else cumdp[lb-1])
+        cumdp[i+1] = cumdp[i]+dp[i+1]
+        last[c] = i+1
+
+class MinCostFlow:
+    def __init__(self, N):
+        self.N = N
+        self.numedges = 0
+        self.G = [[] for i in range(N)]
+        self.to = []
+        self.cap = []
+        self.cost = []
+ 
+    def add_edge(self, fr, to, cap, cost):
+        self.to.append(to); self.to.append(fr)
+        self.cap.append(cap); self.cap.append(0)
+        self.cost.append(cost); self.cost.append(-cost)
+        self.G[fr].append(self.numedges); self.G[to].append(self.numedges+1)
+        self.numedges += 2
+ 
+    ## Successive shortest paths
+    ## Requirement -- no negative cycles
+    ## In theory -- O(n*m+m*log(m)*B) where B bounds the total flow
+    ## but with potentials and positive costs at first, it gets to
+    ## O(m*log(m)*B)
+    def flowssp(self, s, t):
+        N = self.N; G = self.G; toarr = self.to; caparr = self.cap; costarr = self.cost
+        INF = 10**18; res = 0; H = [0]*N; prv_v = [0]*N; prv_e = [None]*N
+        dist = [INF]*N; f = 0
+        while True:
+            for i in range(N) : dist[i] = INF
+            dist[s] = 0; que = [(0, s)]
+            while que:
+                c, v = heapq.heappop(que)
+                if dist[v] < c: continue
+                r0 = dist[v] + H[v]
+                for e in G[v]:
+                    w, cap, cost = toarr[e], caparr[e], costarr[e]
+                    if cap > 0 and r0 + cost - H[w] < dist[w]:
+                        dist[w] = r = r0 + cost - H[w]
+                        prv_v[w] = v; prv_e[w] = e
+                        heapq.heappush(que, (r, w))
+            if dist[t] == INF: return (f,res)
+            for i in range(N): H[i] += dist[i]
+            d = INF; v = t
+            while v != s:
+                d = min(d, caparr[prv_e[v]])
+                v = prv_v[v]
+            f += d; res += d * H[t]; v = t
+            while v != s:
+                e = prv_e[v]; e2 = e ^ 1; caparr[e] -= d; caparr[e2] += d; v = prv_v[v]
+
+def kosaraju(n,diredges) :
+    g    = [ [] for i in range(n) ]
+    grev = [ [] for i in range(n) ]
+    visited = [False] * (n)
+    visitedInv = [False] * (n)
+    s = []
+    scc = [0] * (n)
+    counter = 0
+
+    def dfsFirst(u) : ## Non-recursive DFS
+        q = [u<<30 | 0]
+        while q :
+            xx = q.pop()
+            n = xx >> 30; idx = xx & 0x3fffffff
+            if idx == 0 :
+                if visited[n] : continue
+                visited[n] = True
+            numnodes = len(g[n])
+            if idx == numnodes :
+                s.append(n)
+                continue
+            q.append(n<<30 | (idx+1))
+            q.append(g[n][idx]<<30 | 0)
+
+    def dfsSecond(u) : ## Non-recursive DFS
+        q = [u<<30 | 0]
+        while q :
+            xx = q.pop()
+            n = xx >> 30; idx = xx & 0x3fffffff
+            if idx == 0 :
+                if visitedInv[n] : continue
+                visitedInv[n] = True
+            numnodes = len(grev[n])
+            if idx == numnodes :
+                scc[n] = counter
+                continue
+            q.append(n<<30 | (idx+1))
+            q.append(grev[n][idx]<<30 | 0)
+
+    for (x,y) in diredges : g[x].append(y); grev[y].append(x)
+    for i in range(n) :
+        if not visited[i] : dfsFirst(i)
+    while s :
+        nn = s.pop()
+        if not visitedInv[nn] : dfsSecond(nn); counter += 1
+    return (counter,scc)
+
