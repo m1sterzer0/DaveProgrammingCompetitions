@@ -958,7 +958,6 @@ def sumofsubsets(A,N) :
             if mask & (1<<i) : F[mask] += F[mask^(1<<i)]
     return F
 
-
 ## This is how to count subsequences avoiding duplicates
 def subsequencedp(S) :
     ## dp[i] = number of unique substrings such that char i is always chosen
