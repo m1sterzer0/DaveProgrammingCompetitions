@@ -43,7 +43,7 @@ if __name__ == "__main__" :
     probList += [f"abc212_{x}" for x in ("A","B","C","D","E","F","G","H")]
     probList += [f"abc213_{x}" for x in ("A","B","C","D","E","F","G","H")]
     probList += [f"abc214_{x}" for x in ("A","B","C","D","E","F","G","H")]
-    #probList += [f"abc215_{x}" for x in ("A","B","C","D","E","F")]
+    probList += [f"abc215_{x}" for x in ("A","B","C","D","E","F","G","H")]
     #probList += [f"abc216_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc217_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc218_{x}" for x in ("A","B","C","D","E","F")]
