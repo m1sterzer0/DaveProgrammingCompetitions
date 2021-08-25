@@ -945,18 +945,40 @@ def convolvefftmod(a,b) :
     return la[:finalsz]
 
 ### CODE SNIPPETS
-
-## Sum of subsets -- see this blog: https://codeforces.com/blog/entry/45223  O(N*2^N)
-## Problem:
-## Given: A sequence (or function) A[mask] which maps subsets of N elements to a scalar.
-## Want:  A sequence F[mask] which sums A over all of the subsets of the given mask.
-def sumofsubsets(A,N) :
-    F = [0] * (1<<N)
-    for i in range(1<<N) : F[i] = A[i]
+## Adapted from https://codeforces.com/blog/entry/45223
+## Given an array A of length (1<<N) that represent a function of a subset of a set of length (N)
+## Return a new array F that also represents a function of a subset of a set of length(N)
+##    F(bitmask) = sum_over_bm2=subsets_of_bitmask A(bm2)
+def sumoversubsets(N,A,inplace=False) :
+    F = A if inplace else A.copy()
     for i in range(N) :
         for mask in range(1<<N) :
-            if mask & (1<<i) : F[mask] += F[mask^(1<<i)]
-    return F
+            if mask & (1<<i) :
+                F[mask] += F[mask^(1<<i)]
+    if not inplace : return F
+
+def sumoversupersets(N,A,inplace=False) :
+    if inplace : 
+        A.reverse()
+        sumoversubsets(N,A,True)
+        A.reverse()
+    else :
+        F = A.copy()
+        F.reverse()
+        sumoversubsets(N,F,True)
+        F.reverse()
+        return F
+    
+## AKA Mobius Transform
+## https://codeforces.com/blog/entry/72488
+def inversesumoversubsets(N,A,inplace=False) :
+    F = A if inplace else A.copy()
+    for i in range(N) :
+        for mask in range(1<<N) :
+            if mask & (1<<i) :
+                F[mask] -= F[mask^(1<<i)]
+                F[mask] %= MOD
+    if not inplace : return F
 
 ## This is how to count subsequences avoiding duplicates
 def subsequencedp(S) :
