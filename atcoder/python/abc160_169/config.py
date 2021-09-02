@@ -20,7 +20,6 @@ def main(infn="") :
     infile = open(infn,"r") if infn else open(sys.argv[1],"r") if len(sys.argv) > 1 else sys.stdin
 
 if __name__ == '__main__' :
-    random.seed(19006492568)
     main()
     sys.stdout.flush()
 '''
@@ -47,7 +46,7 @@ if __name__ == "__main__" :
     #probList += [f"abc163_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc162_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc161_{x}" for x in ("A","B","C","D","E","F")]
-    #probList += [f"abc160_{x}" for x in ("A","B","C","D","E","F")]
+    probList += [f"abc160_{x}" for x in ("A","B","C","D","E","F")]
 
     for prob in probList :
         if not os.path.exists(f"{clargs.dir}/{prob}.py") :
