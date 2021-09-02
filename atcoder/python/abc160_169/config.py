@@ -4,7 +4,6 @@ from pathlib import Path
 
 def mkStarterFile(fn) :
     ttt = '''
-import random
 import sys
 infile = sys.stdin.buffer
 
@@ -45,7 +44,7 @@ if __name__ == "__main__" :
     #probList += [f"abc164_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc163_{x}" for x in ("A","B","C","D","E","F")]
     #probList += [f"abc162_{x}" for x in ("A","B","C","D","E","F")]
-    #probList += [f"abc161_{x}" for x in ("A","B","C","D","E","F")]
+    probList += [f"abc161_{x}" for x in ("A","B","C","D","E","F")]
     probList += [f"abc160_{x}" for x in ("A","B","C","D","E","F")]
 
     for prob in probList :
