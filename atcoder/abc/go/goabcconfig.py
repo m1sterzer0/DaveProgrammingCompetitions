@@ -35,6 +35,14 @@ func gi() int {	res, e := strconv.Atoi(gs()); if e != nil { panic(e) }; return r
 func gf() float64 {	res, e := strconv.ParseFloat(gs(), 64); if e != nil { panic(e) }; return float64(res) }
 func gis() []int { res := make([]int, 0); 	for _, s := range gss() { v, e := strconv.Atoi(s); if e != nil { panic(e) }; res = append(res, int(v)) }; return res }
 func gfs() []float64 { res := make([]float64, 0); 	for _, s := range gss() { v, _ := strconv.ParseFloat(s, 64); res = append(res, float64(v)) }; return res }
+func max(a,b int) int { if a > b { return a }; return b }
+func min(a,b int) int { if a > b { return b }; return a }
+func tern(cond bool, a int, b int) int { if cond { return a }; return b }
+func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
+func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
+func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
+type PI struct { x,y int }
+type TI struct { x,y,z int }
 
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
@@ -95,6 +103,7 @@ if __name__ == "__main__" :
     probList += [(f"abc160",f"abc160_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc161",f"abc161_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc162",f"abc162_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc163",f"abc163_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
