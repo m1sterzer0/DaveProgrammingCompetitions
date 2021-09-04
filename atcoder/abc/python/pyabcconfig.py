@@ -41,6 +41,8 @@ if __name__ == "__main__" :
     probList += [("abc162",f"abc162_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc163",f"abc163_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc164",f"abc164_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc165",f"abc165_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
 
     for (d,prob) in probList :
         if not os.path.exists(f"{clargs.dir}/{d}") : 
