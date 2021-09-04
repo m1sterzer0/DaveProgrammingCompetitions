@@ -60,6 +60,18 @@ abc215,8363,7060,5851,3216,1192,518,186,17
 abc216,6997,6554,5356,1969,1847,898,393,9
 '''
 
+notes = {}
+notes["abc160_E"] = "Max Heap or simple sorting"
+notes["abc160_F"] = "Tree DP, Rerooting, Combinatorics"
+notes["abc161_E"] = "Simple DP"
+notes["abc161_F"] = "GCD, Factors"
+notes["abc162_E"] = "Divisors, Inclusion/Exclusion, Modular Math"
+notes["abc162_F"] = "DP of DP"
+notes["abc163_E"] = "DP, Greedy"
+notes["abc163_F"] = "Tree DP"
+notes["abc164_E"] = "Interesting Dijkstra"
+notes["abc164_F"] = "Bitwise, Logical constraint solving"
+
 def parseDifficulty(s) :
     probsByContest = {}
     numprobs = 0
@@ -121,16 +133,6 @@ def doSolutions(contests,probsByContest,difficulty,notes,fp) :
             pnotes = notes[prob] if prob in notes else ""
             print(f"| [{contest}](http:/atcoder.jp/contests/{contest}) | [{prob}](http:/atcoder.jp/contests/{contest}/tasks/{prob}) | {difficulty[prob]} | {sol} | {pnotes} |",file=fp)
         print(f"",file=fp)
-
-notes = {}
-notes["abc160_E"] = "Max Heap or simple sorting"
-notes["abc160_F"] = "Tree DP, Rerooting, Combinatorics"
-notes["abc161_E"] = "Simple DP"
-notes["abc161_F"] = "GCD, Factors"
-notes["abc162_E"] = "Divisors, Inclusion/Exclusion, Modular Math"
-notes["abc162_F"] = "DP of DP"
-notes["abc163_E"] = "DP, Greedy"
-notes["abc163_F"] = "Tree DP"
 
 
 if __name__ == "__main__" :

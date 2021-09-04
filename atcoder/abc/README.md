@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-208%20%2F%20352-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-24%20%2F%20352-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-214%20%2F%20352-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-24%20%2F%20352-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -552,12 +552,12 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 ## abc164 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_A](http:/atcoder.jp/contests/abc164/tasks/abc164_A) | 11148 |  |  |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_B](http:/atcoder.jp/contests/abc164/tasks/abc164_B) | 10415 |  |  |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_C](http:/atcoder.jp/contests/abc164/tasks/abc164_C) | 9553 |  |  |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_D](http:/atcoder.jp/contests/abc164/tasks/abc164_D) | 1926 |  |  |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_E](http:/atcoder.jp/contests/abc164/tasks/abc164_E) | 497 |  |  |
-| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_F](http:/atcoder.jp/contests/abc164/tasks/abc164_F) | 41 |  |  |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_A](http:/atcoder.jp/contests/abc164/tasks/abc164_A) | 11148 |  [pypy3](./python/abc164/abc164_A.py) |  |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_B](http:/atcoder.jp/contests/abc164/tasks/abc164_B) | 10415 |  [pypy3](./python/abc164/abc164_B.py) |  |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_C](http:/atcoder.jp/contests/abc164/tasks/abc164_C) | 9553 |  [pypy3](./python/abc164/abc164_C.py) |  |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_D](http:/atcoder.jp/contests/abc164/tasks/abc164_D) | 1926 |  [pypy3](./python/abc164/abc164_D.py) |  |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_E](http:/atcoder.jp/contests/abc164/tasks/abc164_E) | 497 |  [pypy3](./python/abc164/abc164_E.py) | Interesting Dijkstra |
+| [abc164](http:/atcoder.jp/contests/abc164) | [abc164_F](http:/atcoder.jp/contests/abc164/tasks/abc164_F) | 41 |  [pypy3](./python/abc164/abc164_F.py) | Bitwise, Logical constraint solving |
 
 ## abc163 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
