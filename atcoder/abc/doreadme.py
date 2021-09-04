@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 difficulty_data = '''
 abc160,9557,9427,7443,3417,2721,339
@@ -58,6 +59,7 @@ abc213,7599,7667,4327,3431,1193,201,49,22
 abc214,8306,7169,4828,1346,551,406,32,14
 abc215,8363,7060,5851,3216,1192,518,186,17
 abc216,6997,6554,5356,1969,1847,898,393,9
+abc217,8119,8096,7544,3115,2445,444,376,59
 '''
 
 notes = {}
@@ -141,3 +143,4 @@ if __name__ == "__main__" :
         doHeader(numprobs,pyprogress,goprogress,fp)
         doTable(contests,fp)
         doSolutions(contests,probsByContest,difficulty,notes,fp)
+    Path(f"README.md").touch()
