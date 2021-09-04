@@ -6,8 +6,8 @@ Here you will find the my solutions for several popular programming competitions
 This repo also has my competitive programming "libraries" for Python, Julia and Go.  Use at your own risk (some of the code has yet to be validated).
 
 ## TO-DO list
-- [] Clear out Atcoder beginner contests back to 160 with solutions in both Python and Go
-- [] Add Facebook hackercup solutions for Qual, Round1 and Round2 solutions from the beginning in Python (and/or Go, especially when Python is not fast enough)
-- [] Add a (near) full set of Codejam solutions in Python and/or Go (especially when Python is not fast enough)
-- [] Add Google Kick Start solutions.
-- [] Venture into Codeforces
+- [ ] Clear out Atcoder beginner contests back to 160 with solutions in both Python and Go
+- [ ] Add Facebook hackercup solutions for Qual, Round1 and Round2 solutions from the beginning in Python (and/or Go, especially when Python is not fast enough)
+- [ ] Add a (near) full set of Codejam solutions in Python and/or Go (especially when Python is not fast enough)
+- [ ] Add Google Kick Start solutions.
+- [ ] Venture into Codeforces
