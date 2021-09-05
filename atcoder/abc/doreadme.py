@@ -73,6 +73,10 @@ notes["abc163_E"] = "DP, Greedy"
 notes["abc163_F"] = "Tree DP"
 notes["abc164_E"] = "Interesting Dijkstra"
 notes["abc164_F"] = "Bitwise, Logical constraint solving"
+notes["abc165_E"] = "Interesting matching construction"
+notes["abc165_F"] = "Tree DP, DFS w/ rollback"
+notes["abc166_E"] = "Simple DP"
+notes["abc166_F"] = "Greedy game theory"
 
 def parseDifficulty(s) :
     probsByContest = {}

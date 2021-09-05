@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-228%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-36%20%2F%20360-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-234%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-42%20%2F%20360-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -544,12 +544,12 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 ## abc166 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_A](http:/atcoder.jp/contests/abc166/tasks/abc166_A) | 11540 |  |  |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_B](http:/atcoder.jp/contests/abc166/tasks/abc166_B) | 10088 |  |  |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_C](http:/atcoder.jp/contests/abc166/tasks/abc166_C) | 7970 |  |  |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_D](http:/atcoder.jp/contests/abc166/tasks/abc166_D) | 4999 |  |  |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_E](http:/atcoder.jp/contests/abc166/tasks/abc166_E) | 2874 |  |  |
-| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_F](http:/atcoder.jp/contests/abc166/tasks/abc166_F) | 863 |  |  |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_A](http:/atcoder.jp/contests/abc166/tasks/abc166_A) | 11540 |  [pypy3](./python/abc166/abc166_A.py) [go](./go/abc166/abc166_A/abc166_A.go) |  |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_B](http:/atcoder.jp/contests/abc166/tasks/abc166_B) | 10088 |  [pypy3](./python/abc166/abc166_B.py) [go](./go/abc166/abc166_B/abc166_B.go) |  |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_C](http:/atcoder.jp/contests/abc166/tasks/abc166_C) | 7970 |  [pypy3](./python/abc166/abc166_C.py) [go](./go/abc166/abc166_C/abc166_C.go) |  |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_D](http:/atcoder.jp/contests/abc166/tasks/abc166_D) | 4999 |  [pypy3](./python/abc166/abc166_D.py) [go](./go/abc166/abc166_D/abc166_D.go) |  |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_E](http:/atcoder.jp/contests/abc166/tasks/abc166_E) | 2874 |  [pypy3](./python/abc166/abc166_E.py) [go](./go/abc166/abc166_E/abc166_E.go) | Simple DP |
+| [abc166](http:/atcoder.jp/contests/abc166) | [abc166_F](http:/atcoder.jp/contests/abc166/tasks/abc166_F) | 863 |  [pypy3](./python/abc166/abc166_F.py) [go](./go/abc166/abc166_F/abc166_F.go) | Greedy game theory |
 
 ## abc165 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
@@ -558,8 +558,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc165](http:/atcoder.jp/contests/abc165) | [abc165_B](http:/atcoder.jp/contests/abc165/tasks/abc165_B) | 9994 |  [pypy3](./python/abc165/abc165_B.py) [go](./go/abc165/abc165_B/abc165_B.go) |  |
 | [abc165](http:/atcoder.jp/contests/abc165) | [abc165_C](http:/atcoder.jp/contests/abc165/tasks/abc165_C) | 2514 |  [pypy3](./python/abc165/abc165_C.py) [go](./go/abc165/abc165_C/abc165_C.go) |  |
 | [abc165](http:/atcoder.jp/contests/abc165) | [abc165_D](http:/atcoder.jp/contests/abc165/tasks/abc165_D) | 5554 |  [pypy3](./python/abc165/abc165_D.py) [go](./go/abc165/abc165_D/abc165_D.go) |  |
-| [abc165](http:/atcoder.jp/contests/abc165) | [abc165_E](http:/atcoder.jp/contests/abc165/tasks/abc165_E) | 975 |  [pypy3](./python/abc165/abc165_E.py) [go](./go/abc165/abc165_E/abc165_E.go) |  |
-| [abc165](http:/atcoder.jp/contests/abc165) | [abc165_F](http:/atcoder.jp/contests/abc165/tasks/abc165_F) | 596 |  [pypy3](./python/abc165/abc165_F.py) [go](./go/abc165/abc165_F/abc165_F.go) |  |
+| [abc165](http:/atcoder.jp/contests/abc165) | [abc165_E](http:/atcoder.jp/contests/abc165/tasks/abc165_E) | 975 |  [pypy3](./python/abc165/abc165_E.py) [go](./go/abc165/abc165_E/abc165_E.go) | Interesting matching construction |
+| [abc165](http:/atcoder.jp/contests/abc165) | [abc165_F](http:/atcoder.jp/contests/abc165/tasks/abc165_F) | 596 |  [pypy3](./python/abc165/abc165_F.py) [go](./go/abc165/abc165_F/abc165_F.go) | Tree DP, DFS w/ rollback |
 
 ## abc164 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
