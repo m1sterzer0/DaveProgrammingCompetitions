@@ -1,6 +1,7 @@
 import argparse
 import os.path
 from pathlib import Path
+import shutil
 
 def mkGoStarterFile(fn) :
     ttt = '''
@@ -78,11 +79,18 @@ def mkGoLaunchJson(fn) :
 '''
     with open(fn,'wt') as fp : print(ttt, file=fp)
 
+def mkGoSettingsJson(fn) :
+    ttt = '''
+{
+    "[go]": {"editor.formatOnSave": false }  
+}    
+'''
+    with open(fn,'wt') as fp : print(ttt, file=fp)
+
+
 def mkGoGitignore(fn) :
     with open(fn,'wt') as fp : 
         print("*.in\n*.out\n*.exe\n*.prof", file=fp)
-
-
 
 def parseCLArgs() :
     clargparse = argparse.ArgumentParser()
@@ -101,11 +109,13 @@ if __name__ == "__main__" :
     probList += [(f"abc163",f"abc163_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc164",f"abc164_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc165",f"abc165_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc166",f"abc166_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
         Path(f"{clargs.dir}/.vscode/launch.json").touch()
         mkGoLaunchJson(f"{clargs.dir}/.vscode/launch.json")
+        mkGoSettingsJson(f"{clargs.dir}/.vscode/settings.json")
     
     if not os.path.exists(f"{clargs.dir}/.gitignore") :
         Path(f"{clargs.dir}/.gitignore").touch()
@@ -113,6 +123,12 @@ if __name__ == "__main__" :
 
     for (d,prob) in probList :
         if not os.path.exists(f"{clargs.dir}/{d}") : os.mkdir(f"{clargs.dir}/{d}")
+        if not os.path.exists(f"{clargs.dir}/{d}/.vscode") :
+            os.mkdir(f"{clargs.dir}/{d}/.vscode")
+            shutil.copyfile(f"{clargs.dir}/.vscode/launch.json",f"{clargs.dir}/{d}/.vscode/launch.json")
+            shutil.copyfile(f"{clargs.dir}/.vscode/settings.json",f"{clargs.dir}/{d}/.vscode/settings.json")
+
+
         if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
             os.mkdir(f"{clargs.dir}/{d}/{prob}")
             Path(f"{clargs.dir}/{d}/{prob}/{prob}.go").touch()
