@@ -180,86 +180,43 @@ func (q *Minheap2) siftup(pos int) {
 // Minheap 3 -- Create a custom class with a Less function
 ////////////////////////////////////////////////////////////////////////////////
 
-type Minheap3Element struct {
-	x int
-	y int
-}
-
-func Minheap3Less(a, b Minheap3Element) bool {
-	return a.x < b.x || a.x == b.x && a.y < b.y
-}
-
-type Minheap3 struct {
-	buf []Minheap3Element
-}
-
-func NewMinheap3() *Minheap3 {
-	buf := make([]Minheap3Element, 0)
-	return &Minheap3{buf}
-}
-
-func (q *Minheap3) Empty() bool {
-	return len(q.buf) == 0
-}
-
-func (q *Minheap3) Clear() {
-	q.buf = q.buf[:0]
-}
-
-func (q *Minheap3) Len() int {
-	return len(q.buf)
-}
-
-func (q *Minheap3) Push(v Minheap3Element) {
-	q.buf = append(q.buf, v)
-	q.siftdown(0, len(q.buf)-1)
-}
-
-func (q *Minheap3) Head() Minheap3Element {
-	return q.buf[0]
-}
-
+type Minheap3Element struct { x,y int }
+func Minheap3Less(a, b Minheap3Element) bool { return a.x < b.x || a.x == b.x && a.y < b.y }
+type Minheap3 struct { buf []Minheap3Element }
+func NewMinheap3() *Minheap3 { buf := make([]Minheap3Element, 0); return &Minheap3{buf} }
+func (q *Minheap3) Empty() bool { return len(q.buf) == 0 }
+func (q *Minheap3) Clear() { q.buf = q.buf[:0] }
+func (q *Minheap3) Len() int { return len(q.buf) }
+func (q *Minheap3) Push(v Minheap3Element) { q.buf = append(q.buf, v); q.siftdown(0, len(q.buf)-1) }
+func (q *Minheap3) Head() Minheap3Element {	return q.buf[0] }
 func (q *Minheap3) Pop() Minheap3Element {
 	v1 := q.buf[0]
 	if len(q.buf) == 1 {
 		q.buf = q.buf[:0]
 	} else {
-		l := len(q.buf)
-		q.buf[0] = q.buf[l-1]
-		q.buf = q.buf[:l-1]
-		q.siftup(0)
+		l := len(q.buf); q.buf[0] = q.buf[l-1];  q.buf = q.buf[:l-1]; q.siftup(0)
 	}
 	return v1
 }
-
 func (q *Minheap3) Heapify(varr []Minheap3Element) {
-	q.buf = append(q.buf, varr...)
-	n := len(q.buf)
-	for i := n/2 - 1; i >= 0; i-- {
-		q.siftup(i)
-	}
+	q.buf = append(q.buf, varr...); n := len(q.buf)
+	for i := n/2 - 1; i >= 0; i-- {	q.siftup(i)	}
 }
-
 func (q *Minheap3) siftdown(startpos, pos int) {
 	newitem := q.buf[pos]
 	for pos > startpos {
 		parentpos := (pos - 1) >> 1
 		parent := q.buf[parentpos]
-		if !Minheap3Less(newitem, parent) {
-			break
-		}
+		if !Minheap3Less(newitem, parent) {	break }
 		q.buf[pos], pos = parent, parentpos
 	}
 	q.buf[pos] = newitem
 }
-
 func (q *Minheap3) siftup(pos int) {
 	endpos, startpos, newitem, childpos := len(q.buf), pos, q.buf[pos], 2*pos+1
 	for childpos < endpos {
 		rightpos := childpos + 1
-		if rightpos < endpos && !Minheap3Less(q.buf[childpos], q.buf[rightpos]) {
-			childpos = rightpos
-		}
+		if rightpos < endpos && !Minheap3Less(q.buf[childpos], q.buf[rightpos]) { childpos = rightpos }
 		q.buf[pos], pos = q.buf[childpos], childpos
 		childpos = 2*pos + 1
 	}

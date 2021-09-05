@@ -115,23 +115,13 @@ func (q *Deque) Pop() interface{} { return q.PopBack() }
 func (q *Deque) PopLeft() interface{} { return q.PopFront() }
 
 type Dequeint struct {
-	buf  []int
-	head int
-	tail int
-	sz   int
-	bm   int
-	l    int
+	buf                   []int
+	head, tail, sz, bm, l int
 }
 
-func NewDequeint() *Dequeint {
-	buf := make([]int, 8)
-	return &Dequeint{buf, 0, 0, 8, 7, 0}
-}
-
+func NewDequeint() *Dequeint    { buf := make([]int, 8); return &Dequeint{buf, 0, 0, 8, 7, 0} }
 func (q *Dequeint) Empty() bool { return q.l == 0 }
-
-func (q *Dequeint) Clear() { q.head = 0; q.tail = 0; q.l = 0 }
-
+func (q *Dequeint) Clear()      { q.head = 0; q.tail = 0; q.l = 0 }
 func (q *Dequeint) PushFront(x int) {
 	if q.l == q.sz {
 		q.sizeup()
@@ -142,7 +132,6 @@ func (q *Dequeint) PushFront(x int) {
 	q.l++
 	q.buf[q.head] = x
 }
-
 func (q *Dequeint) PushBack(x int) {
 	if q.l == q.sz {
 		q.sizeup()
@@ -153,23 +142,19 @@ func (q *Dequeint) PushBack(x int) {
 	q.l++
 	q.buf[q.tail] = x
 }
-
 func (q *Dequeint) Len() int { return q.l }
-
 func (q *Dequeint) Head() int {
 	if q.l == 0 {
 		q.errorEmptyAccess()
 	}
 	return q.buf[q.head]
 }
-
 func (q *Dequeint) Tail() int {
 	if q.l == 0 {
 		q.errorEmptyAccess()
 	}
 	return q.buf[q.tail]
 }
-
 func (q *Dequeint) PopFront() int {
 	if q.l == 0 {
 		q.errorPopWhenEmpty()
@@ -183,7 +168,6 @@ func (q *Dequeint) PopFront() int {
 	}
 	return v
 }
-
 func (q *Dequeint) PopBack() int {
 	if q.l == 0 {
 		q.errorPopWhenEmpty()
@@ -197,7 +181,6 @@ func (q *Dequeint) PopBack() int {
 	}
 	return v
 }
-
 func (q *Dequeint) sizeup() {
 	buf := make([]int, 2*q.sz)
 	for i := 0; i < q.l; i++ {
@@ -209,21 +192,101 @@ func (q *Dequeint) sizeup() {
 	q.sz = 2 * q.sz
 	q.bm = q.sz - 1
 }
-
-func (q *Dequeint) errorPopWhenEmpty() {
-	panic("Tried to pop from an empty deque. Panicking...")
-}
-
+func (q *Dequeint) errorPopWhenEmpty() { panic("Tried to pop from an empty deque. Panicking...") }
 func (q *Dequeint) errorEmptyAccess() {
 	panic("Tried to access element from an empty deque. Panicking...")
 }
-
-func (q *Dequeint) Append(x int) { q.PushBack(x) }
-
+func (q *Dequeint) Append(x int)     { q.PushBack(x) }
 func (q *Dequeint) AppendLeft(x int) { q.PushFront(x) }
+func (q *Dequeint) Push(x int)       { q.PushBack(x) }
+func (q *Dequeint) Pop() int         { return q.PopBack() }
+func (q *Dequeint) PopLeft() int     { return q.PopFront() }
 
-func (q *Dequeint) Push(x int) { q.PushBack(x) }
-
-func (q *Dequeint) Pop() int { return q.PopBack() }
-
-func (q *Dequeint) PopLeft() int { return q.PopFront() }
+//type Dequeint struct {
+//	buf                   []int
+//	head, tail, sz, bm, l int
+//}
+//
+//func NewDequeint() *Dequeint    { buf := make([]int, 8); return &Dequeint{buf, 0, 0, 8, 7, 0} }
+//func (q *Dequeint) Empty() bool { return q.l == 0 }
+//func (q *Dequeint) Clear()      { q.head = 0; q.tail = 0; q.l = 0 }
+//func (q *Dequeint) PushFront(x int) {
+//	if q.l == q.sz {
+//		q.sizeup()
+//	}
+//	if q.l > 0 {
+//		q.head = (q.head - 1) & q.bm
+//	}
+//	q.l++
+//	q.buf[q.head] = x
+//}
+//func (q *Dequeint) PushBack(x int) {
+//	if q.l == q.sz {
+//		q.sizeup()
+//	}
+//	if q.l > 0 {
+//		q.tail = (q.tail + 1) & q.bm
+//	}
+//	q.l++
+//	q.buf[q.tail] = x
+//}
+//func (q *Dequeint) Len() int { return q.l }
+//func (q *Dequeint) Head() int {
+//	if q.l == 0 {
+//		q.errorEmptyAccess()
+//	}
+//	return q.buf[q.head]
+//}
+//func (q *Dequeint) Tail() int {
+//	if q.l == 0 {
+//		q.errorEmptyAccess()
+//	}
+//	return q.buf[q.tail]
+//}
+//func (q *Dequeint) PopFront() int {
+//	if q.l == 0 {
+//		q.errorPopWhenEmpty()
+//	}
+//	v := q.buf[q.head]
+//	q.l--
+//	if q.l > 0 {
+//		q.head = (q.head + 1) & q.bm
+//	} else {
+//		q.Clear()
+//	}
+//	return v
+//}
+//func (q *Dequeint) PopBack() int {
+//	if q.l == 0 {
+//		q.errorPopWhenEmpty()
+//	}
+//	v := q.buf[q.tail]
+//	q.l--
+//	if q.l > 0 {
+//		q.tail = (q.tail - 1) & q.bm
+//	} else {
+//		q.Clear()
+//	}
+//	return v
+//}
+//func (q *Dequeint) sizeup() {
+//	buf := make([]int, 2*q.sz)
+//	for i := 0; i < q.l; i++ {
+//		buf[i] = q.buf[(q.head+i)&q.bm]
+//	}
+//	q.buf = buf
+//	q.head = 0
+//	q.tail = q.sz - 1
+//	q.sz = 2 * q.sz
+//	q.bm = q.sz - 1
+//}
+//func (q *Dequeint) errorPopWhenEmpty() { panic("Tried to pop from an empty deque. Panicking...") }
+//func (q *Dequeint) errorEmptyAccess() {
+//	panic("Tried to access element from an empty deque. Panicking...")
+//}
+//func (q *Dequeint) Append(x int)     { q.PushBack(x) }
+//func (q *Dequeint) AppendLeft(x int) { q.PushFront(x) }
+//func (q *Dequeint) Push(x int)       { q.PushBack(x) }
+//func (q *Dequeint) Pop() int         { return q.PopBack() }
+//func (q *Dequeint) PopLeft() int     { return q.PopFront() }
+//
