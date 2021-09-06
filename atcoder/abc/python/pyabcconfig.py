@@ -38,11 +38,16 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
+    probList += [("abc160",f"abc160_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc161",f"abc161_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc162",f"abc162_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc163",f"abc163_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc164",f"abc164_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc165",f"abc165_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc166",f"abc166_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc167",f"abc167_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc168",f"abc168_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [("abc169",f"abc169_{x}") for x in ("A","B","C","D","E","F")]
     probList += [("abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
 
     for (d,prob) in probList :
