@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-234%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-42%20%2F%20360-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-234%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-48%20%2F%20360-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -534,12 +534,12 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 ## abc167 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_A](http:/atcoder.jp/contests/abc167/tasks/abc167_A) | 11507 |  |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_B](http:/atcoder.jp/contests/abc167/tasks/abc167_B) | 10836 |  |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_C](http:/atcoder.jp/contests/abc167/tasks/abc167_C) | 5652 |  |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_D](http:/atcoder.jp/contests/abc167/tasks/abc167_D) | 4666 |  |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_A](http:/atcoder.jp/contests/abc167/tasks/abc167_A) | 11507 |  [go](./go/abc167/abc167_A/abc167_A.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_B](http:/atcoder.jp/contests/abc167/tasks/abc167_B) | 10836 |  [go](./go/abc167/abc167_B/abc167_B.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_C](http:/atcoder.jp/contests/abc167/tasks/abc167_C) | 5652 |  [go](./go/abc167/abc167_C/abc167_C.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_D](http:/atcoder.jp/contests/abc167/tasks/abc167_D) | 4666 |  [go](./go/abc167/abc167_D/abc167_D.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  [go](./go/abc167/abc167_E/abc167_E.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  [go](./go/abc167/abc167_F/abc167_F.go) |  |
 
 ## abc166 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
