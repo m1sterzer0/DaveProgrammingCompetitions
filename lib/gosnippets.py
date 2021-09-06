@@ -553,6 +553,9 @@ helpstring = ("gosnippets.py generates competitive programming code with user-cu
               "NOTE: gosnippets.py will APPEND the results to the given filenme.\n" +
 			  "Use 'stdout' for filename if you just want the codesnippet on stdout.")
 
+## Minheap check -- abc164 E
+
+
 if __name__ == "__main__" :
     good = True
     if len(sys.argv) <= 1 : good = False
