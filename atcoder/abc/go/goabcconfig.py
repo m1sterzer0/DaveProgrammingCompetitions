@@ -13,7 +13,6 @@ import (
     "io"
 	"os"
 	"strconv"
-	"strings"
 )
 
 type scanner struct { sc *bufio.Scanner }
@@ -23,18 +22,19 @@ func newScanner(input io.Reader) *scanner {
 	sc.Buffer(make([]byte, 1024), int(1e+9))
 	return &scanner{sc}	
 }
-func (s *scanner) s() string  { s.sc.Scan(); return s.sc.Text() }
-func (s *scanner) i() int     { i,e := strconv.Atoi(s.s()); if e != nil {panic(e)}; return i }
-func (s *scanner) f() float64 { f,e := strconv.ParseFloat(s.s(),64); if e != nil {panic(e)}; return f }
-func (s *scanner) bs() []byte { return []byte(s.s()) }
-func (s *scanner) is(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = s.i() }; return res }
-func (s *scanner) fs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = s.f() }; return res }
-func (s *scanner) ss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = s.s() }; return res }
-
 var rdr = newScanner(os.Stdin)
 const BUFSIZE = 10000000
 var wrtr = bufio.NewWriterSize(os.Stdout, BUFSIZE)
+func gs() string  { rdr.sc.Scan(); return rdr.sc.Text() }
+func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
+func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
+func gbs() []byte { return []byte(gs()) }
+func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
+func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
+func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
 
+func ia(m int) []int { return make([]int,m) }
+func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
 func max(a,b int) int { if a > b { return a }; return b }
 func min(a,b int) int { if a > b { return b }; return a }
 func tern(cond bool, a int, b int) int { if cond { return a }; return b }
@@ -42,6 +42,15 @@ func terns(cond bool, a string, b string) string { if cond { return a }; return 
 func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
 func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
 func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
+func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
+func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
+func makefact(n int,mod int) ([]int,[]int) {
+	fact,factinv := make([]int,n+1),make([]int,n+1)
+	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
+	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
+	return fact,factinv
+}
+
 type PI struct { x,y int }
 type TI struct { x,y,z int }
 
