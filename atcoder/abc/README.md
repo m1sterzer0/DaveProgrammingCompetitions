@@ -538,8 +538,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc167](http:/atcoder.jp/contests/abc167) | [abc167_B](http:/atcoder.jp/contests/abc167/tasks/abc167_B) | 10836 |  [go](./go/abc167/abc167_B/abc167_B.go) |  |
 | [abc167](http:/atcoder.jp/contests/abc167) | [abc167_C](http:/atcoder.jp/contests/abc167/tasks/abc167_C) | 5652 |  [go](./go/abc167/abc167_C/abc167_C.go) |  |
 | [abc167](http:/atcoder.jp/contests/abc167) | [abc167_D](http:/atcoder.jp/contests/abc167/tasks/abc167_D) | 4666 |  [go](./go/abc167/abc167_D/abc167_D.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  [go](./go/abc167/abc167_E/abc167_E.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  [go](./go/abc167/abc167_F/abc167_F.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  [go](./go/abc167/abc167_E/abc167_E.go) | Simple Combinatorics |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  [go](./go/abc167/abc167_F/abc167_F.go) | Bracket Sequences |
 
 ## abc166 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

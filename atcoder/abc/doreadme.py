@@ -77,6 +77,8 @@ notes["abc165_E"] = "Interesting matching construction"
 notes["abc165_F"] = "Tree DP, DFS w/ rollback"
 notes["abc166_E"] = "Simple DP"
 notes["abc166_F"] = "Greedy game theory"
+notes["abc167_E"] = "Simple Combinatorics"
+notes["abc167_F"] = "Bracket Sequences"
 
 def parseDifficulty(s) :
     probsByContest = {}
