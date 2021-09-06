@@ -79,6 +79,11 @@ notes["abc166_E"] = "Simple DP"
 notes["abc166_F"] = "Greedy game theory"
 notes["abc167_E"] = "Simple Combinatorics"
 notes["abc167_F"] = "Bracket Sequences"
+notes["abc168_E"] = "Dot product, GCD, Combinatorics, Special Cases"
+notes["abc168_F"] = "Coordinate compression, BFS, Bookkeeping"
+notes["abc169_E"] = "Median, Casework"
+notes["abc169_F"] = "DP, Subsets"
+
 
 def parseDifficulty(s) :
     probsByContest = {}

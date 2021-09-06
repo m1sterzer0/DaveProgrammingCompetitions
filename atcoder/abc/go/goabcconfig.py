@@ -35,6 +35,9 @@ func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] =
 
 func ia(m int) []int { return make([]int,m) }
 func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
+func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
+func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
+func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
 func max(a,b int) int { if a > b { return a }; return b }
 func min(a,b int) int { if a > b { return b }; return a }
 func tern(cond bool, a int, b int) int { if cond { return a }; return b }
@@ -44,6 +47,7 @@ func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans
 func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
 func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
 func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
+func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
 func makefact(n int,mod int) ([]int,[]int) {
 	fact,factinv := make([]int,n+1),make([]int,n+1)
 	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
@@ -56,13 +60,10 @@ type TI struct { x,y,z int }
 
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
+    defer wrtr.Flush()
 	infn := ""
 	if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
     if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = newScanner(f) }
-	
-    // NON-BOILERPLATE STARTS HERE
-	ans := 0
-    fmt.Fprintln(wrtr, ans); wrtr.Flush()
 }
 
 
@@ -121,6 +122,8 @@ if __name__ == "__main__" :
     probList += [(f"abc165",f"abc165_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc166",f"abc166_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc167",f"abc167_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc168",f"abc168_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc169",f"abc169_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
