@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-234%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-60%20%2F%20360-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-240%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-60%20%2F%20360-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -525,21 +525,21 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
 | [abc168](http:/atcoder.jp/contests/abc168) | [abc168_A](http:/atcoder.jp/contests/abc168/tasks/abc168_A) | 10686 |  [pypy3](./python/abc168/abc168_A.py) [go](./go/abc168/abc168_A/abc168_A.go) |  |
-| [abc168](http:/atcoder.jp/contests/abc168) | [abc168_B](http:/atcoder.jp/contests/abc168/tasks/abc168_B) | 104666 |  [pypy3](./python/abc168/abc168_B.py) [go](./go/abc168/abc168_B/abc168_B.go) |  |
+| [abc168](http:/atcoder.jp/contests/abc168) | [abc168_B](http:/atcoder.jp/contests/abc168/tasks/abc168_B) | 10466 |  [pypy3](./python/abc168/abc168_B.py) [go](./go/abc168/abc168_B/abc168_B.go) |  |
 | [abc168](http:/atcoder.jp/contests/abc168) | [abc168_C](http:/atcoder.jp/contests/abc168/tasks/abc168_C) | 7598 |  [pypy3](./python/abc168/abc168_C.py) [go](./go/abc168/abc168_C/abc168_C.go) |  |
 | [abc168](http:/atcoder.jp/contests/abc168) | [abc168_D](http:/atcoder.jp/contests/abc168/tasks/abc168_D) | 3856 |  [pypy3](./python/abc168/abc168_D.py) [go](./go/abc168/abc168_D/abc168_D.go) |  |
 | [abc168](http:/atcoder.jp/contests/abc168) | [abc168_E](http:/atcoder.jp/contests/abc168/tasks/abc168_E) | 467 |  [pypy3](./python/abc168/abc168_E.py) [go](./go/abc168/abc168_E/abc168_E.go) | Dot product, GCD, Combinatorics, Special Cases |
-| [abc168](http:/atcoder.jp/contests/abc168) | [abc168_F](http:/atcoder.jp/contests/abc168/tasks/abc168_F) | 85 |  [pypy3](./python/abc168/abc168_F.py) [go](./go/abc168/abc168_F/abc168_F.go) | Coordinate compression, BFS, Bookkeeping |
+| [abc168](http:/atcoder.jp/contests/abc168) | [abc168_F](http:/atcoder.jp/contests/abc168/tasks/abc168_F) | 85 |  [pypy3](./python/abc168/abc168_F.py) [go](./go/abc168/abc168_F/abc168_F.go) | Coordinate compression, BFS, Bookkeeping.  Note: big swing on constant factors dependent on subtle algorithm choices. My first coding of pypy was too slow.  Using byte arrays (array.array -- factor of 2) and slightly better algorithm (1 coord per segment vs. 3 -- factor of 9) made it much faster. |
 
 ## abc167 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_A](http:/atcoder.jp/contests/abc167/tasks/abc167_A) | 11507 |  [go](./go/abc167/abc167_A/abc167_A.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_B](http:/atcoder.jp/contests/abc167/tasks/abc167_B) | 10836 |  [go](./go/abc167/abc167_B/abc167_B.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_C](http:/atcoder.jp/contests/abc167/tasks/abc167_C) | 5652 |  [go](./go/abc167/abc167_C/abc167_C.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_D](http:/atcoder.jp/contests/abc167/tasks/abc167_D) | 4666 |  [go](./go/abc167/abc167_D/abc167_D.go) |  |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  [go](./go/abc167/abc167_E/abc167_E.go) | Simple Combinatorics |
-| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  [go](./go/abc167/abc167_F/abc167_F.go) | Bracket Sequences |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_A](http:/atcoder.jp/contests/abc167/tasks/abc167_A) | 11507 |  [pypy3](./python/abc167/abc167_A.py) [go](./go/abc167/abc167_A/abc167_A.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_B](http:/atcoder.jp/contests/abc167/tasks/abc167_B) | 10836 |  [pypy3](./python/abc167/abc167_B.py) [go](./go/abc167/abc167_B/abc167_B.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_C](http:/atcoder.jp/contests/abc167/tasks/abc167_C) | 5652 |  [pypy3](./python/abc167/abc167_C.py) [go](./go/abc167/abc167_C/abc167_C.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_D](http:/atcoder.jp/contests/abc167/tasks/abc167_D) | 4666 |  [pypy3](./python/abc167/abc167_D.py) [go](./go/abc167/abc167_D/abc167_D.go) |  |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_E](http:/atcoder.jp/contests/abc167/tasks/abc167_E) | 1393 |  [pypy3](./python/abc167/abc167_E.py) [go](./go/abc167/abc167_E/abc167_E.go) | Simple Combinatorics |
+| [abc167](http:/atcoder.jp/contests/abc167) | [abc167_F](http:/atcoder.jp/contests/abc167/tasks/abc167_F) | 415 |  [pypy3](./python/abc167/abc167_F.py) [go](./go/abc167/abc167_F/abc167_F.go) | Bracket Sequences |
 
 ## abc166 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

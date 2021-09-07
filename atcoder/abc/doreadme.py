@@ -10,7 +10,7 @@ abc164,11148,10415,9553,1926,497,41
 abc165,11225,9994,2514,5554,975,596
 abc166,11540,10088,7970,4999,2874,863
 abc167,11507,10836,5652,4666,1393,415
-abc168,10686,104666,7598,3856,467,85
+abc168,10686,10466,7598,3856,467,85
 abc169,11268,7017,5525,4591,1659,818
 abc170,10398,9617,8272,2835,1177,388
 abc171,10416,10164,5522,5885,4264,624
@@ -80,9 +80,12 @@ notes["abc166_F"] = "Greedy game theory"
 notes["abc167_E"] = "Simple Combinatorics"
 notes["abc167_F"] = "Bracket Sequences"
 notes["abc168_E"] = "Dot product, GCD, Combinatorics, Special Cases"
-notes["abc168_F"] = "Coordinate compression, BFS, Bookkeeping"
+notes["abc168_F"] = ("Coordinate compression, BFS, Bookkeeping.  Note: big swing on constant factors dependent on subtle " +
+                    "algorithm choices. My first coding of pypy was too slow.  Using byte arrays (array.array -- factor of 2) " +
+                    "and slightly better algorithm (1 coord per segment vs. 3 -- factor of 9) made it much faster.")
 notes["abc169_E"] = "Median, Casework"
 notes["abc169_F"] = "DP, Subsets"
+
 
 
 def parseDifficulty(s) :
