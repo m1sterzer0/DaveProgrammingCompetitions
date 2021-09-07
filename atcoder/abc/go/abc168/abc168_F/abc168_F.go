@@ -25,6 +25,17 @@ func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i 
 func ia(m int) []int { return make([]int,m) }
 func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
 
+// Finds an index i such that all points left of i are less than the target and all points
+// from i to the right are >= target.  Returns len(arr) if all points are less than target.
+func bisect_left(arr []int, targ int) int {
+	l,u := -1,len(arr); for u-l > 1 { m := (u+l)>>1; if arr[m] < targ { l = m } else { u = m } };  return u
+} 
+// Finds an index i such that all points left of i are <= target and all the points
+// from i to the right are > target.  Returns len(arr) if all points are <= to the target
+func bisect_right(arr []int, targ int) int {
+	l,u := -1,len(arr); for u-l > 1 { m := (u+l)>>1; if arr[m] <= targ { l = m } else { u = m } };  return u
+} 
+
 func makeBoard(y,x int,val bool) [][]bool {
 	res := make([][]bool,y)
 	for i:=0;i<y;i++ { res[i] = make([]bool,x) }
@@ -81,8 +92,8 @@ func main() {
 	D,E,F := fill3(M)
 	xmap := make(map[int]bool)
 	ymap := make(map[int]bool)
-	for i:=0;i<N;i++ { a,b,c := A[i],B[i],C[i]; xmap[a] = true; xmap[b] = true; ymap[c] = true }
-	for i:=0;i<M;i++ { d,e,f := D[i],E[i],F[i]; xmap[d] = true; ymap[e] = true; ymap[f] = true }
+	for i:=0;i<N;i++ { c :=C[i]; ymap[c] = true }
+	for i:=0;i<M;i++ { d := D[i]; xmap[d] = true }
 	xlist := make([]int,0,len(xmap))
 	ylist := make([]int,0,len(ymap))
 	for x := range(xmap) { xlist = append(xlist,x) }
@@ -101,13 +112,19 @@ func main() {
 	rt := makeBoard(nrows,ncols,true)
 	for i:=0;i<N;i++ {
 		a,b,c := A[i],B[i],C[i]
-		aa,bb,cc := xlookup[a],xlookup[b],ylookup[c]
+		if a >= xlist[ncols] || b <= xlist[0] { continue }
+		aa := bisect_left(xlist,a)
+		bb := bisect_right(xlist,b)-1
+		cc := ylookup[c]
 		if cc > 0 { for i:=aa;i<bb;i++ { up[cc-1][i]=false } }
 		if cc < nrows { for i:=aa;i<bb;i++ { dn[cc][i]=false } }
 	}
 	for i:=0;i<M;i++ {
 		d,e,f := D[i],E[i],F[i]
-		dd,ee,ff := xlookup[d],ylookup[e],ylookup[f]
+		if e >= ylist[nrows] || f <= ylist[0] { continue }
+		dd := xlookup[d]
+		ee := bisect_left(ylist,e)
+		ff := bisect_right(ylist,f)-1
 		if dd > 0 { for i:=ee;i<ff;i++ { rt[i][dd-1]=false } }
 		if dd < ncols { for i:=ee;i<ff;i++ { lf[i][dd] = false } }
 	}
