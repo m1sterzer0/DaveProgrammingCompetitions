@@ -531,25 +531,311 @@ func (q *Twosat) Satisfiable() (bool, []bool) {
 '''
 	return s1+template
 
+def getBisect() :
+	template = '''
+// Finds an index i such that all points left of i are less than the target and all points
+// from i to the right are >= target.  Returns len(arr) if all points are less than target.
+func bisect_left(arr []int, targ int) int {
+	l,u := -1,len(arr); for u-l > 1 { m := (u+l)>>1; if arr[m] < targ { l = m } else { u = m } };  return u
+} 
+// Finds an index i such that all points left of i are <= target and all the points
+// from i to the right are > target.  Returns len(arr) if all points are <= to the target
+func bisect_right(arr []int, targ int) int {
+	l,u := -1,len(arr); for u-l > 1 { m := (u+l)>>1; if arr[m] <= targ { l = m } else { u = m } };  return u
+} 	
+'''
+	return template
+
+def getskiplistSet(classname,datatype) :
+    template = '''
+type CLASSNAMEnode struct { fwd []*CLASSNAMEnode; prv *CLASSNAMEnode; key DATATYPE }
+func (n *CLASSNAMEnode) next() *CLASSNAMEnode { if len(n.fwd) == 0 { return nil }; return n.fwd[0] }
+func (n *CLASSNAMEnode) prev() *CLASSNAMEnode { return n.prv }
+type CLASSNAME struct { lessThan func(a,b DATATYPE) bool; header []*CLASSNAMEnode; scratch []*CLASSNAMEnode; tail *CLASSNAMEnode; sz int; maxsz int; maxlev int; bm uint64 }
+type CLASSNAMEIterator interface { Next() (ok bool); Prev() (ok bool); Key() (DATATYPE) }
+type CLASSNAMEiter struct { cur *CLASSNAMEnode; key DATATYPE; list *CLASSNAME }
+func (i *CLASSNAMEiter) Key() DATATYPE   { return i.key }
+func (i *CLASSNAMEiter) Next() bool { v := i.cur.next(); if v == nil { return false }; i.cur = v; i.key = v.key; return true} 
+func (i *CLASSNAMEiter) Prev() bool { v := i.cur.prev(); if v == nil { return false }; i.cur = v; i.key = v.key; return true}
+func NewCLASSNAME(lessThan func(a,b DATATYPE) bool) *CLASSNAME { return &CLASSNAME{lessThan,make([]*CLASSNAMEnode,32),make([]*CLASSNAMEnode,32),nil,0,0,2,uint64(7)} }
+func (s *CLASSNAME) Len() int { return s.sz }
+func (s *CLASSNAME) IsEmpty() bool { return s.sz == 0}
+func (s *CLASSNAME) Add(a DATATYPE)  {
+	s.findlepath(a); p := s.scratch
+	if p[0] != nil && !s.lessThan(p[0].key,a) { return } //Already present in skiplist
+	depth := s.randlevel(); newnodebuf := make([]*CLASSNAMEnode,depth+1); newnode := CLASSNAMEnode{newnodebuf,nil,a}; header := s.header
+	for d:=depth;d>=0;d-- {	xx := p[d]; if xx == nil { newnodebuf[d] = header[d]; header[d] = &newnode } else { par := xx.fwd; newnodebuf[d] = par[d]; par[d] = &newnode } }
+	if p[0] != nil { newnode.prv = p[0]}; if newnodebuf[0] == nil { s.tail = &newnode } else { newnodebuf[0].prv = &newnode }; s.sz += 1; 
+	if s.maxsz < s.sz { s.maxsz += 1 }; if (s.sz << 1) > int(s.bm) { s.bm = (s.bm<<1) | uint64(1); s.maxlev += 1 }
+}
+func (s *CLASSNAME) Delete(a DATATYPE) bool {
+	if s.sz == 0 { return false }; s.findltpath(a); p := s.scratch; cand := s.header[0]; 
+	if p[0] != nil { cand = p[0].next() }; if cand == nil || s.lessThan(a,cand.key) { return false }
+	if cand.next() == nil { s.tail = cand.prev() } else { cand.next().prv = cand.prev()	}
+	for d:=s.maxlev;d>=0;d-- { 
+		xx := p[d]; if xx == nil && s.header[d] == cand { s.header[d] = cand.fwd[d] } else if xx != nil && xx.fwd[d] == cand { xx.fwd[d] = cand.fwd[d] }
+	}
+	for i:=len(cand.fwd)-1;i>=0;i-- { cand.fwd[i] = nil	}; cand.prv = nil; //Just for garbage collection
+	s.sz -= 1; if s.sz == 0 { s.Clear() }; return true
+}
+func (s *CLASSNAME) Clear() {
+	if s.sz > 0 {
+		p := s.header[0]
+		for p != nil { nxtp := p.next(); for d:=len(p.fwd)-1;d>=0;d-- { p.fwd[d] = nil }; p.prv = nil; p = nxtp }
+		for d:=len(s.header)-1;d>=0;d-- { s.header[d] = nil }; s.header = s.header[:0]; s.tail = nil; s.sz = 0
+	}
+	s.bm = 3; s.maxsz = 0; s.maxlev = 2
+}
+func (s *CLASSNAME) Min() DATATYPE { if s.sz == 0 { panic("Called Min on empty CLASSNAME") }; return s.header[0].key }
+func (s *CLASSNAME) Max() DATATYPE { if s.sz == 0 { panic("Called Max on empty CLASSNAME") }; return s.tail.key }
+func (s *CLASSNAME) Count(a DATATYPE) int { p := s.findle(a); if p == nil || p.key != a { return 0 }; return 1 }
+func (s *CLASSNAME) Contains(a DATATYPE) bool { return s.Count(a) > 0 }
+func (s *CLASSNAME) UpperBound(a DATATYPE) (CLASSNAMEIterator,bool) {
+	p := s.findlt(a); if p == nil { p = s.header[0] } else { p = p.next() }
+	for p != nil && !s.lessThan(a,p.key) { p = p.next() }
+	if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,s},true
+}
+func (s *CLASSNAME) LowerBound(a DATATYPE) (CLASSNAMEIterator,bool) { p := s.findle(a); if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,s},true }
+func (s *CLASSNAME) GetIter() (CLASSNAMEIterator,bool) { 
+	if s.sz == 0 { return &CLASSNAMEiter{nil,DATATYPE{},nil},false }
+	p := s.header[0]; return &CLASSNAMEiter{p,p.key,s},true
+}
+func (s *CLASSNAME) findlt(key DATATYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || !s.lessThan(v.key,key) { depth--; continue }; res = v; curlist = v.fwd	}
+	return res
+}
+func (s *CLASSNAME) findle(key DATATYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || s.lessThan(key,v.key) { depth--; continue}; res = v; curlist = v.fwd }
+	return res
+}
+func (s *CLASSNAME) findlepath(key DATATYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || s.lessThan(key,v.key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) findltpath(key DATATYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || !s.lessThan(v.key,key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) randlevel() int { res := s.maxlev+1; for res > s.maxlev { res = bits.LeadingZeros64(rand.Uint64() & s.bm) - (63-s.maxlev) }; return res }
+'''
+    template = template.replace("DATATYPE",datatype)
+    template = template.replace("CLASSNAME",classname)
+    return template
+
+def getskiplistMultiset(classname,datatype) :
+    template = '''
+type CLASSNAMEnode struct { fwd []*CLASSNAMEnode; prv *CLASSNAMEnode; key DATATYPE; cnt int }
+func (n *CLASSNAMEnode) next() *CLASSNAMEnode { if len(n.fwd) == 0 { return nil }; return n.fwd[0] }
+func (n *CLASSNAMEnode) prev() *CLASSNAMEnode { return n.prv }
+type CLASSNAME struct { lessThan func(a,b DATATYPE) bool; header []*CLASSNAMEnode; scratch []*CLASSNAMEnode; tail *CLASSNAMEnode; sz int; maxsz int; maxlev int; bm uint64 }
+type CLASSNAMEIterator interface { Next() (ok bool); Prev() (ok bool); Key() (DATATYPE); Count() (int) }
+type CLASSNAMEiter struct { cur *CLASSNAMEnode; key DATATYPE; count int; list *CLASSNAME }
+func (i *CLASSNAMEiter) Key() DATATYPE   { return i.key }
+func (i *CLASSNAMEiter) Count() int   { return i.count }
+func (i *CLASSNAMEiter) Next() bool { v := i.cur.next(); if v == nil { return false }; i.cur = v; i.key = v.key; i.count = v.cnt; return true} 
+func (i *CLASSNAMEiter) Prev() bool { v := i.cur.prev(); if v == nil { return false }; i.cur = v; i.key = v.key; i.count = v.cnt; return true}
+func NewCLASSNAME(lessThan func(a,b DATATYPE) bool) *CLASSNAME { return &CLASSNAME{lessThan,make([]*CLASSNAMEnode,32),make([]*CLASSNAMEnode,32),nil,0,0,2,uint64(7)} }
+func (s *CLASSNAME) Len() int { return s.sz }
+func (s *CLASSNAME) IsEmpty() bool { return s.sz == 0}
+func (s *CLASSNAME) Add(a DATATYPE)  {
+	s.findlepath(a); p := s.scratch
+	if p[0] != nil && !s.lessThan(p[0].key,a) { p[0].cnt++; s.sz += 1; return } //Already present in skiplist
+	depth := s.randlevel(); newnodebuf := make([]*CLASSNAMEnode,depth+1); newnode := CLASSNAMEnode{newnodebuf,nil,a,1}; header := s.header
+	for d:=depth;d>=0;d-- {	xx := p[d]; if xx == nil { newnodebuf[d] = header[d]; header[d] = &newnode } else { par := xx.fwd; newnodebuf[d] = par[d]; par[d] = &newnode } }
+	if p[0] != nil { newnode.prv = p[0]}; if newnodebuf[0] == nil { s.tail = &newnode } else { newnodebuf[0].prv = &newnode }; s.sz += 1; 
+	if s.maxsz < s.sz { s.maxsz += 1 }; if (s.sz << 1) > int(s.bm) { s.bm = (s.bm<<1) | uint64(1); s.maxlev += 1 }
+}
+func (s *CLASSNAME) Delete(a DATATYPE) bool {
+	if s.sz == 0 { return false }; s.findltpath(a); p := s.scratch; cand := s.header[0]; 
+	if p[0] != nil { cand = p[0].next() }; if cand == nil || s.lessThan(a,cand.key) { return false }
+	if cand.cnt > 1 { cand.cnt--; s.sz--; return true}
+	if cand.next() == nil { s.tail = cand.prev() } else { cand.next().prv = cand.prev()	}
+	for d:=s.maxlev;d>=0;d-- { 
+		xx := p[d]; if xx == nil && s.header[d] == cand { s.header[d] = cand.fwd[d] } else if xx != nil && xx.fwd[d] == cand { xx.fwd[d] = cand.fwd[d] }
+	}
+	for i:=len(cand.fwd)-1;i>=0;i-- { cand.fwd[i] = nil	}; cand.prv = nil; //Just for garbage collection
+	s.sz -= 1; if s.sz == 0 { s.Clear() }; return true
+}
+func (s *CLASSNAME) Clear() {
+	if s.sz > 0 {
+		p := s.header[0]
+		for p != nil { nxtp := p.next(); for d:=len(p.fwd)-1;d>=0;d-- { p.fwd[d] = nil }; p.prv = nil; p = nxtp }
+		for d:=len(s.header)-1;d>=0;d-- { s.header[d] = nil }; s.header = s.header[:0]; s.tail = nil; s.sz = 0
+	}
+	s.bm = 3; s.maxsz = 0; s.maxlev = 2
+}
+func (s *CLASSNAME) Min() DATATYPE { if s.sz == 0 { panic("Called Min on empty CLASSNAME") }; return s.header[0].key }
+func (s *CLASSNAME) Max() DATATYPE { if s.sz == 0 { panic("Called Max on empty CLASSNAME") }; return s.tail.key }
+func (s *CLASSNAME) Count(a DATATYPE) int { p := s.findle(a); if p == nil || p.key != a { return 0 }; return p.cnt }
+func (s *CLASSNAME) Contains(a DATATYPE) bool { return s.Count(a) > 0 }
+func (s *CLASSNAME) UpperBound(a DATATYPE) (CLASSNAMEIterator,bool) {
+	p := s.findlt(a); if p == nil { p = s.header[0] } else { p = p.next() }
+	for p != nil && !s.lessThan(a,p.key) { p = p.next() }
+	if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,p.cnt,s},true
+}
+func (s *CLASSNAME) LowerBound(a DATATYPE) (CLASSNAMEIterator,bool) { p := s.findle(a); if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,p.cnt,s},true }
+func (s *CLASSNAME) GetIter() (CLASSNAMEIterator,bool) { 
+	if s.sz == 0 { return &CLASSNAMEiter{nil,DATATYPE{},-1,nil},false }
+	p := s.header[0]; return &CLASSNAMEiter{p,p.key,p.cnt,s},true
+}
+func (s *CLASSNAME) findlt(key DATATYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || !s.lessThan(v.key,key) { depth--; continue }; res = v; curlist = v.fwd	}
+	return res
+}
+func (s *CLASSNAME) findle(key DATATYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || s.lessThan(key,v.key) { depth--; continue}; res = v; curlist = v.fwd }
+	return res
+}
+func (s *CLASSNAME) findlepath(key DATATYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || s.lessThan(key,v.key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) findltpath(key DATATYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || !s.lessThan(v.key,key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) randlevel() int { res := s.maxlev+1; for res > s.maxlev { res = bits.LeadingZeros64(rand.Uint64() & s.bm) - (63-s.maxlev) }; return res }
+'''
+    template = template.replace("DATATYPE",datatype)
+    template = template.replace("CLASSNAME",classname)
+    return template
+
+def getskiplistMap(classname,keytype,valuetype) :
+    template = '''
+type CLASSNAMEnode struct { fwd []*CLASSNAMEnode; prv *CLASSNAMEnode; key KEYTYPE; value VALUETYPE }
+func (n *CLASSNAMEnode) next() *CLASSNAMEnode { if len(n.fwd) == 0 { return nil }; return n.fwd[0] }
+func (n *CLASSNAMEnode) prev() *CLASSNAMEnode { return n.prv }
+type CLASSNAME struct { lessThan func(a,b KEYTYPE) bool; header []*CLASSNAMEnode; scratch []*CLASSNAMEnode; tail *CLASSNAMEnode; sz int; maxsz int; maxlev int; bm uint64 }
+type CLASSNAMEIterator interface { Next() (ok bool); Prev() (ok bool); Key() (KEYTYPE); Value() (VALUETYPE) }
+type CLASSNAMEiter struct { cur *CLASSNAMEnode; key KEYTYPE; value VALUETYPE; list *CLASSNAME }
+func (i *CLASSNAMEiter) Key() KEYTYPE   { return i.key }
+func (i *CLASSNAMEiter) Value() VALUETYPE   { return i.value }
+func (i *CLASSNAMEiter) Next() bool { v := i.cur.next(); if v == nil { return false }; i.cur = v; i.key = v.key; i.value = v.value; return true} 
+func (i *CLASSNAMEiter) Prev() bool { v := i.cur.prev(); if v == nil { return false }; i.cur = v; i.key = v.key; i.value = v.value; return true}
+func NewCLASSNAME(lessThan func(a,b KEYTYPE) bool) *CLASSNAME { return &CLASSNAME{lessThan,make([]*CLASSNAMEnode,32),make([]*CLASSNAMEnode,32),nil,0,0,2,uint64(7)} }
+func (s *CLASSNAME) Len() int { return s.sz }
+func (s *CLASSNAME) IsEmpty() bool { return s.sz == 0}
+func (s *CLASSNAME) Add(a KEYTYPE, b VALUETYPE)  {
+	s.findlepath(a); p := s.scratch
+	if p[0] != nil && !s.lessThan(p[0].key,a) { p[0].value = b; return } //Already present in skiplist
+	depth := s.randlevel(); newnodebuf := make([]*CLASSNAMEnode,depth+1); newnode := CLASSNAMEnode{newnodebuf,nil,a,b}; header := s.header
+	for d:=depth;d>=0;d-- {	xx := p[d]; if xx == nil { newnodebuf[d] = header[d]; header[d] = &newnode } else { par := xx.fwd; newnodebuf[d] = par[d]; par[d] = &newnode } }
+	if p[0] != nil { newnode.prv = p[0]}; if newnodebuf[0] == nil { s.tail = &newnode } else { newnodebuf[0].prv = &newnode }; s.sz += 1; 
+	if s.maxsz < s.sz { s.maxsz += 1 }; if (s.sz << 1) > int(s.bm) { s.bm = (s.bm<<1) | uint64(1); s.maxlev += 1 }
+}
+func (s *CLASSNAME) Lookup(a KEYTYPE) (VALUETYPE,bool) {
+	s.findlepath(a); p := s.scratch
+	if p[0] != nil && !s.lessThan(p[0].key,a) { return p[0].value,true } else { return VALUETYPE{},false }
+}
+func (s *CLASSNAME) Delete(a KEYTYPE) bool {
+	if s.sz == 0 { return false }; s.findltpath(a); p := s.scratch; cand := s.header[0]; 
+	if p[0] != nil { cand = p[0].next() }; if cand == nil || s.lessThan(a,cand.key) { return false }
+	if cand.next() == nil { s.tail = cand.prev() } else { cand.next().prv = cand.prev()	}
+	for d:=s.maxlev;d>=0;d-- { 
+		xx := p[d]; if xx == nil && s.header[d] == cand { s.header[d] = cand.fwd[d] } else if xx != nil && xx.fwd[d] == cand { xx.fwd[d] = cand.fwd[d] }
+	}
+	for i:=len(cand.fwd)-1;i>=0;i-- { cand.fwd[i] = nil	}; cand.prv = nil; //Just for garbage collection
+	s.sz -= 1; if s.sz == 0 { s.Clear() }; return true
+}
+func (s *CLASSNAME) Clear() {
+	if s.sz > 0 {
+		p := s.header[0]
+		for p != nil { nxtp := p.next(); for d:=len(p.fwd)-1;d>=0;d-- { p.fwd[d] = nil }; p.prv = nil; p = nxtp }
+		for d:=len(s.header)-1;d>=0;d-- { s.header[d] = nil }; s.header = s.header[:0]; s.tail = nil; s.sz = 0
+	}
+	s.bm = 3; s.maxsz = 0; s.maxlev = 2
+}
+func (s *CLASSNAME) Min() KEYTYPE { if s.sz == 0 { panic("Called Min on empty CLASSNAME") }; return s.header[0].key }
+func (s *CLASSNAME) Max() KEYTYPE { if s.sz == 0 { panic("Called Max on empty CLASSNAME") }; return s.tail.key }
+func (s *CLASSNAME) Count(a KEYTYPE) int { p := s.findle(a); if p == nil || p.key != a { return 0 }; return 1 }
+func (s *CLASSNAME) Contains(a KEYTYPE) bool { return s.Count(a) > 0 }
+func (s *CLASSNAME) UpperBound(a KEYTYPE) (CLASSNAMEIterator,bool) {
+	p := s.findlt(a); if p == nil { p = s.header[0] } else { p = p.next() }
+	for p != nil && !s.lessThan(a,p.key) { p = p.next() }
+	if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,p.value,s},true
+}
+func (s *CLASSNAME) LowerBound(a KEYTYPE) (CLASSNAMEIterator,bool) { p := s.findle(a); if p == nil { return nil,false}; return &CLASSNAMEiter{p,p.key,p.value,s},true }
+func (s *CLASSNAME) GetIter() (CLASSNAMEIterator,bool) { 
+	if s.sz == 0 { return &CLASSNAMEiter{nil,KEYTYPE{},VALUETYPE{},nil},false }
+	p := s.header[0]; return &CLASSNAMEiter{p,p.key,p.value,s},true
+}
+func (s *CLASSNAME) findlt(key KEYTYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || !s.lessThan(v.key,key) { depth--; continue }; res = v; curlist = v.fwd	}
+	return res
+}
+func (s *CLASSNAME) findle(key KEYTYPE) *CLASSNAMEnode {
+	var res *CLASSNAMEnode = nil; curlist := s.header; depth := len(s.header)-1
+	for depth >= 0 { v := curlist[depth]; if v == nil || s.lessThan(key,v.key) { depth--; continue}; res = v; curlist = v.fwd }
+	return res
+}
+func (s *CLASSNAME) findlepath(key KEYTYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || s.lessThan(key,v.key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) findltpath(key KEYTYPE) {
+	curlist := s.header; depth := s.maxlev; res := s.scratch; var last *CLASSNAMEnode = nil
+	for depth >= 0 { 
+		v := curlist[depth]
+		if v == nil || !s.lessThan(v.key,key) { for depth >= 0 && v == curlist[depth] { res[depth] = last; depth-- }; continue }
+		last = v; curlist = v.fwd
+	}
+}
+func (s *CLASSNAME) randlevel() int { res := s.maxlev+1; for res > s.maxlev { res = bits.LeadingZeros64(rand.Uint64() & s.bm) - (63-s.maxlev) }; return res }
+'''
+    template = template.replace("CLASSNAME",classname)
+    template = template.replace("KEYTYPE",keytype)
+    template = template.replace("VALUETYPE",valuetype)
+    return template
+
 def appendStringToFile(s,fn) :
     if fn.lower() == "stdout" : print(s); return
     with open(fn,"at") as fp : print(s,file=fp)
 
 helpstring = ("gosnippets.py generates competitive programming code with user-customized classes for certain elements." +
               "USAGE:\n" +
-              "    python3 gosnippets.py queue       CLASSNAME DATATYPE FILENAME\n" +
-              "    python3 gosnippets.py stack       CLASSNAME DATATYPE FILENAME\n" +
-              "    python3 gosnippets.py deque       CLASSNAME DATATYPE FILENAME\n" +
-              "    python3 gosnippets.py minheap     CLASSNAME DATATYPE FILENAME\n" +
-              "    python3 gosnippets.py segtree     CLASSNAME DATATYPE FILENAME\n" +
-              "    python3 gosnippets.py lazysegtree CLASSNAME DATATYPE FUNCTIONTYPE FILENAME\n" +
-              "    python3 gosnippets.py convolver   FILENAME\n" +
-              "    python3 gosnippets.py fenwick     FILENAME\n" +
-              "    python3 gosnippets.py maxflow     FILENAME\n" +
-              "    python3 gosnippets.py dsu         FILENAME\n" +
-              "    python3 gosnippets.py dsusparse   FILENAME\n" +
-              "    python3 gosnippets.py scc         FILENAME\n" +
-              "    python3 gosnippets.py twosat      FILENAME\n" +
+              "    python3 gosnippets.py queue            CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py stack            CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py deque            CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py minheap          CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py segtree          CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py lazysegtree      CLASSNAME DATATYPE FUNCTIONTYPE FILENAME\n" +
+              "    python3 gosnippets.py convolver        FILENAME\n" +
+              "    python3 gosnippets.py fenwick          FILENAME\n" +
+              "    python3 gosnippets.py maxflow          FILENAME\n" +
+              "    python3 gosnippets.py dsu              FILENAME\n" +
+              "    python3 gosnippets.py dsusparse        FILENAME\n" +
+              "    python3 gosnippets.py scc              FILENAME\n" +
+              "    python3 gosnippets.py twosat           FILENAME\n" +
+              "    python3 gosnippets.py bisect           FILENAME\n" +
+              "    python3 gosnippets.py skiplistset      CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py skiplistmultiset CLASSNAME DATATYPE FILENAME\n" +
+              "    python3 gosnippets.py skiplistmap      CLASSNAME KEYTYPE VALUETYPE FILENAME\n" +
+
               "NOTE: gosnippets.py will APPEND the results to the given filenme.\n" +
 			  "Use 'stdout' for filename if you just want the codesnippet on stdout.")
 
@@ -560,20 +846,24 @@ if __name__ == "__main__" :
     good = True
     if len(sys.argv) <= 1 : good = False
     if len(sys.argv) > 1 :
-        if   sys.argv[1] == "queue" and len(sys.argv) == 5 :       s = getQueue(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
-        elif sys.argv[1] == "stack" and len(sys.argv) == 5 :       s = getStack(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
-        elif sys.argv[1] == "deque" and len(sys.argv) == 5 :       s = getDeque(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
-        elif sys.argv[1] == "minheap" and len(sys.argv) == 5 :     s = getMinheap(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
-        elif sys.argv[1] == "segtree" and len(sys.argv) == 5 :     s = getSegtree(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
-        elif sys.argv[1] == "lazysegtree" and len(sys.argv) == 6 : s = getLazySegtree(sys.argv[2],sys.argv[3],sys.argv[4]); appendStringToFile(s,sys.argv[5])
-        elif sys.argv[1] == "convolver" and len(sys.argv) == 3 :   s = getConvolver(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "fenwick" and len(sys.argv) == 3 :     s = getFenwick(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "maxflow" and len(sys.argv) == 3 :     s = getMaxflow(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "dsu" and len(sys.argv) == 3 :         s = getDsu(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "dsusparse" and len(sys.argv) == 3 :   s = getDsuSparse(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "mincostflow" and len(sys.argv) == 3 : s = getMinCostFlow(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "scc" and len(sys.argv) == 3 :         s = getScc(); appendStringToFile(s,sys.argv[2])
-        elif sys.argv[1] == "twosat" and len(sys.argv) == 3 :      s = getTwoSat(); appendStringToFile(s,sys.argv[2])
+        if   sys.argv[1] == "queue" and len(sys.argv) == 5 :            s = getQueue(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "stack" and len(sys.argv) == 5 :            s = getStack(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "deque" and len(sys.argv) == 5 :            s = getDeque(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "minheap" and len(sys.argv) == 5 :          s = getMinheap(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "segtree" and len(sys.argv) == 5 :          s = getSegtree(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "lazysegtree" and len(sys.argv) == 6 :      s = getLazySegtree(sys.argv[2],sys.argv[3],sys.argv[4]); appendStringToFile(s,sys.argv[5])
+        elif sys.argv[1] == "convolver" and len(sys.argv) == 3 :        s = getConvolver(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "fenwick" and len(sys.argv) == 3 :          s = getFenwick(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "maxflow" and len(sys.argv) == 3 :          s = getMaxflow(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "dsu" and len(sys.argv) == 3 :              s = getDsu(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "dsusparse" and len(sys.argv) == 3 :        s = getDsuSparse(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "mincostflow" and len(sys.argv) == 3 :      s = getMinCostFlow(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "scc" and len(sys.argv) == 3 :              s = getScc(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "twosat" and len(sys.argv) == 3 :           s = getTwoSat(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "bisect" and len(sys.argv) == 3 :           s = getBisect(); appendStringToFile(s,sys.argv[2])
+        elif sys.argv[1] == "skiplistset" and len(sys.argv) == 5 :      s = getskiplistSet(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "skiplistmultiset" and len(sys.argv) == 6 : s = getskiplistMultiset(sys.argv[2],sys.argv[3]); appendStringToFile(s,sys.argv[4])
+        elif sys.argv[1] == "skiplistmap" and len(sys.argv) == 6 :      s = getskiplistMap(sys.argv[2],sys.argv[3],sys.argv[4]); appendStringToFile(s,sys.argv[5])
         else : good = False
     if not good : print(helpstring)
 
