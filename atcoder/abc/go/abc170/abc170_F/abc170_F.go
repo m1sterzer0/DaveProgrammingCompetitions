@@ -26,7 +26,7 @@ func min(a,b int) int { if a > b { return b }; return a }
 type dstate struct { t,x,y,dir int}
 
 type minheap struct { buf []dstate; less func(dstate,dstate)bool }
-func Newminheap(f func(dstate,dstate)bool) *minheap { buf := make([]dstate, 0); return &minheap{buf,f} }
+func Newminheap(f func(dstate,dstate)bool) *minheap { buf := make([]dstate, 0,24_000_000); return &minheap{buf,f} }
 func (q *minheap) IsEmpty() bool { return len(q.buf) == 0 }
 func (q *minheap) Clear() { q.buf = q.buf[:0] }
 func (q *minheap) Len() int { return len(q.buf) }
