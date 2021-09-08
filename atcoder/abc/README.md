@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-240%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-60%20%2F%20360-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-240%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-66%20%2F%20360-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -504,12 +504,12 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 ## abc170 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_A](http:/atcoder.jp/contests/abc170/tasks/abc170_A) | 10398 |  [pypy3](./python/abc170/abc170_A.py) |  |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_B](http:/atcoder.jp/contests/abc170/tasks/abc170_B) | 9617 |  [pypy3](./python/abc170/abc170_B.py) |  |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_C](http:/atcoder.jp/contests/abc170/tasks/abc170_C) | 8272 |  [pypy3](./python/abc170/abc170_C.py) |  |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_D](http:/atcoder.jp/contests/abc170/tasks/abc170_D) | 2835 |  [pypy3](./python/abc170/abc170_D.py) |  |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_E](http:/atcoder.jp/contests/abc170/tasks/abc170_E) | 1177 |  [pypy3](./python/abc170/abc170_E.py) |  |
-| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_F](http:/atcoder.jp/contests/abc170/tasks/abc170_F) | 388 |  [pypy3](./python/abc170/abc170_F.py) |  |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_A](http:/atcoder.jp/contests/abc170/tasks/abc170_A) | 10398 |  [pypy3](./python/abc170/abc170_A.py) [go](./go/abc170/abc170_A/abc170_A.go) |  |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_B](http:/atcoder.jp/contests/abc170/tasks/abc170_B) | 9617 |  [pypy3](./python/abc170/abc170_B.py) [go](./go/abc170/abc170_B/abc170_B.go) |  |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_C](http:/atcoder.jp/contests/abc170/tasks/abc170_C) | 8272 |  [pypy3](./python/abc170/abc170_C.py) [go](./go/abc170/abc170_C/abc170_C.go) |  |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_D](http:/atcoder.jp/contests/abc170/tasks/abc170_D) | 2835 |  [pypy3](./python/abc170/abc170_D.py) [go](./go/abc170/abc170_D/abc170_D.go) |  |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_E](http:/atcoder.jp/contests/abc170/tasks/abc170_E) | 1177 |  [pypy3](./python/abc170/abc170_E.py) [go](./go/abc170/abc170_E/abc170_E.go) | Lots of minheaps or lots of multisets |
+| [abc170](http:/atcoder.jp/contests/abc170) | [abc170_F](http:/atcoder.jp/contests/abc170/tasks/abc170_F) | 388 |  [pypy3](./python/abc170/abc170_F.py) [go](./go/abc170/abc170_F/abc170_F.go) | Clever Dijkstra.  Somewhat time challenged in both go and python (there is likely more optimization to be done). |
 
 ## abc169 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

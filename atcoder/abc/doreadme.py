@@ -85,6 +85,8 @@ notes["abc168_F"] = ("Coordinate compression, BFS, Bookkeeping.  Note: big swing
                     "and slightly better algorithm (1 coord per segment vs. 3 -- factor of 9) made it much faster.")
 notes["abc169_E"] = "Median, Casework"
 notes["abc169_F"] = "DP, Subsets"
+notes["abc170_E"] = "Lots of minheaps or lots of multisets"
+notes["abc170_F"] = "Clever Dijkstra.  Somewhat time challenged in both go and python (there is likely more optimization to be done)."
 
 
 
