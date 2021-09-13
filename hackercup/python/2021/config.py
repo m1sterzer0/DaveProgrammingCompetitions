@@ -66,7 +66,7 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
     probList += [f"qual_{x}" for x in ("A1","A2","B","C1","C2")]
-    #probList += [f"1_{x}" for x in ("A","B","C","D")]
+    probList += [f"1_{x}" for x in ("A1","A2","A3","B","C")]
     #probList += [f"2_{x}" for x in ("A","B","C")]
 
     for prob in probList :
