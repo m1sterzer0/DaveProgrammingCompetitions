@@ -1,83 +1,77 @@
-package rbtreemap
+package rbtreeset
 
 type KEYTYPE int
-type VALTYPE int
 
 //START HERE
-type RBTREEMAPnode struct {
+type RBTREESETnode struct {
 	left, right, up int32
 	red             bool
 	key             KEYTYPE
-	val             VALTYPE
 }
-type RBTREEMAP struct {
+type RBTREESET struct {
 	lessthan func(a, b KEYTYPE) bool
-	tree     []RBTREEMAPnode
+	tree     []RBTREESETnode
 	root     int32
 	recycler []int32
 	sz       int
 	minidx   int32
 	maxidx   int32
 }
-type RBTREEMAPIterator interface {
+type RBTREESETIterator interface {
 	Next() (ok bool)
 	Prev() (ok bool)
 	Key() KEYTYPE
-	Value() VALTYPE
 }
-type RBTREEMAPiter struct {
+type RBTREESETiter struct {
 	cur    int32
 	key    KEYTYPE
-	value  VALTYPE
-	rbtree *RBTREEMAP
+	rbtree *RBTREESET
 }
 
-func (i *RBTREEMAPiter) Key() KEYTYPE   { return i.key }
-func (i *RBTREEMAPiter) Value() VALTYPE { return i.value }
-func (i *RBTREEMAPiter) Next() bool {
+func (i *RBTREESETiter) Key() KEYTYPE { return i.key }
+func (i *RBTREESETiter) Next() bool {
 	rbtree := i.rbtree
 	v := rbtree.nextidx(i.cur)
 	if v == 0 {
 		return false
 	}
-	i.cur, i.key, i.value = v, rbtree.tree[v].key, rbtree.tree[v].val
+	i.cur, i.key = v, rbtree.tree[v].key
 	return true
 }
-func (i *RBTREEMAPiter) Prev() bool {
+func (i *RBTREESETiter) Prev() bool {
 	rbtree := i.rbtree
 	v := rbtree.previdx(i.cur)
 	if v == 0 {
 		return false
 	}
-	i.cur, i.key, i.value = v, rbtree.tree[v].key, rbtree.tree[v].val
+	i.cur, i.key = v, rbtree.tree[v].key
 	return true
 }
-func NewRBTREEMAP(lessthan func(a, b KEYTYPE) bool) *RBTREEMAP {
-	q := &RBTREEMAP{lessthan, make([]RBTREEMAPnode, 2), int32(0), make([]int32, 0), 0, 0, 0}
+func NewRBTREESET(lessthan func(a, b KEYTYPE) bool) *RBTREESET {
+	q := &RBTREESET{lessthan, make([]RBTREESETnode, 2), int32(0), make([]int32, 0), 0, 0, 0}
 	q.tree[0].left, q.tree[0].right, q.tree[0].up, q.tree[0].red = 0, 0, 0, false
 	q.recycler = append(q.recycler, 1)
 	return q
 }
-func (q *RBTREEMAP) Add(k KEYTYPE, v VALTYPE) {
+func (q *RBTREESET) Add(k KEYTYPE) {
 
 	// Special case for size 0
 	if q.sz == 0 {
 		z := q.getNewNodenum()
 		tree := q.tree
 		q.minidx, q.maxidx, q.sz, q.root = z, z, q.sz+1, z
-		tree[z].key, tree[z].val, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, v, 0, 0, 0, false
+		tree[z].key, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, 0, 0, 0, false
 		return
 	}
 
 	y, cmp := q.findInsertionPoint(k)
 	if cmp == 0 {
-		q.tree[y].val = v
 		return
 	}
 	z := q.getNewNodenum()
 	q.sz += 1
 	tree := q.tree
-	tree[z].key, tree[z].val, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, v, y, 0, 0, true
+	tree[z].key, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, y, 0, 0, true
 	if cmp < 0 {
 		tree[y].left = z
 	} else {
@@ -132,7 +126,7 @@ func (q *RBTREEMAP) Add(k KEYTYPE, v VALTYPE) {
 	tree[q.root].red = false
 }
 
-func (q *RBTREEMAP) Delete(k KEYTYPE) bool {
+func (q *RBTREESET) Delete(k KEYTYPE) bool {
 	if q.sz == 0 {
 		return false
 	}
@@ -246,35 +240,35 @@ func (q *RBTREEMAP) Delete(k KEYTYPE) bool {
 	return true
 }
 
-//type RBTREEMAP struct { lessthan func(a,b KEYTYPE) bool;tree []RBTREEMAPnode; root int32; recycler []int32; sz int; }
-func (q *RBTREEMAP) Clear() {
+//type RBTREESET struct { lessthan func(a,b KEYTYPE) bool;tree []RBTREESETnode; root int32; recycler []int32; sz int; }
+func (q *RBTREESET) Clear() {
 	q.tree, q.root, q.recycler, q.sz = q.tree[:2], 0, q.recycler[:0], 0
 	q.recycler = append(q.recycler, int32(1))
 }
-func (q *RBTREEMAP) IsEmpty() bool           { return q.sz == 0 }
-func (q *RBTREEMAP) Contains(k KEYTYPE) bool { _, cmp := q.findInsertionPoint(k); return cmp == 0 }
-func (q *RBTREEMAP) Lookup(k KEYTYPE) (VALTYPE, bool) {
-	var def VALTYPE
-	z, cmp := q.findInsertionPoint(k)
+func (q *RBTREESET) IsEmpty() bool           { return q.sz == 0 }
+func (q *RBTREESET) Contains(k KEYTYPE) bool { _, cmp := q.findInsertionPoint(k); return cmp == 0 }
+func (q *RBTREESET) Count(k KEYTYPE) int {
+	_, cmp := q.findInsertionPoint(k)
 	if cmp == 0 {
-		return q.tree[z].val, true
+		return 1
 	}
-	return def, false
+	return 0
 }
-func (q *RBTREEMAP) Len() int { return q.sz }
-func (q *RBTREEMAP) MinKey() (k KEYTYPE) {
+
+func (q *RBTREESET) Len() int { return q.sz }
+func (q *RBTREESET) MinKey() (k KEYTYPE) {
 	if q.sz == 0 {
-		panic("Called MinKey on an empty RBTREEMAP")
+		panic("Called MinKey on an empty RBTREESET")
 	}
 	return q.tree[q.minidx].key
 }
-func (q *RBTREEMAP) MaxKey() (k KEYTYPE) {
+func (q *RBTREESET) MaxKey() (k KEYTYPE) {
 	if q.sz == 0 {
-		panic("Called MaxKey on an empty RBTREEMAP")
+		panic("Called MaxKey on an empty RBTREESET")
 	}
 	return q.tree[q.maxidx].key
 }
-func (q *RBTREEMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
+func (q *RBTREESET) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
 	var def KEYTYPE
 	if q.sz == 0 {
 		return def, false
@@ -288,7 +282,7 @@ func (q *RBTREEMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
 	}
 	return q.tree[idx].key, true
 }
-func (q *RBTREEMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
+func (q *RBTREESET) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
 	var def KEYTYPE
 	if q.sz == 0 {
 		return def, false
@@ -302,7 +296,7 @@ func (q *RBTREEMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
 	}
 	return q.tree[idx].key, true
 }
-func (q *RBTREEMAP) LowerBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREESET) LowerBoundIter(k KEYTYPE) (RBTREESETIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -313,9 +307,9 @@ func (q *RBTREEMAP) LowerBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if idx <= 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREESETiter{idx, q.tree[idx].key, q}, true
 }
-func (q *RBTREEMAP) UpperBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREESET) UpperBoundIter(k KEYTYPE) (RBTREESETIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -326,10 +320,10 @@ func (q *RBTREEMAP) UpperBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if idx <= 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREESETiter{idx, q.tree[idx].key, q}, true
 }
 
-func (q *RBTREEMAP) FindIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREESET) FindIter(k KEYTYPE) (RBTREESETIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -337,23 +331,23 @@ func (q *RBTREEMAP) FindIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if pos != 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREESETiter{idx, q.tree[idx].key, q}, true
 }
-func (q *RBTREEMAP) MinIter() (RBTREEMAPIterator, bool) {
+func (q *RBTREESET) MinIter() (RBTREESETIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
 	idx := q.findminidx(q.root)
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREESETiter{idx, q.tree[idx].key, q}, true
 }
-func (q *RBTREEMAP) MaxIter() (RBTREEMAPIterator, bool) {
+func (q *RBTREESET) MaxIter() (RBTREESETIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
 	idx := q.findmaxidx(q.root)
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREESETiter{idx, q.tree[idx].key, q}, true
 }
-func (q *RBTREEMAP) rbTransplant(u, v int32) {
+func (q *RBTREESET) rbTransplant(u, v int32) {
 	// Note v may be nil, but we can still set tree[v].up, which we exploit
 	tree := q.tree
 	if tree[u].up == 0 {
@@ -369,7 +363,7 @@ func (q *RBTREEMAP) rbTransplant(u, v int32) {
 	tree[v].up = tree[u].up
 }
 
-func (q *RBTREEMAP) findInsertionPoint(k KEYTYPE) (int32, int8) {
+func (q *RBTREESET) findInsertionPoint(k KEYTYPE) (int32, int8) {
 	n, lt, tree := q.root, q.lessthan, q.tree
 	for {
 		nkey := tree[n].key
@@ -391,7 +385,7 @@ func (q *RBTREEMAP) findInsertionPoint(k KEYTYPE) (int32, int8) {
 	}
 }
 
-func (q *RBTREEMAP) findmaxidx(n1 int32) int32 {
+func (q *RBTREESET) findmaxidx(n1 int32) int32 {
 	tree := q.tree
 	for {
 		xx := tree[n1].right
@@ -403,7 +397,7 @@ func (q *RBTREEMAP) findmaxidx(n1 int32) int32 {
 	return n1
 }
 
-func (q *RBTREEMAP) findminidx(n1 int32) int32 {
+func (q *RBTREESET) findminidx(n1 int32) int32 {
 	tree := q.tree
 	for {
 		xx := tree[n1].left
@@ -415,7 +409,7 @@ func (q *RBTREEMAP) findminidx(n1 int32) int32 {
 	return n1
 }
 
-func (q *RBTREEMAP) nextidx(cur int32) int32 {
+func (q *RBTREESET) nextidx(cur int32) int32 {
 	last := int32(-2)
 	tree := q.tree
 	rr := tree[cur].right
@@ -431,7 +425,7 @@ func (q *RBTREEMAP) nextidx(cur int32) int32 {
 	return cur
 }
 
-func (q *RBTREEMAP) previdx(cur int32) int32 {
+func (q *RBTREESET) previdx(cur int32) int32 {
 	last := int32(0)
 	tree := q.tree
 	ll := tree[cur].left
@@ -447,7 +441,7 @@ func (q *RBTREEMAP) previdx(cur int32) int32 {
 	return cur
 }
 
-func (q *RBTREEMAP) rotleft(x int32) {
+func (q *RBTREESET) rotleft(x int32) {
 	tree := q.tree
 	y := tree[x].right
 	p := tree[x].up
@@ -467,7 +461,7 @@ func (q *RBTREEMAP) rotleft(x int32) {
 	tree[x].up = y
 }
 
-func (q *RBTREEMAP) rotright(x int32) {
+func (q *RBTREESET) rotright(x int32) {
 	tree := q.tree
 	y := tree[x].left
 	p := tree[x].up
@@ -487,12 +481,12 @@ func (q *RBTREEMAP) rotright(x int32) {
 	tree[x].up = y
 }
 
-func (q *RBTREEMAP) getNewNodenum() int32 {
+func (q *RBTREESET) getNewNodenum() int32 {
 	l := len(q.recycler)
 	newnode := q.recycler[l-1]
 	q.recycler = q.recycler[:l-1]
 	if l == 1 {
-		q.tree = append(q.tree, RBTREEMAPnode{})
+		q.tree = append(q.tree, RBTREESETnode{})
 		q.recycler = append(q.recycler, int32(len(q.tree)-1))
 	}
 	return newnode

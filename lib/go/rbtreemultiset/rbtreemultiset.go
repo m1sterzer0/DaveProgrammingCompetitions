@@ -1,83 +1,83 @@
 package rbtreemap
 
 type KEYTYPE int
-type VALTYPE int
 
 //START HERE
-type RBTREEMAPnode struct {
+type RBTREEMULTIMAPnode struct {
 	left, right, up int32
 	red             bool
 	key             KEYTYPE
-	val             VALTYPE
+	count           int
 }
-type RBTREEMAP struct {
+type RBTREEMULTIMAP struct {
 	lessthan func(a, b KEYTYPE) bool
-	tree     []RBTREEMAPnode
+	tree     []RBTREEMULTIMAPnode
 	root     int32
 	recycler []int32
 	sz       int
 	minidx   int32
 	maxidx   int32
 }
-type RBTREEMAPIterator interface {
+type RBTREEMULTIMAPIterator interface {
 	Next() (ok bool)
 	Prev() (ok bool)
 	Key() KEYTYPE
-	Value() VALTYPE
+	Count() int
 }
-type RBTREEMAPiter struct {
+type RBTREEMULTIMAPiter struct {
 	cur    int32
 	key    KEYTYPE
-	value  VALTYPE
-	rbtree *RBTREEMAP
+	count  int
+	rbtree *RBTREEMULTIMAP
 }
 
-func (i *RBTREEMAPiter) Key() KEYTYPE   { return i.key }
-func (i *RBTREEMAPiter) Value() VALTYPE { return i.value }
-func (i *RBTREEMAPiter) Next() bool {
+func (i *RBTREEMULTIMAPiter) Key() KEYTYPE { return i.key }
+func (i *RBTREEMULTIMAPiter) Count() int   { return i.count }
+func (i *RBTREEMULTIMAPiter) Next() bool {
 	rbtree := i.rbtree
 	v := rbtree.nextidx(i.cur)
 	if v == 0 {
 		return false
 	}
-	i.cur, i.key, i.value = v, rbtree.tree[v].key, rbtree.tree[v].val
+	i.cur, i.key, i.count = v, rbtree.tree[v].key, rbtree.tree[v].count
 	return true
 }
-func (i *RBTREEMAPiter) Prev() bool {
+func (i *RBTREEMULTIMAPiter) Prev() bool {
 	rbtree := i.rbtree
 	v := rbtree.previdx(i.cur)
 	if v == 0 {
 		return false
 	}
-	i.cur, i.key, i.value = v, rbtree.tree[v].key, rbtree.tree[v].val
+	i.cur, i.key, i.count = v, rbtree.tree[v].key, rbtree.tree[v].count
 	return true
 }
-func NewRBTREEMAP(lessthan func(a, b KEYTYPE) bool) *RBTREEMAP {
-	q := &RBTREEMAP{lessthan, make([]RBTREEMAPnode, 2), int32(0), make([]int32, 0), 0, 0, 0}
+func NewRBTREEMULTIMAP(lessthan func(a, b KEYTYPE) bool) *RBTREEMULTIMAP {
+	q := &RBTREEMULTIMAP{lessthan, make([]RBTREEMULTIMAPnode, 2), int32(0), make([]int32, 0), 0, 0, 0}
 	q.tree[0].left, q.tree[0].right, q.tree[0].up, q.tree[0].red = 0, 0, 0, false
 	q.recycler = append(q.recycler, 1)
 	return q
 }
-func (q *RBTREEMAP) Add(k KEYTYPE, v VALTYPE) {
+func (q *RBTREEMULTIMAP) Add(k KEYTYPE) {
 
 	// Special case for size 0
 	if q.sz == 0 {
 		z := q.getNewNodenum()
 		tree := q.tree
 		q.minidx, q.maxidx, q.sz, q.root = z, z, q.sz+1, z
-		tree[z].key, tree[z].val, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, v, 0, 0, 0, false
+		tree[z].key, tree[z].count, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, 1, 0, 0, 0, false
 		return
 	}
 
 	y, cmp := q.findInsertionPoint(k)
 	if cmp == 0 {
-		q.tree[y].val = v
+		q.tree[y].count++
+		q.sz += 1
 		return
 	}
 	z := q.getNewNodenum()
 	q.sz += 1
 	tree := q.tree
-	tree[z].key, tree[z].val, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, v, y, 0, 0, true
+	tree[z].key, tree[z].count, tree[z].up, tree[z].left, tree[z].right, tree[z].red = k, 1, y, 0, 0, true
 	if cmp < 0 {
 		tree[y].left = z
 	} else {
@@ -132,13 +132,17 @@ func (q *RBTREEMAP) Add(k KEYTYPE, v VALTYPE) {
 	tree[q.root].red = false
 }
 
-func (q *RBTREEMAP) Delete(k KEYTYPE) bool {
+func (q *RBTREEMULTIMAP) Delete(k KEYTYPE) bool {
 	if q.sz == 0 {
 		return false
 	}
 	z, cmp := q.findInsertionPoint(k)
 	if cmp != 0 {
 		return false
+	} else if q.tree[z].count > 1 {
+		q.tree[z].count--
+		q.sz--
+		return true
 	}
 	q.sz--
 	q.recycler = append(q.recycler, z)
@@ -246,35 +250,35 @@ func (q *RBTREEMAP) Delete(k KEYTYPE) bool {
 	return true
 }
 
-//type RBTREEMAP struct { lessthan func(a,b KEYTYPE) bool;tree []RBTREEMAPnode; root int32; recycler []int32; sz int; }
-func (q *RBTREEMAP) Clear() {
+//type RBTREEMULTIMAP struct { lessthan func(a,b KEYTYPE) bool;tree []RBTREEMULTIMAPnode; root int32; recycler []int32; sz int; }
+func (q *RBTREEMULTIMAP) Clear() {
 	q.tree, q.root, q.recycler, q.sz = q.tree[:2], 0, q.recycler[:0], 0
 	q.recycler = append(q.recycler, int32(1))
 }
-func (q *RBTREEMAP) IsEmpty() bool           { return q.sz == 0 }
-func (q *RBTREEMAP) Contains(k KEYTYPE) bool { _, cmp := q.findInsertionPoint(k); return cmp == 0 }
-func (q *RBTREEMAP) Lookup(k KEYTYPE) (VALTYPE, bool) {
-	var def VALTYPE
+func (q *RBTREEMULTIMAP) IsEmpty() bool           { return q.sz == 0 }
+func (q *RBTREEMULTIMAP) Contains(k KEYTYPE) bool { _, cmp := q.findInsertionPoint(k); return cmp == 0 }
+func (q *RBTREEMULTIMAP) Count(k KEYTYPE) int {
 	z, cmp := q.findInsertionPoint(k)
-	if cmp == 0 {
-		return q.tree[z].val, true
+	if cmp != 0 {
+		return 0
 	}
-	return def, false
+	return q.tree[z].count
 }
-func (q *RBTREEMAP) Len() int { return q.sz }
-func (q *RBTREEMAP) MinKey() (k KEYTYPE) {
+
+func (q *RBTREEMULTIMAP) Len() int { return q.sz }
+func (q *RBTREEMULTIMAP) MinKey() (k KEYTYPE) {
 	if q.sz == 0 {
-		panic("Called MinKey on an empty RBTREEMAP")
+		panic("Called MinKey on an empty RBTREEMULTIMAP")
 	}
 	return q.tree[q.minidx].key
 }
-func (q *RBTREEMAP) MaxKey() (k KEYTYPE) {
+func (q *RBTREEMULTIMAP) MaxKey() (k KEYTYPE) {
 	if q.sz == 0 {
-		panic("Called MaxKey on an empty RBTREEMAP")
+		panic("Called MaxKey on an empty RBTREEMULTIMAP")
 	}
 	return q.tree[q.maxidx].key
 }
-func (q *RBTREEMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
+func (q *RBTREEMULTIMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
 	var def KEYTYPE
 	if q.sz == 0 {
 		return def, false
@@ -288,7 +292,7 @@ func (q *RBTREEMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
 	}
 	return q.tree[idx].key, true
 }
-func (q *RBTREEMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
+func (q *RBTREEMULTIMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
 	var def KEYTYPE
 	if q.sz == 0 {
 		return def, false
@@ -302,7 +306,7 @@ func (q *RBTREEMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
 	}
 	return q.tree[idx].key, true
 }
-func (q *RBTREEMAP) LowerBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREEMULTIMAP) LowerBoundIter(k KEYTYPE) (RBTREEMULTIMAPIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -313,9 +317,9 @@ func (q *RBTREEMAP) LowerBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if idx <= 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREEMULTIMAPiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
 }
-func (q *RBTREEMAP) UpperBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREEMULTIMAP) UpperBoundIter(k KEYTYPE) (RBTREEMULTIMAPIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -326,10 +330,10 @@ func (q *RBTREEMAP) UpperBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if idx <= 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREEMULTIMAPiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
 }
 
-func (q *RBTREEMAP) FindIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+func (q *RBTREEMULTIMAP) FindIter(k KEYTYPE) (RBTREEMULTIMAPIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
@@ -337,23 +341,23 @@ func (q *RBTREEMAP) FindIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
 	if pos != 0 {
 		return nil, false
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREEMULTIMAPiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
 }
-func (q *RBTREEMAP) MinIter() (RBTREEMAPIterator, bool) {
+func (q *RBTREEMULTIMAP) MinIter() (RBTREEMULTIMAPIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
 	idx := q.findminidx(q.root)
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREEMULTIMAPiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
 }
-func (q *RBTREEMAP) MaxIter() (RBTREEMAPIterator, bool) {
+func (q *RBTREEMULTIMAP) MaxIter() (RBTREEMULTIMAPIterator, bool) {
 	if q.sz == 0 {
 		return nil, false
 	}
 	idx := q.findmaxidx(q.root)
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return &RBTREEMULTIMAPiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
 }
-func (q *RBTREEMAP) rbTransplant(u, v int32) {
+func (q *RBTREEMULTIMAP) rbTransplant(u, v int32) {
 	// Note v may be nil, but we can still set tree[v].up, which we exploit
 	tree := q.tree
 	if tree[u].up == 0 {
@@ -369,7 +373,7 @@ func (q *RBTREEMAP) rbTransplant(u, v int32) {
 	tree[v].up = tree[u].up
 }
 
-func (q *RBTREEMAP) findInsertionPoint(k KEYTYPE) (int32, int8) {
+func (q *RBTREEMULTIMAP) findInsertionPoint(k KEYTYPE) (int32, int8) {
 	n, lt, tree := q.root, q.lessthan, q.tree
 	for {
 		nkey := tree[n].key
@@ -391,7 +395,7 @@ func (q *RBTREEMAP) findInsertionPoint(k KEYTYPE) (int32, int8) {
 	}
 }
 
-func (q *RBTREEMAP) findmaxidx(n1 int32) int32 {
+func (q *RBTREEMULTIMAP) findmaxidx(n1 int32) int32 {
 	tree := q.tree
 	for {
 		xx := tree[n1].right
@@ -403,7 +407,7 @@ func (q *RBTREEMAP) findmaxidx(n1 int32) int32 {
 	return n1
 }
 
-func (q *RBTREEMAP) findminidx(n1 int32) int32 {
+func (q *RBTREEMULTIMAP) findminidx(n1 int32) int32 {
 	tree := q.tree
 	for {
 		xx := tree[n1].left
@@ -415,7 +419,7 @@ func (q *RBTREEMAP) findminidx(n1 int32) int32 {
 	return n1
 }
 
-func (q *RBTREEMAP) nextidx(cur int32) int32 {
+func (q *RBTREEMULTIMAP) nextidx(cur int32) int32 {
 	last := int32(-2)
 	tree := q.tree
 	rr := tree[cur].right
@@ -431,7 +435,7 @@ func (q *RBTREEMAP) nextidx(cur int32) int32 {
 	return cur
 }
 
-func (q *RBTREEMAP) previdx(cur int32) int32 {
+func (q *RBTREEMULTIMAP) previdx(cur int32) int32 {
 	last := int32(0)
 	tree := q.tree
 	ll := tree[cur].left
@@ -447,7 +451,7 @@ func (q *RBTREEMAP) previdx(cur int32) int32 {
 	return cur
 }
 
-func (q *RBTREEMAP) rotleft(x int32) {
+func (q *RBTREEMULTIMAP) rotleft(x int32) {
 	tree := q.tree
 	y := tree[x].right
 	p := tree[x].up
@@ -467,7 +471,7 @@ func (q *RBTREEMAP) rotleft(x int32) {
 	tree[x].up = y
 }
 
-func (q *RBTREEMAP) rotright(x int32) {
+func (q *RBTREEMULTIMAP) rotright(x int32) {
 	tree := q.tree
 	y := tree[x].left
 	p := tree[x].up
@@ -487,12 +491,12 @@ func (q *RBTREEMAP) rotright(x int32) {
 	tree[x].up = y
 }
 
-func (q *RBTREEMAP) getNewNodenum() int32 {
+func (q *RBTREEMULTIMAP) getNewNodenum() int32 {
 	l := len(q.recycler)
 	newnode := q.recycler[l-1]
 	q.recycler = q.recycler[:l-1]
 	if l == 1 {
-		q.tree = append(q.tree, RBTREEMAPnode{})
+		q.tree = append(q.tree, RBTREEMULTIMAPnode{})
 		q.recycler = append(q.recycler, int32(len(q.tree)-1))
 	}
 	return newnode
