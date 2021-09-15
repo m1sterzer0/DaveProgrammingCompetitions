@@ -30,6 +30,9 @@ func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i 
 func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
 func gbs() []byte { return []byte(gs()) }
 func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
+func gi2() (int,int) { return gi(),gi() }
+func gi3() (int,int,int) { return gi(),gi(),gi() }
+func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
 func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
 func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
 
@@ -126,6 +129,10 @@ if __name__ == "__main__" :
     probList += [(f"abc169",f"abc169_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc170",f"abc170_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc171",f"abc171_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc172",f"abc172_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc173",f"abc173_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc174",f"abc174_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc175",f"abc175_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
