@@ -87,8 +87,16 @@ notes["abc169_E"] = "Median, Casework"
 notes["abc169_F"] = "DP, Subsets"
 notes["abc170_E"] = "Lots of minheaps or lots of multisets"
 notes["abc170_F"] = "Clever Dijkstra.  Somewhat time challenged in both go and python (there is likely more optimization to be done)."
-
-
+notes["abc171_E"] = "Simple xor problem"
+notes["abc171_F"] = "Counting. Strings of length N with given subsequence"
+notes["abc172_E"] = "Counting. Inclusion/Exclusion"
+notes["abc172_F"] = "NIM. Relationship between xor and addition. Bitwise."
+notes["abc173_E"] = "Either lots of casework or smarter brute force (I did the casework)."
+notes["abc173_F"] = "Counting.  Connected components on tree."
+notes["abc174_E"] = "Simple binary search"
+notes["abc174_F"] = "Range set query. Offline processing. Fenwick tree."
+notes["abc175_E"] = "DP on a grid"
+notes["abc175_F"] = "Palindromes. Dijkstra with string states."
 
 def parseDifficulty(s) :
     probsByContest = {}
