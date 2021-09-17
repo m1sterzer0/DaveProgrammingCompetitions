@@ -60,6 +60,7 @@ abc214,8306,7169,4828,1346,551,406,32,14
 abc215,8363,7060,5851,3216,1192,518,186,17
 abc216,6997,6554,5356,1969,1847,898,393,9
 abc217,8119,8096,7544,3115,2445,444,376,59
+abc218,8653,8436,2385,3491,2408,669,235,48
 '''
 
 notes = {}
@@ -96,7 +97,17 @@ notes["abc173_F"] = "Counting.  Connected components on tree."
 notes["abc174_E"] = "Simple binary search"
 notes["abc174_F"] = "Range set query. Offline processing. Fenwick tree."
 notes["abc175_E"] = "DP on a grid"
-notes["abc175_F"] = "Palindromes. Dijkstra with string states."
+notes["abc176_E"] = "Coordinate compression, maps"
+notes["abc176_F"] = "Tricky DP (need to be efficient)"
+notes["abc177_E"] = "Factor sieve"
+notes["abc177_F"] = "Tricky lazy segtree"
+notes["abc178_E"] = "45 deg Rotation for L1 -> Linf norm"
+notes["abc178_F"] = "Easy greedy assignment problem"
+notes["abc179_E"] = "Typical 'find the sequence loop' problem"
+notes["abc179_F"] = "Another lazy segtree problem (other approaches too)"
+notes["abc180_E"] = "Permutation to subset dp conversion"
+notes["abc180_F"] = "Graph creation, DP"
+
 
 def parseDifficulty(s) :
     probsByContest = {}

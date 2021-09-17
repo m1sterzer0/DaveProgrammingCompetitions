@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-240%20%2F%20360-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-96%20%2F%20360-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-248%20%2F%20368-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-126%20%2F%20368-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -17,7 +17,19 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc200](https://atcoder.jp/contests/abc200); [sol](#abc200-Solutions) | [abc201](https://atcoder.jp/contests/abc201); [sol](#abc201-Solutions) | [abc202](https://atcoder.jp/contests/abc202); [sol](#abc202-Solutions) | [abc203](https://atcoder.jp/contests/abc203); [sol](#abc203-Solutions) | [abc204](https://atcoder.jp/contests/abc204); [sol](#abc204-Solutions) |
 | [abc205](https://atcoder.jp/contests/abc205); [sol](#abc205-Solutions) | [abc206](https://atcoder.jp/contests/abc206); [sol](#abc206-Solutions) | [abc207](https://atcoder.jp/contests/abc207); [sol](#abc207-Solutions) | [abc208](https://atcoder.jp/contests/abc208); [sol](#abc208-Solutions) | [abc209](https://atcoder.jp/contests/abc209); [sol](#abc209-Solutions) |
 | [abc210](https://atcoder.jp/contests/abc210); [sol](#abc210-Solutions) | [abc211](https://atcoder.jp/contests/abc211); [sol](#abc211-Solutions) | [abc212](https://atcoder.jp/contests/abc212); [sol](#abc212-Solutions) | [abc213](https://atcoder.jp/contests/abc213); [sol](#abc213-Solutions) | [abc214](https://atcoder.jp/contests/abc214); [sol](#abc214-Solutions) |
-| [abc215](https://atcoder.jp/contests/abc215); [sol](#abc215-Solutions) | [abc216](https://atcoder.jp/contests/abc216); [sol](#abc216-Solutions) | [abc217](https://atcoder.jp/contests/abc217); [sol](#abc217-Solutions) | | |
+| [abc215](https://atcoder.jp/contests/abc215); [sol](#abc215-Solutions) | [abc216](https://atcoder.jp/contests/abc216); [sol](#abc216-Solutions) | [abc217](https://atcoder.jp/contests/abc217); [sol](#abc217-Solutions) | [abc218](https://atcoder.jp/contests/abc218); [sol](#abc218-Solutions) | |
+
+## abc218 Solutions
+| Contest | Problem | Num Correct | Solutions | Notes |
+| ------- | ------- | ----------: | --------- | ----- |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_A](http:/atcoder.jp/contests/abc218/tasks/abc218_A) | 8653 |  [pypy3](./python/abc218/abc218_A.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_B](http:/atcoder.jp/contests/abc218/tasks/abc218_B) | 8436 |  [pypy3](./python/abc218/abc218_B.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_C](http:/atcoder.jp/contests/abc218/tasks/abc218_C) | 2385 |  [pypy3](./python/abc218/abc218_C.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_D](http:/atcoder.jp/contests/abc218/tasks/abc218_D) | 3491 |  [pypy3](./python/abc218/abc218_D.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_E](http:/atcoder.jp/contests/abc218/tasks/abc218_E) | 2408 |  [pypy3](./python/abc218/abc218_E.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_F](http:/atcoder.jp/contests/abc218/tasks/abc218_F) | 669 |  [pypy3](./python/abc218/abc218_F.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_G](http:/atcoder.jp/contests/abc218/tasks/abc218_G) | 235 |  [pypy3](./python/abc218/abc218_G.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_H](http:/atcoder.jp/contests/abc218/tasks/abc218_H) | 48 |  [pypy3](./python/abc218/abc218_H.py) |  |
 
 ## abc217 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
@@ -404,52 +416,52 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 ## abc180 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_A](http:/atcoder.jp/contests/abc180/tasks/abc180_A) | 5699 |  |  |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_B](http:/atcoder.jp/contests/abc180/tasks/abc180_B) | 4683 |  |  |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_C](http:/atcoder.jp/contests/abc180/tasks/abc180_C) | 4585 |  |  |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_D](http:/atcoder.jp/contests/abc180/tasks/abc180_D) | 2471 |  |  |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_E](http:/atcoder.jp/contests/abc180/tasks/abc180_E) | 1189 |  |  |
-| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_F](http:/atcoder.jp/contests/abc180/tasks/abc180_F) | 80 |  |  |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_A](http:/atcoder.jp/contests/abc180/tasks/abc180_A) | 5699 |  [go](./go/abc180/abc180_A/abc180_A.go) |  |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_B](http:/atcoder.jp/contests/abc180/tasks/abc180_B) | 4683 |  [go](./go/abc180/abc180_B/abc180_B.go) |  |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_C](http:/atcoder.jp/contests/abc180/tasks/abc180_C) | 4585 |  [go](./go/abc180/abc180_C/abc180_C.go) |  |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_D](http:/atcoder.jp/contests/abc180/tasks/abc180_D) | 2471 |  [go](./go/abc180/abc180_D/abc180_D.go) |  |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_E](http:/atcoder.jp/contests/abc180/tasks/abc180_E) | 1189 |  [go](./go/abc180/abc180_E/abc180_E.go) | Permutation to subset dp conversion |
+| [abc180](http:/atcoder.jp/contests/abc180) | [abc180_F](http:/atcoder.jp/contests/abc180/tasks/abc180_F) | 80 |  [go](./go/abc180/abc180_F/abc180_F.go) | Graph creation, DP |
 
 ## abc179 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_A](http:/atcoder.jp/contests/abc179/tasks/abc179_A) | 8716 |  [pypy3](./python/abc179/abc179_A.py) |  |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_B](http:/atcoder.jp/contests/abc179/tasks/abc179_B) | 8333 |  [pypy3](./python/abc179/abc179_B.py) |  |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_C](http:/atcoder.jp/contests/abc179/tasks/abc179_C) | 6059 |  [pypy3](./python/abc179/abc179_C.py) |  |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_D](http:/atcoder.jp/contests/abc179/tasks/abc179_D) | 1777 |  [pypy3](./python/abc179/abc179_D.py) |  |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_E](http:/atcoder.jp/contests/abc179/tasks/abc179_E) | 2008 |  [pypy3](./python/abc179/abc179_E.py) |  |
-| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_F](http:/atcoder.jp/contests/abc179/tasks/abc179_F) | 707 |  [pypy3](./python/abc179/abc179_F.py) |  |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_A](http:/atcoder.jp/contests/abc179/tasks/abc179_A) | 8716 |  [pypy3](./python/abc179/abc179_A.py) [go](./go/abc179/abc179_A/abc179_A.go) |  |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_B](http:/atcoder.jp/contests/abc179/tasks/abc179_B) | 8333 |  [pypy3](./python/abc179/abc179_B.py) [go](./go/abc179/abc179_B/abc179_B.go) |  |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_C](http:/atcoder.jp/contests/abc179/tasks/abc179_C) | 6059 |  [pypy3](./python/abc179/abc179_C.py) [go](./go/abc179/abc179_C/abc179_C.go) |  |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_D](http:/atcoder.jp/contests/abc179/tasks/abc179_D) | 1777 |  [pypy3](./python/abc179/abc179_D.py) [go](./go/abc179/abc179_D/abc179_D.go) |  |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_E](http:/atcoder.jp/contests/abc179/tasks/abc179_E) | 2008 |  [pypy3](./python/abc179/abc179_E.py) [go](./go/abc179/abc179_E/abc179_E.go) | Typical 'find the sequence loop' problem |
+| [abc179](http:/atcoder.jp/contests/abc179) | [abc179_F](http:/atcoder.jp/contests/abc179/tasks/abc179_F) | 707 |  [pypy3](./python/abc179/abc179_F.py) [go](./go/abc179/abc179_F/abc179_F.go) | Another lazy segtree problem (other approaches too) |
 
 ## abc178 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_A](http:/atcoder.jp/contests/abc178/tasks/abc178_A) | 9574 |  [pypy3](./python/abc178/abc178_A.py) |  |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_B](http:/atcoder.jp/contests/abc178/tasks/abc178_B) | 8730 |  [pypy3](./python/abc178/abc178_B.py) |  |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_C](http:/atcoder.jp/contests/abc178/tasks/abc178_C) | 4565 |  [pypy3](./python/abc178/abc178_C.py) |  |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_D](http:/atcoder.jp/contests/abc178/tasks/abc178_D) | 3462 |  [pypy3](./python/abc178/abc178_D.py) |  |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_E](http:/atcoder.jp/contests/abc178/tasks/abc178_E) | 2653 |  [pypy3](./python/abc178/abc178_E.py) |  |
-| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_F](http:/atcoder.jp/contests/abc178/tasks/abc178_F) | 512 |  [pypy3](./python/abc178/abc178_F.py) |  |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_A](http:/atcoder.jp/contests/abc178/tasks/abc178_A) | 9574 |  [pypy3](./python/abc178/abc178_A.py) [go](./go/abc178/abc178_A/abc178_A.go) |  |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_B](http:/atcoder.jp/contests/abc178/tasks/abc178_B) | 8730 |  [pypy3](./python/abc178/abc178_B.py) [go](./go/abc178/abc178_B/abc178_B.go) |  |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_C](http:/atcoder.jp/contests/abc178/tasks/abc178_C) | 4565 |  [pypy3](./python/abc178/abc178_C.py) [go](./go/abc178/abc178_C/abc178_C.go) |  |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_D](http:/atcoder.jp/contests/abc178/tasks/abc178_D) | 3462 |  [pypy3](./python/abc178/abc178_D.py) [go](./go/abc178/abc178_D/abc178_D.go) |  |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_E](http:/atcoder.jp/contests/abc178/tasks/abc178_E) | 2653 |  [pypy3](./python/abc178/abc178_E.py) [go](./go/abc178/abc178_E/abc178_E.go) | 45 deg Rotation for L1 -> Linf norm |
+| [abc178](http:/atcoder.jp/contests/abc178) | [abc178_F](http:/atcoder.jp/contests/abc178/tasks/abc178_F) | 512 |  [pypy3](./python/abc178/abc178_F.py) [go](./go/abc178/abc178_F/abc178_F.go) | Easy greedy assignment problem |
 
 ## abc177 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_A](http:/atcoder.jp/contests/abc177/tasks/abc177_A) | 9347 |  [pypy3](./python/abc177/abc177_A.py) |  |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_B](http:/atcoder.jp/contests/abc177/tasks/abc177_B) | 7137 |  [pypy3](./python/abc177/abc177_B.py) |  |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_C](http:/atcoder.jp/contests/abc177/tasks/abc177_C) | 5863 |  [pypy3](./python/abc177/abc177_C.py) |  |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_D](http:/atcoder.jp/contests/abc177/tasks/abc177_D) | 4125 |  [pypy3](./python/abc177/abc177_D.py) |  |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_E](http:/atcoder.jp/contests/abc177/tasks/abc177_E) | 2584 |  [pypy3](./python/abc177/abc177_E.py) |  |
-| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_F](http:/atcoder.jp/contests/abc177/tasks/abc177_F) | 152 |  [pypy3](./python/abc177/abc177_F.py) |  |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_A](http:/atcoder.jp/contests/abc177/tasks/abc177_A) | 9347 |  [pypy3](./python/abc177/abc177_A.py) [go](./go/abc177/abc177_A/abc177_A.go) |  |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_B](http:/atcoder.jp/contests/abc177/tasks/abc177_B) | 7137 |  [pypy3](./python/abc177/abc177_B.py) [go](./go/abc177/abc177_B/abc177_B.go) |  |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_C](http:/atcoder.jp/contests/abc177/tasks/abc177_C) | 5863 |  [pypy3](./python/abc177/abc177_C.py) [go](./go/abc177/abc177_C/abc177_C.go) |  |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_D](http:/atcoder.jp/contests/abc177/tasks/abc177_D) | 4125 |  [pypy3](./python/abc177/abc177_D.py) [go](./go/abc177/abc177_D/abc177_D.go) |  |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_E](http:/atcoder.jp/contests/abc177/tasks/abc177_E) | 2584 |  [pypy3](./python/abc177/abc177_E.py) [go](./go/abc177/abc177_E/abc177_E.go) | Factor sieve |
+| [abc177](http:/atcoder.jp/contests/abc177) | [abc177_F](http:/atcoder.jp/contests/abc177/tasks/abc177_F) | 152 |  [pypy3](./python/abc177/abc177_F.py) [go](./go/abc177/abc177_F/abc177_F.go) | Tricky lazy segtree |
 
 ## abc176 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_A](http:/atcoder.jp/contests/abc176/tasks/abc176_A) | 9228 |  [pypy3](./python/abc176/abc176_A.py) |  |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_B](http:/atcoder.jp/contests/abc176/tasks/abc176_B) | 8679 |  [pypy3](./python/abc176/abc176_B.py) |  |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_C](http:/atcoder.jp/contests/abc176/tasks/abc176_C) | 8381 |  [pypy3](./python/abc176/abc176_C.py) |  |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_D](http:/atcoder.jp/contests/abc176/tasks/abc176_D) | 1804 |  [pypy3](./python/abc176/abc176_D.py) |  |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_E](http:/atcoder.jp/contests/abc176/tasks/abc176_E) | 1958 |  [pypy3](./python/abc176/abc176_E.py) |  |
-| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_F](http:/atcoder.jp/contests/abc176/tasks/abc176_F) | 18 |  [pypy3](./python/abc176/abc176_F.py) |  |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_A](http:/atcoder.jp/contests/abc176/tasks/abc176_A) | 9228 |  [pypy3](./python/abc176/abc176_A.py) [go](./go/abc176/abc176_A/abc176_A.go) |  |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_B](http:/atcoder.jp/contests/abc176/tasks/abc176_B) | 8679 |  [pypy3](./python/abc176/abc176_B.py) [go](./go/abc176/abc176_B/abc176_B.go) |  |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_C](http:/atcoder.jp/contests/abc176/tasks/abc176_C) | 8381 |  [pypy3](./python/abc176/abc176_C.py) [go](./go/abc176/abc176_C/abc176_C.go) |  |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_D](http:/atcoder.jp/contests/abc176/tasks/abc176_D) | 1804 |  [pypy3](./python/abc176/abc176_D.py) [go](./go/abc176/abc176_D/abc176_D.go) |  |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_E](http:/atcoder.jp/contests/abc176/tasks/abc176_E) | 1958 |  [pypy3](./python/abc176/abc176_E.py) [go](./go/abc176/abc176_E/abc176_E.go) | Coordinate compression, maps |
+| [abc176](http:/atcoder.jp/contests/abc176) | [abc176_F](http:/atcoder.jp/contests/abc176/tasks/abc176_F) | 18 |  [pypy3](./python/abc176/abc176_F.py) [go](./go/abc176/abc176_F/abc176_F.go) | Tricky DP (need to be efficient) |
 
 ## abc175 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
@@ -459,7 +471,7 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc175](http:/atcoder.jp/contests/abc175) | [abc175_C](http:/atcoder.jp/contests/abc175/tasks/abc175_C) | 5316 |  [pypy3](./python/abc175/abc175_C.py) [go](./go/abc175/abc175_C/abc175_C.go) |  |
 | [abc175](http:/atcoder.jp/contests/abc175) | [abc175_D](http:/atcoder.jp/contests/abc175/tasks/abc175_D) | 1103 |  [pypy3](./python/abc175/abc175_D.py) [go](./go/abc175/abc175_D/abc175_D.go) |  |
 | [abc175](http:/atcoder.jp/contests/abc175) | [abc175_E](http:/atcoder.jp/contests/abc175/tasks/abc175_E) | 984 |  [pypy3](./python/abc175/abc175_E.py) [go](./go/abc175/abc175_E/abc175_E.go) | DP on a grid |
-| [abc175](http:/atcoder.jp/contests/abc175) | [abc175_F](http:/atcoder.jp/contests/abc175/tasks/abc175_F) | 73 |  [pypy3](./python/abc175/abc175_F.py) [go](./go/abc175/abc175_F/abc175_F.go) | Palindromes. Dijkstra with string states. |
+| [abc175](http:/atcoder.jp/contests/abc175) | [abc175_F](http:/atcoder.jp/contests/abc175/tasks/abc175_F) | 73 |  [pypy3](./python/abc175/abc175_F.py) [go](./go/abc175/abc175_F/abc175_F.go) |  |
 
 ## abc174 Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
