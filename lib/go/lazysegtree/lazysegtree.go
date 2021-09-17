@@ -24,12 +24,18 @@ func NewLAZYSEGTREE(n int, op func(DATATYPE, DATATYPE) DATATYPE, mapping func(FU
 }
 func NewLAZYSEGTREEVec(v []DATATYPE, op func(DATATYPE, DATATYPE) DATATYPE, mapping func(FUNCTYPE, DATATYPE) DATATYPE, composition func(FUNCTYPE, FUNCTYPE) FUNCTYPE, e DATATYPE, id FUNCTYPE) *LAZYSEGTREE {
 	n, sz, log := len(v), 1, 0
-	for n < sz {
+	for sz < n {
 		sz <<= 1
 		log += 1
 	}
 	d := make([]DATATYPE, 2*sz)
 	lz := make([]FUNCTYPE, sz)
+	for i := 0; i < 2*sz; i++ {
+		d[i] = e
+	}
+	for i := 0; i < sz; i++ {
+		lz[i] = id
+	}
 	d[0] = e
 	for i := 0; i < n; i++ {
 		d[sz+i] = v[i]
@@ -133,7 +139,7 @@ func (q *LAZYSEGTREE) ApplyRange(l int, r int, f FUNCTYPE) {
 		r >>= 1
 	}
 	l, r = l2, r2
-	for i := q.log; i >= 1; i-- {
+	for i := 1; i <= q.log; i++ {
 		if ((l >> i) << i) != l {
 			q.update(l >> i)
 		}
