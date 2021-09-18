@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-difficulty_data = '''
+solversData = '''
 abc160,9557,9427,7443,3417,2721,339
 abc161,9784,8263,7740,2865,682,1117
 abc162,10333,9924,8304,4199,850,680
@@ -62,6 +62,67 @@ abc216,6997,6554,5356,1969,1847,898,393,9
 abc217,8119,8096,7544,3115,2445,444,376,59
 abc218,8653,8436,2385,3491,2408,669,235,48
 '''
+problemRatingData = '''
+abc160,0,0,62,879,1036,2048
+abc161,0,0,4,991,1760,1528
+abc162,0,0,34,757,1662,1764
+abc163,0,0,125,960,2037,2470
+abc164,0,0,0,1232,1877,2683
+abc165,0,0,1136,600,1620,1843
+abc166,0,0,233,694,1062,1668
+abc167,0,0,595,754,1442,1961
+abc168,0,0,178,804,1896,2478
+abc169,0,349,597,732,1353,1698
+abc170,0,0,15,1033,1502,1968
+abc171,0,0,560,498,778,1795
+abc172,0,0,930,963,1880,2216
+abc173,0,0,653,720,1607,1892
+abc174,0,0,902,486,1227,1495
+abc175,0,0,417,1491,1554,2512
+abc176,0,0,0,1248,1204,2912
+abc177,0,108,386,732,1057,2291
+abc178,0,0,653,875,1054,1877
+abc179,0,0,261,1251,1175,1713
+abc180,0,0,0,752,1256,2419
+abc181,0,0,248,600,1193,2009
+abc182,0,0,274,701,1098,2121
+abc183,0,0,329,662,1288,1586
+abc184,0,0,782,1276,1418,1423
+abc185,0,0,373,490,1468,1053
+abc186,0,0,0,436,1461,1833
+abc187,0,0,137,650,1358,1895
+abc188,0,0,0,933,1170,1865
+abc189,0,249,565,769,1526,2154
+abc190,0,0,472,722,1645,1321
+abc191,0,0,1063,1953,1323,2333
+abc192,0,0,0,1425,1135,1783
+abc193,0,0,378,866,1948,2475
+abc194,0,0,386,1078,1088,2197
+abc195,0,483,235,945,1609,2068
+abc196,0,0,202,1277,1650,2274
+abc197,0,0,809,831,1379,1945
+abc198,0,0,413,1224,1161,2769
+abc199,0,0,436,1804,1814,2065
+abc200,0,0,138,1217,1955,2556
+abc201,0,0,439,1317,1694,2484
+abc202,0,0,130,966,1638,2905
+abc203,0,0,54,1622,1750,2252
+abc204,0,0,629,832,1710,2044
+abc205,0,0,0,713,2025,2088
+abc206,0,0,60,879,1745,2221
+abc207,0,0,397,2074,1820,2398
+abc208,0,0,0,1190,2024,2772
+abc209,0,0,264,686,2153,2307
+abc210,0,0,357,1507,1618,2632
+abc211,0,0,559,755,1823,2350
+abc212,0,0,205,775,1410,2332,2150,2741
+abc213,0,0,481,710,1423,2215,2663,2806
+abc214,0,0,309,1341,1835,1973,2893,3138
+abc215,0,0,76,736,1413,1853,2276,3101
+abc216,0,0,0,1039,1084,1541,1963,3295
+abc217,0,0,0,802,986,1954,2047,3112
+abc218,0,0,1012,715,1004,1753,2217,2805
+'''
 
 notes = {}
 notes["abc160_E"] = "Max Heap or simple sorting"
@@ -107,42 +168,63 @@ notes["abc179_E"] = "Typical 'find the sequence loop' problem"
 notes["abc179_F"] = "Another lazy segtree problem (other approaches too)"
 notes["abc180_E"] = "Permutation to subset dp conversion"
 notes["abc180_F"] = "Graph creation, DP"
+notes["abc181_E"] = "Prefix Sum, Suffix sum, Binary Search"
+notes["abc181_F"] = "Binary search, DSU"
+notes["abc182_E"] = "Simple grid problem"
+notes["abc182_F"] = "Money denominations, recursive, caching"
+notes["abc183_E"] = "Chess, Grid DP"
+notes["abc183_F"] = "Nice augmented DSU problem"
+notes["abc184_E"] = "Grid, BFS, Teleporters"
+notes["abc184_F"] = "Meet in the middle, Subset sums"
+notes["abc185_E"] = "Edit distance"
+notes["abc185_F"] = "Simple segtree problem"
 
-
-def parseDifficulty(s) :
+def parseDifficulty(s1,s2) :
     probsByContest = {}
     numprobs = 0
     pyprogress = 0
     goprogress = 0
-    difficulty = {}
+    numright = {}
+    diffrating = {}
     alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    rows = s.split('\n')
-    for r in rows :
-        terms = r.split(',')
-        if len(terms) < 3 : continue
+
+    rows1 = s1.split('\n')
+    rows2 = s2.split('\n')
+
+    for (r1,r2) in zip(rows1,rows2) :
+        terms1 = r1.split(',')
+        terms2 = r2.split(',')
+        if len(terms1) < 3 : continue
         problems = []
-        contest = terms[0]
-        for (i,d) in enumerate(terms[1:]) :
+        contest = terms1[0]
+        for (i,(nr,rat)) in enumerate(zip(terms1[1:],terms2[1:])) :
             problem = f"{contest}_{alph[i]}"
             numprobs += 1
             if os.path.exists(f"python/{contest}/{problem}.py")       : pyprogress += 1
             if os.path.exists(f"go/{contest}/{problem}/{problem}.go") : goprogress += 1
-            difficulty[problem] = d
+            numright[problem] = nr
+            diffrating[problem] = rat
             problems.append(problem)
         probsByContest[contest] = problems
     contests = [x for x in probsByContest]
     contests.sort()
-    return contests,probsByContest,numprobs,pyprogress,goprogress,difficulty
+    ##print(numright)
+    ##print(diffrating)
+    return contests,probsByContest,numprobs,pyprogress,goprogress,numright,diffrating
 
 def doHeader(numprobs,pyprogress,goprogress,fp) :
     p1 = f"# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-{pyprogress}%20%2F%20{numprobs}-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-{goprogress}%20%2F%20{numprobs}-ff69b4.svg)"
     p2 = "These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way."
     p3 = "`DISCLAIMER`: Most of these file were created/edited after the contest, so many of these solutions were created without the time pressure of the contest and (occasionally) with the benefit of looking at the prepared editorials/solutions.  Note that run-time challenged implementations are indicated in the `Notes` column below."
+    p4 = "`NOTE`: Problem difficulty ratings in the table below were obtained from kenkoooo.com."
+
     print(p1,file=fp)
     print("",file=fp)
     print(p2,file=fp)
     print("",file=fp)
     print(p3,file=fp)
+    print("",file=fp)
+    print(p4,file=fp)
 
 def doTable(contests,fp) :
     print('## Contest Shortcuts\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |',file=fp)
@@ -156,11 +238,11 @@ def doTable(contests,fp) :
         print("\n",end='',file=fp)
     print("",file=fp)
 
-def doSolutions(contests,probsByContest,difficulty,notes,fp) :
+def doSolutions(contests,probsByContest,numright,diffrating,notes,fp) :
     for contest in contests[::-1] :
         print(f"## {contest} Solutions",file=fp)
-        print("| Contest | Problem | Num Correct | Solutions | Notes |",file=fp)
-        print("| ------- | ------- | ----------: | --------- | ----- |",file=fp)
+        print("| Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |",file=fp)
+        print("| ------- | ------- | ----------: | ----------: | --------- | ----- |",file=fp)
         for prob in probsByContest[contest] :
             sol = ""
             if os.path.exists(f"python/{contest}/{prob}.py") :
@@ -168,14 +250,14 @@ def doSolutions(contests,probsByContest,difficulty,notes,fp) :
             if os.path.exists(f"go/{contest}/{prob}/{prob}.go") :
                 sol += f" [go](./go/{contest}/{prob}/{prob}.go)"
             pnotes = notes[prob] if prob in notes else ""
-            print(f"| [{contest}](http:/atcoder.jp/contests/{contest}) | [{prob}](http:/atcoder.jp/contests/{contest}/tasks/{prob}) | {difficulty[prob]} | {sol} | {pnotes} |",file=fp)
+            print(f"| [{contest}](http:/atcoder.jp/contests/{contest}) | [{prob}](http:/atcoder.jp/contests/{contest}/tasks/{prob}) | {numright[prob]} | {diffrating[prob]} | {sol} | {pnotes} |",file=fp)
         print(f"",file=fp)
 
 
 if __name__ == "__main__" :
-    contests,probsByContest,numprobs,pyprogress,goprogress,difficulty = parseDifficulty(difficulty_data)
+    contests,probsByContest,numprobs,pyprogress,goprogress,numright,diffrating = parseDifficulty(solversData,problemRatingData)
     with open("README.md","wt") as fp :
         doHeader(numprobs,pyprogress,goprogress,fp)
         doTable(contests,fp)
-        doSolutions(contests,probsByContest,difficulty,notes,fp)
+        doSolutions(contests,probsByContest,numright,diffrating,notes,fp)
     Path(f"README.md").touch()
