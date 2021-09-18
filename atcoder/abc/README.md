@@ -31,7 +31,7 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc219](http:/atcoder.jp/contests/abc219) | [abc219_E](http:/atcoder.jp/contests/abc219/tasks/abc219_E) | 681 | 1690 |  [pypy3](./python/abc219/abc219_E.py) [go](./go/abc219/abc219_E/abc219_E.go) | Polygon construction, DSU |
 | [abc219](http:/atcoder.jp/contests/abc219) | [abc219_F](http:/atcoder.jp/contests/abc219/tasks/abc219_F) | 93 | 2542 |  [pypy3](./python/abc219/abc219_F.py) [go](./go/abc219/abc219_F/abc219_F.go) | Stepping a shifted pattern, Equivalence classes |
 | [abc219](http:/atcoder.jp/contests/abc219) | [abc219_G](http:/atcoder.jp/contests/abc219/tasks/abc219_G) | 181 | 2287 |  [pypy3](./python/abc219/abc219_G.py) [go](./go/abc219/abc219_G/abc219_G.go) | Large tree, sqrt(N) strategy |
-| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_H](http:/atcoder.jp/contests/abc219/tasks/abc219_H) | 10 | 3297 |  [pypy3](./python/abc219/abc219_H.py) [go](./go/abc219/abc219_H/abc219_H.go) | Hard DP |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_H](http:/atcoder.jp/contests/abc219/tasks/abc219_H) | 10 | 3297 |  [pypy3](./python/abc219/abc219_H.py) [go](./go/abc219/abc219_H/abc219_H.go) | Hard DP.  Pypy3 solution is TLE (same alg as Go solution).  Need to work on it a bit (probably need to flatten multi-dim dp array) |
 
 ## abc218 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |

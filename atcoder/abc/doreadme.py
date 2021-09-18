@@ -183,7 +183,7 @@ notes["abc185_F"] = "Simple segtree problem"
 notes["abc219_E"] = "Polygon construction, DSU"
 notes["abc219_F"] = "Stepping a shifted pattern, Equivalence classes"
 notes["abc219_G"] = "Large tree, sqrt(N) strategy"
-notes["abc219_H"] = "Hard DP"
+notes["abc219_H"] = "Hard DP.  Pypy3 solution is TLE (same alg as Go solution).  Need to work on it a bit (probably need to flatten multi-dim dp array)"
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
