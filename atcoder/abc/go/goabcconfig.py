@@ -53,6 +53,8 @@ func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return 
 func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
 func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
 func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
+func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
+func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
 func makefact(n int,mod int) ([]int,[]int) {
 	fact,factinv := make([]int,n+1),make([]int,n+1)
 	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
@@ -119,32 +121,12 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
-    probList += [(f"abc160",f"abc160_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc161",f"abc161_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc162",f"abc162_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc163",f"abc163_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc164",f"abc164_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc165",f"abc165_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc166",f"abc166_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc167",f"abc167_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc168",f"abc168_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc169",f"abc169_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc170",f"abc170_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc171",f"abc171_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc172",f"abc172_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc173",f"abc173_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc174",f"abc174_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc175",f"abc175_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc176",f"abc176_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc177",f"abc177_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc178",f"abc178_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc179",f"abc179_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc180",f"abc180_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc181",f"abc181_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc182",f"abc182_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc183",f"abc183_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc184",f"abc184_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc185",f"abc185_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc186",f"abc186_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc187",f"abc187_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc188",f"abc188_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc189",f"abc189_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc190",f"abc190_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc219",f"abc219_{x}") for x in ("A","B","C","D","E","F","G","H")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
