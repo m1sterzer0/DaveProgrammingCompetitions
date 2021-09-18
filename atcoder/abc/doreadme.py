@@ -61,6 +61,7 @@ abc215,8363,7060,5851,3216,1192,518,186,17
 abc216,6997,6554,5356,1969,1847,898,393,9
 abc217,8119,8096,7544,3115,2445,444,376,59
 abc218,8653,8436,2385,3491,2408,669,235,48
+abc218,7203,6901,4665,1859,681,93,181,10
 '''
 problemRatingData = '''
 abc160,0,0,62,879,1036,2048
@@ -122,6 +123,7 @@ abc215,0,0,76,736,1413,1853,2276,3101
 abc216,0,0,0,1039,1084,1541,1963,3295
 abc217,0,0,0,802,986,1954,2047,3112
 abc218,0,0,1012,715,1004,1753,2217,2805
+abc219,0,0,260,1085,1690,2542,2287,3297
 '''
 
 notes = {}
@@ -178,6 +180,10 @@ notes["abc184_E"] = "Grid, BFS, Teleporters"
 notes["abc184_F"] = "Meet in the middle, Subset sums"
 notes["abc185_E"] = "Edit distance"
 notes["abc185_F"] = "Simple segtree problem"
+notes["abc219_E"] = "Polygon construction, DSU"
+notes["abc219_F"] = "Stepping a shifted pattern, Equivalence classes"
+notes["abc219_G"] = "Large tree, sqrt(N) strategy"
+notes["abc219_H"] = "Hard DP"
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
