@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-274%20%2F%20376-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-186%20%2F%20376-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-274%20%2F%20376-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-194%20%2F%20376-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -19,19 +19,31 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc200](https://atcoder.jp/contests/abc200); [sol](#abc200-Solutions) | [abc201](https://atcoder.jp/contests/abc201); [sol](#abc201-Solutions) | [abc202](https://atcoder.jp/contests/abc202); [sol](#abc202-Solutions) | [abc203](https://atcoder.jp/contests/abc203); [sol](#abc203-Solutions) | [abc204](https://atcoder.jp/contests/abc204); [sol](#abc204-Solutions) |
 | [abc205](https://atcoder.jp/contests/abc205); [sol](#abc205-Solutions) | [abc206](https://atcoder.jp/contests/abc206); [sol](#abc206-Solutions) | [abc207](https://atcoder.jp/contests/abc207); [sol](#abc207-Solutions) | [abc208](https://atcoder.jp/contests/abc208); [sol](#abc208-Solutions) | [abc209](https://atcoder.jp/contests/abc209); [sol](#abc209-Solutions) |
 | [abc210](https://atcoder.jp/contests/abc210); [sol](#abc210-Solutions) | [abc211](https://atcoder.jp/contests/abc211); [sol](#abc211-Solutions) | [abc212](https://atcoder.jp/contests/abc212); [sol](#abc212-Solutions) | [abc213](https://atcoder.jp/contests/abc213); [sol](#abc213-Solutions) | [abc214](https://atcoder.jp/contests/abc214); [sol](#abc214-Solutions) |
-| [abc215](https://atcoder.jp/contests/abc215); [sol](#abc215-Solutions) | [abc216](https://atcoder.jp/contests/abc216); [sol](#abc216-Solutions) | [abc217](https://atcoder.jp/contests/abc217); [sol](#abc217-Solutions) | [abc218](https://atcoder.jp/contests/abc218); [sol](#abc218-Solutions) | |
+| [abc215](https://atcoder.jp/contests/abc215); [sol](#abc215-Solutions) | [abc216](https://atcoder.jp/contests/abc216); [sol](#abc216-Solutions) | [abc217](https://atcoder.jp/contests/abc217); [sol](#abc217-Solutions) | [abc218](https://atcoder.jp/contests/abc218); [sol](#abc218-Solutions) | [abc219](https://atcoder.jp/contests/abc219); [sol](#abc219-Solutions) |
+
+## abc219 Solutions
+| Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
+| ------- | ------- | ----------: | ----------: | --------- | ----- |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_A](http:/atcoder.jp/contests/abc219/tasks/abc219_A) | 7203 | 0 |  [pypy3](./python/abc219/abc219_A.py) [go](./go/abc219/abc219_A/abc219_A.go) |  |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_B](http:/atcoder.jp/contests/abc219/tasks/abc219_B) | 6901 | 0 |  [pypy3](./python/abc219/abc219_B.py) [go](./go/abc219/abc219_B/abc219_B.go) |  |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_C](http:/atcoder.jp/contests/abc219/tasks/abc219_C) | 4665 | 260 |  [pypy3](./python/abc219/abc219_C.py) [go](./go/abc219/abc219_C/abc219_C.go) |  |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_D](http:/atcoder.jp/contests/abc219/tasks/abc219_D) | 1859 | 1085 |  [pypy3](./python/abc219/abc219_D.py) [go](./go/abc219/abc219_D/abc219_D.go) |  |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_E](http:/atcoder.jp/contests/abc219/tasks/abc219_E) | 681 | 1690 |  [pypy3](./python/abc219/abc219_E.py) [go](./go/abc219/abc219_E/abc219_E.go) | Polygon construction, DSU |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_F](http:/atcoder.jp/contests/abc219/tasks/abc219_F) | 93 | 2542 |  [pypy3](./python/abc219/abc219_F.py) [go](./go/abc219/abc219_F/abc219_F.go) | Stepping a shifted pattern, Equivalence classes |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_G](http:/atcoder.jp/contests/abc219/tasks/abc219_G) | 181 | 2287 |  [pypy3](./python/abc219/abc219_G.py) [go](./go/abc219/abc219_G/abc219_G.go) | Large tree, sqrt(N) strategy |
+| [abc219](http:/atcoder.jp/contests/abc219) | [abc219_H](http:/atcoder.jp/contests/abc219/tasks/abc219_H) | 10 | 3297 |  [pypy3](./python/abc219/abc219_H.py) [go](./go/abc219/abc219_H/abc219_H.go) | Hard DP |
 
 ## abc218 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
 | ------- | ------- | ----------: | ----------: | --------- | ----- |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_A](http:/atcoder.jp/contests/abc218/tasks/abc218_A) | 7203 | 0 |  [pypy3](./python/abc218/abc218_A.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_B](http:/atcoder.jp/contests/abc218/tasks/abc218_B) | 6901 | 0 |  [pypy3](./python/abc218/abc218_B.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_C](http:/atcoder.jp/contests/abc218/tasks/abc218_C) | 4665 | 260 |  [pypy3](./python/abc218/abc218_C.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_D](http:/atcoder.jp/contests/abc218/tasks/abc218_D) | 1859 | 1085 |  [pypy3](./python/abc218/abc218_D.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_E](http:/atcoder.jp/contests/abc218/tasks/abc218_E) | 681 | 1690 |  [pypy3](./python/abc218/abc218_E.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_F](http:/atcoder.jp/contests/abc218/tasks/abc218_F) | 93 | 2542 |  [pypy3](./python/abc218/abc218_F.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_G](http:/atcoder.jp/contests/abc218/tasks/abc218_G) | 181 | 2287 |  [pypy3](./python/abc218/abc218_G.py) |  |
-| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_H](http:/atcoder.jp/contests/abc218/tasks/abc218_H) | 10 | 3297 |  [pypy3](./python/abc218/abc218_H.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_A](http:/atcoder.jp/contests/abc218/tasks/abc218_A) | 8653 | 0 |  [pypy3](./python/abc218/abc218_A.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_B](http:/atcoder.jp/contests/abc218/tasks/abc218_B) | 8436 | 0 |  [pypy3](./python/abc218/abc218_B.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_C](http:/atcoder.jp/contests/abc218/tasks/abc218_C) | 2385 | 1012 |  [pypy3](./python/abc218/abc218_C.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_D](http:/atcoder.jp/contests/abc218/tasks/abc218_D) | 3491 | 715 |  [pypy3](./python/abc218/abc218_D.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_E](http:/atcoder.jp/contests/abc218/tasks/abc218_E) | 2408 | 1004 |  [pypy3](./python/abc218/abc218_E.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_F](http:/atcoder.jp/contests/abc218/tasks/abc218_F) | 669 | 1753 |  [pypy3](./python/abc218/abc218_F.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_G](http:/atcoder.jp/contests/abc218/tasks/abc218_G) | 235 | 2217 |  [pypy3](./python/abc218/abc218_G.py) |  |
+| [abc218](http:/atcoder.jp/contests/abc218) | [abc218_H](http:/atcoder.jp/contests/abc218/tasks/abc218_H) | 48 | 2805 |  [pypy3](./python/abc218/abc218_H.py) |  |
 
 ## abc217 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
