@@ -1089,3 +1089,37 @@ def kosaraju(n,diredges) :
         if not visitedInv[nn] : dfsSecond(nn); counter += 1
     return (counter,scc)
 
+## Does use recursion.
+## Left side node ids from 0...N1
+## Right side node ids from 0...N2
+## Left side node N1 is the NULL node.
+## Following https://en.wikipedia.org/wiki/Hopcroft-Karp_algorithm  
+def hopcroftKarp(N1,N2,adj) :
+    mynil = N1+N2; pairu = [mynil] * N1; pairv = [mynil] * N2  
+    myinf = 10*18; dist = [myinf] * (N1+N2+1); q = collections.deque()
+
+    def bfs() :
+        for i in range(N1) : dist[i] = myinf
+        for i in range(N1) :
+            if pairu[i] == mynil : dist[i] = 0; q.append(i)
+        dist[mynil] = myinf
+        while q :
+            u = q.popleft()
+            if dist[u] < dist[mynil] :
+                for v in adj[u] :
+                    u2 = pairv[v]
+                    if dist[u2] == myinf : dist[u2] = dist[u] + 1; q.append(u2)
+        return dist[mynil] < myinf
+
+    def dfs(u) :
+        if u == mynil : return True
+        for v in adj[u] :
+            u2 = pairv[v]
+            if dist[u2] == dist[u]+1 and dfs(u2) : pairv[v],pairu[u] = u,v; return True
+        dist[u] = myinf; return False
+
+    ## Main algorithm
+    while bfs() :
+        for u in range(N1) :
+            if pairu[u] == mynil : dfs(u) 
+    return [(u,pairu[u]) for u in range(N1) if pairu[u] != mynil ]

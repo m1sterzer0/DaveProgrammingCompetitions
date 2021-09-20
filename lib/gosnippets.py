@@ -115,6 +115,7 @@ if __name__ == "__main__" :
                 "    python3 gosnippets.py convolver        FILENAME\n" +
                 "    python3 gosnippets.py fenwick          FILENAME\n" +
                 "    python3 gosnippets.py maxflow          FILENAME\n" +
+                "    python3 gosnippets.py matching         FILENAME\n" +
                 "    python3 gosnippets.py dsu              FILENAME\n" +
                 "    python3 gosnippets.py dsusparse        FILENAME\n" +
                 "    python3 gosnippets.py scc              FILENAME\n" +
@@ -141,6 +142,7 @@ if __name__ == "__main__" :
         elif sys.argv[1] == "convolver" and len(sys.argv) == 3 :        processRequest(os.path.join(dir,"convolver","convolver.go"),{},sys.argv[2])
         elif sys.argv[1] == "fenwick" and len(sys.argv) == 3 :          processRequest(os.path.join(dir,"fenwick","fenwick.go"),{},sys.argv[2])
         elif sys.argv[1] == "maxflow" and len(sys.argv) == 3 :          processRequest(os.path.join(dir,"maxflow","maxflow.go"),{},sys.argv[2])
+        elif sys.argv[1] == "matching" and len(sys.argv) == 3 :         processRequest(os.path.join(dir,"matching","matching.go"),{},sys.argv[2])
         elif sys.argv[1] == "dsu" and len(sys.argv) == 3 :              processRequest(os.path.join(dir,"dsu","dsu.go"),{},sys.argv[2])
         elif sys.argv[1] == "dsusparse" and len(sys.argv) == 3 :        processRequest(os.path.join(dir,"dsusparse","dsusparse.go"),{},sys.argv[2])
         elif sys.argv[1] == "mincostflow" and len(sys.argv) == 3 :      processRequest(os.path.join(dir,"mincostflow","mincostflow.go"),{},sys.argv[2])
