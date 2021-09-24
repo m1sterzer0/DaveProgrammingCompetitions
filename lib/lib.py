@@ -1123,3 +1123,19 @@ def hopcroftKarp(N1,N2,adj) :
         for u in range(N1) :
             if pairu[u] == mynil : dfs(u) 
     return [(u,pairu[u]) for u in range(N1) if pairu[u] != mynil ]
+
+
+def primRoot(p) :
+    fact = []
+    phi = p-1; n = phi; i = 2
+    while i*i <= n :
+        if n % i == 0 : fact.append(i)
+        while n % i == 0 : n //=i
+        i += 1
+    if n > 1 : fact.append(n)
+    for res in range(2,p+1) :
+        ok = True
+        for f in fact :
+            if pow(res,phi//f,p) == 1 : ok = False; break 
+        if ok : return res
+    return -1
