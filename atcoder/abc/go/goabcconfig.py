@@ -121,15 +121,9 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
-    probList += [(f"abc186",f"abc186_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc187",f"abc187_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc188",f"abc188_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc189",f"abc189_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc190",f"abc190_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc191",f"abc191_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc192",f"abc192_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc193",f"abc193_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc219",f"abc219_{x}") for x in ("A","B","C","D","E","F","G","H")]
+    probList += [(f"abc194",f"abc194_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
