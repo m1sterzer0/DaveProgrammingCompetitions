@@ -19,7 +19,7 @@ func NewSEGTREE(n int, op func(DATATYPE, DATATYPE) DATATYPE, e DATATYPE) *SEGTRE
 }
 func NewSEGTREEVec(v []DATATYPE, op func(DATATYPE, DATATYPE) DATATYPE, e DATATYPE) *SEGTREE {
 	n, sz, log := len(v), 1, 0
-	for n < sz {
+	for sz < n {
 		sz <<= 1
 		log += 1
 	}
