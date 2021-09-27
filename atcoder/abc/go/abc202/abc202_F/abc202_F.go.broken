@@ -1,17 +1,11 @@
-import argparse
-import os.path
-from pathlib import Path
-import shutil
-
-def mkGoStarterFile(fn) :
-    ttt = '''
 package main
 
 import (
 	"bufio"
 	"fmt"
-    "io"
+	"io"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -62,91 +56,73 @@ func makefact(n int,mod int) ([]int,[]int) {
 	return fact,factinv
 }
 
+
 type PI struct { x,y int }
 type TI struct { x,y,z int }
+func abs(a int) int { if a < 0 { return -a }; return a }
+func dot2(a,b PI) int { return a.x*b.x + a.y*b.y }
+func cross2(a,b PI) int { return a.x*b.y - a.y*b.x }
+func dot3(a,b TI) int { return a.x*b.x+a.y*b.y+a.x*b.z }
+func cross3(a,b TI) TI { return TI{a.y*b.z-a.z*b.y, a.z*b.x-a.x*b.z, a.x*b.y-a.y*b.x} }
+func pt2sub(a,b PI) PI { return PI{a.x-b.x,a.y-b.y} }
+func pt2add(a,b PI) PI { return PI{a.x+b.x,a.y+b.y} }
+func pt2scale(n int, a PI) PI { return PI{n*a.x,n*a.y} }
+func area2x(a,b,c PI) int {	return abs(cross2(pt2sub(b,a),pt2sub(c,a))) }
+
+const MOD int = 1_000_000_007
 
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
     defer wrtr.Flush()
-	infn := ""
+	infn := "junk.in"
 	if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
     if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = newScanner(f) }
+	// Following the code in the solutions.  I need to dig in more to understand the full details
+	// of how the triangles are patched in turning a this into a polynomial vs. exponential runtime.
+	// I need to work to understand the DP more.
+	N := gi(); X,Y := fill2(N); pts := make([]PI,N); for i:=0;i<N;i++ { pts[i] = PI{X[i],Y[i]} }
+	pow2 := iai(N+1,1); for i:=1;i<=N;i++ { pow2[i] = 2 * pow2[i-1]; if pow2[i] >= MOD { pow2[i] -= MOD }}
+	sort.Slice(pts,func(i,j int)bool{return pts[i].x < pts[j].x || pts[i].x == pts[j].x && pts[i].y < pts[j].y })
+	pts2 := make([]PI,0); ans := 0; count := twodi(N,N,0); dp := [80][80][2]int{}
+	for leftmost:=0;leftmost<N;leftmost++ {
+		pts2 = pts2[:0]
+		for i:=leftmost;i<N;i++ { pts2 = append(pts2,pt2sub(pts[i],pts[leftmost])) }
+		sort.Slice(pts2,func(i,j int)bool{return cross2(pts2[i],pts2[j]) > 0 })
+		for i:=0;i<len(pts2);i++ {
+			for j:=i+1;j<len(pts2);j++ {
+				count[i][j] = 0
+				for k:=i+1;k<j;k++ {
+					if cross2(pt2sub(pts2[i],pts2[k]),pt2sub(pts2[j],pts2[k])) > 0 { count[i][j]++ }
+				}
+			}
+		}
+		for i:=0;i<len(pts2);i++ {
+			for j:=i+1;j<len(pts2);j++ {
+				for k:=0;k<2;k++ {
+					dp[i][j][k] = 0
+				}
+			}
+		}
+		for j:=1;j<len(pts2);j++ { dp[0][j][0] = 1 }
+		for i:=0;i<len(pts2);i++ {
+			for j:=i+1;j<len(pts2);j++ {
+				for k:=0;k<2;k++ {
+					for l:=j+1;l<len(pts2);l++ {
+						if cross2(pt2sub(pts2[j],pts2[i]),pt2sub(pts2[l],pts2[j])) > 0 {
+							kidx := k ^ (cross2(pts2[j],pts2[l]) & 1)
+							dp[j][l][kidx] += dp[i][j][k] * pow2[count[j][l]] % MOD
+							dp[j][l][kidx] %= MOD
+						}
+					}
+				}
+			}
+		}
+		for i:=1;i<len(pts2);i++ {
+			for j:=i+1;j<len(pts2);j++ {
+				ans += dp[i][j][0]
+			}
+		}
+		ans %= MOD
+	}
+	fmt.Println(ans)
 }
-
-
-'''
-    with open(fn,'wt') as fp : print(ttt, file=fp)
-
-def mkGoLaunchJson(fn) :
-    ttt = '''
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Launch Package",
-            "type": "go",
-            "request": "launch",
-            "mode": "auto",
-            "program": "${file}"
-        }
-    ]
-}
-'''
-    with open(fn,'wt') as fp : print(ttt, file=fp)
-
-def mkGoSettingsJson(fn) :
-    ttt = '''
-{
-    "[go]": {"editor.formatOnSave": false }  
-}    
-'''
-    with open(fn,'wt') as fp : print(ttt, file=fp)
-
-
-def mkGoGitignore(fn) :
-    with open(fn,'wt') as fp : 
-        print("*.in\n*.out\n*.exe\n*.prof", file=fp)
-
-def parseCLArgs() :
-    clargparse = argparse.ArgumentParser()
-    clargparse.add_argument( '--dir', action='store', default='', help='Parent Directory for the preparations')
-    clargs = clargparse.parse_args()
-    if not clargs.dir  : raise Exception("Need to provide a --dir option.  Exiting...")
-    if not os.path.exists(clargs.dir) : raise Exception(f"Directory '{clargs.dir}' does not exist.  Exiting...")
-    return clargs
-
-if __name__ == "__main__" :
-    clargs = parseCLArgs()
-    probList = []
-    probList += [(f"abc199",f"abc199_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc200",f"abc200_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc201",f"abc201_{x}") for x in ("A","B","C","D","E","F")]
-    probList += [(f"abc202",f"abc202_{x}") for x in ("A","B","C","D","E","F")]
-
-    if not os.path.exists(f"{clargs.dir}/.vscode") :
-        os.mkdir(f"{clargs.dir}/.vscode")
-        Path(f"{clargs.dir}/.vscode/launch.json").touch()
-        mkGoLaunchJson(f"{clargs.dir}/.vscode/launch.json")
-        mkGoSettingsJson(f"{clargs.dir}/.vscode/settings.json")
-    
-    if not os.path.exists(f"{clargs.dir}/.gitignore") :
-        Path(f"{clargs.dir}/.gitignore").touch()
-        mkGoGitignore(f"{clargs.dir}/.gitignore")
-
-    for (d,prob) in probList :
-        if not os.path.exists(f"{clargs.dir}/{d}") : os.mkdir(f"{clargs.dir}/{d}")
-        if not os.path.exists(f"{clargs.dir}/{d}/.vscode") :
-            os.mkdir(f"{clargs.dir}/{d}/.vscode")
-            shutil.copyfile(f"{clargs.dir}/.vscode/launch.json",f"{clargs.dir}/{d}/.vscode/launch.json")
-            shutil.copyfile(f"{clargs.dir}/.vscode/settings.json",f"{clargs.dir}/{d}/.vscode/settings.json")
-
-
-        if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
-            os.mkdir(f"{clargs.dir}/{d}/{prob}")
-            Path(f"{clargs.dir}/{d}/{prob}/{prob}.go").touch()
-            Path(f"{clargs.dir}/{d}/{prob}/junk.in").touch()
-            mkGoStarterFile(f"{clargs.dir}/{d}/{prob}/{prob}.go")
-
