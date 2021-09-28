@@ -56,7 +56,7 @@ func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
     defer wrtr.Flush()
 	infn := ""; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
-    if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = newScanner(f) }
+    if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1_000_000_000)
     // PROGRAM STARTS HERE
 }
@@ -111,6 +111,7 @@ if __name__ == "__main__" :
     probList += [(f"abc203",f"abc203_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc204",f"abc204_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc205",f"abc205_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"abc206",f"abc206_{x}") for x in ("A","B","C","D","E","F")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
