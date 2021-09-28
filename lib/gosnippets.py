@@ -122,6 +122,7 @@ if __name__ == "__main__" :
                 "    python3 gosnippets.py twosat           FILENAME\n" +
                 "    python3 gosnippets.py bisect           FILENAME\n" +
                 "    python3 gosnippets.py crt              FILENAME\n" +
+                "    python3 gosnippets.py geo2d            FILENAME\n" +
                 ##"    python3 gosnippets.py skiplistset      CLASSNAME DATATYPE FILENAME\n" +
                 ##"    python3 gosnippets.py skiplistmultiset CLASSNAME DATATYPE FILENAME\n" +
                 ##"    python3 gosnippets.py skiplistmap      CLASSNAME KEYTYPE VALUETYPE FILENAME\n" +
@@ -151,6 +152,7 @@ if __name__ == "__main__" :
         elif sys.argv[1] == "twosat" and len(sys.argv) == 3 :           processRequest(os.path.join(dir,"twosat","twosat.go"),{},sys.argv[2])
         elif sys.argv[1] == "bisect" and len(sys.argv) == 3 :           processRequest(os.path.join(dir,"bisect","bisect.go"),{},sys.argv[2])
         elif sys.argv[1] == "crt" and len(sys.argv) == 3 :              processRequest(os.path.join(dir,"crt","crt.go"),{},sys.argv[2])
+        elif sys.argv[1] == "geo2d" and len(sys.argv) == 3 :            processRequest(os.path.join(dir,"geo2d","geo2d.go"),{},sys.argv[2])
         elif sys.argv[1] == "rbtreemap" and len(sys.argv) == 6 :        processRequest(os.path.join(dir,"rbtreemap","rbtreemap.go"),{"RBTREEMAP":sys.argv[2], "KEYTYPE":sys.argv[3], "VALTYPE":sys.argv[4]},sys.argv[5])
         elif sys.argv[1] == "rbtreeset" and len(sys.argv) == 5 :        processRequest(os.path.join(dir,"rbtreeset","rbtreeset.go"),{"RBTREESET":sys.argv[2], "KEYTYPE":sys.argv[3]}, sys.argv[4])
         elif sys.argv[1] == "rbtreemultiset" and len(sys.argv) == 5 :   processRequest(os.path.join(dir,"rbtreemultiset","rbtreemultiset.go"),{"RBTREEMULTISET":sys.argv[2], "KEYTYPE":sys.argv[3]}, sys.argv[4])

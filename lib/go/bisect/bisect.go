@@ -1,5 +1,7 @@
 package bisect
 
+// START HERE
+
 // Finds i such that arr[i:end] contains all points >= target.  len(arr) if all pts are < target
 func bisect_left(arr []int, targ int) int {
 	l, u := -1, len(arr)
