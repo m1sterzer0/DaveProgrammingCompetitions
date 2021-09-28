@@ -1,8 +1,8 @@
 package twosat
 
+// START HERE
 type PI struct{ x, y int }
 
-// START HERE
 func Kosaraju(n int, diredges []PI) (int, []int) {
 	g, grev, visited, visitedInv, scc, s, counter := make([][]int, n), make([][]int, n), make([]bool, n), make([]bool, n), make([]int, n), make([]int, 0, n), 0
 	var dfs1, dfs2 func(int)

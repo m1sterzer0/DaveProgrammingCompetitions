@@ -1,8 +1,7 @@
 package matching
 
-type PI struct{ x, y int }
-
 // START HERE
+type PI struct{ x, y int }
 
 type hopcroftKarpQueue struct {
 	buf                   []int
