@@ -112,6 +112,7 @@ if __name__ == "__main__" :
                 "    python3 gosnippets.py minheap          CLASSNAME DATATYPE FILENAME\n" +
                 "    python3 gosnippets.py segtree          CLASSNAME DATATYPE FILENAME\n" +
                 "    python3 gosnippets.py lazysegtree      CLASSNAME DATATYPE FUNCTIONTYPE FILENAME\n" +
+                "    python3 gosnippets.py bitset           FILENAME\n" +
                 "    python3 gosnippets.py convolver        FILENAME\n" +
                 "    python3 gosnippets.py fenwick          FILENAME\n" +
                 "    python3 gosnippets.py maxflow          FILENAME\n" +
@@ -151,6 +152,7 @@ if __name__ == "__main__" :
         elif sys.argv[1] == "scc" and len(sys.argv) == 3 :              processRequest(os.path.join(dir,"scc","scc.go"),{},sys.argv[2])
         elif sys.argv[1] == "twosat" and len(sys.argv) == 3 :           processRequest(os.path.join(dir,"twosat","twosat.go"),{},sys.argv[2])
         elif sys.argv[1] == "bisect" and len(sys.argv) == 3 :           processRequest(os.path.join(dir,"bisect","bisect.go"),{},sys.argv[2])
+        elif sys.argv[1] == "bitset" and len(sys.argv) == 3 :           processRequest(os.path.join(dir,"bitset","bitset.go"),{},sys.argv[2])
         elif sys.argv[1] == "crt" and len(sys.argv) == 3 :              processRequest(os.path.join(dir,"crt","crt.go"),{},sys.argv[2])
         elif sys.argv[1] == "geo2d" and len(sys.argv) == 3 :            processRequest(os.path.join(dir,"geo2d","geo2d.go"),{},sys.argv[2])
         elif sys.argv[1] == "rbtreemap" and len(sys.argv) == 6 :        processRequest(os.path.join(dir,"rbtreemap","rbtreemap.go"),{"RBTREEMAP":sys.argv[2], "KEYTYPE":sys.argv[3], "VALTYPE":sys.argv[4]},sys.argv[5])
