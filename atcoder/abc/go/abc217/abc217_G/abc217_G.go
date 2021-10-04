@@ -11,10 +11,7 @@ var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
 func gi2() (int,int) { return gi(),gi() }
-func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
 func ia(m int) []int { return make([]int,m) }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
 func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
 func makefact(n int,mod int) ([]int,[]int) {
 	fact,factinv := make([]int,n+1),make([]int,n+1)
@@ -30,30 +27,31 @@ func main() {
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1_000_000_000)
 	// PROGRAM STARTS HERE
-	// LGV problem -- need to do math offline and reduce to this form
-	// Reference: https://en.wikipedia.org/wiki/Lindstr%C3%B6m%E2%80%93Gessel%E2%80%93Viennot_lemma
-	K,N := gi2(); X := gis(K)
-	f,finv := makefact(N,MOD)
-	comb := ia(N+1); for i:=0;i<=N;i++ { comb[i] = f[N] * finv[i] % MOD * finv[N-i] % MOD }
-	dp := ia(1<<K); ndp := ia(1<<K); dp[0] = 1
-	lb,ub := minarr(X),maxarr(X)+N
-	for i:=lb;i<=ub;i++ {
-		copy(ndp,dp)
-		for j:=(1<<K)-1;j>=0;j-- {
-			sgn := 1
-			for k:=K-1;k>=0;k-- {
-				if j & (1<<k) == 0 { continue }
-				if i - X[k] < 0 || i - X[k] > N { continue }
-				ndp[j] += dp[j ^ (1<<k)] * comb[i-X[k]] * sgn % MOD + MOD
-				ndp[j] %= MOD
-				sgn *= -1
-			}
-		}
-		dp,ndp = ndp,dp
+	N,M := gi2()
+	ways := ia(N+1)
+	biggestset := 1 + (N-1) / M
+	smallestset := biggestset-1
+	numbiggest := N - smallestset * M
+	numsmallest := M - numbiggest
+	fact,factinv := makefact(5000,MOD)
+	// Ignore the non-empty requirement for ways
+	for i:=1;i<=N;i++ {
+		if biggestset > i { ways[i] = 0; continue }
+		waysperbig := fact[i] * factinv[i-biggestset] % MOD
+		waysbig := powmod(waysperbig,numbiggest,MOD)
+		wayspersmall := fact[i] * factinv[i-smallestset] % MOD
+		wayssmall := powmod(wayspersmall,numsmallest,MOD)
+		ways[i] = waysbig * wayssmall % MOD
 	}
-	twopow := powmod(2,N*K,MOD)
-	twopowinv := powmod(twopow,MOD-2,MOD)
-	ans := dp[(1<<K)-1] * twopowinv % MOD
-	fmt.Println(ans)
+	for i:=1;i<=N;i++ {
+		lans,s := ways[i],-1
+		for j:=i-1;j>0;j-- {
+			adder := fact[i] * factinv[j] % MOD * factinv[i-j] % MOD * ways[j] % MOD * s
+			lans = (lans + MOD + adder) % MOD
+			s *= -1 
+		}
+		lans = lans * factinv[i] % MOD
+		fmt.Fprintln(wrtr,lans)
+	}
 }
 

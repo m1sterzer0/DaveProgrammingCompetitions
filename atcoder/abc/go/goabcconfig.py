@@ -109,6 +109,7 @@ if __name__ == "__main__" :
     probList = []
     probList += [(f"abc210",f"abc210_{x}") for x in ("A","B","C","D","E","F")]
     probList += [(f"abc216",f"abc216_{x}") for x in ("A","B","C","D","E","F","G","H")]
+    probList += [(f"abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
