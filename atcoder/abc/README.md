@@ -249,8 +249,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc201](http:/atcoder.jp/contests/abc201) | [abc201_B](http:/atcoder.jp/contests/abc201/tasks/abc201_B) | 7994 | 0 |  [pypy3](./python/abc201/abc201_B.py) [go](./go/abc201/abc201_B/abc201_B.go) |  |
 | [abc201](http:/atcoder.jp/contests/abc201) | [abc201_C](http:/atcoder.jp/contests/abc201/tasks/abc201_C) | 4570 | 439 |  [pypy3](./python/abc201/abc201_C.py) [go](./go/abc201/abc201_C/abc201_C.go) |  |
 | [abc201](http:/atcoder.jp/contests/abc201) | [abc201_D](http:/atcoder.jp/contests/abc201/tasks/abc201_D) | 1382 | 1317 |  [pypy3](./python/abc201/abc201_D.py) [go](./go/abc201/abc201_D/abc201_D.go) |  |
-| [abc201](http:/atcoder.jp/contests/abc201) | [abc201_E](http:/atcoder.jp/contests/abc201/tasks/abc201_E) | 701 | 1694 |  [pypy3](./python/abc201/abc201_E.py) [go](./go/abc201/abc201_E/abc201_E.go) |  |
-| [abc201](http:/atcoder.jp/contests/abc201) | [abc201_F](http:/atcoder.jp/contests/abc201/tasks/abc201_F) | 110 | 2484 |  [pypy3](./python/abc201/abc201_F.py) [go](./go/abc201/abc201_F/abc201_F.go) |  |
+| [abc201](http:/atcoder.jp/contests/abc201) | [abc201_E](http:/atcoder.jp/contests/abc201/tasks/abc201_E) | 701 | 1694 |  [pypy3](./python/abc201/abc201_E.py) [go](./go/abc201/abc201_E/abc201_E.go) | Counting DP w/ Cumulative Sums |
+| [abc201](http:/atcoder.jp/contests/abc201) | [abc201_F](http:/atcoder.jp/contests/abc201/tasks/abc201_F) | 110 | 2484 |  [pypy3](./python/abc201/abc201_F.py) [go](./go/abc201/abc201_F/abc201_F.go) | Wraparound trick. Simple inversion counting. |
 
 ## abc200 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -259,8 +259,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc200](http:/atcoder.jp/contests/abc200) | [abc200_B](http:/atcoder.jp/contests/abc200/tasks/abc200_B) | 8136 | 0 |  [pypy3](./python/abc200/abc200_B.py) [go](./go/abc200/abc200_B/abc200_B.go) |  |
 | [abc200](http:/atcoder.jp/contests/abc200) | [abc200_C](http:/atcoder.jp/contests/abc200/tasks/abc200_C) | 5846 | 138 |  [pypy3](./python/abc200/abc200_C.py) [go](./go/abc200/abc200_C/abc200_C.go) |  |
 | [abc200](http:/atcoder.jp/contests/abc200) | [abc200_D](http:/atcoder.jp/contests/abc200/tasks/abc200_D) | 1696 | 1217 |  [pypy3](./python/abc200/abc200_D.py) [go](./go/abc200/abc200_D/abc200_D.go) |  |
-| [abc200](http:/atcoder.jp/contests/abc200) | [abc200_E](http:/atcoder.jp/contests/abc200/tasks/abc200_E) | 432 | 1955 |  [pypy3](./python/abc200/abc200_E.py) [go](./go/abc200/abc200_E/abc200_E.go) |  |
-| [abc200](http:/atcoder.jp/contests/abc200) | [abc200_F](http:/atcoder.jp/contests/abc200/tasks/abc200_F) | 91 | 2556 |  [pypy3](./python/abc200/abc200_F.py) [go](./go/abc200/abc200_F/abc200_F.go) |  |
+| [abc200](http:/atcoder.jp/contests/abc200) | [abc200_E](http:/atcoder.jp/contests/abc200/tasks/abc200_E) | 432 | 1955 |  [pypy3](./python/abc200/abc200_E.py) [go](./go/abc200/abc200_E/abc200_E.go) | Counting DP w/ Cumulative Sums |
+| [abc200](http:/atcoder.jp/contests/abc200) | [abc200_F](http:/atcoder.jp/contests/abc200/tasks/abc200_F) | 91 | 2556 |  [pypy3](./python/abc200/abc200_F.py) [go](./go/abc200/abc200_F/abc200_F.go) | Wraparound trick. Simple inversion counting. |
 
 ## abc199 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -269,8 +269,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc199](http:/atcoder.jp/contests/abc199) | [abc199_B](http:/atcoder.jp/contests/abc199/tasks/abc199_B) | 7745 | 0 |  [go](./go/abc199/abc199_B/abc199_B.go) |  |
 | [abc199](http:/atcoder.jp/contests/abc199) | [abc199_C](http:/atcoder.jp/contests/abc199/tasks/abc199_C) | 4524 | 436 |  [go](./go/abc199/abc199_C/abc199_C.go) |  |
 | [abc199](http:/atcoder.jp/contests/abc199) | [abc199_D](http:/atcoder.jp/contests/abc199/tasks/abc199_D) | 571 | 1804 |  [go](./go/abc199/abc199_D/abc199_D.go) |  |
-| [abc199](http:/atcoder.jp/contests/abc199) | [abc199_E](http:/atcoder.jp/contests/abc199/tasks/abc199_E) | 550 | 1814 |  [go](./go/abc199/abc199_E/abc199_E.go) |  |
-| [abc199](http:/atcoder.jp/contests/abc199) | [abc199_F](http:/atcoder.jp/contests/abc199/tasks/abc199_F) | 310 | 2065 |  [go](./go/abc199/abc199_F/abc199_F.go) |  |
+| [abc199](http:/atcoder.jp/contests/abc199) | [abc199_E](http:/atcoder.jp/contests/abc199/tasks/abc199_E) | 550 | 1814 |  [go](./go/abc199/abc199_E/abc199_E.go) | Subset DP |
+| [abc199](http:/atcoder.jp/contests/abc199) | [abc199_F](http:/atcoder.jp/contests/abc199/tasks/abc199_F) | 310 | 2065 |  [go](./go/abc199/abc199_F/abc199_F.go) | Matrix exponentiation |
 
 ## abc198 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -279,8 +279,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc198](http:/atcoder.jp/contests/abc198) | [abc198_B](http:/atcoder.jp/contests/abc198/tasks/abc198_B) | 6864 | 0 |  [go](./go/abc198/abc198_B/abc198_B.go) |  |
 | [abc198](http:/atcoder.jp/contests/abc198) | [abc198_C](http:/atcoder.jp/contests/abc198/tasks/abc198_C) | 4369 | 413 |  [go](./go/abc198/abc198_C/abc198_C.go) |  |
 | [abc198](http:/atcoder.jp/contests/abc198) | [abc198_D](http:/atcoder.jp/contests/abc198/tasks/abc198_D) | 1507 | 1224 |  [go](./go/abc198/abc198_D/abc198_D.go) |  |
-| [abc198](http:/atcoder.jp/contests/abc198) | [abc198_E](http:/atcoder.jp/contests/abc198/tasks/abc198_E) | 1667 | 1161 |  [go](./go/abc198/abc198_E/abc198_E.go) |  |
-| [abc198](http:/atcoder.jp/contests/abc198) | [abc198_F](http:/atcoder.jp/contests/abc198/tasks/abc198_F) | 37 | 2769 |  [go](./go/abc198/abc198_F/abc198_F.go) |  |
+| [abc198](http:/atcoder.jp/contests/abc198) | [abc198_E](http:/atcoder.jp/contests/abc198/tasks/abc198_E) | 1667 | 1161 |  [go](./go/abc198/abc198_E/abc198_E.go) | Tree DFS w/ entry and exit modification |
+| [abc198](http:/atcoder.jp/contests/abc198) | [abc198_F](http:/atcoder.jp/contests/abc198/tasks/abc198_F) | 37 | 2769 |  [go](./go/abc198/abc198_F/abc198_F.go) | Burnside's Lemma |
 
 ## abc197 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -289,8 +289,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc197](http:/atcoder.jp/contests/abc197) | [abc197_B](http:/atcoder.jp/contests/abc197/tasks/abc197_B) | 6164 | 0 |  [go](./go/abc197/abc197_B/abc197_B.go) |  |
 | [abc197](http:/atcoder.jp/contests/abc197) | [abc197_C](http:/atcoder.jp/contests/abc197/tasks/abc197_C) | 2659 | 809 |  [go](./go/abc197/abc197_C/abc197_C.go) |  |
 | [abc197](http:/atcoder.jp/contests/abc197) | [abc197_D](http:/atcoder.jp/contests/abc197/tasks/abc197_D) | 2615 | 831 |  [go](./go/abc197/abc197_D/abc197_D.go) |  |
-| [abc197](http:/atcoder.jp/contests/abc197) | [abc197_E](http:/atcoder.jp/contests/abc197/tasks/abc197_E) | 1140 | 1379 |  [go](./go/abc197/abc197_E/abc197_E.go) |  |
-| [abc197](http:/atcoder.jp/contests/abc197) | [abc197_F](http:/atcoder.jp/contests/abc197/tasks/abc197_F) | 376 | 1945 |  [go](./go/abc197/abc197_F/abc197_F.go) |  |
+| [abc197](http:/atcoder.jp/contests/abc197) | [abc197_E](http:/atcoder.jp/contests/abc197/tasks/abc197_E) | 1140 | 1379 |  [go](./go/abc197/abc197_E/abc197_E.go) | Simple O(N) DP |
+| [abc197](http:/atcoder.jp/contests/abc197) | [abc197_F](http:/atcoder.jp/contests/abc197/tasks/abc197_F) | 376 | 1945 |  [go](./go/abc197/abc197_F/abc197_F.go) | Graph synthesis then Dijkstra |
 
 ## abc196 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -299,8 +299,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc196](http:/atcoder.jp/contests/abc196) | [abc196_B](http:/atcoder.jp/contests/abc196/tasks/abc196_B) | 7725 | 0 |  [go](./go/abc196/abc196_B/abc196_B.go) |  |
 | [abc196](http:/atcoder.jp/contests/abc196) | [abc196_C](http:/atcoder.jp/contests/abc196/tasks/abc196_C) | 5503 | 202 |  [go](./go/abc196/abc196_C/abc196_C.go) |  |
 | [abc196](http:/atcoder.jp/contests/abc196) | [abc196_D](http:/atcoder.jp/contests/abc196/tasks/abc196_D) | 1517 | 1277 |  [go](./go/abc196/abc196_D/abc196_D.go) |  |
-| [abc196](http:/atcoder.jp/contests/abc196) | [abc196_E](http:/atcoder.jp/contests/abc196/tasks/abc196_E) | 765 | 1650 |  [go](./go/abc196/abc196_E/abc196_E.go) |  |
-| [abc196](http:/atcoder.jp/contests/abc196) | [abc196_F](http:/atcoder.jp/contests/abc196/tasks/abc196_F) | 173 | 2274 |  [go](./go/abc196/abc196_F/abc196_F.go) |  |
+| [abc196](http:/atcoder.jp/contests/abc196) | [abc196_E](http:/atcoder.jp/contests/abc196/tasks/abc196_E) | 765 | 1650 |  [go](./go/abc196/abc196_E/abc196_E.go) | Function Composition |
+| [abc196](http:/atcoder.jp/contests/abc196) | [abc196_F](http:/atcoder.jp/contests/abc196/tasks/abc196_F) | 173 | 2274 |  [go](./go/abc196/abc196_F/abc196_F.go) | Convolution |
 
 ## abc195 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -309,8 +309,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc195](http:/atcoder.jp/contests/abc195) | [abc195_B](http:/atcoder.jp/contests/abc195/tasks/abc195_B) | 4054 | 483 |  [go](./go/abc195/abc195_B/abc195_B.go) |  |
 | [abc195](http:/atcoder.jp/contests/abc195) | [abc195_C](http:/atcoder.jp/contests/abc195/tasks/abc195_C) | 4989 | 235 |  [go](./go/abc195/abc195_C/abc195_C.go) |  |
 | [abc195](http:/atcoder.jp/contests/abc195) | [abc195_D](http:/atcoder.jp/contests/abc195/tasks/abc195_D) | 2369 | 945 |  [go](./go/abc195/abc195_D/abc195_D.go) |  |
-| [abc195](http:/atcoder.jp/contests/abc195) | [abc195_E](http:/atcoder.jp/contests/abc195/tasks/abc195_E) | 811 | 1609 |  [go](./go/abc195/abc195_E/abc195_E.go) |  |
-| [abc195](http:/atcoder.jp/contests/abc195) | [abc195_F](http:/atcoder.jp/contests/abc195/tasks/abc195_F) | 304 | 2068 |  [go](./go/abc195/abc195_F/abc195_F.go) |  |
+| [abc195](http:/atcoder.jp/contests/abc195) | [abc195_E](http:/atcoder.jp/contests/abc195/tasks/abc195_E) | 811 | 1609 |  [go](./go/abc195/abc195_E/abc195_E.go) | DP |
+| [abc195](http:/atcoder.jp/contests/abc195) | [abc195_F](http:/atcoder.jp/contests/abc195/tasks/abc195_F) | 304 | 2068 |  [go](./go/abc195/abc195_F/abc195_F.go) | Subset DP |
 
 ## abc194 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -319,8 +319,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc194](http:/atcoder.jp/contests/abc194) | [abc194_B](http:/atcoder.jp/contests/abc194/tasks/abc194_B) | 6319 | 0 |  [go](./go/abc194/abc194_B/abc194_B.go) |  |
 | [abc194](http:/atcoder.jp/contests/abc194) | [abc194_C](http:/atcoder.jp/contests/abc194/tasks/abc194_C) | 4535 | 386 |  [go](./go/abc194/abc194_C/abc194_C.go) |  |
 | [abc194](http:/atcoder.jp/contests/abc194) | [abc194_D](http:/atcoder.jp/contests/abc194/tasks/abc194_D) | 2027 | 1078 |  [go](./go/abc194/abc194_D/abc194_D.go) |  |
-| [abc194](http:/atcoder.jp/contests/abc194) | [abc194_E](http:/atcoder.jp/contests/abc194/tasks/abc194_E) | 1992 | 1088 |  [go](./go/abc194/abc194_E/abc194_E.go) |  |
-| [abc194](http:/atcoder.jp/contests/abc194) | [abc194_F](http:/atcoder.jp/contests/abc194/tasks/abc194_F) | 215 | 2197 |  [go](./go/abc194/abc194_F/abc194_F.go) |  |
+| [abc194](http:/atcoder.jp/contests/abc194) | [abc194_E](http:/atcoder.jp/contests/abc194/tasks/abc194_E) | 1992 | 1088 |  [go](./go/abc194/abc194_E/abc194_E.go) | Simple sliding window |
+| [abc194](http:/atcoder.jp/contests/abc194) | [abc194_F](http:/atcoder.jp/contests/abc194/tasks/abc194_F) | 215 | 2197 |  [go](./go/abc194/abc194_F/abc194_F.go) | Digit DP |
 
 ## abc193 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -329,8 +329,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc193](http:/atcoder.jp/contests/abc193) | [abc193_B](http:/atcoder.jp/contests/abc193/tasks/abc193_B) | 7114 | 0 |  [go](./go/abc193/abc193_B/abc193_B.go) |  |
 | [abc193](http:/atcoder.jp/contests/abc193) | [abc193_C](http:/atcoder.jp/contests/abc193/tasks/abc193_C) | 4602 | 378 |  [go](./go/abc193/abc193_C/abc193_C.go) |  |
 | [abc193](http:/atcoder.jp/contests/abc193) | [abc193_D](http:/atcoder.jp/contests/abc193/tasks/abc193_D) | 2771 | 866 |  [go](./go/abc193/abc193_D/abc193_D.go) |  |
-| [abc193](http:/atcoder.jp/contests/abc193) | [abc193_E](http:/atcoder.jp/contests/abc193/tasks/abc193_E) | 423 | 1948 |  [go](./go/abc193/abc193_E/abc193_E.go) |  |
-| [abc193](http:/atcoder.jp/contests/abc193) | [abc193_F](http:/atcoder.jp/contests/abc193/tasks/abc193_F) | 110 | 2475 |  [go](./go/abc193/abc193_F/abc193_F.go) |  |
+| [abc193](http:/atcoder.jp/contests/abc193) | [abc193_E](http:/atcoder.jp/contests/abc193/tasks/abc193_E) | 423 | 1948 |  [go](./go/abc193/abc193_E/abc193_E.go) | CRT problem (linear congruences) |
+| [abc193](http:/atcoder.jp/contests/abc193) | [abc193_F](http:/atcoder.jp/contests/abc193/tasks/abc193_F) | 110 | 2475 |  [go](./go/abc193/abc193_F/abc193_F.go) | Max Flow |
 
 ## abc192 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -339,8 +339,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc192](http:/atcoder.jp/contests/abc192) | [abc192_B](http:/atcoder.jp/contests/abc192/tasks/abc192_B) | 8193 | 0 |  [go](./go/abc192/abc192_B/abc192_B.go) |  |
 | [abc192](http:/atcoder.jp/contests/abc192) | [abc192_C](http:/atcoder.jp/contests/abc192/tasks/abc192_C) | 6985 | 0 |  [go](./go/abc192/abc192_C/abc192_C.go) |  |
 | [abc192](http:/atcoder.jp/contests/abc192) | [abc192_D](http:/atcoder.jp/contests/abc192/tasks/abc192_D) | 1331 | 1425 |  [go](./go/abc192/abc192_D/abc192_D.go) |  |
-| [abc192](http:/atcoder.jp/contests/abc192) | [abc192_E](http:/atcoder.jp/contests/abc192/tasks/abc192_E) | 2113 | 1135 |  [go](./go/abc192/abc192_E/abc192_E.go) |  |
-| [abc192](http:/atcoder.jp/contests/abc192) | [abc192_F](http:/atcoder.jp/contests/abc192/tasks/abc192_F) | 680 | 1783 |  [go](./go/abc192/abc192_F/abc192_F.go) |  |
+| [abc192](http:/atcoder.jp/contests/abc192) | [abc192_E](http:/atcoder.jp/contests/abc192/tasks/abc192_E) | 2113 | 1135 |  [go](./go/abc192/abc192_E/abc192_E.go) | Loop around a slightly modified Dijkstra (again) |
+| [abc192](http:/atcoder.jp/contests/abc192) | [abc192_F](http:/atcoder.jp/contests/abc192/tasks/abc192_F) | 680 | 1783 |  [go](./go/abc192/abc192_F/abc192_F.go) | Good DP |
 
 ## abc191 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -349,8 +349,8 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc191](http:/atcoder.jp/contests/abc191) | [abc191_B](http:/atcoder.jp/contests/abc191/tasks/abc191_B) | 8215 | 0 |  [go](./go/abc191/abc191_B/abc191_B.go) |  |
 | [abc191](http:/atcoder.jp/contests/abc191) | [abc191_C](http:/atcoder.jp/contests/abc191/tasks/abc191_C) | 2257 | 1063 |  [go](./go/abc191/abc191_C/abc191_C.go) |  |
 | [abc191](http:/atcoder.jp/contests/abc191) | [abc191_D](http:/atcoder.jp/contests/abc191/tasks/abc191_D) | 424 | 1953 |  [go](./go/abc191/abc191_D/abc191_D.go) |  |
-| [abc191](http:/atcoder.jp/contests/abc191) | [abc191_E](http:/atcoder.jp/contests/abc191/tasks/abc191_E) | 1492 | 1323 |  [go](./go/abc191/abc191_E/abc191_E.go) |  |
-| [abc191](http:/atcoder.jp/contests/abc191) | [abc191_F](http:/atcoder.jp/contests/abc191/tasks/abc191_F) | 157 | 2333 |  [go](./go/abc191/abc191_F/abc191_F.go) |  |
+| [abc191](http:/atcoder.jp/contests/abc191) | [abc191_E](http:/atcoder.jp/contests/abc191/tasks/abc191_E) | 1492 | 1323 |  [go](./go/abc191/abc191_E/abc191_E.go) | Loop around a slightly modified Dijkstra |
+| [abc191](http:/atcoder.jp/contests/abc191) | [abc191_F](http:/atcoder.jp/contests/abc191/tasks/abc191_F) | 157 | 2333 |  [go](./go/abc191/abc191_F/abc191_F.go) | GCD. Clever DP |
 
 ## abc190 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
