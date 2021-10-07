@@ -38,7 +38,7 @@ func (q *SEGTREE) Set(p int, v DATATYPE) {
 	p += q.size
 	q.d[p] = v
 	for i := 1; i <= q.log; i++ {
-		q.update(p >> i)
+		q.update(p >> uint(i))
 	}
 }
 func (q *SEGTREE) Get(p int) DATATYPE { return q.d[p+q.size] }

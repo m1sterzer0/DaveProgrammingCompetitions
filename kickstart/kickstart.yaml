@@ -1,0 +1,985 @@
+contests:
+- name: "2013_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1"
+  participants: 2150
+  problems :
+  - name : "Sorting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1/0000000000434ad6"
+    correct : 0
+    solname : "Sorting"
+  - name : "Read Phone Number"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1/0000000000434813"
+    correct : 0
+    solname : "ReadPhoneNumber"
+  - name : "Rational Number Tree"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1/0000000000434b3c"
+    correct : 0
+    solname : "RationalNumberTree"
+  - name : "Cross the maze"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1/00000000004347b2"
+    correct : 0
+    solname : "Crossthemaze"
+  - name : "Spaceship Defence"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ba1/00000000004348df"
+    correct : 0
+    solname : "SpaceshipDefence"
+- name: "2013_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7"
+  participants: 1550
+  problems :
+  - name : "Sudoku Checker"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7/00000000004347b3"
+    correct : 0
+    solname : "SudokuChecker"
+  - name : "Ignore all my comments"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7/0000000000434dfc"
+    correct : 0
+    solname : "Ignoreallmycomments"
+  - name : "Dragon Maze"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7/0000000000434c67"
+    correct : 0
+    solname : "DragonMaze"
+  - name : "Meet and party"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7/00000000004348e0"
+    correct : 0
+    solname : "Meetandparty"
+  - name : "Hex"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434ad7/00000000004349a6"
+    correct : 0
+    solname : "Hex"
+- name: "2014_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9c"
+  participants: 950
+  problems :
+  - name : "Super 2048"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9c/0000000000434cd0"
+    correct : 0
+    solname : "Super2048"
+  - name : "Seven-segment Display"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9c/0000000000434c09"
+    correct : 0
+    solname : "SevensegmentDisplay"
+  - name : "Cut Tiles"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9c/0000000000434ba2"
+    correct : 0
+    solname : "CutTiles"
+  - name : "Addition"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9c/0000000000434a76"
+    correct : 0
+    solname : "Addition"
+- name: "2014_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434947"
+  participants: 1200
+  problems :
+  - name : "Password Attacker"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434947/000000000043474c"
+    correct : 0
+    solname : "PasswordAttacker"
+  - name : "New Years Eve"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434947/0000000000434d9d"
+    correct : 0
+    solname : "NewYearsEve"
+  - name : "Card Game"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434947/0000000000434c0b"
+    correct : 0
+    solname : "CardGame"
+  - name : "Parentheses Order"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434947/0000000000434cd1"
+    correct : 0
+    solname : "ParenthesesOrder"
+- name: "2014_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9f"
+  participants: 900
+  problems :
+  - name : "Minesweeper"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9f/0000000000434c0c"
+    correct : 0
+    solname : "Minesweeper"
+  - name : "Taking Metro"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9f/0000000000434cd2"
+    correct : 0
+    solname : "TakingMetro"
+  - name : "Broken Calculator"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9f/0000000000434a77"
+    correct : 0
+    solname : "BrokenCalculator"
+  - name : "Tetris"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434d9f/0000000000434ba3"
+    correct : 0
+    solname : "Tetris"
+- name: "2014_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3e"
+  participants: 2200
+  problems :
+  - name : "Cube IV"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3e/0000000000434adb"
+    correct : 0
+    solname : "CubeIV"
+  - name : "GBus count"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3e/00000000004347b6"
+    correct : 0
+    solname : "GBuscount"
+  - name : "Sort a scrambled itinerary"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3e/00000000004348e4"
+    correct : 0
+    solname : "Sortascrambleditinerary"
+  - name : "Itz Chess"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3e/00000000004349aa"
+    correct : 0
+    solname : "ItzChess"
+- name: "2015_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3f"
+  participants: 2300
+  problems :
+  - name : "Googol String"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3f/0000000000434adc"
+    correct : 0
+    solname : "GoogolString"
+  - name : "gCube"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3f/00000000004347b7"
+    correct : 0
+    solname : "gCube"
+  - name : "gCampus"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3f/00000000004348e5"
+    correct : 0
+    solname : "gCampus"
+  - name : "gSnake"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434b3f/00000000004349ab"
+    correct : 0
+    solname : "gSnake"
+- name: "2015_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434a7a"
+  participants: 1200
+  problems :
+  - name : "Travel"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434a7a/0000000000434ba8"
+    correct : 0
+    solname : "Travel"
+  - name : "gWheels"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434a7a/0000000000434818"
+    correct : 0
+    solname : "gWheels"
+  - name : "gNumbers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434a7a/0000000000434b40"
+    correct : 0
+    solname : "gNumbers"
+  - name : "Albocede DNA"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434a7a/0000000000434add"
+    correct : 0
+    solname : "AlbocedeDNA"
+- name: "2015_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043487f"
+  participants: 1450
+  problems :
+  - name : "gRanks"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043487f/0000000000434948"
+    correct : 0
+    solname : "gRanks"
+  - name : "gFiles"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043487f/000000000043474d"
+    correct : 0
+    solname : "gFiles"
+  - name : "gGames"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043487f/0000000000434da1"
+    correct : 0
+    solname : "gGames"
+  - name : "gMatrix"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043487f/0000000000434c0f"
+    correct : 0
+    solname : "gMatrix"
+- name: "2015_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004349ac"
+  participants: 1450
+  problems :
+  - name : "Dynamic Grid"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004349ac/0000000000434c6c"
+    correct : 0
+    solname : "DynamicGrid"
+  - name : "gBalloon"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004349ac/0000000000434dfe"
+    correct : 0
+    solname : "gBalloon"
+  - name : "IP Address Summarization"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004349ac/0000000000434880"
+    correct : 0
+    solname : "IPAddressSummarization"
+  - name : "Virtual Rabbit"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004349ac/0000000000434949"
+    correct : 0
+    solname : "VirtualRabbit"
+- name: "2015_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434819"
+  participants: 650
+  problems :
+  - name : "Lazy Spelling Bee"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434819/0000000000434b41"
+    correct : 0
+    solname : "LazySpellingBee"
+  - name : "Robot Rock Band"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434819/0000000000434ae0"
+    correct : 0
+    solname : "RobotRockBand"
+  - name : "Not So Random"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434819/00000000004347b8"
+    correct : 0
+    solname : "NotSoRandom"
+  - name : "Sums of Sums"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000434819/00000000004348e6"
+    correct : 0
+    solname : "SumsofSums"
+- name: "2016_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca2"
+  participants: 2300
+  problems :
+  - name : "Country Leader"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca2/0000000000201d30"
+    correct : 0
+    solname : "CountryLeader"
+  - name : "Rain"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca2/0000000000201dbb"
+    correct : 0
+    solname : "Rain"
+  - name : "Jane's Flower Shop"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca2/0000000000201c09"
+    correct : 0
+    solname : "JanesFlowerShop"
+  - name : "Clash Royale"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca2/0000000000201ca3"
+    correct : 0
+    solname : "ClashRoyale"
+- name: "2016_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0c"
+  participants: 3900
+  problems :
+  - name : "Sherlock and Parentheses"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0c/0000000000201ca5"
+    correct : 0
+    solname : "SherlockandParentheses"
+  - name : "Sherlock and Watson Gym Secrets"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0c/0000000000201d32"
+    correct : 0
+    solname : "SherlockandWatsonGymSecrets"
+  - name : "Watson and Intervals"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0c/0000000000201dbd"
+    correct : 0
+    solname : "WatsonandIntervals"
+  - name : "Sherlock and Permutation Sorting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0c/0000000000201c0d"
+    correct : 0
+    solname : "SherlockandPermutationSorting"
+- name: "2016_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0a"
+  participants: 1600
+  problems :
+  - name : "Monster Path"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0a/0000000000201ca4"
+    correct : 0
+    solname : "MonsterPath"
+  - name : "Safe Squares"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0a/0000000000201d31"
+    correct : 0
+    solname : "SafeSquares"
+  - name : "Evaluation"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0a/0000000000201dbc"
+    correct : 0
+    solname : "Evaluation"
+  - name : "Soldiers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c0a/0000000000201c0b"
+    correct : 0
+    solname : "Soldiers"
+- name: "2016_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201db8"
+  participants: 1550
+  problems :
+  - name : "Vote"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201db8/0000000000201c06"
+    correct : 0
+    solname : "Vote"
+  - name : "Sitting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201db8/0000000000201c9e"
+    correct : 0
+    solname : "Sitting"
+  - name : "Codejamon Cipher"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201db8/0000000000201d2e"
+    correct : 0
+    solname : "CodejamonCipher"
+  - name : "Stretch Rope"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201db8/0000000000201db9"
+    correct : 0
+    solname : "StretchRope"
+- name: "2016_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca0"
+  participants: 1750
+  problems :
+  - name : "Diwali lightings"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca0/0000000000201d2f"
+    correct : 0
+    solname : "Diwalilightings"
+  - name : "Beautiful Numbers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca0/0000000000201dba"
+    correct : 0
+    solname : "BeautifulNumbers"
+  - name : "Partioning Number"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca0/0000000000201c08"
+    correct : 0
+    solname : "PartioningNumber"
+  - name : "Sorting Array"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201ca0/0000000000201ca1"
+    correct : 0
+    solname : "SortingArray"
+- name: "2017_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c97"
+  participants: 1500
+  problems :
+  - name : "Square Counting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c97/0000000000201d25"
+    correct : 0
+    solname : "SquareCounting"
+  - name : "Pattern Overlap"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c97/0000000000201b79"
+    correct : 0
+    solname : "PatternOverlap"
+  - name : "Two Cubes"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c97/0000000000201bff"
+    correct : 0
+    solname : "TwoCubes"
+- name: "2017_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d27"
+  participants: 850
+  problems :
+  - name : "Math Encoder"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d27/0000000000201b7b"
+    correct : 0
+    solname : "MathEncoder"
+  - name : "Center"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d27/0000000000201c01"
+    correct : 0
+    solname : "Center"
+  - name : "Christmas Tree"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d27/0000000000201c9a"
+    correct : 0
+    solname : "ChristmasTree"
+- name: "2017_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c98"
+  participants: 850
+  problems :
+  - name : "Ambiguous Cipher"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c98/0000000000201d26"
+    correct : 0
+    solname : "AmbiguousCipher"
+  - name : "X Squared"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c98/0000000000201b7a"
+    correct : 0
+    solname : "XSquared"
+  - name : "Magical Thinking v2"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c98/0000000000201c00"
+    correct : 0
+    solname : "MagicalThinkingv2"
+  - name : "The 4M Corporation"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201c98/0000000000201c99"
+    correct : 0
+    solname : "The4MCorporation"
+- name: "2017_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b77"
+  participants: 1100
+  problems :
+  - name : "Sightseeing"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b77/0000000000201bfd"
+    correct : 0
+    solname : "Sightseeing"
+  - name : "Sherlock and Matrix Game"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b77/0000000000201c95"
+    correct : 0
+    solname : "SherlockandMatrixGame"
+  - name : "Trash"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b77/0000000000201d23"
+    correct : 0
+    solname : "Trash"
+- name: "2017_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201bfe"
+  participants: 1500
+  problems :
+  - name : "Trapezoid Counting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201bfe/0000000000201d24"
+    correct : 0
+    solname : "TrapezoidCounting"
+  - name : "Copy & Paste"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201bfe/0000000000201c96"
+    correct : 0
+    solname : "CopyPaste"
+  - name : "Blackhole"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201bfe/0000000000201b78"
+    correct : 0
+    solname : "Blackhole"
+- name: "2017_F"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d29"
+  participants: 1750
+  problems :
+  - name : "Cake"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d29/0000000000201d2a"
+    correct : 0
+    solname : "Cake"
+  - name : "Kicksort"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d29/0000000000201b7c"
+    correct : 0
+    solname : "Kicksort"
+  - name : "Dance Battle"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d29/0000000000201c02"
+    correct : 0
+    solname : "DanceBattle"
+  - name : "Catch Them All"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201d29/0000000000201c9b"
+    correct : 0
+    solname : "CatchThemAll"
+- name: "2017_G"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b7d"
+  participants: 1200
+  problems :
+  - name : "Huge Numbers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b7d/0000000000201c03"
+    correct : 0
+    solname : "HugeNumbers"
+  - name : "Cards Game"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b7d/0000000000201c9c"
+    correct : 0
+    solname : "CardsGame"
+  - name : "Matrix Cutting"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000201b7d/0000000000201d2b"
+    correct : 0
+    solname : "MatrixCutting"
+- name: "2018_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edf"
+  participants: 1350
+  problems :
+  - name : "Even Digits"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edf/00000000000510ed"
+    correct : 0
+    solname : "EvenDigits"
+  - name : "Lucky Dip"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edf/0000000000050e1d"
+    correct : 0
+    solname : "LuckyDip"
+  - name : "Scrambled Words"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edf/0000000000051004"
+    correct : 0
+    solname : "ScrambledWords"
+- name: "2018_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff4"
+  participants: 800
+  problems :
+  - name : "No Nine"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff4/0000000000051183"
+    correct : 0
+    solname : "NoNine"
+  - name : "Sherlock and the Bit Strings"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff4/000000000005107b"
+    correct : 0
+    solname : "SherlockandtheBitStrings"
+  - name : "King's Circle"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff4/00000000000510ee"
+    correct : 0
+    solname : "KingsCircle"
+- name: "2018_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee0"
+  participants: 700
+  problems :
+  - name : "Planet Distance"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee0/0000000000051005"
+    correct : 0
+    solname : "PlanetDistance"
+  - name : "Fairies and Witches"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee0/0000000000051132"
+    correct : 0
+    solname : "FairiesandWitches"
+  - name : "Kickstart Alarm"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee0/0000000000051133"
+    correct : 0
+    solname : "KickstartAlarm"
+- name: "2018_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1"
+  participants: 900
+  problems :
+  - name : "Candies"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1/00000000000510ef"
+    correct : 0
+    solname : "Candies"
+  - name : "Paragliding"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1/0000000000051006"
+    correct : 0
+    solname : "Paragliding"
+  - name : "Funniest Word Search"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1/00000000000510f0"
+    correct : 0
+    solname : "FunniestWordSearch"
+- name: "2018_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5"
+  participants: 2350
+  problems :
+  - name : "Board Game"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5/0000000000051184"
+    correct : 0
+    solname : "BoardGame"
+  - name : "Milk Tea"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5/0000000000051185"
+    correct : 0
+    solname : "MilkTea"
+  - name : "Yogurt"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff5/00000000000510f1"
+    correct : 0
+    solname : "Yogurt"
+- name: "2018_F"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e07"
+  participants: 1550
+  problems :
+  - name : "Common Anagrams"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e07/00000000000510f2"
+    correct : 0
+    solname : "CommonAnagrams"
+  - name : "Specializing Villages"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e07/0000000000051134"
+    correct : 0
+    solname : "SpecializingVillages"
+  - name : "Palindromic Sequence"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e07/0000000000051186"
+    correct : 0
+    solname : "PalindromicSequence"
+- name: "2018_G"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051066"
+  participants: 1900
+  problems :
+  - name : "Product Triplets"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051066/0000000000051187"
+    correct : 0
+    solname : "ProductTriplets"
+  - name : "Combining Classes"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051066/0000000000051007"
+    correct : 0
+    solname : "CombiningClasses"
+  - name : "Cave Escape"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051066/0000000000051135"
+    correct : 0
+    solname : "CaveEscape"
+- name: "2018_H"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2"
+  participants: 1800
+  problems :
+  - name : "Big Buttons"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/0000000000051136"
+    correct : 0
+    solname : "BigButtons"
+  - name : "Mural"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/000000000005118a"
+    correct : 0
+    solname : "Mural"
+  - name : "Let Me Count The Ways"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/0000000000051189"
+    correct : 0
+    solname : "LetMeCountTheWays"
+- name: "2019_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01"
+  participants: 4900
+  problems :
+  - name : "Training"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6"
+    correct : 0
+    solname : "Training"
+  - name : "Parcels"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d"
+    correct : 0
+    solname : "Parcels"
+  - name : "Contention"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881"
+    correct : 0
+    solname : "Contention"
+- name: "2019_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda"
+  participants: 2650
+  problems :
+  - name : "Building Palindromes"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866"
+    correct : 0
+    solname : "BuildingPalindromes"
+  - name : "Energy Stones"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3"
+    correct : 0
+    solname : "EnergyStones"
+  - name : "Diverse Subarray"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1"
+    correct : 0
+    solname : "DiverseSubarray"
+- name: "2019_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2"
+  participants: 3100
+  problems :
+  - name : "Wiggle Walk"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac"
+    correct : 0
+    solname : "WiggleWalk"
+  - name : "Circuit Board"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae"
+    correct : 0
+    solname : "CircuitBoard"
+  - name : "Catch Some"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d"
+    correct : 0
+    solname : "CatchSome"
+- name: "2019_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061"
+  participants: 4400
+  problems :
+  - name : "X or What?"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426"
+    correct : 0
+    solname : "XorWhat"
+  - name : "Latest Guests"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427"
+    correct : 0
+    solname : "LatestGuests"
+  - name : "Food Stalls"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476"
+    correct : 0
+    solname : "FoodStalls"
+- name: "2019_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb"
+  participants: 6350
+  problems :
+  - name : "Cherries Mesh"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721"
+    correct : 0
+    solname : "CherriesMesh"
+  - name : "Code-Eat Switcher"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8"
+    correct : 0
+    solname : "CodeEatSwitcher"
+  - name : "Street Checkers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9"
+    correct : 0
+    solname : "StreetCheckers"
+- name: "2019_F"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc"
+  participants: 3350
+  problems :
+  - name : "Flattening"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c"
+    correct : 0
+    solname : "Flattening"
+  - name : "Teach Me"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc"
+    correct : 0
+    solname : "TeachMe"
+  - name : "Spectating Villages"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b"
+    correct : 0
+    solname : "SpectatingVillages"
+- name: "2019_G"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02"
+  participants: 5250
+  problems :
+  - name : "Book Reading"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d"
+    correct : 0
+    solname : "BookReading"
+  - name : "The Equation"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36"
+    correct : 0
+    solname : "TheEquation"
+  - name : "Shifts"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e"
+    correct : 0
+    solname : "Shifts"
+- name: "2019_H"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd"
+  participants: 3350
+  problems :
+  - name : "H-index"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e"
+    correct : 0
+    solname : "Hindex"
+  - name : "Diagonal Puzzle"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835"
+    correct : 0
+    solname : "DiagonalPuzzle"
+  - name : "Elevanagram"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d"
+    correct : 0
+    solname : "Elevanagram"
+- name: "2020_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7"
+  participants: 13700
+  problems :
+  - name : "Allocation"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f56"
+    correct : 0
+    solname : "Allocation"
+  - name : "Plates"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb"
+    correct : 0
+    solname : "Plates"
+  - name : "Workout"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b"
+    correct : 0
+    solname : "Workout"
+  - name : "Bundling"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3"
+    correct : 0
+    solname : "Bundling"
+- name: "2020_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8"
+  participants: 10300
+  problems :
+  - name : "Bike Tour"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6"
+    correct : 0
+    solname : "BikeTour"
+  - name : "Bus Routes"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf"
+    correct : 0
+    solname : "BusRoutes"
+  - name : "Robot Path Decoding"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc"
+    correct : 0
+    solname : "RobotPathDecoding"
+  - name : "Wandering Robot"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565"
+    correct : 0
+    solname : "WanderingRobot"
+- name: "2020_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43"
+  participants: 13650
+  problems :
+  - name : "Countdown"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2"
+    correct : 0
+    solname : "Countdown"
+  - name : "Stable Wall"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb"
+    correct : 0
+    solname : "StableWall"
+  - name : "Perfect Subarray"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb"
+    correct : 0
+    solname : "PerfectSubarray"
+  - name : "Candies"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d"
+    correct : 0
+    solname : "Candies"
+- name: "2020_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08"
+  participants: 11750
+  problems :
+  - name : "Record Breaker"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171"
+    correct : 0
+    solname : "RecordBreaker"
+  - name : "Alien Piano"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174"
+    correct : 0
+    solname : "AlienPiano"
+  - name : "Beauty of tree"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd"
+    correct : 0
+    solname : "Beautyoftree"
+  - name : "Locked Doors"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c"
+    correct : 0
+    solname : "LockedDoors"
+- name: "2020_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47"
+  participants: 11400
+  problems :
+  - name : "Longest Arithmetic"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed"
+    correct : 0
+    solname : "LongestArithmetic"
+  - name : "High Buildings"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73"
+    correct : 0
+    solname : "HighBuildings"
+  - name : "Toys"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9"
+    correct : 0
+    solname : "Toys"
+  - name : "Golden Stone"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29"
+    correct : 0
+    solname : "GoldenStone"
+- name: "2020_F"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48"
+  participants: 6200
+  problems :
+  - name : "ATM Queue"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8"
+    correct : 0
+    solname : "ATMQueue"
+  - name : "Metal Harvest"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b"
+    correct : 0
+    solname : "MetalHarvest"
+  - name : "Painters' Duel"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb"
+    correct : 0
+    solname : "PaintersDuel"
+  - name : "Yeetzhee"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea"
+    correct : 0
+    solname : "Yeetzhee"
+- name: "2020_G"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069"
+  participants: 8100
+  problems :
+  - name : "Kick_Start"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb"
+    correct : 0
+    solname : "KickStart"
+  - name : "Maximum Coins"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23"
+    correct : 0
+    solname : "MaximumCoins"
+  - name : "Combination Lock"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24"
+    correct : 0
+    solname : "CombinationLock"
+  - name : "Merge Cards"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054"
+    correct : 0
+    solname : "MergeCards"
+- name: "2020_H"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49"
+  participants: 4700
+  problems :
+  - name : "Retype"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7"
+    correct : 0
+    solname : "Retype"
+  - name : "Boring Numbers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6"
+    correct : 0
+    solname : "BoringNumbers"
+  - name : "Rugby"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027"
+    correct : 0
+    solname : "Rugby"
+  - name : "Friends"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7"
+    correct : 0
+    solname : "Friends"
+- name: "2021_A"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140"
+  participants: 19850
+  problems :
+  - name : "K-Goodness String"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cca3"
+    correct : 13336
+    solname : "KGoodnessString"
+  - name : "L Shaped Plots"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068c509"
+    correct : 4869
+    solname : "LShapedPlots"
+  - name : "Rabbit House"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cb14"
+    correct : 2807
+    solname : "RabbitHouse"
+  - name : "Checksum"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068c2c3"
+    correct : 116
+    solname : "Checksum"
+- name: "2021_B"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b"
+  participants: 7400
+  problems :
+  - name : "Increasing Substring"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a882"
+    correct : 6049
+    solname : "IncreasingSubstring"
+  - name : "Longest Progression"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a3a5"
+    correct : 1051
+    solname : "LongestProgression"
+  - name : "Consecutive Primes"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a8e6"
+    correct : 1389
+    solname : "ConsecutivePrimes"
+  - name : "Truck Delivery"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a885"
+    correct : 250
+    solname : "TruckDelivery"
+- name: "2021_C"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44"
+  participants: 12200
+  problems :
+  - name : "Smaller Strings"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ebe5e"
+    correct : 2657
+    solname : "SmallerStrings"
+  - name : "Alien Generator"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec1cb"
+    correct : 4750
+    solname : "AlienGenerator"
+  - name : "Rock Paper Scissors"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec28e"
+    correct : 242
+    solname : "RockPaperScissors"
+  - name : "Binary Operator"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec290"
+    correct : 79
+    solname : "BinaryOperator"
+- name: "2021_D"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3"
+  participants: 10950
+  problems :
+  - name : "Arithmetic Square"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b813"
+    correct : 6123
+    solname : "ArithmeticSquare"
+  - name : "Cutting Intervals"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b933"
+    correct : 1468
+    solname : "CuttingIntervals"
+  - name : "Final Exam"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bffc"
+    correct : 1009
+    solname : "FinalExam"
+  - name : "Primes and Queries"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bcf4"
+    correct : 35
+    solname : "PrimesandQueries"
+- name: "2021_E"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c"
+  participants: 6950
+  problems :
+  - name : "Shuffled Anagrams"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a152"
+    correct : 1594
+    solname : "ShuffledAnagrams"
+  - name : "Birthday Cake"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a285"
+    correct : 64
+    solname : "BirthdayCake"
+  - name : "Palindromic Crossword"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/0000000000859dcd"
+    correct : 908
+    solname : "PalindromicCrossword"
+  - name : "Increasing Sequence Card Game"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a709"
+    correct : 505
+    solname : "IncreasingSequenceCardGame"
+- name: "2021_F"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae"
+  participants: 10900
+  problems :
+  - name : "Trash Bins"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887c32"
+    correct : 6349
+    solname : "TrashBins"
+  - name : "Festival"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887dba"
+    correct : 1192
+    solname : "Festival"
+  - name : "Star Trappers"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888d45"
+    correct : 176
+    solname : "StarTrappers"
+  - name : "Graph Travel"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888764"
+    correct : 497
+    solname : "GraphTravel"
