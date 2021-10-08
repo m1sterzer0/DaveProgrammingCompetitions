@@ -874,14 +874,17 @@ contests:
   - name : "L Shaped Plots"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068c509"
     correct : 4869
+    notes : "Grid counting."
     solname : "LShapedPlots"
   - name : "Rabbit House"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cb14"
     correct : 2807
+    notes : "Dijkstra or clever BFS for O(N)."
     solname : "RabbitHouse"
   - name : "Checksum"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068c2c3"
     correct : 116
+    notes : "MST"
     solname : "Checksum"
 - name: "2021_B"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b"
@@ -895,13 +898,16 @@ contests:
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a3a5"
     correct : 1051
     solname : "LongestProgression"
+    notes : "Simple DP. Bookkeeping."
   - name : "Consecutive Primes"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a8e6"
     correct : 1389
     solname : "ConsecutivePrimes"
+    notes : "Binary search. Primality testing."
   - name : "Truck Delivery"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435a5b/000000000077a885"
     correct : 250
+    notes : "Tree DP. Segment tree."
     solname : "TruckDelivery"
 - name: "2021_C"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44"
@@ -918,10 +924,12 @@ contests:
   - name : "Rock Paper Scissors"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec28e"
     correct : 242
+    notes : "Expected value DP"
     solname : "RockPaperScissors"
   - name : "Binary Operator"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec290"
     correct : 79
+    notes : "Expression trees, random"
     solname : "BinaryOperator"
 - name: "2021_D"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3"

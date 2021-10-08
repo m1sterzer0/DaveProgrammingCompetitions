@@ -41,7 +41,8 @@ def doSolutions(fp) :
             sol = ""
             if os.path.exists(f"go/{contest['name']}/{prob['solname']}/{prob['solname']}.go") :
                 sol += f" [go](./go/{contest['name']}/{prob['solname']}/{prob['solname']}.go)"
-            print(f"| [{contest['name']}]({contest['roundlink']}) | [{prob['name']}]({prob['problink']}) | {prob['correct']} | {sol} | |",file=fp)
+            notes = "" if "notes" not in prob else prob['notes']
+            print(f"| [{contest['name']}]({contest['roundlink']}) | [{prob['name']}]({prob['problink']}) | {prob['correct']} | {sol} | {notes} |",file=fp)
         print(f"",file=fp)
 
 if __name__ == "__main__" :
