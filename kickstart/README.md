@@ -37,10 +37,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2021_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Arithmetic Square](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b813) | 6123 |  |  |
-| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Cutting Intervals](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b933) | 1468 |  |  |
-| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Final Exam](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bffc) | 1009 |  |  |
-| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Primes and Queries](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bcf4) | 35 |  |  |
+| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Arithmetic Square](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b813) | 6123 |  [go](./go/2021_D/ArithmeticSquare/ArithmeticSquare.go) |  |
+| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Cutting Intervals](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b933) | 1468 |  [go](./go/2021_D/CuttingIntervals/CuttingIntervals.go) | Interval sorting. Event processing |
+| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Final Exam](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bffc) | 1009 |  [go](./go/2021_D/FinalExam/FinalExam.go) | Searching ordered sets of intervals |
+| [2021_D](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3) | [Primes and Queries](https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bcf4) | 35 |  [go](./go/2021_D/PrimesandQueries/PrimesandQueries.go) | Esoteric 'lifting the exponent' (LTE). Fenwick trees or segment trees |
 
 ## 2021_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

@@ -942,13 +942,16 @@ contests:
   - name : "Cutting Intervals"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082b933"
     correct : 1468
+    notes : "Interval sorting. Event processing"
     solname : "CuttingIntervals"
   - name : "Final Exam"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bffc"
     correct : 1009
+    notes : "Searching ordered sets of intervals"
     solname : "FinalExam"
   - name : "Primes and Queries"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004361e3/000000000082bcf4"
+    notes : "Esoteric 'lifting the exponent' (LTE). Fenwick trees or segment trees" 
     correct : 35
     solname : "PrimesandQueries"
 - name: "2021_E"
