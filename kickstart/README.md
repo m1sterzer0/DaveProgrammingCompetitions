@@ -45,10 +45,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2021_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Smaller Strings](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ebe5e) | 2657 |  | |
-| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Alien Generator](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec1cb) | 4750 |  | |
-| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Rock Paper Scissors](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec28e) | 242 |  | |
-| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Binary Operator](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec290) | 79 |  | |
+| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Smaller Strings](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ebe5e) | 2657 |  [go](./go/2021_C/SmallerStrings/SmallerStrings.go) | |
+| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Alien Generator](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec1cb) | 4750 |  [go](./go/2021_C/AlienGenerator/AlienGenerator.go) | |
+| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Rock Paper Scissors](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec28e) | 242 |  [go](./go/2021_C/RockPaperScissors/RockPaperScissors.go) | |
+| [2021_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44) | [Binary Operator](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435c44/00000000007ec290) | 79 |  [go](./go/2021_C/BinaryOperator/BinaryOperator.go) | |
 
 ## 2021_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
