@@ -117,6 +117,7 @@ if __name__ == "__main__" :
     probList += [(f"2021_A",x) for x in ["KGoodnessString","LShapedPlots","RabbitHouse","Checksum"]]
     probList += [(f"2021_B",x) for x in ["IncreasingSubstring","LongestProgression","ConsecutivePrimes","TruckDelivery"]]
     probList += [(f"2021_C",x) for x in ["SmallerStrings","AlienGenerator","RockPaperScissors","BinaryOperator"]]
+    probList += [(f"2021_D",x) for x in ["ArithmeticSquare","CuttingIntervals","FinalExam","PrimesandQueries"]]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
