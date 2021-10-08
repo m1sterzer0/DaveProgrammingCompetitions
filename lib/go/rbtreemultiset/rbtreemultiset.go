@@ -278,59 +278,121 @@ func (q *RBTREEMULTISET) MaxKey() (k KEYTYPE) {
 	}
 	return q.tree[q.maxidx].key
 }
-func (q *RBTREEMULTISET) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
-	var def KEYTYPE
-	if q.sz == 0 {
-		return def, false
+
+func (q *RBTREEMULTISET) findLtIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || !q.lessthan(q.tree[q.minidx].key, k) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
-	if pos == 1 {
-		idx = q.nextidx(idx)
+	if pos != 1 {
+		idx = q.previdx(idx)
 	}
-	if idx <= 0 {
-		return def, false
-	}
-	return q.tree[idx].key, true
+	return idx, true
 }
-func (q *RBTREEMULTISET) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
-	var def KEYTYPE
-	if q.sz == 0 {
-		return def, false
+
+func (q *RBTREEMULTISET) findLeIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || q.lessthan(k, q.tree[q.minidx].key) {
+		return 0, false
+	}
+	idx, pos := q.findInsertionPoint(k)
+	if pos == -1 {
+		idx = q.previdx(idx)
+	}
+	return idx, true
+}
+
+func (q *RBTREEMULTISET) findGtIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || !q.lessthan(k, q.tree[q.maxidx].key) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
 	if pos != -1 {
 		idx = q.nextidx(idx)
 	}
-	if idx <= 0 {
-		return def, false
-	}
-	return q.tree[idx].key, true
+	return idx, true
 }
-func (q *RBTREEMULTISET) LowerBoundIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
-	if q.sz == 0 {
-		return nil, false
+
+func (q *RBTREEMULTISET) findGeIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || q.lessthan(q.tree[q.maxidx].key, k) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
 	if pos == 1 {
 		idx = q.nextidx(idx)
 	}
-	if idx <= 0 {
-		return nil, false
-	}
-	return &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
+	return idx, true
 }
-func (q *RBTREEMULTISET) UpperBoundIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
-	if q.sz == 0 {
-		return nil, false
+
+func (q *RBTREEMULTISET) FindLt(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findLtIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	idx, pos := q.findInsertionPoint(k)
-	if pos != -1 {
-		idx = q.nextidx(idx)
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindLe(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findLeIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	if idx <= 0 {
-		return nil, false
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindGt(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findGtIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	return &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}, true
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindGe(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findGeIdx(k)
+	if ok {
+		ans = q.tree[idx].key
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindLtIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
+	var ans *RBTREEMULTISETiter
+	idx, ok := q.findLtIdx(k)
+	if ok {
+		ans = &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindLeIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
+	var ans *RBTREEMULTISETiter
+	idx, ok := q.findLeIdx(k)
+	if ok {
+		ans = &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindGtIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
+	var ans *RBTREEMULTISETiter
+	idx, ok := q.findGtIdx(k)
+	if ok {
+		ans = &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMULTISET) FindGeIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {
+	var ans *RBTREEMULTISETiter
+	idx, ok := q.findGeIdx(k)
+	if ok {
+		ans = &RBTREEMULTISETiter{idx, q.tree[idx].key, q.tree[idx].count, q}
+	}
+	return ans, ok
 }
 
 func (q *RBTREEMULTISET) FindIter(k KEYTYPE) (RBTREEMULTISETIterator, bool) {

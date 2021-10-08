@@ -274,59 +274,121 @@ func (q *RBTREEMAP) MaxKey() (k KEYTYPE) {
 	}
 	return q.tree[q.maxidx].key
 }
-func (q *RBTREEMAP) LowerBound(k KEYTYPE) (KEYTYPE, bool) {
-	var def KEYTYPE
-	if q.sz == 0 {
-		return def, false
+
+func (q *RBTREEMAP) findLtIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || !q.lessthan(q.tree[q.minidx].key, k) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
-	if pos == 1 {
-		idx = q.nextidx(idx)
+	if pos != 1 {
+		idx = q.previdx(idx)
 	}
-	if idx <= 0 {
-		return def, false
-	}
-	return q.tree[idx].key, true
+	return idx, true
 }
-func (q *RBTREEMAP) UpperBound(k KEYTYPE) (KEYTYPE, bool) {
-	var def KEYTYPE
-	if q.sz == 0 {
-		return def, false
+
+func (q *RBTREEMAP) findLeIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || q.lessthan(k, q.tree[q.minidx].key) {
+		return 0, false
+	}
+	idx, pos := q.findInsertionPoint(k)
+	if pos == -1 {
+		idx = q.previdx(idx)
+	}
+	return idx, true
+}
+
+func (q *RBTREEMAP) findGtIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || !q.lessthan(k, q.tree[q.maxidx].key) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
 	if pos != -1 {
 		idx = q.nextidx(idx)
 	}
-	if idx <= 0 {
-		return def, false
-	}
-	return q.tree[idx].key, true
+	return idx, true
 }
-func (q *RBTREEMAP) LowerBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
-	if q.sz == 0 {
-		return nil, false
+
+func (q *RBTREEMAP) findGeIdx(k KEYTYPE) (int32, bool) {
+	if q.sz == 0 || q.lessthan(q.tree[q.maxidx].key, k) {
+		return 0, false
 	}
 	idx, pos := q.findInsertionPoint(k)
 	if pos == 1 {
 		idx = q.nextidx(idx)
 	}
-	if idx <= 0 {
-		return nil, false
-	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return idx, true
 }
-func (q *RBTREEMAP) UpperBoundIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
-	if q.sz == 0 {
-		return nil, false
+
+func (q *RBTREEMAP) FindLt(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findLtIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	idx, pos := q.findInsertionPoint(k)
-	if pos != -1 {
-		idx = q.nextidx(idx)
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindLe(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findLeIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	if idx <= 0 {
-		return nil, false
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindGt(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findGtIdx(k)
+	if ok {
+		ans = q.tree[idx].key
 	}
-	return &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}, true
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindGe(k KEYTYPE) (KEYTYPE, bool) {
+	var ans KEYTYPE
+	idx, ok := q.findGeIdx(k)
+	if ok {
+		ans = q.tree[idx].key
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindLtIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+	var ans *RBTREEMAPiter
+	idx, ok := q.findLtIdx(k)
+	if ok {
+		ans = &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindLeIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+	var ans *RBTREEMAPiter
+	idx, ok := q.findLeIdx(k)
+	if ok {
+		ans = &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindGtIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+	var ans *RBTREEMAPiter
+	idx, ok := q.findGtIdx(k)
+	if ok {
+		ans = &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}
+	}
+	return ans, ok
+}
+
+func (q *RBTREEMAP) FindGeIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
+	var ans *RBTREEMAPiter
+	idx, ok := q.findGeIdx(k)
+	if ok {
+		ans = &RBTREEMAPiter{idx, q.tree[idx].key, q.tree[idx].val, q}
+	}
+	return ans, ok
 }
 
 func (q *RBTREEMAP) FindIter(k KEYTYPE) (RBTREEMAPIterator, bool) {
