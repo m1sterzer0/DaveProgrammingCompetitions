@@ -29,10 +29,10 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc222](http:/atcoder.jp/contests/abc222) | [abc222_B](http:/atcoder.jp/contests/abc222/tasks/abc222_B) | 7010 | 0 |  [go](./go/abc222/abc222_B/abc222_B.go) |  |
 | [abc222](http:/atcoder.jp/contests/abc222) | [abc222_C](http:/atcoder.jp/contests/abc222/tasks/abc222_C) | 4237 | 367 |  [go](./go/abc222/abc222_C/abc222_C.go) |  |
 | [abc222](http:/atcoder.jp/contests/abc222) | [abc222_D](http:/atcoder.jp/contests/abc222/tasks/abc222_D) | 2540 | 865 |  [go](./go/abc222/abc222_D/abc222_D.go) |  |
-| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_E](http:/atcoder.jp/contests/abc222/tasks/abc222_E) | 995 | 1491 |  [go](./go/abc222/abc222_E/abc222_E.go) |  |
-| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_F](http:/atcoder.jp/contests/abc222/tasks/abc222_F) | 415 | 1934 |  [go](./go/abc222/abc222_F/abc222_F.go) |  |
-| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_G](http:/atcoder.jp/contests/abc222/tasks/abc222_G) | 200 | 2242 |  [go](./go/abc222/abc222_G/abc222_G.go) |  |
-| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_H](http:/atcoder.jp/contests/abc222/tasks/abc222_H) | 5 | 3477 |  [go](./go/abc222/abc222_H/abc222_H.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_E](http:/atcoder.jp/contests/abc222/tasks/abc222_E) | 995 | 1491 |  [go](./go/abc222/abc222_E/abc222_E.go) | Tree DP plus subset sum |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_F](http:/atcoder.jp/contests/abc222/tasks/abc222_F) | 415 | 1934 |  [go](./go/abc222/abc222_F/abc222_F.go) | Another tree DP |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_G](http:/atcoder.jp/contests/abc222/tasks/abc222_G) | 200 | 2242 |  [go](./go/abc222/abc222_G/abc222_G.go) | Totient function. Elementary group theory |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_H](http:/atcoder.jp/contests/abc222/tasks/abc222_H) | 5 | 3477 |  [go](./go/abc222/abc222_H/abc222_H.go) | Generating functions. Lagrange inversion theorem. P-recursive |
 
 ## abc221 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -41,10 +41,10 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_B](http:/atcoder.jp/contests/abc221/tasks/abc221_B) | 7002 | 0 |  [go](./go/abc221/abc221_B/abc221_B.go) |  |
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_C](http:/atcoder.jp/contests/abc221/tasks/abc221_C) | 4553 | 379 |  [go](./go/abc221/abc221_C/abc221_C.go) |  |
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_D](http:/atcoder.jp/contests/abc221/tasks/abc221_D) | 2803 | 832 |  [go](./go/abc221/abc221_D/abc221_D.go) |  |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_E](http:/atcoder.jp/contests/abc221/tasks/abc221_E) | 991 | 1515 |  [go](./go/abc221/abc221_E/abc221_E.go) | Tree DP plus subset sum |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_F](http:/atcoder.jp/contests/abc221/tasks/abc221_F) | 287 | 2093 |  [go](./go/abc221/abc221_F/abc221_F.go) | Another tree DP |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_G](http:/atcoder.jp/contests/abc221/tasks/abc221_G) | 26 | 2914 |  [go](./go/abc221/abc221_G/abc221_G.go) | Totient function. Elementary group theory |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_H](http:/atcoder.jp/contests/abc221/tasks/abc221_H) | 39 | 2793 |  [go](./go/abc221/abc221_H/abc221_H.go) | Generating functions. Lagrange inversion theorem. P-recursive |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_E](http:/atcoder.jp/contests/abc221/tasks/abc221_E) | 991 | 1515 |  [go](./go/abc221/abc221_E/abc221_E.go) | Coordinate compression.  Fenwick tree. |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_F](http:/atcoder.jp/contests/abc221/tasks/abc221_F) | 287 | 2093 |  [go](./go/abc221/abc221_F/abc221_F.go) | Tree diameter. DFS. Even/Odd Casework. Combinatorics |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_G](http:/atcoder.jp/contests/abc221/tasks/abc221_G) | 26 | 2914 |  [go](./go/abc221/abc221_G/abc221_G.go) | Subset sum. Using a large bitset helps. Processing the parents as we find them vs. keeping the full history and tracing back from the end keeps the space requirement down. |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_H](http:/atcoder.jp/contests/abc221/tasks/abc221_H) | 39 | 2793 |  [go](./go/abc221/abc221_H/abc221_H.go) | Tricky DP to see. |
 
 ## abc220 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |

@@ -304,10 +304,10 @@ notes["abc221_F"] = "Tree diameter. DFS. Even/Odd Casework. Combinatorics"
 notes["abc221_G"] = "Subset sum. Using a large bitset helps. Processing the parents as we find them vs. keeping the full history" + \
                     " and tracing back from the end keeps the space requirement down."
 notes["abc221_H"] = "Tricky DP to see."
-notes["abc221_E"] = "Tree DP plus subset sum"
-notes["abc221_F"] = "Another tree DP"
-notes["abc221_G"] = "Totient function. Elementary group theory"
-notes["abc221_H"] = "Generating functions. Lagrange inversion theorem. P-recursive"
+notes["abc222_E"] = "Tree DP plus subset sum"
+notes["abc222_F"] = "Another tree DP"
+notes["abc222_G"] = "Totient function. Elementary group theory"
+notes["abc222_H"] = "Generating functions. Lagrange inversion theorem. P-recursive"
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
