@@ -64,6 +64,7 @@ abc218,8653,8436,2385,3491,2408,669,235,48
 abc219,7203,6901,4665,1859,681,93,181,10
 abc220,7185,6418,5778,3286,867,1411,116,19
 abc221,8032,7002,4553,2803,991,287,26,39
+abc222,7082,7010,4237,2540,995,415,200,5
 '''
 problemRatingData = '''
 abc160,0,0,62,879,1036,2048
@@ -128,6 +129,7 @@ abc218,0,0,1012,715,1004,1753,2217,2805
 abc219,0,0,260,1085,1690,2542,2287,3297
 abc220,0,0,119,664,1593,1304,2439,3047
 abc221,0,0,379,832,1515,2093,2914,2793
+abc222,0,0,367,865,1491,1934,2242,3477
 '''
 
 notes = {}
@@ -302,6 +304,10 @@ notes["abc221_F"] = "Tree diameter. DFS. Even/Odd Casework. Combinatorics"
 notes["abc221_G"] = "Subset sum. Using a large bitset helps. Processing the parents as we find them vs. keeping the full history" + \
                     " and tracing back from the end keeps the space requirement down."
 notes["abc221_H"] = "Tricky DP to see."
+notes["abc221_E"] = "Tree DP plus subset sum"
+notes["abc221_F"] = "Another tree DP"
+notes["abc221_G"] = "Totient function. Elementary group theory"
+notes["abc221_H"] = "Generating functions. Lagrange inversion theorem. P-recursive"
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}

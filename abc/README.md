@@ -1,4 +1,4 @@
-# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-274%20%2F%20392-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-392%20%2F%20392-ff69b4.svg)
+# m1sterzer0 Atcoder ABC Solutions ![Language](https://img.shields.io/badge/language-Python-orange.svg) ![Language](https://img.shields.io/badge/language-Golang-green.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![PythonProgress](https://img.shields.io/badge/PythonProgress-274%20%2F%20400-ff69b4.svg) ![GolangProgress](https://img.shields.io/badge/GolangProgress-400%20%2F%20400-ff69b4.svg)
 
 These are the solutions for the Atcoder beginner contests (ABC).  I find the Atcoder beginner contests very educational.  There is a large difficulty spread in the problems so that you can ramp, and the 500/600 point solutions often introduce new (even advanced) concepts in a reasonably straightforward way.
 
@@ -20,7 +20,19 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc205](https://atcoder.jp/contests/abc205); [sol](#abc205-Solutions) | [abc206](https://atcoder.jp/contests/abc206); [sol](#abc206-Solutions) | [abc207](https://atcoder.jp/contests/abc207); [sol](#abc207-Solutions) | [abc208](https://atcoder.jp/contests/abc208); [sol](#abc208-Solutions) | [abc209](https://atcoder.jp/contests/abc209); [sol](#abc209-Solutions) |
 | [abc210](https://atcoder.jp/contests/abc210); [sol](#abc210-Solutions) | [abc211](https://atcoder.jp/contests/abc211); [sol](#abc211-Solutions) | [abc212](https://atcoder.jp/contests/abc212); [sol](#abc212-Solutions) | [abc213](https://atcoder.jp/contests/abc213); [sol](#abc213-Solutions) | [abc214](https://atcoder.jp/contests/abc214); [sol](#abc214-Solutions) |
 | [abc215](https://atcoder.jp/contests/abc215); [sol](#abc215-Solutions) | [abc216](https://atcoder.jp/contests/abc216); [sol](#abc216-Solutions) | [abc217](https://atcoder.jp/contests/abc217); [sol](#abc217-Solutions) | [abc218](https://atcoder.jp/contests/abc218); [sol](#abc218-Solutions) | [abc219](https://atcoder.jp/contests/abc219); [sol](#abc219-Solutions) |
-| [abc220](https://atcoder.jp/contests/abc220); [sol](#abc220-Solutions) | [abc221](https://atcoder.jp/contests/abc221); [sol](#abc221-Solutions) | | | |
+| [abc220](https://atcoder.jp/contests/abc220); [sol](#abc220-Solutions) | [abc221](https://atcoder.jp/contests/abc221); [sol](#abc221-Solutions) | [abc222](https://atcoder.jp/contests/abc222); [sol](#abc222-Solutions) | | |
+
+## abc222 Solutions
+| Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
+| ------- | ------- | ----------: | ----------: | --------- | ----- |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_A](http:/atcoder.jp/contests/abc222/tasks/abc222_A) | 7082 | 0 |  [go](./go/abc222/abc222_A/abc222_A.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_B](http:/atcoder.jp/contests/abc222/tasks/abc222_B) | 7010 | 0 |  [go](./go/abc222/abc222_B/abc222_B.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_C](http:/atcoder.jp/contests/abc222/tasks/abc222_C) | 4237 | 367 |  [go](./go/abc222/abc222_C/abc222_C.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_D](http:/atcoder.jp/contests/abc222/tasks/abc222_D) | 2540 | 865 |  [go](./go/abc222/abc222_D/abc222_D.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_E](http:/atcoder.jp/contests/abc222/tasks/abc222_E) | 995 | 1491 |  [go](./go/abc222/abc222_E/abc222_E.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_F](http:/atcoder.jp/contests/abc222/tasks/abc222_F) | 415 | 1934 |  [go](./go/abc222/abc222_F/abc222_F.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_G](http:/atcoder.jp/contests/abc222/tasks/abc222_G) | 200 | 2242 |  [go](./go/abc222/abc222_G/abc222_G.go) |  |
+| [abc222](http:/atcoder.jp/contests/abc222) | [abc222_H](http:/atcoder.jp/contests/abc222/tasks/abc222_H) | 5 | 3477 |  [go](./go/abc222/abc222_H/abc222_H.go) |  |
 
 ## abc221 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
@@ -29,10 +41,10 @@ These are the solutions for the Atcoder beginner contests (ABC).  I find the Atc
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_B](http:/atcoder.jp/contests/abc221/tasks/abc221_B) | 7002 | 0 |  [go](./go/abc221/abc221_B/abc221_B.go) |  |
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_C](http:/atcoder.jp/contests/abc221/tasks/abc221_C) | 4553 | 379 |  [go](./go/abc221/abc221_C/abc221_C.go) |  |
 | [abc221](http:/atcoder.jp/contests/abc221) | [abc221_D](http:/atcoder.jp/contests/abc221/tasks/abc221_D) | 2803 | 832 |  [go](./go/abc221/abc221_D/abc221_D.go) |  |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_E](http:/atcoder.jp/contests/abc221/tasks/abc221_E) | 991 | 1515 |  [go](./go/abc221/abc221_E/abc221_E.go) | Coordinate compression.  Fenwick tree. |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_F](http:/atcoder.jp/contests/abc221/tasks/abc221_F) | 287 | 2093 |  [go](./go/abc221/abc221_F/abc221_F.go) | Tree diameter. DFS. Even/Odd Casework. Combinatorics |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_G](http:/atcoder.jp/contests/abc221/tasks/abc221_G) | 26 | 2914 |  [go](./go/abc221/abc221_G/abc221_G.go) | Subset sum. Using a large bitset helps. Processing the parents as we find them vs. keeping the full history and tracing back from the end keeps the space requirement down. |
-| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_H](http:/atcoder.jp/contests/abc221/tasks/abc221_H) | 39 | 2793 |  [go](./go/abc221/abc221_H/abc221_H.go) | Tricky DP to see. |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_E](http:/atcoder.jp/contests/abc221/tasks/abc221_E) | 991 | 1515 |  [go](./go/abc221/abc221_E/abc221_E.go) | Tree DP plus subset sum |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_F](http:/atcoder.jp/contests/abc221/tasks/abc221_F) | 287 | 2093 |  [go](./go/abc221/abc221_F/abc221_F.go) | Another tree DP |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_G](http:/atcoder.jp/contests/abc221/tasks/abc221_G) | 26 | 2914 |  [go](./go/abc221/abc221_G/abc221_G.go) | Totient function. Elementary group theory |
+| [abc221](http:/atcoder.jp/contests/abc221) | [abc221_H](http:/atcoder.jp/contests/abc221/tasks/abc221_H) | 39 | 2793 |  [go](./go/abc221/abc221_H/abc221_H.go) | Generating functions. Lagrange inversion theorem. P-recursive |
 
 ## abc220 Solutions
 | Contest | Problem | Num Correct | Diff Rating | Solutions | Notes |
