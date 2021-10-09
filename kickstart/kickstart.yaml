@@ -961,18 +961,22 @@ contests:
   - name : "Shuffled Anagrams"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a152"
     correct : 1594
+    notes : "Standard 'construct a derangement with repeats' problem"
     solname : "ShuffledAnagrams"
   - name : "Birthday Cake"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a285"
     correct : 64
+    notes : "Challenging basic problem.  No fancy data structures or algorithms needed."
     solname : "BirthdayCake"
   - name : "Palindromic Crossword"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/0000000000859dcd"
     correct : 908
+    notes : "DSU. Palindromes"
     solname : "PalindromicCrossword"
   - name : "Increasing Sequence Card Game"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a709"
     correct : 505
+    notes : "DP for mid version.  Harmonic series approximation.  Euler-Maclaurin Summation Formula (for extra credit)."
     solname : "IncreasingSequenceCardGame"
 - name: "2021_F"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae"

@@ -29,10 +29,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2021_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Shuffled Anagrams](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a152) | 1594 |  |  |
-| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Birthday Cake](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a285) | 64 |  |  |
-| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Palindromic Crossword](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/0000000000859dcd) | 908 |  |  |
-| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Increasing Sequence Card Game](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a709) | 505 |  |  |
+| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Shuffled Anagrams](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a152) | 1594 |  [go](./go/2021_E/ShuffledAnagrams/ShuffledAnagrams.go) | Standard 'construct a derangement with repeats' problem |
+| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Birthday Cake](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a285) | 64 |  [go](./go/2021_E/BirthdayCake/BirthdayCake.go) | Challenging basic problem.  No fancy data structures or algorithms needed. |
+| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Palindromic Crossword](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/0000000000859dcd) | 908 |  [go](./go/2021_E/PalindromicCrossword/PalindromicCrossword.go) | DSU. Palindromes |
+| [2021_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c) | [Increasing Sequence Card Game](https://codingcompetitions.withgoogle.com/kickstart/round/000000000043585c/000000000085a709) | 505 |  [go](./go/2021_E/IncreasingSequenceCardGame/IncreasingSequenceCardGame.go) | DP for mid version.  Harmonic series approximation.  Euler-Maclaurin Summation Formula (for extra credit). |
 
 ## 2021_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
