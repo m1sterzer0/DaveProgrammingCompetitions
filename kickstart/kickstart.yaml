@@ -744,7 +744,8 @@ contests:
     solname : "RobotPathDecoding"
   - name : "Wandering Robot"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565"
-    correct : 135 
+    correct : 135
+    notes : "Combinatorics, Logarithms" 
     solname : "WanderingRobot"
 - name: "2020_C"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43"

@@ -117,10 +117,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2020_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bike Tour](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6) | 9267 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bus Routes](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf) | 5811 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Robot Path Decoding](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc) | 2733 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Wandering Robot](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565) | 135 |  |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bike Tour](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6) | 9267 |  [go](./go/2020_B/BikeTour/BikeTour.go) |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bus Routes](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf) | 5811 |  [go](./go/2020_B/BusRoutes/BusRoutes.go) |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Robot Path Decoding](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc) | 2733 |  [go](./go/2020_B/RobotPathDecoding/RobotPathDecoding.go) |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Wandering Robot](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565) | 135 |  [go](./go/2020_B/WanderingRobot/WanderingRobot.go) | Combinatorics, Logarithms |
 
 ## 2020_A Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
