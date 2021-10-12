@@ -122,6 +122,7 @@ if __name__ == "__main__" :
     #probList += [(f"2021_E",x) for x in ["ShuffledAnagrams","BirthdayCake","PalindromicCrossword","IncreasingSequenceCardGame"]]
     #probList += [(f"2021_F",x) for x in ["TrashBins","Festival","StarTrappers","GraphTravel"]]
     probList += [(f"2020_A",x) for x in ["Allocation","Plates","Workout","Bundling"]]
+    probList += [(f"2020_B",x) for x in ["BikeTour","BusRoutes","RobotPathDecoding","WanderingRobot"]]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
