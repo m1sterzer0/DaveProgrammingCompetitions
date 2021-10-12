@@ -709,19 +709,19 @@ contests:
   problems :
   - name : "Allocation"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f56"
-    correct : 0
+    correct : 10276
     solname : "Allocation"
   - name : "Plates"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb"
-    correct : 0
+    correct : 2941 
     solname : "Plates"
   - name : "Workout"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b"
-    correct : 0
+    correct : 1925 
     solname : "Workout"
   - name : "Bundling"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3"
-    correct : 0
+    correct : 1032 
     solname : "Bundling"
 - name: "2020_B"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8"
@@ -729,19 +729,19 @@ contests:
   problems :
   - name : "Bike Tour"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6"
-    correct : 0
+    correct : 9267 
     solname : "BikeTour"
   - name : "Bus Routes"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf"
-    correct : 0
+    correct : 5811 
     solname : "BusRoutes"
   - name : "Robot Path Decoding"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc"
-    correct : 0
+    correct : 2733 
     solname : "RobotPathDecoding"
   - name : "Wandering Robot"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565"
-    correct : 0
+    correct : 135 
     solname : "WanderingRobot"
 - name: "2020_C"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43"
@@ -749,19 +749,19 @@ contests:
   problems :
   - name : "Countdown"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2"
-    correct : 0
+    correct : 9017 
     solname : "Countdown"
   - name : "Stable Wall"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb"
-    correct : 0
+    correct : 2632 
     solname : "StableWall"
   - name : "Perfect Subarray"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb"
-    correct : 0
+    correct : 685 
     solname : "PerfectSubarray"
   - name : "Candies"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d"
-    correct : 0
+    correct : 655 
     solname : "Candies"
 - name: "2020_D"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08"
@@ -769,19 +769,19 @@ contests:
   problems :
   - name : "Record Breaker"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171"
-    correct : 0
+    correct : 7799 
     solname : "RecordBreaker"
   - name : "Alien Piano"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174"
-    correct : 0
+    correct : 3928 
     solname : "AlienPiano"
   - name : "Beauty of tree"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd"
-    correct : 0
+    correct : 602 
     solname : "Beautyoftree"
   - name : "Locked Doors"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c"
-    correct : 0
+    correct : 112 
     solname : "LockedDoors"
 - name: "2020_E"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47"
@@ -789,19 +789,19 @@ contests:
   problems :
   - name : "Longest Arithmetic"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed"
-    correct : 0
+    correct : 8888 
     solname : "LongestArithmetic"
   - name : "High Buildings"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73"
-    correct : 0
+    correct : 2345 
     solname : "HighBuildings"
   - name : "Toys"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9"
-    correct : 0
+    correct : 288 
     solname : "Toys"
   - name : "Golden Stone"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29"
-    correct : 0
+    correct : 77 
     solname : "GoldenStone"
 - name: "2020_F"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48"
@@ -809,19 +809,19 @@ contests:
   problems :
   - name : "ATM Queue"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8"
-    correct : 0
+    correct : 3509 
     solname : "ATMQueue"
   - name : "Metal Harvest"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b"
-    correct : 0
+    correct : 2448 
     solname : "MetalHarvest"
   - name : "Painters' Duel"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb"
-    correct : 0
+    correct : 346 
     solname : "PaintersDuel"
   - name : "Yeetzhee"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea"
-    correct : 0
+    correct : 69 
     solname : "Yeetzhee"
 - name: "2020_G"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069"
@@ -829,19 +829,19 @@ contests:
   problems :
   - name : "Kick_Start"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb"
-    correct : 0
+    correct : 5780 
     solname : "KickStart"
   - name : "Maximum Coins"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23"
-    correct : 0
+    correct : 5590
     solname : "MaximumCoins"
   - name : "Combination Lock"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24"
-    correct : 0
+    correct : 606
     solname : "CombinationLock"
   - name : "Merge Cards"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054"
-    correct : 0
+    correct : 248 
     solname : "MergeCards"
 - name: "2020_H"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49"
@@ -849,19 +849,19 @@ contests:
   problems :
   - name : "Retype"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7"
-    correct : 0
+    correct : 4071 
     solname : "Retype"
   - name : "Boring Numbers"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6"
-    correct : 0
+    correct : 805 
     solname : "BoringNumbers"
   - name : "Rugby"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027"
-    correct : 0
+    correct : 320 
     solname : "Rugby"
   - name : "Friends"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7"
-    correct : 0
+    correct : 262 
     solname : "Friends"
 - name: "2021_A"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140"
