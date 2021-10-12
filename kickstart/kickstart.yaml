@@ -985,16 +985,20 @@ contests:
   - name : "Trash Bins"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887c32"
     correct : 6349
+    notes : "Simple arithmetic series sums."
     solname : "TrashBins"
   - name : "Festival"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887dba"
     correct : 1192
+    notes : "Bookkeeping with dueling multisets OR dueling segment trees"
     solname : "Festival"
   - name : "Star Trappers"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888d45"
     correct : 176
+    notes : "Efficient pointInPolygon searching"
     solname : "StarTrappers"
   - name : "Graph Travel"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888764"
     correct : 497
+    notes : "Subset DP"
     solname : "GraphTravel"

@@ -21,10 +21,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2021_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Trash Bins](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887c32) | 6349 |  |  |
-| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Festival](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887dba) | 1192 |  |  |
-| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Star Trappers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888d45) | 176 |  |  |
-| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Graph Travel](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888764) | 497 |  |  |
+| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Trash Bins](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887c32) | 6349 |  [go](./go/2021_F/TrashBins/TrashBins.go) | Simple arithmetic series sums. |
+| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Festival](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000887dba) | 1192 |  [go](./go/2021_F/Festival/Festival.go) | Bookkeeping with dueling multisets OR dueling segment trees |
+| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Star Trappers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888d45) | 176 |  [go](./go/2021_F/StarTrappers/StarTrappers.go) | Efficient pointInPolygon searching |
+| [2021_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae) | [Graph Travel](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435bae/0000000000888764) | 497 |  [go](./go/2021_F/GraphTravel/GraphTravel.go) | Subset DP |
 
 ## 2021_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
