@@ -69,66 +69,66 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2020_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Retype](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7) | 0 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 0 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 0 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 0 |  |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Retype](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7) | 4071 |  |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 805 |  |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 320 |  |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 262 |  |  |
 
 ## 2020_G Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 0 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 0 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 0 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 0 |  |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 5780 |  |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 5590 |  |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 606 |  |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 248 |  |  |
 
 ## 2020_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 0 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 0 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 0 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 0 |  |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 3509 |  |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 2448 |  |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 346 |  |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 69 |  |  |
 
 ## 2020_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Longest Arithmetic](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed) | 0 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [High Buildings](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73) | 0 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Toys](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9) | 0 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Golden Stone](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29) | 0 |  |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Longest Arithmetic](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed) | 8888 |  |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [High Buildings](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73) | 2345 |  |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Toys](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9) | 288 |  |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Golden Stone](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29) | 77 |  |  |
 
 ## 2020_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Record Breaker](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171) | 0 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Alien Piano](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174) | 0 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Beauty of tree](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd) | 0 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Locked Doors](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c) | 0 |  |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Record Breaker](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171) | 7799 |  |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Alien Piano](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174) | 3928 |  |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Beauty of tree](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd) | 602 |  |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Locked Doors](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c) | 112 |  |  |
 
 ## 2020_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Countdown](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2) | 0 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Stable Wall](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb) | 0 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Perfect Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb) | 0 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Candies](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d) | 0 |  |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Countdown](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2) | 9017 |  |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Stable Wall](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb) | 2632 |  |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Perfect Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb) | 685 |  |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Candies](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d) | 655 |  |  |
 
 ## 2020_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bike Tour](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6) | 0 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bus Routes](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf) | 0 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Robot Path Decoding](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc) | 0 |  |  |
-| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Wandering Robot](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565) | 0 |  |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bike Tour](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d82e6) | 9267 |  |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Bus Routes](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf) | 5811 |  |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Robot Path Decoding](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83dc) | 2733 |  |  |
+| [2020_B](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8) | [Wandering Robot](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d8565) | 135 |  |  |
 
 ## 2020_A Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Allocation](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f56) | 0 |  |  |
-| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Plates](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb) | 0 |  |  |
-| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Workout](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b) | 0 |  |  |
-| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Bundling](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3) | 0 |  |  |
+| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Allocation](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f56) | 10276 |  [go](./go/2020_A/Allocation/Allocation.go) |  |
+| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Plates](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb) | 2941 |  [go](./go/2020_A/Plates/Plates.go) | Simple DP |
+| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Workout](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b) | 1925 |  [go](./go/2020_A/Workout/Workout.go) | Binary Search |
+| [2020_A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7) | [Bundling](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3) | 1032 |  [go](./go/2020_A/Bundling/Bundling.go) | Greedy Trie |
 
 ## 2019_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

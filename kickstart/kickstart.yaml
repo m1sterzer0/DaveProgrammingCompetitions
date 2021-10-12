@@ -714,14 +714,17 @@ contests:
   - name : "Plates"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb"
     correct : 2941 
+    notes : "Simple DP"
     solname : "Plates"
   - name : "Workout"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3f5b"
     correct : 1925 
+    notes : "Binary Search"
     solname : "Workout"
   - name : "Bundling"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d3ff3"
     correct : 1032 
+    notes : "Greedy Trie"
     solname : "Bundling"
 - name: "2020_B"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8"
