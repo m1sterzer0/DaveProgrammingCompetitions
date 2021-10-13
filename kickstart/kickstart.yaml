@@ -758,14 +758,17 @@ contests:
   - name : "Stable Wall"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb"
     correct : 2632 
+    notes : "Topological sort"
     solname : "StableWall"
   - name : "Perfect Subarray"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb"
     correct : 685 
+    notes : "Sparse prefix sums (pseudo DP)"
     solname : "PerfectSubarray"
   - name : "Candies"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d"
     correct : 655 
+    notes : "Fenwick tree (clever)"
     solname : "Candies"
 - name: "2020_D"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08"

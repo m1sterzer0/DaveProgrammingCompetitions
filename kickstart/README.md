@@ -109,10 +109,10 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2020_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Countdown](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2) | 9017 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Stable Wall](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb) | 2632 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Perfect Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb) | 685 |  |  |
-| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Candies](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d) | 655 |  |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Countdown](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003380d2) | 9017 |  [go](./go/2020_C/Countdown/Countdown.go) |  |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Stable Wall](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb) | 2632 |  [go](./go/2020_C/StableWall/StableWall.go) | Topological sort |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Perfect Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003381cb) | 685 |  [go](./go/2020_C/PerfectSubarray/PerfectSubarray.go) | Sparse prefix sums (pseudo DP) |
+| [2020_C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43) | [Candies](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/0000000000337b4d) | 655 |  [go](./go/2020_C/Candies/Candies.go) | Fenwick tree (clever) |
 
 ## 2020_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
