@@ -93,18 +93,18 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2020_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Longest Arithmetic](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed) | 8888 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [High Buildings](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73) | 2345 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Toys](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9) | 288 |  |  |
-| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Golden Stone](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29) | 77 |  |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Longest Arithmetic](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bf4ed) | 8888 |  [go](./go/2020_E/LongestArithmetic/LongestArithmetic.go) |  |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [High Buildings](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73) | 2345 |  [go](./go/2020_E/HighBuildings/HighBuildings.go) | Constructive. Casework |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Toys](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9) | 288 |  [go](./go/2020_E/Toys/Toys.go) | Fenwick + Min Heap.  I need to reread the official solutions, as I don't follow their method. |
+| [2020_E](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47) | [Golden Stone](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29) | 77 |  [go](./go/2020_E/GoldenStone/GoldenStone.go) | Tricky Dijkstra |
 
 ## 2020_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Record Breaker](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171) | 7799 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Alien Piano](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174) | 3928 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Beauty of tree](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd) | 602 |  |  |
-| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Locked Doors](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c) | 112 |  |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Record Breaker](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171) | 7799 |  [go](./go/2020_D/RecordBreaker/RecordBreaker.go) |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Alien Piano](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174) | 3928 |  [go](./go/2020_D/AlienPiano/AlienPiano.go) |  |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Beauty of tree](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd) | 602 |  [go](./go/2020_D/Beautyoftree/Beautyoftree.go) | Tree DP, Stack |
+| [2020_D](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08) | [Locked Doors](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c) | 112 |  [go](./go/2020_D/LockedDoors/LockedDoors.go) | Tree construction, Binary lifting |
 
 ## 2020_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

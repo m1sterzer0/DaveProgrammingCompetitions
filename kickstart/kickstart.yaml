@@ -784,11 +784,13 @@ contests:
     solname : "AlienPiano"
   - name : "Beauty of tree"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386edd"
-    correct : 602 
+    correct : 602
+    notes : "Tree DP, Stack" 
     solname : "Beautyoftree"
   - name : "Locked Doors"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c"
     correct : 112 
+    notes : "Tree construction, Binary lifting"
     solname : "LockedDoors"
 - name: "2020_E"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47"
@@ -801,14 +803,17 @@ contests:
   - name : "High Buildings"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef73"
     correct : 2345 
+    notes : "Constructive. Casework"
     solname : "HighBuildings"
   - name : "Toys"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bede9"
     correct : 288 
+    notes : "Fenwick + Min Heap.  I need to reread the official solutions, as I don't follow their method."
     solname : "Toys"
   - name : "Golden Stone"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff47/00000000003bef29"
-    correct : 77 
+    correct : 77
+    notes : "Tricky Dijkstra"
     solname : "GoldenStone"
 - name: "2020_F"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48"
