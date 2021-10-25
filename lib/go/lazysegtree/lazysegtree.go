@@ -82,8 +82,6 @@ func (q *LAZYSEGTREE) Prod(l int, r int) DATATYPE {
 		}
 	}
 	sml, smr := q.e, q.e
-	l += q.size
-	r += q.size
 	for l < r {
 		if l&1 != 0 {
 			sml = q.op(sml, q.d[l])
