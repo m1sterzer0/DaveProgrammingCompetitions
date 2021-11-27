@@ -65,6 +65,11 @@ abc219,7203,6901,4665,1859,681,93,181,10
 abc220,7185,6418,5778,3286,867,1411,116,19
 abc221,8032,7002,4553,2803,991,287,26,39
 abc222,7082,7010,4237,2540,995,415,200,5
+abc223,6699,5301,3651,1511,693,535,82,23
+abc224,6433,5373,4027,1069,650,559,118,26
+abc225,6417,5730,4092,2636,684,75,85,21
+abc226,6377,4674,3350,2825,1255,289,133,36
+abc227,5315,4760,2494,659,169,166,202,17
 '''
 problemRatingData = '''
 abc160,0,0,62,879,1036,2048
@@ -130,6 +135,11 @@ abc219,0,0,260,1085,1690,2542,2287,3297
 abc220,0,0,119,664,1593,1304,2439,3047
 abc221,0,0,379,832,1515,2093,2914,2793
 abc222,0,0,367,865,1491,1934,2242,3477
+abc223,0,0,354,1069,1510,1641,2351,2771
+abc224,0,0,301,1376,1657,1733,2374,2887
+abc225,0,0,326,778,1678,2612,2566,3061
+abc226,0,0,539,706,1327,2086,2373,2813
+abc227,0,0,692,1643,2377,2323,2207,3229
 '''
 
 notes = {}
@@ -308,6 +318,26 @@ notes["abc222_E"] = "Tree DP plus subset sum"
 notes["abc222_F"] = "Another tree DP"
 notes["abc222_G"] = "Totient function. Elementary group theory"
 notes["abc222_H"] = "Generating functions. Lagrange inversion theorem. P-recursive"
+notes["abc223_E"] = "Rectangle placement.  Simple casework."
+notes["abc223_F"] = "Parenthesis sequence.  Lazy Segtree."
+notes["abc223_G"] = "Tree DP.  Rerooting"
+notes["abc223_H"] = "2^n xor linear algebra.  Basis finding"
+notes["abc224_E"] = "Simple DP-lite after sorting"
+notes["abc224_F"] = "Another simple DP"
+notes["abc224_G"] = "Expected value"
+notes["abc224_H"] = "Linear Programming. Duality. Min-cost flow problem conversion."
+notes["abc225_E"] = "Geometry.  Sorting angles."
+notes["abc225_F"] = "Tricky string DP."
+notes["abc225_G"] = "Tricky max flow problem (hard to see)."
+notes["abc225_H"] = "Generating functions. Convolution. Also hard to see."
+notes["abc226_E"] = "Counting rings.  1:1 correspondance."
+notes["abc226_F"] = "Integer partitions.  Combinatorics."
+notes["abc226_G"] = "Mildly tricky greedy problem."
+notes["abc226_H"] = "Modular fraction DP.  Not as bad as it looks."
+notes["abc227_E"] = "Tricky string DP.  O(N^5)."
+notes["abc227_F"] = "Traversal DP.  Also O(N^5)."
+notes["abc227_G"] = "Sieving.  Prime numbers"
+notes["abc227_H"] = "Interesting linear algebra problem. Construction. Non-unique solutions."
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
