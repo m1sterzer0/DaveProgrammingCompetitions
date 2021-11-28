@@ -70,6 +70,7 @@ abc224,6433,5373,4027,1069,650,559,118,26
 abc225,6417,5730,4092,2636,684,75,85,21
 abc226,6377,4674,3350,2825,1255,289,133,36
 abc227,5315,4760,2494,659,169,166,202,17
+abc228,5570,5260,4422,1890,842,249,59,56
 '''
 problemRatingData = '''
 abc160,0,0,62,879,1036,2048
@@ -140,6 +141,7 @@ abc224,0,0,301,1376,1657,1733,2374,2887
 abc225,0,0,326,778,1678,2612,2566,3061
 abc226,0,0,539,706,1327,2086,2373,2813
 abc227,0,0,692,1643,2377,2323,2207,3229
+abc228,0,0,214,1035,1579,2179,2711,2729
 '''
 
 notes = {}
@@ -338,6 +340,10 @@ notes["abc227_E"] = "Tricky string DP.  O(N^5)."
 notes["abc227_F"] = "Traversal DP.  Also O(N^5)."
 notes["abc227_G"] = "Sieving.  Prime numbers"
 notes["abc227_H"] = "Interesting linear algebra problem. Construction. Non-unique solutions."
+notes["abc228_E"] = "Modulo arithmetic. Fermat's little theorem. Fast exponentiation."
+notes["abc228_F"] = "2-d cumulative sums.  Sliding window min."
+notes["abc228_G"] = "Tricky DP with subsets."
+notes["abc228_H"] = "Convex hull trick."
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
