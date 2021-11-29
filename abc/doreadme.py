@@ -71,6 +71,7 @@ abc225,6417,5730,4092,2636,684,75,85,21
 abc226,6377,4674,3350,2825,1255,289,133,36
 abc227,5315,4760,2494,659,169,166,202,17
 abc228,5570,5260,4422,1890,842,249,59,56
+abc229,5751,5525,4582,2673,1929,438,279,10
 '''
 problemRatingData = '''
 abc160,0,0,62,879,1036,2048
@@ -142,6 +143,7 @@ abc225,0,0,326,778,1678,2612,2566,3061
 abc226,0,0,539,706,1327,2086,2373,2813
 abc227,0,0,692,1643,2377,2323,2207,3229
 abc228,0,0,214,1035,1579,2179,2711,2729
+abc229,0,0,165,745,1015,1917,2121,3308
 '''
 
 notes = {}
@@ -344,6 +346,10 @@ notes["abc228_E"] = "Modulo arithmetic. Fermat's little theorem. Fast exponentia
 notes["abc228_F"] = "2-d cumulative sums.  Sliding window min."
 notes["abc228_G"] = "Tricky DP with subsets."
 notes["abc228_H"] = "Convex hull trick."
+notes["abc229_E"] = "Reverse query order. DSU"
+notes["abc229_F"] = "Simple DP."
+notes["abc229_G"] = "Binary search.  Sliding window."
+notes["abc229_H"] = "Partisan game theory.  Surreal numbers."
 
 def parseDifficulty(s1,s2) :
     probsByContest = {}
