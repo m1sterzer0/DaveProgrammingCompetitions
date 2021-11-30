@@ -1014,3 +1014,43 @@ contests:
     correct : 497
     notes : "Subset DP"
     solname : "GraphTravel"
+- name: "2021_G"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004362d6"
+  participants: 9450
+  problems :
+  - name : "Dogs and Cats"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004362d6/00000000008b3771"
+    correct : 6786
+    solname : "DogsandCats"
+  - name : "Staying Hydrated"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004362d6/00000000008b3a1c"
+    correct : 1329
+    solname : "StayingHydrated"
+  - name : "Banana Bunches"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004362d6/00000000008b44ef"
+    correct : 413
+    solname : "BananaBunches"
+  - name : "Simple Polygon"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000004362d6/00000000008b36f9"
+    correct : 148
+    solname : "SimplePolygon"
+- name: "2021_H"
+  roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435914"
+  participants: 5550
+  problems :
+  - name : "Transform the String"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435914/00000000008da461"
+    correct : 3609
+    solname : "TransformtheString"
+  - name : "Painter"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435914/00000000008d9a88"
+    correct : 2464
+    solname : "Painter"
+  - name : "Silly Substitutions"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435914/00000000008d94f5"
+    correct : 200
+    solname : "SillySubstitutions"
+  - name : "Dependent Events"
+    problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000435914/00000000008d9970"
+    correct : 63
+    solname : "DependentEvents"

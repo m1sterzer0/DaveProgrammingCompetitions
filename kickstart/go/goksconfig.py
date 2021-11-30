@@ -121,6 +121,8 @@ if __name__ == "__main__" :
     #probList += [(f"2021_D",x) for x in ["ArithmeticSquare","CuttingIntervals","FinalExam","PrimesandQueries"]]
     #probList += [(f"2021_E",x) for x in ["ShuffledAnagrams","BirthdayCake","PalindromicCrossword","IncreasingSequenceCardGame"]]
     #probList += [(f"2021_F",x) for x in ["TrashBins","Festival","StarTrappers","GraphTravel"]]
+    probList += [(f"2021_G",x) for x in ["DogsandCats","StayingHydrated","BananaBunches","SimplePolygon"]]
+    probList += [(f"2021_H",x) for x in ["TransformtheString","Painter","SillySubstitutions","DependentEvents"]]
     probList += [(f"2020_A",x) for x in ["Allocation","Plates","Workout","Bundling"]]
     probList += [(f"2020_B",x) for x in ["BikeTour","BusRoutes","RobotPathDecoding","WanderingRobot"]]
     probList += [(f"2020_C",x) for x in ["Countdown","StableWall","PerfectSubarray","Candies"]]
