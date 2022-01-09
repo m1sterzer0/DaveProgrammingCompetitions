@@ -581,15 +581,15 @@ contests:
   problems :
   - name : "Training"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6"
-    correct : 0
+    correct : 2112
     solname : "Training"
   - name : "Parcels"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d"
-    correct : 0
+    correct : 137
     solname : "Parcels"
   - name : "Contention"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881"
-    correct : 0
+    correct : 2
     solname : "Contention"
 - name: "2019_B"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda"
@@ -597,15 +597,15 @@ contests:
   problems :
   - name : "Building Palindromes"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866"
-    correct : 0
+    correct : 1011
     solname : "BuildingPalindromes"
   - name : "Energy Stones"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3"
-    correct : 0
+    correct : 65
     solname : "EnergyStones"
   - name : "Diverse Subarray"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1"
-    correct : 0
+    correct : 81
     solname : "DiverseSubarray"
 - name: "2019_C"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2"
@@ -613,15 +613,15 @@ contests:
   problems :
   - name : "Wiggle Walk"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac"
-    correct : 0
+    correct : 569
     solname : "WiggleWalk"
   - name : "Circuit Board"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae"
-    correct : 0
+    correct : 553
     solname : "CircuitBoard"
   - name : "Catch Some"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d"
-    correct : 0
+    correct : 161
     solname : "CatchSome"
 - name: "2019_D"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061"
@@ -629,15 +629,15 @@ contests:
   problems :
   - name : "X or What?"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426"
-    correct : 0
+    correct : 450
     solname : "XorWhat"
   - name : "Latest Guests"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427"
-    correct : 0
+    correct : 110
     solname : "LatestGuests"
   - name : "Food Stalls"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476"
-    correct : 0
+    correct : 52
     solname : "FoodStalls"
 - name: "2019_E"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb"
@@ -645,15 +645,15 @@ contests:
   problems :
   - name : "Cherries Mesh"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721"
-    correct : 0
+    correct : 1570
     solname : "CherriesMesh"
   - name : "Code-Eat Switcher"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8"
-    correct : 0
+    correct : 249
     solname : "CodeEatSwitcher"
   - name : "Street Checkers"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9"
-    correct : 0
+    correct : 435
     solname : "StreetCheckers"
 - name: "2019_F"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc"
@@ -661,15 +661,15 @@ contests:
   problems :
   - name : "Flattening"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c"
-    correct : 0
+    correct : 320
     solname : "Flattening"
   - name : "Teach Me"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc"
-    correct : 0
+    correct : 179
     solname : "TeachMe"
   - name : "Spectating Villages"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b"
-    correct : 0
+    correct : 143
     solname : "SpectatingVillages"
 - name: "2019_G"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02"
@@ -677,15 +677,15 @@ contests:
   problems :
   - name : "Book Reading"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d"
-    correct : 0
+    correct : 1067
     solname : "BookReading"
   - name : "The Equation"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36"
-    correct : 0
+    correct : 569
     solname : "TheEquation"
   - name : "Shifts"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e"
-    correct : 0
+    correct : 291
     solname : "Shifts"
 - name: "2019_H"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd"
@@ -693,15 +693,15 @@ contests:
   problems :
   - name : "H-index"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e"
-    correct : 0
+    correct : 877
     solname : "Hindex"
   - name : "Diagonal Puzzle"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835"
-    correct : 0
+    correct : 124
     solname : "DiagonalPuzzle"
   - name : "Elevanagram"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d"
-    correct : 0
+    correct : 184
     solname : "Elevanagram"
 - name: "2020_A"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7"

@@ -123,14 +123,15 @@ if __name__ == "__main__" :
     #probList += [(f"2021_F",x) for x in ["TrashBins","Festival","StarTrappers","GraphTravel"]]
     #probList += [(f"2021_G",x) for x in ["DogsandCats","StayingHydrated","BananaBunches","SimplePolygon"]]
     #probList += [(f"2021_H",x) for x in ["TransformtheString","Painter","SillySubstitutions","DependentEvents"]]
-    probList += [(f"2020_A",x) for x in ["Allocation","Plates","Workout","Bundling"]]
-    probList += [(f"2020_B",x) for x in ["BikeTour","BusRoutes","RobotPathDecoding","WanderingRobot"]]
-    probList += [(f"2020_C",x) for x in ["Countdown","StableWall","PerfectSubarray","Candies"]]
-    probList += [(f"2020_D",x) for x in ["RecordBreaker","AlienPiano","Beautyoftree","LockedDoors"]]
-    probList += [(f"2020_E",x) for x in ["LongestArithmetic","HighBuildings","Toys","GoldenStone"]]
-    probList += [(f"2020_F",x) for x in ["ATMQueue","MetalHarvest","PaintersDuel","Yeetzhee"]]
-    probList += [(f"2020_G",x) for x in ["KickStart","MaximumCoins","CombinationLock","MergeCards"]]
-    probList += [(f"2020_H",x) for x in ["Retype","BoringNumbers","Rugby","Friends"]] 
+    #probList += [(f"2020_A",x) for x in ["Allocation","Plates","Workout","Bundling"]]
+    #probList += [(f"2020_B",x) for x in ["BikeTour","BusRoutes","RobotPathDecoding","WanderingRobot"]]
+    #probList += [(f"2020_C",x) for x in ["Countdown","StableWall","PerfectSubarray","Candies"]]
+    #probList += [(f"2020_D",x) for x in ["RecordBreaker","AlienPiano","Beautyoftree","LockedDoors"]]
+    #probList += [(f"2020_E",x) for x in ["LongestArithmetic","HighBuildings","Toys","GoldenStone"]]
+    #probList += [(f"2020_F",x) for x in ["ATMQueue","MetalHarvest","PaintersDuel","Yeetzhee"]]
+    #probList += [(f"2020_G",x) for x in ["KickStart","MaximumCoins","CombinationLock","MergeCards"]]
+    #probList += [(f"2020_H",x) for x in ["Retype","BoringNumbers","Rugby","Friends"]] 
+    probList += [(f"2019_A",x) for x in ["Training","Parcels","Contention"]]
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
         Path(f"{clargs.dir}/.vscode/launch.json").touch()
