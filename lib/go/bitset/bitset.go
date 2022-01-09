@@ -22,11 +22,11 @@ func (q *Bitset) Ins(n int) {
 		q.c = append(q.c, 0)
 		q.m += 64
 	}
-	q.c[n/64] |= 1 << (n % 64)
+	q.c[n/64] |= 1 << uint(n % 64)
 }
 func (q *Bitset) Del(n int) {
 	if q.m > n {
-		q.c[n/64] &= 0xffffffffffffffff ^ (1 << (n % 64))
+		q.c[n/64] &= 0xffffffffffffffff ^ (1 << uint(n % 64))
 	}
 }
 func (q *Bitset) Flip(n int) {
@@ -34,7 +34,7 @@ func (q *Bitset) Flip(n int) {
 		q.c = append(q.c, 0)
 		q.m += 64
 	}
-	q.c[n/64] ^= 1 << (n % 64)
+	q.c[n/64] ^= 1 << uint(n % 64)
 }
 func (q *Bitset) Size() int { return q.m }
 func (q *Bitset) Any() bool {
@@ -67,9 +67,9 @@ func (q *Bitset) PadTo(a *Bitset) {
 	}
 }
 func (q *Bitset) And(a *Bitset) {
-	q.shrinkTo(q.m)
-	la := len(a.c)
-	for i := 0; i < la; i++ {
+	if a.m < q.m { q.shrinkTo(a.m) }
+	lq := len(q.c)
+	for i := 0; i < lq; i++ {
 		q.c[i] &= a.c[i]
 	}
 }
@@ -110,9 +110,9 @@ func (q *Bitset) Shl(a int) {
 		if i-g < 0 {
 			q.c[i] = 0
 		} else {
-			q.c[i] = q.c[i-g] << b
+			q.c[i] = q.c[i-g] << uint(b)
 			if i-g-1 >= 0 && b != 0 {
-				q.c[i] |= q.c[i-g-1] >> (64 - b)
+				q.c[i] |= q.c[i-g-1] >> uint(64 - b)
 			}
 		}
 	}
@@ -123,9 +123,9 @@ func (q *Bitset) Shr(a int) {
 		if i+g >= lc {
 			q.c[i] = 0
 		} else {
-			q.c[i] = q.c[i+g] >> b
+			q.c[i] = q.c[i+g] >> uint(b)
 			if i+g+1 < lc && b != 0 {
-				q.c[i] |= q.c[i+g+1] << (64 - b)
+				q.c[i] |= q.c[i+g+1] << uint(64 - b)
 			}
 		}
 	}
@@ -138,7 +138,7 @@ func (q *Bitset) GetBits() []int {
 		for c != 0 {
 			offset := bits.TrailingZeros64(c)
 			ans = append(ans, base+offset)
-			c ^= 1 << offset
+			c ^= 1 << uint(offset)
 		}
 		base += 64
 	}

@@ -50,17 +50,17 @@ func NewLAZYSEGTREEVec(v []DATATYPE, op func(DATATYPE, DATATYPE) DATATYPE, mappi
 func (q *LAZYSEGTREE) Set(p int, v DATATYPE) {
 	p += q.size
 	for i := q.log; i >= 1; i-- {
-		q.push(p >> i)
+		q.push(p >> uint(i))
 	}
 	q.d[p] = v
 	for i := 1; i <= q.log; i++ {
-		q.update(p >> i)
+		q.update(p >> uint(i))
 	}
 }
 func (q *LAZYSEGTREE) Get(p int) DATATYPE {
 	p += q.size
 	for i := q.log; i >= 1; i-- {
-		q.push(p >> i)
+		q.push(p >> uint(i))
 	}
 	return q.d[p]
 }
@@ -74,11 +74,11 @@ func (q *LAZYSEGTREE) Prod(l int, r int) DATATYPE {
 	r += q.size
 	r += 1 // r+1 for close right end interval
 	for i := q.log; i >= 1; i-- {
-		if ((l >> i) << i) != l {
-			q.push(l >> i)
+		if ((l >> uint(i)) << uint(i)) != l {
+			q.push(l >> uint(i))
 		}
-		if ((r >> i) << i) != r {
-			q.push((r - 1) >> i)
+		if ((r >> uint(i)) << uint(i)) != r {
+			q.push((r - 1) >> uint(i))
 		}
 	}
 	sml, smr := q.e, q.e
@@ -100,11 +100,11 @@ func (q *LAZYSEGTREE) Allprod() DATATYPE { return q.d[1] }
 func (q *LAZYSEGTREE) Apply(p int, f FUNCTYPE) {
 	p += q.size
 	for i := q.log; i >= 1; i-- {
-		q.push(p >> i)
+		q.push(p >> uint(i))
 	}
 	q.d[p] = q.mapping(f, q.d[p])
 	for i := 1; i <= q.log; i++ {
-		q.update(p >> i)
+		q.update(p >> uint(i))
 	}
 }
 func (q *LAZYSEGTREE) ApplyRange(l int, r int, f FUNCTYPE) {
@@ -116,11 +116,11 @@ func (q *LAZYSEGTREE) ApplyRange(l int, r int, f FUNCTYPE) {
 	l += q.size
 	r += q.size
 	for i := q.log; i >= 1; i-- {
-		if ((l >> i) << i) != l {
-			q.push(l >> i)
+		if ((l >> uint(i)) << uint(i)) != l {
+			q.push(l >> uint(i))
 		}
-		if ((r >> i) << i) != r {
-			q.push((r - 1) >> i)
+		if ((r >> uint(i)) << uint(i)) != r {
+			q.push((r - 1) >> uint(i))
 		}
 	}
 	l2, r2 := l, r
@@ -138,11 +138,11 @@ func (q *LAZYSEGTREE) ApplyRange(l int, r int, f FUNCTYPE) {
 	}
 	l, r = l2, r2
 	for i := 1; i <= q.log; i++ {
-		if ((l >> i) << i) != l {
-			q.update(l >> i)
+		if ((l >> uint(i)) << uint(i)) != l {
+			q.update(l >> uint(i))
 		}
-		if ((r >> i) << i) != r {
-			q.update((r - 1) >> i)
+		if ((r >> uint(i)) << uint(i)) != r {
+			q.update((r - 1) >> uint(i))
 		}
 	}
 }
@@ -154,7 +154,7 @@ func (q *LAZYSEGTREE) MaxRight(l int, f func(DATATYPE) bool) int {
 	}
 	l += q.size
 	for i := q.log; i >= 1; i-- {
-		q.push(l >> i)
+		q.push(l >> uint(i))
 	}
 	sm := q.e
 	for {
@@ -189,7 +189,7 @@ func (q *LAZYSEGTREE) MinLeft(r int, f func(DATATYPE) bool) int {
 	r += q.size
 	r++
 	for i := q.log; i >= 1; i-- {
-		q.push((r - 1) >> i)
+		q.push((r - 1) >> uint(i))
 	}
 	sm := q.e //r++ for the fully closed vs. half open
 	for {
