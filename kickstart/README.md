@@ -85,26 +85,26 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2020_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Retype](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7) | 4071 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 805 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 320 |  |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 262 |  |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Retype](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7) | 4071 |  [go](./go/2020_H/Retype/Retype.go) |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 805 |  [go](./go/2020_H/BoringNumbers/BoringNumbers.go) |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 320 |  [go](./go/2020_H/Rugby/Rugby.go) |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 262 |  [go](./go/2020_H/Friends/Friends.go) |  |
 
 ## 2020_G Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 5780 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 5590 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 606 |  |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 248 |  |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 5780 |  [go](./go/2020_G/KickStart/KickStart.go) |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 5590 |  [go](./go/2020_G/MaximumCoins/MaximumCoins.go) |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 606 |  [go](./go/2020_G/CombinationLock/CombinationLock.go) |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 248 |  [go](./go/2020_G/MergeCards/MergeCards.go) |  |
 
 ## 2020_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 3509 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 2448 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 346 |  |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 69 |  |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 3509 |  [go](./go/2020_F/ATMQueue/ATMQueue.go) |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 2448 |  [go](./go/2020_F/MetalHarvest/MetalHarvest.go) |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 346 |  [go](./go/2020_F/PaintersDuel/PaintersDuel.go) |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 69 |  [go](./go/2020_F/Yeetzhee/Yeetzhee.go) |  |
 
 ## 2020_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
