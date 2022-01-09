@@ -130,8 +130,7 @@ if __name__ == "__main__" :
     probList += [(f"2020_E",x) for x in ["LongestArithmetic","HighBuildings","Toys","GoldenStone"]]
     probList += [(f"2020_F",x) for x in ["ATMQueue","MetalHarvest","PaintersDuel","Yeetzhee"]]
     probList += [(f"2020_G",x) for x in ["KickStart","MaximumCoins","CombinationLock","MergeCards"]]
-
-
+    probList += [(f"2020_H",x) for x in ["Retype","BoringNumbers","Rugby","Friends"]] 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
         Path(f"{clargs.dir}/.vscode/launch.json").touch()
