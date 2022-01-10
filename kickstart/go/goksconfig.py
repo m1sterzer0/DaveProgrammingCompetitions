@@ -134,6 +134,7 @@ if __name__ == "__main__" :
     probList += [(f"2019_A",x) for x in ["Training","Parcels","Contention"]]
     probList += [(f"2019_B",x) for x in ["BuildingPalindromes","EnergyStones","DiverseSubarray"]]
     probList += [(f"2019_C",x) for x in ["WiggleWalk","CircuitBoard","CatchSome"]]
+    probList += [(f"2019_D",x) for x in ["XorWhat","LatestGuests","FoodStalls"]]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
