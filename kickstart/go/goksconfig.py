@@ -136,6 +136,7 @@ if __name__ == "__main__" :
     probList += [(f"2019_C",x) for x in ["WiggleWalk","CircuitBoard","CatchSome"]]
     probList += [(f"2019_D",x) for x in ["XorWhat","LatestGuests","FoodStalls"]]
     probList += [(f"2019_E",x) for x in ["CherriesMesh","CodeEatSwitcher","StreetCheckers"]]
+    probList += [(f"2019_F",x) for x in ["Flattening","TeachMe","SpectatingVillages"]]
 
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
