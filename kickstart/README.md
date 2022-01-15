@@ -149,58 +149,58 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2019_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [H-index](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e) | 0 |  |  |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Diagonal Puzzle](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835) | 0 |  |  |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Elevanagram](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d) | 0 |  |  |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [H-index](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e) | 877 |  [go](./go/2019_H/Hindex/Hindex.go) |  |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Diagonal Puzzle](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835) | 124 |  [go](./go/2019_H/DiagonalPuzzle/DiagonalPuzzle.go) |  |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Elevanagram](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d) | 184 |  [go](./go/2019_H/Elevanagram/Elevanagram.go) |  |
 
 ## 2019_G Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Book Reading](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d) | 0 |  |  |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [The Equation](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36) | 0 |  |  |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Shifts](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e) | 0 |  |  |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Book Reading](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d) | 1067 |  [go](./go/2019_G/BookReading/BookReading.go) |  |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [The Equation](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36) | 569 |  [go](./go/2019_G/TheEquation/TheEquation.go) |  |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Shifts](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e) | 291 |  [go](./go/2019_G/Shifts/Shifts.go) |  |
 
 ## 2019_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Flattening](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c) | 0 |  |  |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Teach Me](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc) | 0 |  |  |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Spectating Villages](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b) | 0 |  |  |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Flattening](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c) | 320 |  [go](./go/2019_F/Flattening/Flattening.go) |  |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Teach Me](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc) | 179 |  [go](./go/2019_F/TeachMe/TeachMe.go) |  |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Spectating Villages](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b) | 143 |  [go](./go/2019_F/SpectatingVillages/SpectatingVillages.go) |  |
 
 ## 2019_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Cherries Mesh](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721) | 0 |  |  |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Code-Eat Switcher](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8) | 0 |  |  |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Street Checkers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9) | 0 |  |  |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Cherries Mesh](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721) | 1570 |  [go](./go/2019_E/CherriesMesh/CherriesMesh.go) |  |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Code-Eat Switcher](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8) | 249 |  [go](./go/2019_E/CodeEatSwitcher/CodeEatSwitcher.go) |  |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Street Checkers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9) | 435 |  [go](./go/2019_E/StreetCheckers/StreetCheckers.go) |  |
 
 ## 2019_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [X or What?](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426) | 0 |  |  |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Latest Guests](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427) | 0 |  |  |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Food Stalls](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476) | 0 |  |  |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [X or What?](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426) | 450 |  [go](./go/2019_D/XorWhat/XorWhat.go) |  |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Latest Guests](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427) | 110 |  [go](./go/2019_D/LatestGuests/LatestGuests.go) |  |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Food Stalls](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476) | 52 |  [go](./go/2019_D/FoodStalls/FoodStalls.go) |  |
 
 ## 2019_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Wiggle Walk](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac) | 0 |  |  |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Circuit Board](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae) | 0 |  |  |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Catch Some](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d) | 0 |  |  |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Wiggle Walk](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac) | 569 |  [go](./go/2019_C/WiggleWalk/WiggleWalk.go) |  |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Circuit Board](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae) | 553 |  [go](./go/2019_C/CircuitBoard/CircuitBoard.go) |  |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Catch Some](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d) | 161 |  [go](./go/2019_C/CatchSome/CatchSome.go) |  |
 
 ## 2019_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Building Palindromes](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866) | 0 |  |  |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Energy Stones](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3) | 0 |  |  |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Diverse Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1) | 0 |  |  |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Building Palindromes](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866) | 1011 |  [go](./go/2019_B/BuildingPalindromes/BuildingPalindromes.go) |  |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Energy Stones](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3) | 65 |  [go](./go/2019_B/EnergyStones/EnergyStones.go) |  |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Diverse Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1) | 81 |  [go](./go/2019_B/DiverseSubarray/DiverseSubarray.go) |  |
 
 ## 2019_A Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Training](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6) | 0 |  |  |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Parcels](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d) | 0 |  |  |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Contention](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881) | 0 |  |  |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Training](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6) | 2112 |  [go](./go/2019_A/Training/Training.go) |  |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Parcels](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d) | 137 |  [go](./go/2019_A/Parcels/Parcels.go) |  |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Contention](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881) | 2 |  [go](./go/2019_A/Contention/Contention.go) |  |
 
 ## 2018_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
