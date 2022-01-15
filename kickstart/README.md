@@ -86,25 +86,25 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
 | [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Retype](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043adc7) | 4071 |  [go](./go/2020_H/Retype/Retype.go) |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 805 |  [go](./go/2020_H/BoringNumbers/BoringNumbers.go) |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 320 |  [go](./go/2020_H/Rugby/Rugby.go) |  |
-| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 262 |  [go](./go/2020_H/Friends/Friends.go) |  |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Boring Numbers](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6) | 805 |  [go](./go/2020_H/BoringNumbers/BoringNumbers.go) | A variation on a counting problem from most significant digit to least significant digit |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Rugby](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027) | 320 |  [go](./go/2020_H/Rugby/Rugby.go) | A variation on the 'median' problem (a.k.a where to put the post office) |
+| [2020_H](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49) | [Friends](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7) | 262 |  [go](./go/2020_H/Friends/Friends.go) | Inferring the 'right' graph.  Bellman-Ford. |
 
 ## 2020_G Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 5780 |  [go](./go/2020_G/KickStart/KickStart.go) |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 5590 |  [go](./go/2020_G/MaximumCoins/MaximumCoins.go) |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 606 |  [go](./go/2020_G/CombinationLock/CombinationLock.go) |  |
-| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 248 |  [go](./go/2020_G/MergeCards/MergeCards.go) |  |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Kick_Start](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb) | 5780 |  [go](./go/2020_G/KickStart/KickStart.go) | Introductory string processing |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Maximum Coins](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23) | 5590 |  [go](./go/2020_G/MaximumCoins/MaximumCoins.go) | Easy maximizing diagonal sums problem |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Combination Lock](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24) | 606 |  [go](./go/2020_G/CombinationLock/CombinationLock.go) | Tricky sum-of-distances minimazation problem on surface of wheels |
+| [2020_G](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069) | [Merge Cards](https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054) | 248 |  [go](./go/2020_G/MergeCards/MergeCards.go) | Nice expected value problem with some combinatorial DP |
 
 ## 2020_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 3509 |  [go](./go/2020_F/ATMQueue/ATMQueue.go) |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 2448 |  [go](./go/2020_F/MetalHarvest/MetalHarvest.go) |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 346 |  [go](./go/2020_F/PaintersDuel/PaintersDuel.go) |  |
-| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 69 |  [go](./go/2020_F/Yeetzhee/Yeetzhee.go) |  |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [ATM Queue](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8) | 3509 |  [go](./go/2020_F/ATMQueue/ATMQueue.go) | Simple sorting by prioritized parameters |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Metal Harvest](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b) | 2448 |  [go](./go/2020_F/MetalHarvest/MetalHarvest.go) | Simple greedy assignment. |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Painters' Duel](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb) | 346 |  [go](./go/2020_F/PaintersDuel/PaintersDuel.go) | Good introductory negamax problem |
+| [2020_F](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48) | [Yeetzhee](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea) | 69 |  [go](./go/2020_F/Yeetzhee/Yeetzhee.go) | DP on integer partitions |
 
 ## 2020_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
@@ -149,58 +149,58 @@ These are my solutions for Google's Kickstart problems. Please enjoy!
 ## 2019_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [H-index](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e) | 877 |  [go](./go/2019_H/Hindex/Hindex.go) |  |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Diagonal Puzzle](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835) | 124 |  [go](./go/2019_H/DiagonalPuzzle/DiagonalPuzzle.go) |  |
-| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Elevanagram](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d) | 184 |  [go](./go/2019_H/Elevanagram/Elevanagram.go) |  |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [H-index](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e) | 877 |  [go](./go/2019_H/Hindex/Hindex.go) | Pretty simple O(N) solution. |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Diagonal Puzzle](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835) | 124 |  [go](./go/2019_H/DiagonalPuzzle/DiagonalPuzzle.go) | Grid XOR problem.  Looks like two-sat, but is simpler |
+| [2019_H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd) | [Elevanagram](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d) | 184 |  [go](./go/2019_H/Elevanagram/Elevanagram.go) | DP.  Requires a couple insightful observations to make it work. |
 
 ## 2019_G Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Book Reading](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d) | 1067 |  [go](./go/2019_G/BookReading/BookReading.go) |  |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [The Equation](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36) | 569 |  [go](./go/2019_G/TheEquation/TheEquation.go) |  |
-| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Shifts](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e) | 291 |  [go](./go/2019_G/Shifts/Shifts.go) |  |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Book Reading](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d) | 1067 |  [go](./go/2019_G/BookReading/BookReading.go) | Sum(1/n) ~ log(n). |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [The Equation](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36) | 569 |  [go](./go/2019_G/TheEquation/TheEquation.go) | Greedy xor problem |
+| [2019_G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02) | [Shifts](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e) | 291 |  [go](./go/2019_G/Shifts/Shifts.go) | Meet in the middle. Coordinate compression.  I used a fenwick tree (other options possible) |
 
 ## 2019_F Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Flattening](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c) | 320 |  [go](./go/2019_F/Flattening/Flattening.go) |  |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Teach Me](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc) | 179 |  [go](./go/2019_F/TeachMe/TeachMe.go) |  |
-| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Spectating Villages](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b) | 143 |  [go](./go/2019_F/SpectatingVillages/SpectatingVillages.go) |  |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Flattening](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c) | 320 |  [go](./go/2019_F/Flattening/Flattening.go) | DP |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Teach Me](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc) | 179 |  [go](./go/2019_F/TeachMe/TeachMe.go) | Bitmasks. Unordered sets. |
+| [2019_F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc) | [Spectating Villages](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b) | 143 |  [go](./go/2019_F/SpectatingVillages/SpectatingVillages.go) | Tree DP |
 
 ## 2019_E Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Cherries Mesh](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721) | 1570 |  [go](./go/2019_E/CherriesMesh/CherriesMesh.go) |  |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Code-Eat Switcher](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8) | 249 |  [go](./go/2019_E/CodeEatSwitcher/CodeEatSwitcher.go) |  |
-| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Street Checkers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9) | 435 |  [go](./go/2019_E/StreetCheckers/StreetCheckers.go) |  |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Cherries Mesh](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721) | 1570 |  [go](./go/2019_E/CherriesMesh/CherriesMesh.go) | Typical DSU/Union Find problem. |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Code-Eat Switcher](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8) | 249 |  [go](./go/2019_E/CodeEatSwitcher/CodeEatSwitcher.go) | Sorting problem.  Non-trivial. |
+| [2019_E](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb) | [Street Checkers](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9) | 435 |  [go](./go/2019_E/StreetCheckers/StreetCheckers.go) | Segmented prime sieve or miller-rabin |
 
 ## 2019_D Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [X or What?](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426) | 450 |  [go](./go/2019_D/XorWhat/XorWhat.go) |  |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Latest Guests](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427) | 110 |  [go](./go/2019_D/LatestGuests/LatestGuests.go) |  |
-| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Food Stalls](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476) | 52 |  [go](./go/2019_D/FoodStalls/FoodStalls.go) |  |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [X or What?](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426) | 450 |  [go](./go/2019_D/XorWhat/XorWhat.go) | Ordered set. XOR |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Latest Guests](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427) | 110 |  [go](./go/2019_D/LatestGuests/LatestGuests.go) | Mostly a bookkeeping problem |
+| [2019_D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061) | [Food Stalls](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476) | 52 |  [go](./go/2019_D/FoodStalls/FoodStalls.go) | MinHeap, Reasonably tricky to reuse calculations for different cases |
 
 ## 2019_C Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Wiggle Walk](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac) | 569 |  [go](./go/2019_C/WiggleWalk/WiggleWalk.go) |  |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Circuit Board](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae) | 553 |  [go](./go/2019_C/CircuitBoard/CircuitBoard.go) |  |
-| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Catch Some](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d) | 161 |  [go](./go/2019_C/CatchSome/CatchSome.go) |  |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Wiggle Walk](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac) | 569 |  [go](./go/2019_C/WiggleWalk/WiggleWalk.go) | Effectively linked lists on a 2-D grid |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Circuit Board](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae) | 553 |  [go](./go/2019_C/CircuitBoard/CircuitBoard.go) | Min area under histogram.  Also sliding window range min/max queries. Reasonably challenging. |
+| [2019_C](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2) | [Catch Some](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d) | 161 |  [go](./go/2019_C/CatchSome/CatchSome.go) | Good DP problem. |
 
 ## 2019_B Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Building Palindromes](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866) | 1011 |  [go](./go/2019_B/BuildingPalindromes/BuildingPalindromes.go) |  |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Energy Stones](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3) | 65 |  [go](./go/2019_B/EnergyStones/EnergyStones.go) |  |
-| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Diverse Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1) | 81 |  [go](./go/2019_B/DiverseSubarray/DiverseSubarray.go) |  |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Building Palindromes](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866) | 1011 |  [go](./go/2019_B/BuildingPalindromes/BuildingPalindromes.go) | Moderate prefix sums problem |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Energy Stones](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3) | 65 |  [go](./go/2019_B/EnergyStones/EnergyStones.go) | DP. Exchange argument for sorting |
+| [2019_B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda) | [Diverse Subarray](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1) | 81 |  [go](./go/2019_B/DiverseSubarray/DiverseSubarray.go) | Lazy segtree works along with an array of history buffer |
 
 ## 2019_A Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |
 | ------- | ------- | ----------: | --------- | ----- |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Training](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6) | 2112 |  [go](./go/2019_A/Training/Training.go) |  |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Parcels](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d) | 137 |  [go](./go/2019_A/Parcels/Parcels.go) |  |
-| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Contention](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881) | 2 |  [go](./go/2019_A/Contention/Contention.go) |  |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Training](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6) | 2112 |  [go](./go/2019_A/Training/Training.go) | Simple prefix sum problem. |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Parcels](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d) | 137 |  [go](./go/2019_A/Parcels/Parcels.go) | Binary search works in practice. |
+| [2019_A](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01) | [Contention](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881) | 2 |  [go](./go/2019_A/Contention/Contention.go) | Very challenging. I used bitsets, a priority queue, and a modified lazy segment tree. Good 'who goes last' problem |
 
 ## 2018_H Solutions
 | Contest | Problem | Num Correct | Solutions | Notes |

@@ -582,14 +582,17 @@ contests:
   - name : "Training"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/00000000000698d6"
     correct : 2112
+    notes : "Simple prefix sum problem."
     solname : "Training"
   - name : "Parcels"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/000000000006987d"
     correct : 137
+    notes : "Binary search works in practice."
     solname : "Parcels"
   - name : "Contention"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e01/0000000000069881"
     correct : 2
+    notes : "Very challenging. I used bitsets, a priority queue, and a modified lazy segment tree. Good 'who goes last' problem"
     solname : "Contention"
 - name: "2019_B"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda"
@@ -598,14 +601,17 @@ contests:
   - name : "Building Palindromes"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/0000000000119866"
     correct : 1011
+    notes : "Moderate prefix sums problem"
     solname : "BuildingPalindromes"
   - name : "Energy Stones"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3"
     correct : 65
+    notes : "DP. Exchange argument for sorting"
     solname : "EnergyStones"
   - name : "Diverse Subarray"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c1"
     correct : 81
+    notes : "Lazy segtree works along with an array of history buffer"
     solname : "DiverseSubarray"
 - name: "2019_C"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2"
@@ -613,15 +619,18 @@ contests:
   problems :
   - name : "Wiggle Walk"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aac"
+    notes : "Effectively linked lists on a 2-D grid"
     correct : 569
     solname : "WiggleWalk"
   - name : "Circuit Board"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150aae"
     correct : 553
+    notes : "Min area under histogram.  Also sliding window range min/max queries. Reasonably challenging."
     solname : "CircuitBoard"
   - name : "Catch Some"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ff2/0000000000150a0d"
     correct : 161
+    notes : "Good DP problem."
     solname : "CatchSome"
 - name: "2019_D"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061"
@@ -630,13 +639,16 @@ contests:
   - name : "X or What?"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426"
     correct : 450
+    notes : "Ordered set. XOR"
     solname : "XorWhat"
   - name : "Latest Guests"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161427"
+    notes : "Mostly a bookkeeping problem"
     correct : 110
     solname : "LatestGuests"
   - name : "Food Stalls"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161476"
+    notes : "MinHeap, Reasonably tricky to reuse calculations for different cases"
     correct : 52
     solname : "FoodStalls"
 - name: "2019_E"
@@ -646,14 +658,17 @@ contests:
   - name : "Cherries Mesh"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/0000000000170721"
     correct : 1570
+    notes : "Typical DSU/Union Find problem."
     solname : "CherriesMesh"
   - name : "Code-Eat Switcher"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b8"
     correct : 249
+    notes : "Sorting problem.  Non-trivial."
     solname : "CodeEatSwitcher"
   - name : "Street Checkers"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edb/00000000001707b9"
     correct : 435
+    notes : "Segmented prime sieve or miller-rabin"
     solname : "StreetCheckers"
 - name: "2019_F"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc"
@@ -662,13 +677,16 @@ contests:
   - name : "Flattening"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666c"
     correct : 320
+    notes : "DP"
     solname : "Flattening"
   - name : "Teach Me"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/00000000001864bc"
+    notes : "Bitmasks. Unordered sets."
     correct : 179
     solname : "TeachMe"
   - name : "Spectating Villages"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b"
+    notes : "Tree DP"
     correct : 143
     solname : "SpectatingVillages"
 - name: "2019_G"
@@ -678,14 +696,17 @@ contests:
   - name : "Book Reading"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd0d"
     correct : 1067
+    notes : "Sum(1/n) ~ log(n)."
     solname : "BookReading"
   - name : "The Equation"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fe36"
+    notes : "Greedy xor problem"
     correct : 569
     solname : "TheEquation"
   - name : "Shifts"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e"
     correct : 291
+    notes : "Meet in the middle. Coordinate compression.  I used a fenwick tree (other options possible)"
     solname : "Shifts"
 - name: "2019_H"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd"
@@ -694,15 +715,18 @@ contests:
   - name : "H-index"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e"
     correct : 877
+    notes : "Pretty simple O(N) solution."
     solname : "Hindex"
   - name : "Diagonal Puzzle"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a2835"
+    notes : "Grid XOR problem.  Looks like two-sat, but is simpler"
     correct : 124
     solname : "DiagonalPuzzle"
   - name : "Elevanagram"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a286d"
     correct : 184
     solname : "Elevanagram"
+    notes : "DP.  Requires a couple insightful observations to make it work."
 - name: "2020_A"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7"
   participants: 13700
@@ -821,19 +845,23 @@ contests:
   problems :
   - name : "ATM Queue"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4ed8"
-    correct : 3509 
+    correct : 3509
+    notes: "Simple sorting by prioritized parameters"
     solname : "ATMQueue"
   - name : "Metal Harvest"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4b8b"
     correct : 2448 
+    notes: "Simple greedy assignment."
     solname : "MetalHarvest"
   - name : "Painters' Duel"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f47fb"
     correct : 346 
+    notes : "Good introductory negamax problem"
     solname : "PaintersDuel"
   - name : "Yeetzhee"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff48/00000000003f4dea"
     correct : 69 
+    notes : "DP on integer partitions"
     solname : "Yeetzhee"
 - name: "2020_G"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069"
@@ -842,18 +870,22 @@ contests:
   - name : "Kick_Start"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414bfb"
     correct : 5780 
+    notes : "Introductory string processing"
     solname : "KickStart"
   - name : "Maximum Coins"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a23"
     correct : 5590
+    notes : "Easy maximizing diagonal sums problem"
     solname : "MaximumCoins"
   - name : "Combination Lock"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000414a24"
     correct : 606
+    notes : "Tricky sum-of-distances minimazation problem on surface of wheels"
     solname : "CombinationLock"
   - name : "Merge Cards"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/00000000001a0069/0000000000415054"
     correct : 248 
+    notes : "Nice expected value problem with some combinatorial DP"
     solname : "MergeCards"
 - name: "2020_H"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49"
@@ -866,14 +898,17 @@ contests:
   - name : "Boring Numbers"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b0c6"
     correct : 805 
+    notes : "A variation on a counting problem from most significant digit to least significant digit"
     solname : "BoringNumbers"
   - name : "Rugby"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043b027"
     correct : 320 
+    notes : "A variation on the 'median' problem (a.k.a where to put the post office)"
     solname : "Rugby"
   - name : "Friends"
     problink : "https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff49/000000000043aee7"
     correct : 262 
+    notes: "Inferring the 'right' graph.  Bellman-Ford."
     solname : "Friends"
 - name: "2021_A"
   roundlink: "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140"
