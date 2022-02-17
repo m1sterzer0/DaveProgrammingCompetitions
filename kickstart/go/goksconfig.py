@@ -115,6 +115,7 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
+    probList += [(f"2022_Practice1",x) for x in ["SampleProblem","CentauriPrime","Hindex","Hex","MilkTea"]]
     #probList += [(f"2021_A",x) for x in ["KGoodnessString","LShapedPlots","RabbitHouse","Checksum"]]
     #probList += [(f"2021_B",x) for x in ["IncreasingSubstring","LongestProgression","ConsecutivePrimes","TruckDelivery"]]
     #probList += [(f"2021_C",x) for x in ["SmallerStrings","AlienGenerator","RockPaperScissors","BinaryOperator"]]
@@ -131,14 +132,23 @@ if __name__ == "__main__" :
     #probList += [(f"2020_F",x) for x in ["ATMQueue","MetalHarvest","PaintersDuel","Yeetzhee"]]
     #probList += [(f"2020_G",x) for x in ["KickStart","MaximumCoins","CombinationLock","MergeCards"]]
     #probList += [(f"2020_H",x) for x in ["Retype","BoringNumbers","Rugby","Friends"]] 
-    probList += [(f"2019_A",x) for x in ["Training","Parcels","Contention"]]
-    probList += [(f"2019_B",x) for x in ["BuildingPalindromes","EnergyStones","DiverseSubarray"]]
-    probList += [(f"2019_C",x) for x in ["WiggleWalk","CircuitBoard","CatchSome"]]
-    probList += [(f"2019_D",x) for x in ["XorWhat","LatestGuests","FoodStalls"]]
-    probList += [(f"2019_E",x) for x in ["CherriesMesh","CodeEatSwitcher","StreetCheckers"]]
-    probList += [(f"2019_F",x) for x in ["Flattening","TeachMe","SpectatingVillages"]]
-    probList += [(f"2019_G",x) for x in ["BookReading","TheEquation","Shifts"]]
-    probList += [(f"2019_H",x) for x in ["Hindex","DiagonalPuzzle","Elevanagram"]]
+    #probList += [(f"2019_A",x) for x in ["Training","Parcels","Contention"]]
+    #probList += [(f"2019_B",x) for x in ["BuildingPalindromes","EnergyStones","DiverseSubarray"]]
+    #probList += [(f"2019_C",x) for x in ["WiggleWalk","CircuitBoard","CatchSome"]]
+    #probList += [(f"2019_D",x) for x in ["XorWhat","LatestGuests","FoodStalls"]]
+    #probList += [(f"2019_E",x) for x in ["CherriesMesh","CodeEatSwitcher","StreetCheckers"]]
+    #probList += [(f"2019_F",x) for x in ["Flattening","TeachMe","SpectatingVillages"]]
+    #probList += [(f"2019_G",x) for x in ["BookReading","TheEquation","Shifts"]]
+    #probList += [(f"2019_H",x) for x in ["Hindex","DiagonalPuzzle","Elevanagram"]]
+    probList += [(f"2018_A",x) for x in ["EvenDigits","LuckyDip","ScrambledWords"]]
+    #probList += [(f"2018_B",x) for x in ["NoNine","SherlockAndTheBitStrings","KingsCircle"]]
+    #probList += [(f"2018_C",x) for x in ["PlanetDistance","FairiesAndWitches","KickstartAlarm"]]
+    #probList += [(f"2018_D",x) for x in ["Candies","Paragliding","FunniestWordSearch"]]
+    #probList += [(f"2018_E",x) for x in ["BoardGame","MilkTea","Yogurt"]]
+    #probList += [(f"2018_F",x) for x in ["CommonAnagrams","SpecializingVillages","PalindromicSequence"]]
+    #probList += [(f"2018_G",x) for x in ["ProductTriplets","CombiningClasses","CaveEsacpe"]]
+    #probList += [(f"2018_H",x) for x in ["BigButtons","Mural","LetMeCountTheWays"]]
+
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
