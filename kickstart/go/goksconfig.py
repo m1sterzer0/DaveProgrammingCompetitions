@@ -141,7 +141,7 @@ if __name__ == "__main__" :
     #probList += [(f"2019_G",x) for x in ["BookReading","TheEquation","Shifts"]]
     #probList += [(f"2019_H",x) for x in ["Hindex","DiagonalPuzzle","Elevanagram"]]
     probList += [(f"2018_A",x) for x in ["EvenDigits","LuckyDip","ScrambledWords"]]
-    #probList += [(f"2018_B",x) for x in ["NoNine","SherlockAndTheBitStrings","KingsCircle"]]
+    probList += [(f"2018_B",x) for x in ["NoNine","SherlockAndTheBitStrings","KingsCircle"]]
     #probList += [(f"2018_C",x) for x in ["PlanetDistance","FairiesAndWitches","KickstartAlarm"]]
     #probList += [(f"2018_D",x) for x in ["Candies","Paragliding","FunniestWordSearch"]]
     #probList += [(f"2018_E",x) for x in ["BoardGame","MilkTea","Yogurt"]]
