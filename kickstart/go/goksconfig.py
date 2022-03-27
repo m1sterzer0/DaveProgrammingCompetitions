@@ -116,6 +116,8 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
     probList += [(f"2022_Practice1",x) for x in ["SampleProblem","CentauriPrime","Hindex","Hex","MilkTea"]]
+    probList += [(f"2022_A",x) for x in ["SpeedTyping","ChallengeNine","PalindromeFreeStrings","InterestingIntegers"]]
+    
     #probList += [(f"2021_A",x) for x in ["KGoodnessString","LShapedPlots","RabbitHouse","Checksum"]]
     #probList += [(f"2021_B",x) for x in ["IncreasingSubstring","LongestProgression","ConsecutivePrimes","TruckDelivery"]]
     #probList += [(f"2021_C",x) for x in ["SmallerStrings","AlienGenerator","RockPaperScissors","BinaryOperator"]]
@@ -143,7 +145,7 @@ if __name__ == "__main__" :
     probList += [(f"2018_A",x) for x in ["EvenDigits","LuckyDip","ScrambledWords"]]
     probList += [(f"2018_B",x) for x in ["NoNine","SherlockAndTheBitStrings","KingsCircle"]]
     probList += [(f"2018_C",x) for x in ["PlanetDistance","FairiesAndWitches","KickstartAlarm"]]
-    #probList += [(f"2018_D",x) for x in ["Candies","Paragliding","FunniestWordSearch"]]
+    probList += [(f"2018_D",x) for x in ["Candies","Paragliding","FunniestWordSearch"]]
     #probList += [(f"2018_E",x) for x in ["BoardGame","MilkTea","Yogurt"]]
     #probList += [(f"2018_F",x) for x in ["CommonAnagrams","SpecializingVillages","PalindromicSequence"]]
     #probList += [(f"2018_G",x) for x in ["ProductTriplets","CombiningClasses","CaveEsacpe"]]
