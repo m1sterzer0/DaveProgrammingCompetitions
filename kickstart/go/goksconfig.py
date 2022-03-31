@@ -148,8 +148,8 @@ if __name__ == "__main__" :
     probList += [(f"2018_D",x) for x in ["Candies","Paragliding","FunniestWordSearch"]]
     probList += [(f"2018_E",x) for x in ["BoardGame","MilkTea","Yogurt"]]
     probList += [(f"2018_F",x) for x in ["CommonAnagrams","SpecializingVillages","PalindromicSequence"]]
-    #probList += [(f"2018_G",x) for x in ["ProductTriplets","CombiningClasses","CaveEsacpe"]]
-    #probList += [(f"2018_H",x) for x in ["BigButtons","Mural","LetMeCountTheWays"]]
+    probList += [(f"2018_G",x) for x in ["ProductTriplets","CombiningClasses","CaveEsacpe"]]
+    probList += [(f"2018_H",x) for x in ["BigButtons","Mural","LetMeCountTheWays"]]
 
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
