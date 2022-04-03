@@ -151,7 +151,7 @@ if __name__ == "__main__" :
     #probList += [(f"2018_G",x) for x in ["ProductTriplets","CombiningClasses","CaveEsacpe"]]
     #probList += [(f"2018_H",x) for x in ["BigButtons","Mural","LetMeCountTheWays"]]
     probList += [(f"2017_A",x) for x in ["SquareCounting","PatternOverlap","TwoCubes"]]
-    #probList += [(f"2017_B",x) for x in ["MathEncoder","Center","ChristmasTree"]]
+    probList += [(f"2017_B",x) for x in ["MathEncoder","Center","ChristmasTree"]]
     #probList += [(f"2017_C",x) for x in ["AmbiguousCipher","XSquared","MagicalThinkingV2","The4MCorporation"]]
     #probList += [(f"2017_D",x) for x in ["Sightseeing","SherlockAndMatrixGame","Trash"]]
     #probList += [(f"2017_E",x) for x in ["TrapezoidCounting","CopyPaste","Blackhole"]]
