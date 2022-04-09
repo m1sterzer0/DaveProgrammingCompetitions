@@ -115,14 +115,16 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
-    ##probList += [(f"2021",x) for x in ["Reversort","MoonsAndUmbrellas","ReversortEngineering","MedianSort","CheatingDetection",
-    ##                                  "AppendSort","PrimeTime","HackedExam",
-    ##                                  "BrokenClock","Subtransmutation","DigitBlocks",
-    ##                                  "ClosestPick","RoaringYears","DoubleOrNOTing",
-    ##                                  "MinimumSort","Matrygons","HiddenPancakes","Retiling",
-    ##                                  "BuildAPair","SquareFree","FenceDesign","BinarySearchGame",
-    ##                                  "CuttingCake","SlideCircuits","Ropes","DivisibleDivisions","Infinitree"]]
-    probList += [(f"2022",x) for x in ["PunchedCards","3DPrinting","D1000000","ChainReactions","TwistyLittlePackages"
+    probList += [(f"2021",x) for x in ["Reversort","MoonsAndUmbrellas","ReversortEngineering","MedianSort","CheatingDetection",
+                                      "AppendSort","PrimeTime","HackedExam",
+                                      "BrokenClock","Subtransmutation","DigitBlocks",
+                                      "ClosestPick","RoaringYears","DoubleOrNOTing",
+                                      "MinimumSort","Matrygons","HiddenPancakes","Retiling",
+                                      "BuildAPair","SquareFree","FenceDesign","BinarySearchGame",
+                                      "CuttingCake","SlideCircuits","Ropes","DivisibleDivisions","Infinitree"]]
+    probList += [(f"2022",x) for x in ["PunchedCards","3DPrinting","D1000000","ChainReactions","TwistyLittlePassages",
+                                       "DoubleOrOneThing","EqualSum","Weightlifting"
+                                    
     ]]
 
 
