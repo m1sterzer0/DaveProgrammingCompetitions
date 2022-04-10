@@ -86,7 +86,7 @@ func (q *MinCostFlow) AddEdge(fr, to, cap, cost int) {
 // but with potentials and positive costs at first, it gets to
 // O(m*log(m)*B)
 func (q *MinCostFlow) Flowssp(s, t int) (int, int) {
-	inf := 1_000_000_000_000_000_000
+	inf := 1000000000000000000
 	res := 0
 	h := make([]int, q.n)
 	prv_v := make([]int, q.n)

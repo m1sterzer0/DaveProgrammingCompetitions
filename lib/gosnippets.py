@@ -119,6 +119,7 @@ if __name__ == "__main__" :
                 "    python3 gosnippets.py matching         FILENAME\n" +
                 "    python3 gosnippets.py dsu              FILENAME\n" +
                 "    python3 gosnippets.py dsusparse        FILENAME\n" +
+                "    python3 gosnippets.py mincostflow      FILENAME\n" +
                 "    python3 gosnippets.py scc              FILENAME\n" +
                 "    python3 gosnippets.py twosat           FILENAME\n" +
                 "    python3 gosnippets.py bisect           FILENAME\n" +
