@@ -102,6 +102,7 @@ func solveSmall(N,M,L int,A []int) int {
 			if numones > 0  { adder *= powmod(M-k+1,numones,MOD) }
 			if numzeros > 0 { adder *= powmod(k-1,numzeros,MOD) }
 			ans += (adder % MOD) 
+			fmt.Printf("AA:%v numones:%v numzeros:%v k:%v adder:%v ans%v\n",AA,numones,numzeros,k,adder,ans)
 		}
 		ans %= MOD
 	}
@@ -126,8 +127,54 @@ func lagrange(X,Y []int, xx int) int {
 	return ans % MOD
 }
 
-func solveCase(onemask,singlemask uint, L int) []int {
-	return []int{}
+
+var solveCaseDb [2][6][33]int
+var comb [33][33]int
+
+func solveCase(onemask,singlemask uint, L int) {
+	var solveLevel func(l,r,lev int, left,a bool) int
+	solveLevel = func(l,r,lev int, left,a bool) int {
+		idx := 1; if left { idx = 0 }; cnt := 0; halfw := (r-l)>>1
+		for i:=0;i<=r-l;i++ { solveCaseDb[idx][lev][i] = 0 }
+		if lev == 0 {
+			if (onemask >> uint(l)) & 1 == 1 { 
+				solveCaseDb[idx][lev][0] = 1
+			} else if (singlemask >> uint(l)) & 1 == 1 { 
+				solveCaseDb[idx][lev][1] = 1; cnt++
+			}
+		} else {
+			cnt1 := solveLevel(l,l+halfw,lev-1,true,!a)
+			cnt2 := solveLevel(l+halfw,r,lev-1,false,!a)
+			if !a {
+				// Bob's turn -- Need to win on both left and right to be a winning position
+				for i:=0;i<=cnt1;i++ {
+					for j:=0;j<=cnt2;j++ {
+						solveCaseDb[idx][lev][i+j] += solveCaseDb[0][lev-1][i] * solveCaseDb[1][lev-1][j]
+					}
+				}
+			} else {
+				// Alice's turn -- Need to win on left or right, so use inclusion/exclusion for counts
+				for i:=0;i<=cnt1;i++ {
+					for j:=0;j<=cnt2;j++ {
+						solveCaseDb[idx][lev][i+j] += solveCaseDb[0][lev-1][i] * comb[cnt2][j]
+					}
+				}
+				for i:=0;i<=cnt2;i++ {
+					for j:=0;j<=cnt1;j++ {
+						solveCaseDb[idx][lev][i+j] += solveCaseDb[1][lev-1][i] * comb[cnt1][j]
+					}
+				}
+				for i:=0;i<=cnt1;i++ {
+					for j:=0;j<=cnt2;j++ {
+						solveCaseDb[idx][lev][i+j] -= solveCaseDb[0][lev-1][i] * solveCaseDb[1][lev-1][j]
+					}
+				}
+			}
+			cnt = cnt1+cnt2
+		} 
+		return cnt
+	}
+	solveLevel(0,1<<L,L,true,true)
 }
 
 func solveBig(N,M,L int, A []int) int {
@@ -140,8 +187,8 @@ func solveBig(N,M,L int, A []int) int {
 		if cnt[a] == 0 { numZeros++ }
 		if cnt[a] == 1 { numOnes++; singlesmask |= 1 << uint(i) }
 	}
-	mults := make([]uint,0)
-	for _,a := range masks {if bits.OnesCount(a) > 1 { mults = append(mults,a) } }
+	mults := make([]int,0)
+	for i,a := range masks {if bits.OnesCount(a) > 1 { mults = append(mults,i) } }
 	numMults := uint(len(mults))
 	bmmax := uint(1) << uint(numMults)
 	master := make([]int,33) // This tracks our solutions
@@ -149,10 +196,13 @@ func solveBig(N,M,L int, A []int) int {
 		onemask := uint(0)
 		addedOnes := bits.OnesCount(onemask)
 		for i:=uint(0);i<numMults;i++ {
-			if (bm >> i) & 1 == 1 {	onemask |= masks[mults[i]] }
+			if (bm >> i) & 1 == 1 {	
+				fmt.Printf("DBG: bm:%v i:%v masks:%v mults:%v\n",bm,i,masks,mults)
+				onemask |= masks[mults[i]]
+			}
 		}
-		v := solveCase(onemask,singlesmask,L)
-		for j,vv := range v { master[addedOnes+j] += vv }
+		solveCase(onemask,singlesmask,L)
+		for j:=0;j<=numOnes;j++ { master[addedOnes+j] += solveCaseDb[0][L][j] } 
 	}
 
 	xarr := make([]int,N+3); for i:=0;i<N+3;i++ { xarr[i] = i+1 }
@@ -179,14 +229,22 @@ func solveBig(N,M,L int, A []int) int {
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
-	infn := ""; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
+	infn := "junk.in"; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
+	// Initialize the comb[i][j] block
+	comb[0][0] = 1
+	for i:=1;i<=32;i++ {
+		for j:=0;j<=i;j++ {
+			if j == 0 || j == 1 { comb[i][j] = 1 } else { comb[i][j] = comb[i-1][j-1] + comb[i-1][j] }
+		}
+	}
     T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
 		N,M,L := gi(),gi(),gi(); Lexp2 := powint(2,L); A := gis(Lexp2)
 		ans := solveSmall(N,M,L,A)
+		//ans := solveBig(N,M,L,A)
         fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
     }
 }
