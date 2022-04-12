@@ -153,7 +153,7 @@ if __name__ == "__main__" :
     probList += [(f"2017_A",x) for x in ["SquareCounting","PatternOverlap","TwoCubes"]]
     probList += [(f"2017_B",x) for x in ["MathEncoder","Center","ChristmasTree"]]
     probList += [(f"2017_C",x) for x in ["AmbiguousCipher","XSquared","MagicalThinkingV2","The4MCorporation"]]
-    #probList += [(f"2017_D",x) for x in ["Sightseeing","SherlockAndMatrixGame","Trash"]]
+    probList += [(f"2017_D",x) for x in ["Sightseeing","SherlockAndMatrixGame","Trash"]]
     #probList += [(f"2017_E",x) for x in ["TrapezoidCounting","CopyPaste","Blackhole"]]
     #probList += [(f"2017_F",x) for x in ["Cake","Kicksort","DanceBattle","CatchThemAll"]]
     #probList += [(f"2017_G",x) for x in ["HugeNumbers","CardsGame","MatrixCutting"]]
