@@ -1,55 +1,20 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
+	"math/big"
 	"os"
+	"sort"
 	"strconv"
 )
 var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
-func gi2() (int,int) { return gi(),gi() }
-func gi3() (int,int,int) { return gi(),gi(),gi() }
-func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
-func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
-func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
-func gbs() []byte { return []byte(gs()) }
-func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
-func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
 func ia(m int) []int { return make([]int,m) }
-func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
-func twodi(n int,m int,v int) [][]int {
-	r := make([][]int,n); for i:=0;i<n;i++ { x := make([]int,m); for j:=0;j<m;j++ { x[j] = v }; r[i] = x }; return r
-}
-func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
-func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
-func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
-func abs(a int) int { if a < 0 { return -a }; return a }
-func rev(a []int) { i,j := 0,len(a)-1; for i < j { a[i],a[j] = a[j],a[i]; i++; j-- } }
-func max(a,b int) int { if a > b { return a }; return b }
-func min(a,b int) int { if a > b { return b }; return a }
-func tern(cond bool, a int, b int) int { if cond { return a }; return b }
-func terns(cond bool, a string, b string) string { if cond { return a }; return b }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
 func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
-func zeroarr(a []int) { for i:=0; i<len(a); i++ { a[i] = 0 } }
-func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
-func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
-func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
-func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
-func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
-func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
-func makefact(n int,mod int) ([]int,[]int) {
-	fact,factinv := make([]int,n+1),make([]int,n+1)
-	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
-	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
-	return fact,factinv
-}
-const inf int = 2000000000000000000
-const MOD int = 1000000007
+type tri struct {x,a,b int}
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -59,7 +24,105 @@ func main() {
     T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
-    }
+		// Key insights
+		// 1) each triangle can be represented by 3 points (X1,M,x2) and a global constant h (rational)
+		//    X1,M,X2 are the left,middle,right vertices 
+		//    h is the vertical height of the triangle at the middle vertex
+		// 2) Since all we care about is area ratios, we can "virtually scale" the Y axis so that the area
+		//    of each triangle is 1.  The needed height is 2 / (X2-X1)
+		// 2) Add all of the unique X coordinates to a list and sort
+		// 3) Between any two coordinates here, the objective function can be represented by
+		//    c + integ_0^x0 (ax+b) = c + a*x0*x0/2 + b*x0
+		//    where we can easily caluclate c, a, b in O(N) time (can do better, but not really needed)
+		// 4) At each point, we can check if -b/A is in the interval, and if so, evaluate the quadratic there
+		//    to see if it is a minimum or changes sign.  Otherwise, we can just consider the endpoints.
+		N,W := gi(),gi(); gi() // don't need H
+		P := gi(); gi(); R := gi(); gi(); if R < P { P,R = R,P }
+		X := ia(N); A := ia(N); B := ia(N)
+		for i:=0;i<N;i++ { X[i] = gi(); gi(); A[i] = gi(); B[i] = gi() }
+		tris := make([]tri,N)
+		for i:=0;i<N;i++ { tris[i] = tri{X[i],A[i],B[i]} }
+		xvalsmap := make(map[int]bool); xvalsmap[0] = true; xvalsmap[W] = true
+		for _,t := range tris {
+			xvalsmap[t.x] = true; xvalsmap[t.x+P] = true; xvalsmap[t.x+R] = true
+		}
+		xvals := make([]int,0); for xx := range xvalsmap { xvals = append(xvals,xx) }
+		sort.Slice(xvals,func(i,j int) bool { return xvals[i] < xvals[j] } )
+		running,newrunning,a,b,best := big.NewRat(0,1),big.NewRat(0,1),big.NewRat(0,1),big.NewRat(0,1),big.NewRat(0,1)
+		tempfrac,tempfrac2,tempfrac3 := big.NewRat(0,1),big.NewRat(0,1),big.NewRat(0,1)
+		bsum := sumarr(B); running.SetInt64(int64(-bsum));
+		best.Abs(running)
+		h := big.NewRat(2,int64(R))
+		ratzero := big.NewRat(0,1)
+		rathalf := big.NewRat(1,2)
+		for i,x1 := range xvals {
+			if i == 0 || i == len(xvals)-1 { continue }
+			a.SetInt64(0); b.SetInt64(0)
+			x2 := xvals[i+1]
+			for _,t := range tris {
+				if x1 >= t.x && x1 < t.x + P && P != 0 {
+					tempfrac.SetFrac64(int64(x1-t.x),int64(P))
+					tempfrac2.SetInt64(int64(t.a+t.b))
+					tempfrac.Mul(tempfrac,tempfrac2).Mul(tempfrac,h)
+					b.Add(b,tempfrac)
+					tempfrac.Mul(h,tempfrac2);
+					tempfrac2.SetInt64(int64(P))
+					tempfrac.Quo(tempfrac,tempfrac2)
+					a.Add(a,tempfrac)
+				} else if x1 >= t.x + P && x1 < t.x + R && P != R {
+					tempfrac.SetFrac64(int64(t.x+R-x1),int64(R-P))
+					tempfrac2.SetInt64(int64(t.a+t.b))
+					tempfrac.Mul(tempfrac,tempfrac2).Mul(tempfrac,h)
+					b.Add(b,tempfrac)
+					tempfrac.Mul(h,tempfrac2);
+					tempfrac2.SetInt64(int64(P-R))
+					tempfrac.Quo(tempfrac,tempfrac2)
+					a.Add(a,tempfrac)
+				}
+			}
+
+			// Look for a local maximum/minimum of the quadratic
+			if a.Cmp(ratzero) != 0 {
+				tempfrac.Quo(b,a); tempfrac.Neg(tempfrac)
+				tempfrac2.SetInt64(int64(x2-x1))
+				if tempfrac.Cmp(ratzero) == 1 && tempfrac.Cmp(tempfrac2) == -1 {
+					tempfrac3.Mul(b,b).Quo(tempfrac3,a).Mul(tempfrac3,rathalf).Neg(tempfrac3)
+					tempfrac2.Add(running,tempfrac3)
+					// Look for a sign change
+					tempfrac.Mul(running,tempfrac2)
+					if tempfrac.Cmp(ratzero) <= 0 {
+						best.Set(ratzero)
+						break
+					}
+					// Look to see if the minimum has a lower absolute value
+					tempfrac2.Abs(tempfrac2)
+					if tempfrac2.Cmp(best) < 0 { best.Set(tempfrac2) }
+				}
+			}
+			// Get the value at the end of the interval running + b(x2-x1) + 1/2*a*(x2-x1)*(x2-x1)
+			newrunning.Set(running)
+			tempfrac2.SetInt64(int64(x2-x1))
+			tempfrac3.Mul(b,tempfrac2)
+			newrunning.Add(running,tempfrac3)
+			tempfrac3.Mul(a,tempfrac2).Mul(tempfrac3,tempfrac2).Mul(tempfrac3,rathalf)
+			newrunning.Add(newrunning,tempfrac3)
+
+			// Check for sign change, and if so, set ans to 0 and break
+			tempfrac.Mul(running,newrunning)
+			if tempfrac.Cmp(ratzero) <= 0 {
+				best.Set(ratzero)
+				break
+			}
+			// Look to see if the minimum has a lower absolute value
+			tempfrac2.Abs(newrunning)
+			if tempfrac2.Cmp(best) < 0 { best.Set(tempfrac2) }
+
+			// Set running to newrunning and keep going
+			running.Set(newrunning)
+		}
+		num := best.Num().String()
+		denom := best.Denom().String()
+		fmt.Printf("Case #%v: %v/%v\n",tt,num,denom)
+	}
 }
 
