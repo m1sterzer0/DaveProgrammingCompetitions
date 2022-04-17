@@ -1,8 +1,8 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -10,46 +10,206 @@ var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
-func gi2() (int,int) { return gi(),gi() }
-func gi3() (int,int,int) { return gi(),gi(),gi() }
-func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
 func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
-func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
-func gbs() []byte { return []byte(gs()) }
-func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
-func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
-func ia(m int) []int { return make([]int,m) }
-func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
-func twodi(n int,m int,v int) [][]int {
-	r := make([][]int,n); for i:=0;i<n;i++ { x := make([]int,m); for j:=0;j<m;j++ { x[j] = v }; r[i] = x }; return r
-}
-func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
-func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
-func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
-func abs(a int) int { if a < 0 { return -a }; return a }
-func rev(a []int) { i,j := 0,len(a)-1; for i < j { a[i],a[j] = a[j],a[i]; i++; j-- } }
 func max(a,b int) int { if a > b { return a }; return b }
 func min(a,b int) int { if a > b { return b }; return a }
-func tern(cond bool, a int, b int) int { if cond { return a }; return b }
-func terns(cond bool, a string, b string) string { if cond { return a }; return b }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
-func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
-func zeroarr(a []int) { for i:=0; i<len(a); i++ { a[i] = 0 } }
-func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
-func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
-func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
-func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
-func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
-func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
-func makefact(n int,mod int) ([]int,[]int) {
-	fact,factinv := make([]int,n+1),make([]int,n+1)
-	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
-	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
-	return fact,factinv
+
+var mat1 [35000][51][51]int
+func solve(N,A,B int, L,R []int) int {
+	ub := max(A,B)
+	midx := make(map[int]int)
+	sidx := make(map[int]int)
+	mptr := 1
+	matcopy := func (f,t int) {	for i:=0;i<=N;i++ {	for j:=0;j<=N;j++ { mat1[t][i][j] = mat1[f][i][j] } } }
+	matclear := func(idx int) {	for i:=0;i<=N;i++ {	for j:=0;j<=N;j++ {	mat1[idx][i][j] = 0	} }	}
+	matmul := func (a,b,c int) {
+		matclear(c)
+		for i:=0;i<=N;i++ {
+			for k:=0;k<=N;k++ {
+				aa := mat1[a][i][k]
+				if aa == 0 { continue }
+				maxv := ub / aa
+				for j:=0;j<=N;j++ {
+					bb := mat1[b][k][j]
+					if bb > maxv { mat1[c][i][j] = ub+1 } else {	mat1[c][i][j] += aa*bb } 
+					if mat1[c][i][j] > ub { mat1[c][i][j] = ub+1 }
+				}
+			}
+		}
+	}
+	mataccum := func(f,t int) {
+		for i:=0;i<=N;i++ {
+			for j:=0;j<=N;j++ {
+				mat1[t][i][j] += mat1[f][i][j]
+				if mat1[t][i][j] > ub { mat1[t][i][j] = ub+1 }
+			}
+		}
+	}
+	matpow := func(n int) {
+		if midx[n] > 0 { return }
+		midx[n] = mptr; matcopy(midx[0],mptr); matclear(0)
+		for i,j:=1,0;n > 0; i,j=i*2,j+1 {
+			if n & (1<<uint(j)) != 0 {
+				n = n ^ (1<<uint(j))
+				matmul(mptr,midx[i],0)
+				matcopy(0,mptr)
+			}
+		}
+		mptr++
+	}
+	mulmatvec := func(idx int, vin []int, vout []int) {
+		for i:=0;i<=N;i++ { 
+			vout[i] = 0 
+			for k,bb := range vin {
+				aa := mat1[idx][i][k]
+				if float64(aa)*float64(bb) > 3e18 || aa*bb > ub { vout[i] = ub+1; break }
+				vout[i] += aa*bb; if vout[i] > ub { vout[i] = ub+1; break }
+			}
+		}
+	}
+	getLevOffset := func(cnt int) (int,int) {
+		mylev,highest := 0,0
+		v1,v2,v3 := make([]int,N+1),make([]int,N+1),make([]int,N+1); v1[1] = 1
+		for i:=1<<62;i>0;i=i>>1 {
+			if mylev + i > cnt { continue }
+			mulmatvec(midx[i],v2,v3)
+			ss := sidx[i]
+			for i:=0;i<=N;i++ {	v3[i] += mat1[ss][i][1]; if v3[i] > cnt { v3[i] = cnt+1 } }
+			vv := 0; for i:=0;i<=N;i++ { vv += v3[i]; if vv > cnt { vv = cnt+1; break } }
+			if vv >= cnt { continue }
+			highest = vv; mylev += i; v2,v3 = v3,v2
+		}
+		return mylev,cnt-highest
+	}
+	cntNodesAtLevel := func(rc,lev int) int {
+		v1,v2 := make([]int,N+1),make([]int,N+1); v1[rc] = 1
+		for i:=1<<62;i>0;i=i>>1 {
+			if i > lev { continue }
+			lev -= i
+			mulmatvec(midx[i],v1,v2)
+			v1,v2 = v2,v1
+		}
+		res := 0; for i:=0;i<=N;i++ { res += v1[i]; if res > ub { res = ub+1 } }
+		return res
+	}
+	cntPrefixNodesAtLevel := func(v []int, lev int) int {
+		v1,v2 := make([]int,N+1),make([]int,N+1)
+		for i:=0;i<=N;i++ { v1[i] = v[i] }
+		for i:=1<<62;i>0;i=i>>1 {
+			if i > lev { continue }
+			lev -= i
+			mulmatvec(midx[i],v1,v2)
+			v1,v2 = v2,v1
+		}
+		res := 0; for i:=0;i<=N;i++ { res += v1[i]; if res > ub { res = ub+1 } }
+		return res
+	}
+	takeStep := func(la,lb,offa,offb,rootColor int) (int,int,int,int,int,bool) {
+		xx1 := cntNodesAtLevel(L[rootColor-1],la-1)
+		xx2 := cntNodesAtLevel(L[rootColor-1],lb-1)
+		if offa <= xx1 && offb >  xx2 { return la,lb,offa,offb,rootColor,true }
+		if offa >  xx1 && offb <= xx2 { return la,lb,offa,offb,rootColor,true }
+		if offa <= xx1 && offb <= xx2 { return la-1,lb-1,offa,offb,L[rootColor-1],false }
+		return la-1,lb-1,offa-xx1,offb-xx2,R[rootColor-1],false
+	}
+	takeCycleSteps := func(la,lb,offa,offb,rootColor int,cyc []int) (int,int,int,int,int,bool) {
+		// Collect the partial 
+		h := len(cyc)
+		if h > min(la,lb) {
+			return takeStep(la,lb,offa,offb,rootColor)
+		}
+		// Now we trace the path
+		vleft := make([]int,N+1)
+		vtemp := make([]int,N+1); lrc := rootColor
+		for i:=0;i<h;i++ {
+			mulmatvec(midx[1],vleft,vtemp)
+			vleft,vtemp = vtemp,vleft
+			if R[lrc-1] == cyc[i] { vleft[L[lrc-1]]++ }
+			lrc = cyc[i]
+		}
+
+		// Now check that we should at least make one full cycle
+		xx1a := cntPrefixNodesAtLevel(vleft,la-h)
+		xx1b := cntNodesAtLevel(rootColor,la-h)
+		xx2a := cntPrefixNodesAtLevel(vleft,lb-h)
+		xx2b := cntNodesAtLevel(rootColor,lb-h)
+		if offa <= xx1a || offa > xx1a+xx1b || offb <= xx2a || offb > xx2a+xx2b {
+			return takeStep(la,lb,offa,offb,rootColor)
+		}
+
+		// Ok, we are taking at least 1 cycle, so now we need to take steps in descending powers of 2
+		matpow(h)  // Makes sure we have M^h precalculated
+		maxsteps := min(la,lb)/h
+		aidx := make(map[int]int)
+		bidx := make(map[int]int)
+		aidx[0],aidx[1],bidx[0],bidx[1] = midx[0],midx[h],sidx[0],sidx[1]
+		for i:=2;i<=maxsteps;i=i*2 {
+			aidx[i] = mptr; matmul(aidx[i/2],aidx[i/2],mptr); mptr++
+			bidx[i] = mptr; matmul(aidx[i/2],bidx[i/2],mptr); mataccum(bidx[i/2],mptr); mptr++
+		}
+		//numsteps,newoffa,newoffb := 0
+		v1 := make([]int,N+1)
+		for i:=1<<62;i>0;i=i>>1 {
+			if i > maxsteps { continue } // Need to modify maxsteps
+			mulmatvec(bidx[i],vleft,v1)
+			xx1a = cntPrefixNodesAtLevel(v1,la-i*h)
+			xx1b = cntNodesAtLevel(rootColor,la-i*h)
+			xx2a = cntPrefixNodesAtLevel(v1,lb-i*h)
+			xx2b = cntNodesAtLevel(rootColor,lb-i*h)
+			if offa > xx1a && offa <= xx1a+xx1b && offb > xx2a && offb <= xx2a+xx2b { 
+				la -= i*h; lb -= i*h; maxsteps -= i; offa -= xx1a; offb -= xx2a
+			}
+		}
+		return la,lb,offa,offb,rootColor,false
+	}
+	
+	classifyNodes := func() []int {
+		res := make([]int,N+1)
+		gr := make([][]int,N+1)
+		for i:=1;i<=N;i++ { gr[i] = append(gr[i],L[i-1]); gr[i] = append(gr[i],R[i-1]) }
+		visited := make([]bool,N+1); queue := make([]int,0)
+		for i:=1;i<=N;i++ {
+			for j:=0;j<=N;j++ { visited[j] = false }
+			visited[i] = true; queue := queue[:0]; queue = append(queue,i)
+			for len(queue) > 0 {
+				n := queue[0]; queue = queue[1:]
+				for _,n2 := range gr[n] {
+					if n2 == i { res[i] = n }
+					if !visited[n2] { visited[n2] = true; queue = append(queue,n2) }
+				}
+			}
+		}
+		return res
+	}
+	//  OK, subroutines done -- this is the main program
+	// Base cases: Index midx by level starting with zero, Index sidx by quantity of levels
+	midx[0] = mptr; matclear(mptr); for i:=0;i<=N;i++ { mat1[mptr][i][i] = 1 }; mptr++
+	midx[1] = mptr; matclear(mptr); for i:=0;i<N;i++ { mat1[mptr][L[i]][i+1]++; mat1[mptr][R[i]][i+1]++ }; mptr++
+	sidx[0] = mptr; matclear(mptr); mptr++
+	sidx[1] = mptr; matcopy(midx[0],mptr); mptr++
+	for i:=2;i<=ub;i=i*2 {
+		midx[i] = mptr; matmul(midx[i/2],midx[i/2],mptr); mptr++
+		sidx[i] = mptr; matmul(midx[i/2],sidx[i/2],mptr); mataccum(sidx[i/2],mptr); mptr++
+	}
+
+	la,offa := getLevOffset(A); lb,offb := getLevOffset(B)
+	rootColor := 1; doneFlag := false
+	cycleParentArr := classifyNodes() // Only guaranteed to be usable if we don't have exponential growth
+	for la > 0 && lb > 0 {
+		if min(la,lb) <= 3100 || cycleParentArr[rootColor] == 0 {
+			la,lb,offa,offb,rootColor,doneFlag = takeStep(la,lb,offa,offb,rootColor)
+			if doneFlag { break }
+		} else {
+			cycle := []int{rootColor}; n3 := rootColor
+			for cycleParentArr[n3] != rootColor { n3 = cycleParentArr[n3]; cycle = append(cycle,n3) }
+			i,j := 0,len(cycle)-1; for i<j { cycle[i],cycle[j] = cycle[j],cycle[i]; i++; j-- }
+			la,lb,offa,offb,rootColor,doneFlag = takeCycleSteps(la,lb,offa,offb,rootColor,cycle)
+			if doneFlag { break }
+		}
+	}
+	return la+lb
 }
-const inf int = 2000000000000000000
-const MOD int = 1000000007
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -59,7 +219,9 @@ func main() {
     T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		N,A,B := gi(),gi(),gi(); L := gis(N); R := gis(N)
+		ans := solve(N,A,B,L,R)
+        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
     }
 }
 

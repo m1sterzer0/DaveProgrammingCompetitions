@@ -1,8 +1,8 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -10,56 +10,82 @@ var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
-func gi2() (int,int) { return gi(),gi() }
-func gi3() (int,int,int) { return gi(),gi(),gi() }
-func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
-func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
-func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
-func gbs() []byte { return []byte(gs()) }
-func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
-func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
 func ia(m int) []int { return make([]int,m) }
-func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
-func twodi(n int,m int,v int) [][]int {
-	r := make([][]int,n); for i:=0;i<n;i++ { x := make([]int,m); for j:=0;j<m;j++ { x[j] = v }; r[i] = x }; return r
-}
-func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
-func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
-func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
-func abs(a int) int { if a < 0 { return -a }; return a }
-func rev(a []int) { i,j := 0,len(a)-1; for i < j { a[i],a[j] = a[j],a[i]; i++; j-- } }
 func max(a,b int) int { if a > b { return a }; return b }
-func min(a,b int) int { if a > b { return b }; return a }
-func tern(cond bool, a int, b int) int { if cond { return a }; return b }
-func terns(cond bool, a string, b string) string { if cond { return a }; return b }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
-func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
-func zeroarr(a []int) { for i:=0; i<len(a); i++ { a[i] = 0 } }
-func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
-func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
-func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
 func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
 func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
-func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
-func makefact(n int,mod int) ([]int,[]int) {
-	fact,factinv := make([]int,n+1),make([]int,n+1)
-	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
-	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
-	return fact,factinv
-}
-const inf int = 2000000000000000000
 const MOD int = 1000000007
+
+func solve(S string, D int) int {
+	// Following the solutions for the large
+	// Formalizing the DP above
+	// Ak = # legal ways to divide [S1 S2 ... Sk] such that the rightmost segment is divisible by D
+	// Bk = # legal ways to divide [S1 S2 ... Sk] such that the the leftmost segment is divisible by D
+	// For the small, there is a nice O(N^2) solution.  We need better for the large
+
+	// Simple case, assume 10 and D share no common factors, so 10^-1 exists
+	// Then [Si+1 .. Sj] is div by D iff [S1 S2 ... Si Si+1 Si+2 ... Sj] - [S1 S2 ... Si] * 10^(j-i) is div by D
+	// iff [S1 S2 ... Si Si+1 Si+2 ... Sj] == [S1 S2 ... Si] * 10^(j-i)
+	// iff [S1 S2 ... Sj] * 10^(-j) == [S1 S2 ... Sj] * 10^(-i) mod D
+	// This now gives us an invariant we can work with
+	// Maintain C[v] = Number of legal ways to organize a prefix with the rightmost segment divisible by D such that [S1 S2 ... Si] * 10^(-i) == v % D 
+	//          D[v] = Number of legal ways to orgnaize a prefix with the rightmost segment not divisible by D such that [S1 S2 ... Si] * 10^(-1) == v % D
+	//               = Sum_over_k C[k] - C[v]
+	// We would start with the base case C[0] = 1 and all else zero
+	// At each step, we calculate v = 10^(-j) [S1 S2 ... Sj-1 Sj] = vprev + 10^(-j)*Sj
+	// A[k] = A[v] + B[v]; B[k] = B[v]; A[v] += A[k]; suma += A[k] (all modulo D)
+	
+	// Now we have to deal with the the inconvenience of when 10 and D share common factors.
+	// Express D as 2^l * 5^m * q, where q is divisible by neither 2 nor 5.
+	// Note that divisibility by 2 and by 5 is determines strictly by a suffix of max(l,m) characters
+	// To make things easier, we know since D <= 1000, max(l,m) < 20, so we can just cap things at 20 and see
+	// ** For the short suffixes, we use the slow method
+	// ** for the longer suffixes (i.e. >= 20), we use the method we just outlined, but we delay updates until 20
+	ss := []byte(S); ls := len(S)
+	dpa,dpb,dpv := ia(ls),ia(ls),ia(ls)
+	d1,d2,l,m := D,1,0,0; for d1 % 2 == 0 { d2*=2; d1/=2; l++}; for d1 % 5 == 0 { d2 *= 5; d1 /= 5; m++}; l2 := max(l,m)
+	dpc,dpd := ia(d1),ia(d1); dpc[0] = 1; sumc := 1
+	v:=0; teninv,runningteninv := 0,0; if d1 > 1 { teninv,_ = modinv(10,d1); runningteninv = 1 }
+	for i:=0;i<ls;i++ {
+		pv1 := 1 % d1; run1 := 0; pv2 := 1 % d2; run2 := 0; v = (v + runningteninv * int(ss[i]-'0')) % d1
+		dpv[i] = v; runningteninv *= teninv; runningteninv %= d1
+		for j:=i; j>=0 && j>i-l2;j-- {
+			run1 += pv1*int(ss[j]-'0'); pv1 *= 10; pv1 %= d1; run1 %= d1 
+			run2 += pv2*int(ss[j]-'0'); pv2 *= 10; pv2 %= d2; run2 %= d2 
+			if run1 == 0 && run2 == 0 {
+				if j > 0 { dpa[i] += dpa[j-1] + dpb[j-1]; dpa[i] %= MOD } else { dpa[i]++; dpa[i] %= MOD }
+			} else {
+				if j > 0 { dpb[i] += dpa[j-1]; dpb[i] %= MOD } else { dpb[i]++; dpb[i] %= MOD }
+			}
+		}
+		if i >= l2 {
+			if run2 == 0 { // We could be divisible by 
+				dpa[i] += dpc[v] + dpd[v]; dpb[i] += sumc + MOD - dpc[v]; dpa[i] %= MOD; dpb[i] %= MOD
+			} else {
+				dpb[i] += sumc
+			}
+			sumc += dpa[i-l2]; sumc %= MOD
+			dpc[dpv[i-l2]] += dpa[i-l2]; dpc[dpv[i-l2]] %= MOD
+			dpd[dpv[i-l2]] += dpb[i-l2]; dpd[dpv[i-l2]] %= MOD
+		} 
+		//fmt.Printf("DBG: i:%v dpa[i]:%v dpb[i]:%v\n",i,dpa[i],dpb[i])
+	}
+	return (dpa[ls-1] + dpb[ls-1]) % MOD
+}
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
 	infn := ""; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
-    T := gi()
+	T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		S := gs(); D := gi()
+		//ans := solveSmall(S,D)
+		ans := solve(S,D)
+        fmt.Printf("Case #%v: %v\n",tt,ans)
     }
 }
 
