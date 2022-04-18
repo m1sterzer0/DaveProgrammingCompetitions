@@ -46,7 +46,7 @@ func (q *Mfgraph) Changeedge(i int, newcap int, newflow int) {
 	e.cap = newcap - newflow
 	re.cap = newflow
 }
-func (q *Mfgraph) Flow(s, t int) int { return q.FlowCapped(s, t, 1_000_000_000_000_000_000) }
+func (q *Mfgraph) Flow(s, t int) int { return q.FlowCapped(s, t, 1000000000000000000) }
 func (q *Mfgraph) FlowCapped(s int, t int, flowlimit int) int {
 	level := make([]int, q.n)
 	iter := make([]int, q.n)
