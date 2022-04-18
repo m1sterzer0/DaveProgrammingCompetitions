@@ -115,6 +115,14 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
+
+    probList += [(f"2020",x) for x in ["Vestigium","NestingDepth","ParentingPartneringReturns","ESAbATAd","Indicium",
+                                      "PatternMatching","PascalWalk","SquareDance",
+                                      "Expogo","BlindfoldedBullseye","JoinTheRanks",
+                                      "OverexcitedFan","Overrandomized","OversizedPancakeChoppers",
+                                      "IncrementalHouseOfPancakes","SecurityUpdate","WormholeInOne","Emacs",
+                                      "NamingCompromise","Thermometers","PenTesting","Recalculating",
+                                      "PackTheSlopes","AdjacentAndConsecutive","HexacoinJam","MusicalCords","ReplaceAll"]]
     probList += [(f"2021",x) for x in ["Reversort","MoonsAndUmbrellas","ReversortEngineering","MedianSort","CheatingDetection",
                                       "AppendSort","PrimeTime","HackedExam",
                                       "BrokenClock","Subtransmutation","DigitBlocks",
