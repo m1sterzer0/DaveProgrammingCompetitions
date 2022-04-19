@@ -1,8 +1,8 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -10,56 +10,66 @@ var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
-func gi2() (int,int) { return gi(),gi() }
-func gi3() (int,int,int) { return gi(),gi(),gi() }
-func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
-func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
-func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
-func gbs() []byte { return []byte(gs()) }
-func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
-func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
-func ia(m int) []int { return make([]int,m) }
-func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
 func twodi(n int,m int,v int) [][]int {
 	r := make([][]int,n); for i:=0;i<n;i++ { x := make([]int,m); for j:=0;j<m;j++ { x[j] = v }; r[i] = x }; return r
 }
-func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
-func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
-func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
-func abs(a int) int { if a < 0 { return -a }; return a }
-func rev(a []int) { i,j := 0,len(a)-1; for i < j { a[i],a[j] = a[j],a[i]; i++; j-- } }
-func max(a,b int) int { if a > b { return a }; return b }
-func min(a,b int) int { if a > b { return b }; return a }
-func tern(cond bool, a int, b int) int { if cond { return a }; return b }
-func terns(cond bool, a string, b string) string { if cond { return a }; return b }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
-func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
-func zeroarr(a []int) { for i:=0; i<len(a); i++ { a[i] = 0 } }
-func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
-func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
-func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
-func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
-func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
-func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
-func makefact(n int,mod int) ([]int,[]int) {
-	fact,factinv := make([]int,n+1),make([]int,n+1)
-	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
-	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
-	return fact,factinv
+type pair struct {i,j int}
+
+func solve(R,C int, S [][]int) int {
+	lj,rj,ui,di := twodi(R,C,-1),twodi(R,C,-1),twodi(R,C,-1),twodi(R,C,-1)
+	for i:=0;i<R;i++ {
+		for j:=0;j<C;j++ {
+			if i > 0 { ui[i][j] = i-1 }
+			if i+1 < R { di[i][j] = i+1 }
+			if j > 0 { lj[i][j] = j-1 }
+			if j+1 < C { rj[i][j] = j+1 }
+		}
+	}
+	ans := 0
+	sumarr := 0; for i:=0;i<R;i++ { for j:=0;j<C;j++ { sumarr += S[i][j] } }
+	evalset := make(map[pair]bool); for i:=0;i<R;i++ { for j:=0;j<C;j++ { evalset[pair{i,j}]=true } }
+	evallist := make([]pair,0)
+	for {
+		ans += sumarr
+		evallist = evallist[:0]; for k := range evalset { evallist = append(evallist,k) }
+		elimset := make(map[pair]bool)
+		for _,p := range evallist {
+			if S[p.i][p.j] == 0 { continue }
+			numneigbors,sumneighbors := 0,0
+			if lj[p.i][p.j] != -1 { numneigbors++; sumneighbors += S[p.i][lj[p.i][p.j]] }
+			if rj[p.i][p.j] != -1 { numneigbors++; sumneighbors += S[p.i][rj[p.i][p.j]] }
+			if ui[p.i][p.j] != -1 { numneigbors++; sumneighbors += S[ui[p.i][p.j]][p.j] }
+			if di[p.i][p.j] != -1 { numneigbors++; sumneighbors += S[di[p.i][p.j]][p.j] }
+			if sumneighbors > numneigbors * S[p.i][p.j] { elimset[p] = true }
+		}
+		if len(elimset) == 0 { break }
+		evalset = make(map[pair]bool)
+		for p := range elimset {
+			sumarr -= S[p.i][p.j]
+			if lj[p.i][p.j] != -1 { ii,jj := p.i,lj[p.i][p.j]; evalset[pair{ii,jj}] = true; rj[ii][jj] = rj[p.i][p.j] }
+			if rj[p.i][p.j] != -1 { ii,jj := p.i,rj[p.i][p.j]; evalset[pair{ii,jj}] = true; lj[ii][jj] = lj[p.i][p.j] } 
+			if ui[p.i][p.j] != -1 { ii,jj := ui[p.i][p.j],p.j; evalset[pair{ii,jj}] = true; di[ii][jj] = di[p.i][p.j] }
+			if di[p.i][p.j] != -1 { ii,jj := di[p.i][p.j],p.j; evalset[pair{ii,jj}] = true; ui[ii][jj] = ui[p.i][p.j] }
+			S[p.i][p.j] = 0
+		}
+	}
+	return ans
 }
-const inf int = 2000000000000000000
-const MOD int = 1000000007
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
 	infn := ""; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
-    T := gi()
+	T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
-    }
+		R,C := gi(),gi()
+		S := make([][]int,R); for i:=0;i<R;i++ { S[i] = make([]int,C) }
+		for i:=0;i<R;i++ { for j:=0;j<C;j++ { S[i][j] = gi() } }
+		ans := solve(R,C,S)
+		fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
+	}
 }
 
