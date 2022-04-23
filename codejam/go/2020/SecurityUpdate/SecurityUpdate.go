@@ -1,55 +1,21 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
 	"os"
+	"sort"
 	"strconv"
+	"strings"
 )
 var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 func gs() string  { rdr.Scan(); return rdr.Text() }
 func gi() int     { i,e := strconv.Atoi(gs()); if e != nil {panic(e)}; return i }
-func gi2() (int,int) { return gi(),gi() }
-func gi3() (int,int,int) { return gi(),gi(),gi() }
-func gi4() (int,int,int,int) { return gi(),gi(),gi(),gi() }
-func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() }; return res }
-func gf() float64 { f,e := strconv.ParseFloat(gs(),64); if e != nil {panic(e)}; return f }
-func gbs() []byte { return []byte(gs()) }
-func gfs(n int) []float64  { res := make([]float64,n); for i:=0;i<n;i++ { res[i] = gf() }; return res }
-func gss(n int) []string  { res := make([]string,n); for i:=0;i<n;i++ { res[i] = gs() }; return res }
 func ia(m int) []int { return make([]int,m) }
 func iai(m int,v int) []int { a := make([]int,m); for i:=0;i<m;i++ { a[i] = v }; return a }
-func twodi(n int,m int,v int) [][]int {
-	r := make([][]int,n); for i:=0;i<n;i++ { x := make([]int,m); for j:=0;j<m;j++ { x[j] = v }; r[i] = x }; return r
-}
 func fill2(m int) ([]int,[]int) { a,b := ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i] = gi(),gi()}; return a,b }
-func fill3(m int) ([]int,[]int,[]int) { a,b,c := ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i] = gi(),gi(),gi()}; return a,b,c }
-func fill4(m int) ([]int,[]int,[]int,[]int) { a,b,c,d := ia(m),ia(m),ia(m),ia(m); for i:=0;i<m;i++ {a[i],b[i],c[i],d[i] = gi(),gi(),gi(),gi()}; return a,b,c,d }
-func abs(a int) int { if a < 0 { return -a }; return a }
-func rev(a []int) { i,j := 0,len(a)-1; for i < j { a[i],a[j] = a[j],a[i]; i++; j-- } }
-func max(a,b int) int { if a > b { return a }; return b }
-func min(a,b int) int { if a > b { return b }; return a }
-func tern(cond bool, a int, b int) int { if cond { return a }; return b }
-func terns(cond bool, a string, b string) string { if cond { return a }; return b }
-func maxarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa > ans { ans = aa } }; return ans }
-func minarr(a []int) int { ans := a[0]; for _,aa := range(a) { if aa < ans { ans = aa } }; return ans }
-func sumarr(a []int) int { ans := 0; for _,aa := range(a) { ans += aa }; return ans }
-func zeroarr(a []int) { for i:=0; i<len(a); i++ { a[i] = 0 } }
-func powmod(a,e,mod int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m % mod }; m = m * m % mod; e >>= 1 }; return res }
-func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res * m }; m = m * m; e >>= 1 }; return res }
-func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
-func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
-func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
-func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
-func makefact(n int,mod int) ([]int,[]int) {
-	fact,factinv := make([]int,n+1),make([]int,n+1)
-	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
-	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
-	return fact,factinv
-}
-const inf int = 2000000000000000000
-const MOD int = 1000000007
+type edge struct { n2, idx int }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -59,7 +25,46 @@ func main() {
     T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		C,D := gi(),gi()
+		X := make([]int,C); X[0] = 0; for i:=1;i<C;i++ { X[i] = gi() }
+		U,V := fill2(D); for i:=0;i<D;i++ { U[i]--; V[i]-- }
+		edgelen := iai(D,999999)
+		srctime := iai(C,999999); srctime[0] = 0
+		gr := make([][]edge,C)
+		for i:=0;i<D;i++ { u,v := U[i],V[i]; gr[u] = append(gr[u],edge{v,i}); gr[v] = append(gr[v],edge{u,i}) }
+		q1 := make([]int,0); q2 := make([]int,0)
+		for i:=1;i<C;i++ { if X[i] < 0 { q2 = append(q2,i) } else { q1 = append(q1,i) } }
+		sort.Slice(q1,func (i,j int) bool { return X[q1[i]] < X[q1[j]] } )
+		sort.Slice(q2,func (i,j int) bool { return X[q2[i]] > X[q2[j]] } )
+		numupdated := 1; lasttime := 0
+		doassignment := func(n1,tt int) {
+			for _,e := range gr[n1] {
+				if srctime[e.n2] < tt {
+					edgelen[e.idx] = tt-srctime[e.n2]
+					srctime[n1] = tt
+					return
+				}
+			}
+			fmt.Fprintf(os.Stderr,"SOMETHING BAD HAPPENED\n")
+			os.Exit(1)
+		}
+		// Main Loop
+		for len(q1) > 0 || len(q2) > 0 {
+			if len(q2) == 0 || -X[q2[0]] > numupdated {
+				doassignment(q1[0],X[q1[0]])
+				numupdated++; lasttime = X[q1[0]]; q1 = q1[1:]
+			} else {
+				xx := numupdated; lasttime++
+				for len(q2) > 0 && -X[q2[0]] == xx {
+					doassignment(q2[0],lasttime)
+					numupdated++; q2 = q2[1:]
+				}
+			}
+		}
+		ansarr := make([]string,D)
+		for i:=0;i<D;i++ { ansarr[i] = strconv.Itoa(edgelen[i]) }
+		ansstr := strings.Join(ansarr," ")
+        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ansstr)
     }
 }
 

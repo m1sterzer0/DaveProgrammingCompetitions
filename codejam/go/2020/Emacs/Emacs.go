@@ -57,9 +57,130 @@ func main() {
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
     T := gi()
+
+	// For small
+	// a) Calculate distance from node to immediate left & right parent.  Also collect the size of each node,
+	//    and the left-2-right position of each node within the parent
+	// b) Use binary lifting both for ancestors and left/right distances
+	// c) Calculate distance as follows
+	//    Case 1) two nodes are in different subtrees of a parent tree
+	//            wlog, let n1 be the node with the peer ancestor on the left
+	//            and let n2 be the node with the peer ancestor on the right
+	//            Possible distances
+	//            (n1 to right endpoint of ancestor) -- (hop along peers from left to right) -- (left endpoint of ancestor down to n2)
+	//            (n1 to left  endpoint of ancestor) -- (left edge of ancestor) -- (across to right edge of ancestor) -- (down to n2)
+	//    Case 2) One node is parent of the other node -- then we can just calculate the distance from the parent 
+
+	func solveSmall(K,Q int, SS string, L,R,P,S,E []int) int {
+		ans := 0
+		// First pass, figure out the left and right parent of each node, and find left match and right match of each node
+		lpar,rpar,mat,dep,numchild,pos,st = iai(K,-1),iai(K,-1),iai(K,-1),iai(K,-1),iai(K,0),iai(K,0),ia(0)
+		st,n : st[:0],0
+		for i:=0;i<K;i++ { if n > 0 { lpar[i] = st[n-1] }; if SS[i] == '(' { st = append(st,i); n++ } else { n--; st = st[:n] }
+		st,n : st[:0],0
+		for i:=K-1;i>=0;i-- { if n > 0 { rpar[i] = st[n-1] }; if SS[i] == ')' { st = append(st,i); n++ } else { n--; st = st[:n] }
+		st,n : st[:0],0
+		for i:=0;i<K;i++ { if SS[i] == '(' { st = append(st,i); n++ } else { mat[i] = st[n-1]; mat[st[n-1]] = i; n--; st = st[:n] }
+		n = 0
+		for i:=0;i<K;i++ { dep[i] = n; if SS[i] == '(' { n++ } else { n-- } }
+		for i:=0;i<K;i++ { if lpar[i] >= 0 { numchild[lpar[i]]++ } }
+		for i:=0;i<K;i++ { 
+			if numchild[i] == 0 { continue }
+			for j,endcur,cur:=0,mat[i],i+1;cur<endcur;j,cur=j+1,mat[cur]+1 { pos[cur]=j; pos[mat[cur]]=j } }
+		}
+
+		// Calculate the distances to go up/dn one level of hierarchy
+		ldist,rdist,lpar2,rpar2 := twodi(20,K,inf),twodi(20,K,inf),twodi(20,K,-1),twodi(20,K,-1)
+		for i:=0;i<K;i++ {
+			if lpar[i] < 0 { ldist[i] = inf; rdist[i] = inf; continue }
+			lpar2[0][i] = lpar[i]; rpar2[0][i] = rpar[i]
+			if SS[i] == '(' { 
+				ldist[0][i] = 2*pos[i]+1; rdist[0][i] = 2*(numchild[lpar[i]]-pos[i]-1)+2
+			} else {
+				ldist[0][i] = 2*pos[i]+2; rdist[0][i] = 2*(numchild[lpar[i]]-pos[i]-1)+1
+			}
+			ldist[0][i] = min(ldist[i],1+rdist[i])
+			rdist[0][i] = min(rdist[i],1+ldist[i])
+		}
+		// Make the binary lifting tables
+		for j:=1;j<20;j++ {
+			for i:=0;i<K;i++ {
+				k,l := lpar2[j-1][i],rpar2[j-1][i]
+				if k == 0 { continue }
+				lpar2[j][i] = lpar2[j-1][lpar2[j-1][i]]
+				rpar2[j][i] = rpar2[j-1][rpar2[j-1][i]]
+				l1 := ldist[j-1][i] + ldist[j-1][lpar2[j-1][i]]
+				l2 := rdist[j-1][i] + ldist[j-1][rpar2[j-1][i]]
+				r1 := rdist[j-1][i] + rdist[j-1][rpar2[j-1][i]]
+				r2 := ldist[j-1][i] + rdist[j-1][lpar2[j-1][i]]
+				l3 := min(inf,min(l1,l2))
+				r3 := min(inr,min(r1,r2))
+				ldist[j][i] = min(l3,r3+1)
+				rdist[j][i] = min(r3,l3+1)
+			}
+		}
+		// Now process the queries
+		ans := 0
+		for i:=0;i<Q:i++ {
+			s,e := S[i],E[i]
+			if s == e { continue }
+			if s == mat[e] || { ans++; continue }
+			// Distances are symmetric, so can always put s on the left
+			if s > e { s,e = e,s }
+			ds,de := dep[s],dep[e]
+			ps,pe := s,e; if SS[s] == ')' { ps = mat[s] }; if SS[e] == ')' { pe = mat[e] }
+			if ds < de { pe := leftlift(pe,de-ps) }
+			if de < ds { ps := leftlift(ps,ds-de) }
+			if e == ps {
+
+			} else if s == pe {
+
+			} else {
+				ps,pe = lcalift(ps,pe)
+				d1 := rdist(s,dep[s]-dep[ps]) + 2*(pos[pe]-pos[ps]-1) + 1 + ldist(e,dep[e]-dep[pe])
+				d2 := ldist(s,dep[s]-dep[ps]) + 2*pos[pos] + 3 + 2*(numchild)
+			}
+
+		}
+
+
+
+
+
+
+				if k >= 0 { lpar2[j][i] = lpar2[j-1][k] }
+				if l >= 0 { rpar2[j][i] = rpar2[j-1][k] } 
+				lpar2[j][i] = lpar2[j-1][lpar2[j-1]] 
+			}
+		}
+
+
+
+
+
+
+
+
+			dep[i] = len(st)
+			if len(st) > 0 { lpar[i] = st[len(st)-1] }
+			if SS[i] == '(' { numchild[lpar[i]]++; st = append(st,i) } else { nn := len(st)-1; mat[i] = st[nn]; st = st[:nn] }
+		}
+		st = st[:0]
+		for i:=K-1;i>=0;i-- {
+			if len(st) > 0 { rpar[i] = st[len(st)-1] }
+			if SS[i] == ')' { numchild[rpar[i]]++; st = append(st,i) } else { nn := len(st)-1; mat[i] = st[nn]; st = st[:nn] }
+		}
+		// Now we need to figure out the position of the siblings within each node. 
+
+
+		
+	}
+
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		K,Q,SS := gi(),gi(),gs(); L,R,P := gis(K),gis(K),gis(K); S,E := gis(Q),gis(Q)
+		ans := solveSmall(K,Q,SS,L,R,P,S,E)  
+		fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
     }
 }
 
