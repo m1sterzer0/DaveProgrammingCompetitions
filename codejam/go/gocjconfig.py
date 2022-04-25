@@ -131,8 +131,8 @@ if __name__ == "__main__" :
                                       "BuildAPair","SquareFree","FenceDesign","BinarySearchGame",
                                       "CuttingCake","SlideCircuits","Ropes","DivisibleDivisions","Infinitree"]]
     probList += [(f"2022",x) for x in ["PunchedCards","3DPrinting","D1000000","ChainReactions","TwistyLittlePassages",
-                                       "DoubleOrOneThing","EqualSum","Weightlifting"
-                                    
+                                       "DoubleOrOneThing","EqualSum","Weightlifting",
+                                       "PancakeDeque","ControlledInflation","ASeDatAb",
     ]]
 
 

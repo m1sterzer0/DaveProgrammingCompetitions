@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/bits"
 	"os"
 	"strconv"
 )
@@ -14,6 +15,55 @@ func gis(n int) []int  { res := make([]int,n); for i:=0;i<n;i++ { res[i] = gi() 
 func ia(m int) []int { return make([]int,m) }
 func max(a,b int) int { if a > b { return a }; return b }
 func min(a,b int) int { if a > b { return b }; return a }
+
+func test() {
+	numpassed := 0
+	ntc := 0
+	for K:=2;K<=10;K++ {
+		bmmax := 1 << uint(K)
+		for bm:=0;bm<bmmax;bm++ {
+			N := bits.OnesCount(uint(bm))
+			if N < 2 { continue }
+			ntc++
+			if ntc % 100 == 0 { fmt.Printf("Running case %v\n",ntc) }
+			T := make([]int,N)
+			X := make([]int,0)
+			for i:=0;i<K;i++ { if bm & (1 << uint(i)) != 0 { X = append(X,i) } }
+			ans1 := solveBrute(K,N,X,T)
+			ans2 := solve(K,N,X,T)
+			if ans1 == ans2 {
+				numpassed++
+			} else {
+				fmt.Printf("ERROR ntc:%v K:%v N:%v X:%v ans1:%v ans2:%v\n",ntc,K,N,X,ans1,ans2)
+			}
+		}
+	}
+	fmt.Printf("%v/%v passed\n",numpassed,ntc)
+}
+
+func solveBrute(K,N int, Xpre,T []int) int {
+	X := ia(N); for i:=0;i<N;i++ { X[i] = 2*Xpre[i] }; K *= 2
+	best := 2*N; bmmax := 1<<K
+	tset := make(map[int]bool); for _,x := range X { tset[x] = true }
+	L := make([]int,0)
+	for bm := 1; bm < bmmax; bm++ {
+		//fmt.Printf("DBG: bm:%v\n",bm)
+		xx := bits.OnesCount(uint(bm))
+		if xx < N || xx > best { continue }
+		L = L[:0]
+		for i:=0;i<K;i++ { if bm & (1<<uint(i)) != 0 { L = append(L,i) } }
+		cnt := 0
+		for i:=0;i<xx;i++ {
+			j:=(i+1) % xx
+			if (L[i]+L[j]) % 2 != 0 { continue }
+			t := (L[i] + (K+L[j]-L[i]) % K / 2) % K
+			if tset[t] { cnt++ }
+		} 
+		if cnt == N { best = xx }
+	}
+	return best
+}
+
 func solve(K,N int, Xpre,T []int) int {
 	X := ia(N); for i:=0;i<N;i++ { X[i] = 2*Xpre[i] }; K *= 2
 	sl,sc,sr,smin,smax := ia(N),ia(N),ia(N),ia(N),ia(N) 
@@ -59,11 +109,14 @@ func main() {
 	infn := ""; if infn == "" && len(os.Args) > 1 {	infn = os.Args[1] }
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
-	T := gi()
-    for tt:=1;tt<=T;tt++ {
-	    // PROGRAM STARTS HERE
-		K,N := gi(),gi(); X := gis(N); T := gis(N)
-		ans := solve(K,N,X,T)
-		fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
-	}
+	solve(5,3,[]int{0,1,3},[]int{10,20,30})
+	test()
+	//T := gi()
+    //for tt:=1;tt<=T;tt++ {
+	//    // PROGRAM STARTS HERE
+	//	K,N := gi(),gi(); X := gis(N); T := gis(N)
+	//	ans := solveBrute(K,N,X,T)
+	//	//ans := solve(K,N,X,T)
+	//	fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,ans)
+	//}
 }
