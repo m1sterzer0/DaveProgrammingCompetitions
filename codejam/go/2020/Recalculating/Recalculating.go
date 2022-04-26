@@ -1,10 +1,12 @@
-
 package main
+
 import (
 	"bufio"
-    "fmt"
+	"fmt"
 	"os"
+	"sort"
 	"strconv"
+	"strings"
 )
 var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
@@ -50,6 +52,39 @@ func makefact(n int,mod int) ([]int,[]int) {
 }
 const inf int = 2000000000000000000
 const MOD int = 1000000007
+type hashEngine struct { p,b,l,v,ptr int; bpow,hist []int}
+func NewHashEngine(p,b,maxlen int) *hashEngine {
+	bpow := make([]int,maxlen+1,0); bpow[0] = 1
+	for i:=1;i<=maxlen;i++ { bpow[i] = bpow[i-1] * b % p }
+	return &hashEngine{p,b,0,0,0,bpow,[]int{}}
+}
+func (q *hashEngine) push(vv int) {
+	q.hist = append(q.hist,vv); q.l++
+	if q.l >= 2 {
+		d := q.hist[len(q.hist)-1]-q.hist[len(q.hist)-2]
+		q.v = (q.b * q.v + d) % q.p
+	}
+}
+func (q *hashEngine) pop() {
+	if q.ptr+1 < len(q.hist) {
+		d := q.hist[q.ptr+1]-q.hist[q.ptr]
+		q.v -= q.bpow[q.l-2] * d % q.p
+		if q.v < 0 { q.v += q.p }
+	} 
+	q.ptr++; q.l--
+}
+func (q *hashEngine) reset() { q.l=0; q.v=0; q.ptr=0; q.hist=q.hist[:0] }
+	
+type hash struct { l int16; x1,x2,y1,y2 int32 }
+func sortUniqueIntarr(a []int) []int {
+	sort.Slice(a,func (i,j int) bool { return a[i] < a[j] })
+	i,j,la := 0,0,len(a)
+	for ;i<la;i++ { if i == 0 || a[i] != a[i-1] { a[j] = a[i]; j++ } }
+	return a[:j]
+}
+type pt struct { x,y int }
+type ev struct { x,y1,y2,inc int }
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -59,7 +94,77 @@ func main() {
     T := gi()
     for tt:=1;tt<=T;tt++ {
 	    // PROGRAM STARTS HERE
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		N,D := gi(),gi(); X,Y := fill2(N)
+		PP := make([]pt,N); for i:=0;i<N;i++ { PP[i] = pt{X[i]+Y[i],X[i]-Y[i]} }
+		sort.Slice(PP,func(i,j int) bool { return PP[i].x < PP[j].x || PP[i].x == PP[j].x && PP[i].y < PP[j].y })
+
+		// Sort Y Coordinates
+		yarr := make([]int,0,2*N)
+		for i:=0;i<N;i++ { yarr = append(yarr,PP[i].y-D); yarr = append(yarr,PP[i].y+D) }
+		yarr = sortUniqueIntarr(yarr); lyarr := len(yarr)
+		hx1 := NewHashEngine(999999937,37,2000)
+		hx2 := NewHashEngine(999999937,41,2000)
+		hy1 := NewHashEngine(999999937,43,2000)
+		hy2 := NewHashEngine(999999937,47,2000)
+		evhash := make(map[hash][]ev)
+		rowpts := make([]pt,0)
+		den := 0
+		for i,ybot := range yarr {
+			if i+1 == lyarr { continue }
+			ytop := yarr[i+1]
+			rowpts = rowpts[:0]
+			for _,pp := range PP { if pp.y + D > ybot && pp.y - D < ytop { rowpts = append(rowpts,pp) } }
+			hx1.reset(); hx2.reset(); hy1.reset(); hy2.reset()
+			npts,i,j,n,xlast := len(rowpts),0,0,0,-inf
+			for i < npts || j < npts {
+				xnext := inf
+				if i < npts { xnext = min(xnext,rowpts[i].x-D) }
+				if j < npts { xnext = min(xnext,rowpts[j].x+D) }
+				if n > 0 {
+					den += (ytop-ybot)*(xnext-xlast)
+					h := hash{int16(n),int32(hx1.v),int32(hx2.v),int32(hy1.v),int32(hy2.v)}
+					evhash[h] = append(evhash[h],ev{xlast-rowpts[i-1].x,ybot-rowpts[i-1].y,ytop-rowpts[i-1].y,1})
+					evhash[h] = append(evhash[h],ev{xnext-rowpts[i-1].x,ybot-rowpts[i-1].y,ytop-rowpts[i-1].y,-1})
+				}
+				for i < npts && rowpts[i].x-D == xnext { 
+					hx1.push(rowpts[i].x); hx2.push(rowpts[i].x)
+					hy1.push(rowpts[i].y); hy2.push(rowpts[i].y)
+					n++; i++
+				}
+				for j < npts && rowpts[j].x+D == xnext { 
+					hx1.pop(); hx2.pop()
+					hy1.pop(); hy2.pop()
+					n--; j++
+				}
+			}
+		}
+		num := 0
+		yy := make([]int,0)
+		for _,arr := range evhash {
+			for _,a := range arr {
+				yy = append(yy,a.y1)
+				yy = append(yy,a.y2)
+			}
+			yy = sortUniqueIntarr(yy)
+			y2idx := make(map[int]int)
+			for i,y := range yy { y2idx[y] = i }
+			sort.Slice(arr,func(i,j int) bool { return arr[i].x < arr[j].x })
+			st := NewSegTree(len(yy));
+			// Init the seg tree with width information			
+			last := -inf
+			for _,e := range arr {
+				if e.x != last { num += (e.x-last) * st.Query(); last = e.x }
+				st.Inc(y2idx[e.y1],y2idx[e.y2],e.inc)
+			}
+
+
+			// Coordinate Compression
+			// Segment tree
+			// Sort Events
+			// Process Events
+		}
+		g := gcd(num,den); den /= g; num /= g
+        fmt.Fprintf(wrtr,"Case #%v: %v %v\n",tt,num,den)
     }
 }
 
