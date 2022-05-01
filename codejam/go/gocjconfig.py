@@ -133,6 +133,7 @@ if __name__ == "__main__" :
     probList += [(f"2022",x) for x in ["PunchedCards","3DPrinting","D1000000","ChainReactions","TwistyLittlePassages",
                                        "DoubleOrOneThing","EqualSum","Weightlifting",
                                        "PancakeDeque","ControlledInflation","ASeDatAb",
+                                       "LetterBlocks","Squary","Intranets",
     ]]
 
 
