@@ -121,7 +121,7 @@ if __name__ == "__main__" :
     probList += [(f"abc229",f"abc229_{x}") for x in ("A","B","C","D","E","F","G","H")]
     probList += [(f"abc230",f"abc230_{x}") for x in ("A","B","C","D","E","F","G","H")]
     probList += [(f"abc231",f"abc231_{x}") for x in ("A","B","C","D","E","F","G","H")]
-    ##probList += [(f"abc232",f"abc232_{x}") for x in ("A","B","C","D","E","F","G","H")]
+    probList += [(f"abc232",f"abc232_{x}") for x in ("A","B","C","D","E","F","G","H")]
     ##probList += [(f"abc233",f"abc233_{x}") for x in ("A","B","C","D","E","F","G","H")]
     ##probList += [(f"abc234",f"abc234_{x}") for x in ("A","B","C","D","E","F","G","H")]
     ##probList += [(f"abc235",f"abc235_{x}") for x in ("A","B","C","D","E","F","G","H")]
