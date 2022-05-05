@@ -129,7 +129,7 @@ if __name__ == "__main__" :
     probList += [(f"abc237",f"abc237_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc238",f"abc238_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc239",f"abc239_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
-    #probList += [(f"abc240",f"abc240_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
+    probList += [(f"abc240",f"abc240_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     #probList += [(f"abc241",f"abc241_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     #probList += [(f"abc242",f"abc242_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     #probList += [(f"abc243",f"abc243_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
@@ -157,7 +157,6 @@ if __name__ == "__main__" :
             os.mkdir(f"{clargs.dir}/{d}/.vscode")
             shutil.copyfile(f"{clargs.dir}/.vscode/launch.json",f"{clargs.dir}/{d}/.vscode/launch.json")
             shutil.copyfile(f"{clargs.dir}/.vscode/settings.json",f"{clargs.dir}/{d}/.vscode/settings.json")
-
 
         if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
             os.mkdir(f"{clargs.dir}/{d}/{prob}")
