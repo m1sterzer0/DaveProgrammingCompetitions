@@ -139,7 +139,7 @@ if __name__ == "__main__" :
     probList += [(f"abc247",f"abc247_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc248",f"abc248_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc249",f"abc249_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
-    #probList += [(f"abc250",f"abc249_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
+    probList += [(f"abc250",f"abc250_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
 
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
