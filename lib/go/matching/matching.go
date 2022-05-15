@@ -67,9 +67,8 @@ func HopcroftKarp(N1, N2 int, adj [][]int) []PI {
 	pairu := make([]int, N1)
 	pairv := make([]int, N2)
 	dist := make([]int, N1+N2+1)
-	myinf := 1_000_000_000_000_000_000
+	myinf := 1000000000000000000
 	q := NewhopcroftKarpQueue()
-
 	bfs := func() bool {
 		for u := 0; u < N1; u++ {
 			if pairu[u] == mynil {
@@ -82,17 +81,18 @@ func HopcroftKarp(N1, N2 int, adj [][]int) []PI {
 		dist[mynil] = myinf
 		for !q.IsEmpty() {
 			u := q.Pop()
-			for _, v := range adj[u] {
-				u2 := pairv[v]
-				if dist[u2] == myinf {
-					dist[u2] = dist[u] + 1
-					q.Push(u2)
+			if u != mynil && dist[u] < dist[mynil] {
+				for _, v := range adj[u] {
+					u2 := pairv[v]
+					if dist[u2] == myinf {
+						dist[u2] = dist[u] + 1
+						q.Push(u2)
+					}
 				}
 			}
 		}
-		return dist[mynil] == myinf
+		return dist[mynil] != myinf
 	}
-
 	var dfs func(int) bool
 	dfs = func(u int) bool {
 		if u == mynil {
@@ -108,7 +108,6 @@ func HopcroftKarp(N1, N2 int, adj [][]int) []PI {
 		dist[u] = myinf
 		return false
 	}
-
 	for i := 0; i < N1; i++ {
 		pairu[i] = mynil
 	}
