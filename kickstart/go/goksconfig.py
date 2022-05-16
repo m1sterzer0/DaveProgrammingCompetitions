@@ -158,6 +158,21 @@ if __name__ == "__main__" :
     #probList += [(f"2017_F",x) for x in ["Cake","Kicksort","DanceBattle","CatchThemAll"]]
     #probList += [(f"2017_G",x) for x in ["HugeNumbers","CardsGame","MatrixCutting"]]
     probList += [(f"2016_A",x) for x in ["CountryLeader","Rain","JanesFlowerShop","ClashRoyale"]]
+    probList += [(f"2016_B",x) for x in ["SherlockAndParentheses","SherlockAndWatsonGymSecrets","WatsonAndIntervals","SherlockAndPermutations"]]
+    #probList += [(f"2016_C",x) for x in ["MonsterPath","SafeSquares","Evaluation","Soldiers"]]
+    #probList += [(f"2016_D",x) for x in ["Vote","Sitting","CodejamonCipher","StretchRope"]]
+    #probList += [(f"2016_E",x) for x in ["DiwaliLightings","BeautifulNumbers","PartioningNumber"]]
+    #probList += [(f"2015_A",x) for x in ["GoogolString","Gcube","Gcampus","Gsnake"]]
+    #probList += [(f"2015_B",x) for x in ["Travel","Gwheels","Gnumbers","AlbocedeDNA"]]
+    #probList += [(f"2015_C",x) for x in ["Granks","Gfiles","Ggames","Gmatrix"]]
+    #probList += [(f"2015_D",x) for x in ["DynamicGrid","Gballoon","IPAddressSummarization","VirtualRabbit"]]
+    #probList += [(f"2015_E",x) for x in ["LazySpellingBee","RobotRockBand","NotSoRandom","SumsOfSums"]]
+    #probList += [(f"2014_A",x) for x in ["Super2048","SevenSegmentDisplay","CutTiles","Addition"]]
+    #probList += [(f"2014_B",x) for x in ["PasswordAttacker","NewYearsEve","CardGame","ParenthesesOrder"]]
+    #probList += [(f"2014_C",x) for x in ["Minesweeper","TakingMetro","BrokenCalculator","Tetris"]]
+    #probList += [(f"2014_D",x) for x in ["CubeIV","GbusCount","SortAScrambledItinerary","ItzChess"]]
+    #probList += [(f"2013_A",x) for x in ["Sorting","ReadPhoneNumber","RationalNumberTree","CrossTheMaze","SpaceshipDefence"]]
+    #probList += [(f"2013_B",x) for x in ["SudokuChecker","IgnoreAllMyComments","DragonMaze","MeetAndParty","Hex"]]
     
 
 
