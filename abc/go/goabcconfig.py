@@ -46,6 +46,7 @@ func powint(a,e int) int { res, m := 1, a; for e > 0 { if e&1 != 0 { res = res *
 func gcd(a,b int) int { for b != 0 { t:=b; b=a%b; a=t }; return a }
 func gcdExtended(a,b int) (int,int,int) { if a == 0 { return b,0,1 }; gcd,x1,y1 := gcdExtended(b%a,a); return gcd, y1-(b/a)*x1,x1 }
 func modinv(a,m int) (int,bool) { g,x,_ := gcdExtended(a,m); if g != 1 { return 0,false }; return (x % m + m) % m,true  }
+func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
 func makefact(n int,mod int) ([]int,[]int) {
 	fact,factinv := make([]int,n+1),make([]int,n+1)
 	fact[0] = 1; for i:=1;i<=n;i++ { fact[i] = fact[i-1] * i % mod }
@@ -140,6 +141,7 @@ if __name__ == "__main__" :
     probList += [(f"abc248",f"abc248_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc249",f"abc249_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc250",f"abc250_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
+    probList += [(f"abc251",f"abc251_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
 
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
