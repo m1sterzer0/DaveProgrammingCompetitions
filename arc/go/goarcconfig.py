@@ -107,7 +107,26 @@ def parseCLArgs() :
 if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
-    probList += [(f"arc130",f"arc130_{x}") for x in ("A","B","C","D","E","F")]
+    probList += [(f"arc120",f"arc120_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc121",f"arc121_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc122",f"arc122_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc123",f"arc123_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc124",f"arc124_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc125",f"arc125_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc126",f"arc126_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc127",f"arc127_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc128",f"arc128_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc129",f"arc129_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc130",f"arc130_{x}") for x in ("A","B","C","D","E","F")]
+    #probList += [(f"arc131",f"arc131_{x}") for x in ("A","B","C","D","E")]
+    #probList += [(f"arc132",f"arc132_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc133",f"arc133_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc134",f"arc134_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc135",f"arc135_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc136",f"arc136_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc137",f"arc137_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc138",f"arc138_{x}") for x in ("A","B","C","D")]
+    #probList += [(f"arc139",f"arc139_{x}") for x in ("A","B","C","D")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
