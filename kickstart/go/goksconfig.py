@@ -161,7 +161,7 @@ if __name__ == "__main__" :
     probList += [(f"2016_B",x) for x in ["SherlockAndParentheses","SherlockAndWatsonGymSecrets","WatsonAndIntervals","SherlockAndPermutationSorting"]]
     probList += [(f"2016_C",x) for x in ["MonsterPath","SafeSquares","Evaluation","Soldiers"]]
     probList += [(f"2016_D",x) for x in ["Vote","Sitting","CodejamonCipher","StretchRope"]]
-    #probList += [(f"2016_E",x) for x in ["DiwaliLightings","BeautifulNumbers","PartioningNumber"]]
+    probList += [(f"2016_E",x) for x in ["DiwaliLightings","BeautifulNumbers","PartioningNumber","SortingArray"]]
     #probList += [(f"2015_A",x) for x in ["GoogolString","Gcube","Gcampus","Gsnake"]]
     #probList += [(f"2015_B",x) for x in ["Travel","Gwheels","Gnumbers","AlbocedeDNA"]]
     #probList += [(f"2015_C",x) for x in ["Granks","Gfiles","Ggames","Gmatrix"]]
