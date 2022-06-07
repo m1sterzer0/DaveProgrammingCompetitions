@@ -134,7 +134,8 @@ if __name__ == "__main__" :
                                        "DoubleOrOneThing","EqualSum","Weightlifting",
                                        "PancakeDeque","ControlledInflation","ASeDatAb",
                                        "LetterBlocks","Squary","Intranets",
-                                       "SpiralingIntoControl","PixelatedCircle","SavingTheJelly","IOBot"
+                                       "SpiralingIntoControl","PixelatedCircle","SavingTheJelly","IOBot",
+                                       "RevengeOfGoroSort","DuckDuckGeese","MascotMaze","WinAsSecond"
     ]]
 
 
