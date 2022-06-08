@@ -4,6 +4,7 @@ from pathlib import Path
 import shutil
 import sys
 import re
+import json
 
 ## Minheap check -- abc164 E
 
@@ -103,6 +104,49 @@ def processRequest(fn,subs,outfn) :
         l3 = dosubs(l2,subs)
         dooutput(l3,outfn)
 
+def doJson(dir,outfn) :
+    items = [ ["queue","queue.go","QUEUE","DATATYPE",""],
+              ["stack","stack.go","STACK","DATATYPE",""],
+              ["deque","deque.go","DEQUE","DATATYPE",""],
+              ["minheap","minheap.go","MINHEAP","DATATYPE",""],
+              ["segtree","segtree.go","SEGTREE","DATATYPE",""],
+              ["lazysegtree","lazysegtree.go","LAZYSEGTREE","DATATYPE","FUNCTYPE"],
+              ["rbtreeset","rbtreeset.go","RBTREESET","KEYTYPE",""],
+              ["rbtreemultiset","rbtreemultiset.go","RBTREEMULTISET","KEYTYPE",""],
+              ["rbtreemap","rbtreemap.go","RBTREEMAP","KEYTYPE","VALTYPE"],
+              ["convolver","convolver.go","","",""],
+              ["fenwick","fenwick.go","","",""],
+              ["maxflow","maxflow.go","","",""],
+              ["matching","matching.go","","",""],
+              ["dsu","dsu.go","","",""],
+              ["dsusparse","dsusparse.go","","",""],
+              ["mincostflow","mincostflow.go","","",""],
+              ["scc","scc.go","","",""],
+              ["twosat","twosat.go","","",""],
+              ["bisect","bisect.go","","",""],
+              ["bitset","bitset.go","","",""],
+              ["crt","crt.go","","",""],
+              ["geo2d","geo2d.go","","",""],
+            ]
+    res = {}
+    for x in items :
+        fn = os.path.join(dir,x[0],x[1])
+        subs = {}
+        if x[2] : subs[x[2]] = "STRUCTNAME"
+        if x[3] : subs[x[3]] = "DATATYPE1"
+        if x[4] : subs[x[4]] = "DATATYPE2"
+        with open(fn,"rt") as fp1 :
+            l = [ x.rstrip() for x in fp1 ]
+            stidx = -1
+            for (i,ll) in enumerate(l) :
+                if "START HERE" in ll : stidx = i; break
+            if stidx > 0 : l = l[stidx:]
+            l2 = reformat(l,120)
+            l3 = dosubs(l2,subs)
+            res[x[0]] = "\n".join(l3)
+    with open(outfn,"w", encoding='utf-8') as fp2:
+        json.dump(res,fp2,ensure_ascii=False, indent=4)
+
 if __name__ == "__main__" :
     helpstring = ("gosnippets.py generates competitive programming code with user-customized classes for certain elements." +
                 "USAGE:\n" +
@@ -137,7 +181,8 @@ if __name__ == "__main__" :
     good = True
     if len(sys.argv) <= 1 : good = False
     if len(sys.argv) > 1 :
-        if   sys.argv[1] == "queue" and len(sys.argv) == 5 :            processRequest(os.path.join(dir,"queue","queue.go"),{"QUEUE":sys.argv[2], "DATATYPE":sys.argv[3]},sys.argv[4])
+        if sys.argv[1] == "genjson" and len(sys.argv) == 3 :            doJson(dir,sys.argv[2])
+        elif sys.argv[1] == "queue" and len(sys.argv) == 5 :            processRequest(os.path.join(dir,"queue","queue.go"),{"QUEUE":sys.argv[2], "DATATYPE":sys.argv[3]},sys.argv[4])
         elif sys.argv[1] == "stack" and len(sys.argv) == 5 :            processRequest(os.path.join(dir,"stack","stack.go"),{"STACK":sys.argv[2], "DATATYPE":sys.argv[3]},sys.argv[4])
         elif sys.argv[1] == "deque" and len(sys.argv) == 5 :            processRequest(os.path.join(dir,"deque","deque.go"),{"DEQUE":sys.argv[2], "DATATYPE":sys.argv[3]},sys.argv[4])
         elif sys.argv[1] == "minheap" and len(sys.argv) == 5 :          processRequest(os.path.join(dir,"minheap","minheap.go"),{"MINHEAP":sys.argv[2], "DATATYPE":sys.argv[3]},sys.argv[4])
