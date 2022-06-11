@@ -108,6 +108,7 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     probList = []
     probList += [(f"r786",  f"r786_{x}")   for x in ("A","B","C","D","E","F","G")]
+    probList += [(f"r787",  f"r787_{x}")   for x in ("A","B","C","D","E","F","G")]
     #probList += [(f"abc216",f"abc216_{x}") for x in ("A","B","C","D","E","F","G","H")]
     #probList += [(f"abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
     #probList += [(f"abc218",f"abc218_{x}") for x in ("A","B","C","D","E","F","G","H")]
