@@ -10,6 +10,7 @@ import (
 	"bufio"
 	"os"
 	"strconv"
+    "strings"
 )
 var wrtr = bufio.NewWriterSize(os.Stdout, 10_000_000)
 var rdr = bufio.NewScanner(os.Stdin)
@@ -52,6 +53,7 @@ func makefact(n int,mod int) ([]int,[]int) {
 	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
 	return fact,factinv
 }
+func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -109,6 +111,9 @@ if __name__ == "__main__" :
     probList = []
     probList += [(f"r786",  f"r786_{x}")   for x in ("A","B","C","D","E","F","G")]
     probList += [(f"r787",  f"r787_{x}")   for x in ("A","B","C","D","E","F","G")]
+    probList += [(f"r788",  f"r788_{x}")   for x in ("A","B","C","D","E","F")]
+
+
     #probList += [(f"abc216",f"abc216_{x}") for x in ("A","B","C","D","E","F","G","H")]
     #probList += [(f"abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
     #probList += [(f"abc218",f"abc218_{x}") for x in ("A","B","C","D","E","F","G","H")]
