@@ -120,6 +120,7 @@ if __name__ == "__main__" :
     probList += [(f"r795",  f"r795_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r796",  f"r796_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r798",  f"r798_{x}")   for x in ("A","B","C","D","E")]
+    probList += [(f"r800",  f"r800_{x}")   for x in ("A","B","C","D","E")]
 
 
     #probList += [(f"abc216",f"abc216_{x}") for x in ("A","B","C","D","E","F","G","H")]
