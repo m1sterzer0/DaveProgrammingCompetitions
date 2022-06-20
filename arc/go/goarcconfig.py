@@ -52,6 +52,7 @@ func makefact(n int,mod int) ([]int,[]int) {
 	factinv[n] = powmod(fact[n],mod-2,mod); for i:=n-1;i>=0;i-- { factinv[i] = factinv[i+1] * (i+1) % mod }
 	return fact,factinv
 }
+func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = strconv.Itoa(a) }; return strings.Join(astr," ") }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -129,6 +130,7 @@ if __name__ == "__main__" :
     #probList += [(f"arc139",f"arc139_{x}") for x in ("A","B","C","D")]
     probList += [(f"arc140",f"arc140_{x}") for x in ("A","B","C","D","E")]
     probList += [(f"arc141",f"arc141_{x}") for x in ("A","B","C","D")]
+    probList += [(f"arc142",f"arc142_{x}") for x in ("A","B","C","D")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
