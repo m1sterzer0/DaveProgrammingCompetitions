@@ -122,6 +122,17 @@ if __name__ == "__main__" :
     probList += [(f"r798",  f"r798_{x}")   for x in ("A","B","C","D","E")]
     probList += [(f"r800",  f"r800_{x}")   for x in ("A","B","C","D","E")]
 
+    probList += [(f"gr1",  f"gr1_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr2",  f"gr2_{x}")   for x in ("A","B","C","D","E")]
+    #probList += [(f"gr3",  f"gr3_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr4",  f"gr4_{x}")   for x in ("A","B","C","D","E","F1","F2")]
+    #probList += [(f"gr5",  f"gr5_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr6",  f"gr6_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr7",  f"gr7_{x}")   for x in ("A","B","C","D","E","F1")]
+    #probList += [(f"gr8",  f"gr8_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr9",  f"gr9_{x}")   for x in ("A","B","C","D","E","F")]
+    #probList += [(f"gr10", f"gr10_{x}")  for x in ("A","B","C","D","E","F")]
+
 
     #probList += [(f"abc216",f"abc216_{x}") for x in ("A","B","C","D","E","F","G","H")]
     #probList += [(f"abc217",f"abc217_{x}") for x in ("A","B","C","D","E","F","G","H")]
