@@ -53,6 +53,7 @@ func vecintstring(a []int) string { astr := make([]string,len(a)); for i,a := ra
 type stone struct {idx,pos int}
 type op struct {i,j,d int}
 type rop struct { i,d int }
+type pair struct {a,b,idx int }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush()
@@ -60,40 +61,19 @@ func main() {
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1_000_000_000)
 	// PROGRAM STARTS HERE
-	N := gi(); S := gis(N); T := gis(N)
-	ss := make([]stone,N); for i:=0;i<N;i++ { ss[i] = stone{i,S[i]} }
-	sort.Slice(ss,func(i,j int) bool { return ss[i].pos < ss[j].pos } )
-	sort.Slice(T,func(i,j int) bool { return T[i] < T[j] } )
-	ans := "YES"
-	ops := make([]op,0)
-	rops := make([]rop,0)
-	for k,s := range ss {
-		if s.pos < T[k] { 
-			rops = append(rops,rop{s.idx,T[k]-s.pos})
-		} else if s.pos > T[k] {
-			j := s.idx; d := s.pos-T[k]
-			for len(rops) > 0 && d > 0 {
-				ii := len(rops)-1
-				if rops[ii].d <= d {
-					ops = append(ops,op{rops[ii].i,j,rops[ii].d})
-					d -= rops[ii].d
-					rops = rops[:ii]
-				} else {
-					ops = append(ops,op{rops[ii].i,j,d})
-					rops[ii].d -= d
-					d = 0
-				}
-			}
-			if d != 0 { ans = "NO"; break }
-		}
+	N := gi(); A,B := fill2(N)
+	inc := make([]pair,0)
+	dec := make([]pair,0)
+	for i:=0;i<N;i++ { a,b := A[i],B[i]; if a < b { inc = append(inc,pair{a,b,i}) } else { dec = append(dec,pair{a,b,i}) } }
+	ansarr := ia(0)
+	if len(inc) >= len(dec) {
+		sort.Slice(inc,func(i,j int) bool { return inc[i].a > inc[j].a })
+		for _,x := range inc { ansarr = append(ansarr,x.idx+1) }
+	} else {
+		sort.Slice(dec,func(i,j int) bool { return dec[i].a < dec[j].a })
+		for _,x := range dec { ansarr = append(ansarr,x.idx+1) }
 	}
-	if len(rops) > 0 { ans = "NO" }
-	fmt.Fprintln(wrtr,ans)
-	if ans == "YES" {
-		fmt.Fprintln(wrtr,len(ops))
-		for _,p := range ops {
-			fmt.Fprintf(wrtr,"%v %v %v\n",p.i,p.j,p.d)
-		}
-	}
+	fmt.Println(len(ansarr))
+	fmt.Println(vecintstring(ansarr))
 }
 
