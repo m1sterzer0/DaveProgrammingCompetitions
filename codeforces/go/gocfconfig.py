@@ -158,7 +158,7 @@ if __name__ == "__main__" :
     probList += [(f"gr6",  f"gr6_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"gr7",  f"gr7_{x}")   for x in ("A","B","C","D1","D2","E","F1")]
     probList += [(f"gr8",  f"gr8_{x}")   for x in ("A","B","C","D","E","F")]
-    #probList += [(f"gr9",  f"gr9_{x}")   for x in ("A","B","C","D","E","F")]
+    probList += [(f"gr9",  f"gr9_{x}")   for x in ("A","B","C","D","E","F")]
     #probList += [(f"gr10", f"gr10_{x}")  for x in ("A","B","C","D","E","F")]
 
 
