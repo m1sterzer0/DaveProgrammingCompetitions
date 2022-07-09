@@ -106,7 +106,8 @@ def mkGoLaunchJson(fn) :
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${file}"
+            "program": "${file}",
+            "args": [ "${fileDirname}/junk.in" ]
         }
     ]
 }
@@ -143,12 +144,16 @@ if __name__ == "__main__" :
     probList += [(f"r789",  f"r789_{x}")   for x in ("A","B1","B2","C","D","E","F")]
     probList += [(f"r791",  f"r791_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r792",  f"r792_{x}")   for x in ("A","B","C","D","E")]
-    probList += [(f"r793",  f"r793_{x}")   for x in ("A","B","C","D","E")]
-    probList += [(f"r794",  f"r794_{x}")   for x in ("A","B","C","D")]
+    probList += [(f"r793",  f"r793_{x}")   for x in ("A","B","C","D","E","F")]
+    probList += [(f"r794",  f"r794_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r795",  f"r795_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r796",  f"r796_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"r798",  f"r798_{x}")   for x in ("A","B","C","D","E")]
     probList += [(f"r800",  f"r800_{x}")   for x in ("A","B","C","D","E")]
+    probList += [(f"r801",  f"r801_{x}")   for x in ("A","B","C","D1","D2","E")]
+    probList += [(f"r802",  f"r802_{x}")   for x in ("A","B","C","D","E","F")]
+    probList += [(f"r803",  f"r803_{x}")   for x in ("A","B","C","D","E","F","G")]
+    probList += [(f"r804",  f"r804_{x}")   for x in ("A","B","C","D","E")]
 
     probList += [(f"gr1",  f"gr1_{x}")   for x in ("A","B","C","D","E","F")]
     probList += [(f"gr2",  f"gr2_{x}")   for x in ("A","B","C","D","E")]
