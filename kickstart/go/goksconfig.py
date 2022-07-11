@@ -119,6 +119,7 @@ if __name__ == "__main__" :
     probList += [(f"2022_A",x) for x in ["SpeedTyping","ChallengeNine","PalindromeFreeStrings","InterestingIntegers"]]
     probList += [(f"2022_B",x) for x in ["InfinityArea","PalindromicFactors","UnlockThePadlock","HamiltonianTour"]]
     probList += [(f"2022_C",x) for x in ["NewPassword","RangePartition","AntsOnAStick","PalindromicDeletions"]]
+    probList += [(f"2022_D",x) for x in ["ImageLabeler","MaximumGain","TouchbarTyping","SuspectsAndWitnesses"]]
     #probList += [(f"2021_A",x) for x in ["KGoodnessString","LShapedPlots","RabbitHouse","Checksum"]]
     #probList += [(f"2021_B",x) for x in ["IncreasingSubstring","LongestProgression","ConsecutivePrimes","TruckDelivery"]]
     #probList += [(f"2021_C",x) for x in ["SmallerStrings","AlienGenerator","RockPaperScissors","BinaryOperator"]]
