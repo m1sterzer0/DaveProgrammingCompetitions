@@ -77,7 +77,8 @@ def mkGoLaunchJson(fn) :
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${file}"
+            "program": "${file}",
+            "args": ["${fileDirname}/junk.in]
         }
     ]
 }
@@ -149,6 +150,7 @@ if __name__ == "__main__" :
     probList += [(f"abc256",f"abc256_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
     probList += [(f"abc257",f"abc257_{x}") for x in ("A","B","C","D","E","F","G")]
     probList += [(f"abc258",f"abc258_{x}") for x in ("A","B","C","D","E","F","G")]
+    probList += [(f"abc259",f"abc259_{x}") for x in ("A","B","C","D","E","F","G","Ex")]
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
