@@ -1,7 +1,8 @@
 import argparse
 import os.path
-from pathlib import Path
 import shutil
+from pathlib import Path
+
 
 def mkGoStarterFile(fn,type) :
     header = '''package main
@@ -13,6 +14,18 @@ import (
 	"strings"
 )
 var wrtr = bufio.NewWriterSize(os.Stdout, 10_000_000)
+var rdr = bufio.NewScanner(os.Stdin)
+'''
+    googleheader = '''package main
+import (
+    "bufio"
+    "fmt"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
+var wrtr = bufio.NewWriterSize(os.Stdout, 10000000)
 var rdr = bufio.NewScanner(os.Stdin)
 '''
     stdfunc = '''func gs() string  { rdr.Scan(); return rdr.Text() }
@@ -107,12 +120,12 @@ func sortUniq64(a []int64) []int64 {
 	// PROGRAM STARTS HERE
     T := gi()
     for tt:=1;tt<=T;tt++ {
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+        fmt.Fprintf(wrtr,"Case #%v: %v\\n",tt,0)
     }
 }
 '''
     vars = [header,stdfunc,maindefault]
-    if type == "cj" or type == "ks" : vars = [header,stdfunc,googledefault]
+    if type == "cj" or type == "ks" : vars = [googleheader,stdfunc,googledefault]
     if type == "cf" : vars = [header,stdfunc,int64func,maindefault]
 
     with open(fn,'wt') as fp :
@@ -167,7 +180,7 @@ if __name__ == "__main__" :
     clargs = parseCLArgs()
     xx = clargs.plist.split(',')
     ## Prepend contest name to cf, abc, arc, and agc problems
-    if clargs.type in ("cf","abc","arc","agc"): 
+    if clargs.type in ("cf","abc","arc","agc","cj"): 
         probList = [(clargs.cname,clargs.cname+"_"+x) for x in xx]
     else :
         probList = [(clargs.cname,x) for x in xx]
@@ -175,8 +188,8 @@ if __name__ == "__main__" :
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
         Path(f"{clargs.dir}/.vscode/launch.json").touch()
-        mkGoLaunchJson(f"{clargs.dir}/.vscode/launch.json")
-        mkGoSettingsJson(f"{clargs.dir}/.vscode/settings.json")
+        ##mkGoLaunchJson(f"{clargs.dir}/.vscode/launch.json")
+        ##mkGoSettingsJson(f"{clargs.dir}/.vscode/settings.json")
     
     if not os.path.exists(f"{clargs.dir}/.gitignore") :
         Path(f"{clargs.dir}/.gitignore").touch()
@@ -187,7 +200,7 @@ if __name__ == "__main__" :
         if not os.path.exists(f"{clargs.dir}/{d}/.vscode") :
             os.mkdir(f"{clargs.dir}/{d}/.vscode")
             mkGoLaunchJson(f"{clargs.dir}/{d}/.vscode/launch.json")
-            mkGoSettingsJson(f"{clargs.dir}/{d}/.vscode/settings.json")
+            ##mkGoSettingsJson(f"{clargs.dir}/{d}/.vscode/settings.json")
         if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
             os.mkdir(f"{clargs.dir}/{d}/{prob}")
             mkGoStarterFile(f"{clargs.dir}/{d}/{prob}/{prob}.go",clargs.type)
