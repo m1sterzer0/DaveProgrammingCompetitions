@@ -1,6 +1,7 @@
-import sys
 import math
+import sys
 from collections import deque
+
 ## Input crap
 infile = sys.stdin
 intokens = deque()
