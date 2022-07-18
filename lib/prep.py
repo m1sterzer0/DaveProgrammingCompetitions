@@ -153,14 +153,131 @@ def mkGoLaunchJson(fn) :
 '''
     with open(fn,'wt') as fp : print(ttt, file=fp)
 
-def mkGoSettingsJson(fn) :
+def mkCppStarterFile(fn,type) :
+    header = '''#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef vector<ll> vi;
+typedef pair<ll,ll> pi;
+#define FOR(i,a) for (ll i = 0; i < (a); i++)
+#define len(x) (ll) x.size()
+const ll INF = 1LL << 62;
+const ll MOD = 1000000007;
+//const ll MOD = 998244353;
+const double PI = 4*atan(double(1.0));
+'''
+    body = '''int main (int argc, char **argv) {
+    if (argc > 1) { freopen(argv[1],"r",stdin); }
+    ios_base::sync_with_stdio(false);cin.tie(0);
+    // PROGRAM STARTS HERE
+}
+'''
+    googlebody = '''int main (int argc, char **argv) {
+    if (argc > 1) { freopen(argv[1],"r",stdin); }
+    ios_base::sync_with_stdio(false);cin.tie(0);
+    // PROGRAM STARTS HERE
+    ll T; cin >> T;
+    for (ll tt=1;tt<=T;tt++) {
+        printf("Case #%lld: %lld\\n",tt,0);
+    }
+}
+'''
+    vars = [header,body]
+    if type == "cj" or type == "ks" : vars = [header,googlebody]
+    with open(fn,'wt') as fp :
+        for v in vars :
+            print(v,file=fp) 
+ 
+def mkCppLaunchJson(fn) :
     ttt = '''
 {
-    "[go]": {"editor.formatOnSave": false }  
-}    
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch C++",
+            "type": "cppdbg",
+            "request": "launch",
+            "cwd": "${fileDirname}",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [ "${fileDirname}/junk.in" ]
+        }
+    ]
+}
 '''
     with open(fn,'wt') as fp : print(ttt, file=fp)
 
+def mkPyStarterFile(fn,type) :
+    header = '''import sys
+from collections import deque
+## Input crap
+infile = sys.stdin
+intokens = deque()
+def getTokens(): 
+    while not intokens:
+        for c in infile.readline().rstrip().split() :
+            intokens.append(c)    
+def gs(): getTokens(); return intokens.popleft()
+def gi(): return int(gs())
+def gf(): return float(gs())
+def gbs(): return [c for c in gs()]
+def gis(n): return [gi() for i in range(n)]
+def ia(m): return [0] * m
+def iai(m,v): return [v] * m
+def twodi(n,m,v): return [iai(m,v) for i in range(n)]
+def fill2(m) : r = gis(2*m); return r[0::2],r[1::2]
+def fill3(m) : r = gis(3*m); return r[0::3],r[1::3],r[2::3]
+def fill4(m) : r = gis(4*m); return r[0::4],r[1::4],r[2::4],r[3::4]
+MOD = 998244353
+##MOD = 1000000007
+'''
+    body = '''def main() :
+    if len(sys.argv) > 1 : global infile; infile = open(sys.argv[1],'rt')
+    ## PROGRAM STARTS HERE
+
+if __name__ == "__main__" :
+    main()
+'''
+    googlebody = '''def main() :
+    if len(sys.argv) > 1 : global infile; infile = open(sys.argv[1],'rt')
+    ## PROGRAM STARTS HERE
+    T = gi()
+    for tt in range(1,T+1) :
+        ans = 0
+        print(f"Case #{tt}: {ans}")
+
+if __name__ == "__main__" :
+    main()
+'''
+    vars = [header,body]
+    if type == "cj" or type == "ks" : vars = [header,googlebody]
+    with open(fn,'wt') as fp :
+        for v in vars :
+            print(v,file=fp) 
+ 
+def mkPyLaunchJson(fn) :
+    ttt = '''
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [ "${fileDirname}/junk.in" ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
+'''
+    with open(fn,'wt') as fp : print(ttt, file=fp)
 
 def mkGitignore(fn) :
     with open(fn,'wt') as fp : 
@@ -168,6 +285,7 @@ def mkGitignore(fn) :
 
 def parseCLArgs() :
     clargparse = argparse.ArgumentParser()
+    clargparse.add_argument( '--lang', required=True, action='store', choices=["go","py","cpp"], help='Language for the prep')
     clargparse.add_argument( '--dir', required=True, action='store', default='', help='Parent Directory for the preparations')
     clargparse.add_argument( '--type', action='store', choices=["cj","ks","cf","abc","arc","agc"], default='def', help='Contest type for template customization')
     clargparse.add_argument( '--cname', required=True, action='store', help='Name of the contest')
@@ -187,9 +305,6 @@ if __name__ == "__main__" :
 
     if not os.path.exists(f"{clargs.dir}/.vscode") :
         os.mkdir(f"{clargs.dir}/.vscode")
-        Path(f"{clargs.dir}/.vscode/launch.json").touch()
-        ##mkGoLaunchJson(f"{clargs.dir}/.vscode/launch.json")
-        ##mkGoSettingsJson(f"{clargs.dir}/.vscode/settings.json")
     
     if not os.path.exists(f"{clargs.dir}/.gitignore") :
         Path(f"{clargs.dir}/.gitignore").touch()
@@ -199,10 +314,23 @@ if __name__ == "__main__" :
         if not os.path.exists(f"{clargs.dir}/{d}") : os.mkdir(f"{clargs.dir}/{d}")
         if not os.path.exists(f"{clargs.dir}/{d}/.vscode") :
             os.mkdir(f"{clargs.dir}/{d}/.vscode")
-            mkGoLaunchJson(f"{clargs.dir}/{d}/.vscode/launch.json")
-            ##mkGoSettingsJson(f"{clargs.dir}/{d}/.vscode/settings.json")
-        if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
-            os.mkdir(f"{clargs.dir}/{d}/{prob}")
-            mkGoStarterFile(f"{clargs.dir}/{d}/{prob}/{prob}.go",clargs.type)
-            Path(f"{clargs.dir}/{d}/{prob}/junk.in").touch()
+            if clargs.lang == "go" :  mkGoLaunchJson(f"{clargs.dir}/{d}/.vscode/launch.json")
+            if clargs.lang == "py" :  mkPyLaunchJson(f"{clargs.dir}/{d}/.vscode/launch.json")
+            if clargs.lang == "cpp" : mkCppLaunchJson(f"{clargs.dir}/{d}/.vscode/launch.json")
+
+        if clargs.lang == "go" :
+            if not os.path.exists(f"{clargs.dir}/{d}/{prob}") : 
+                os.mkdir(f"{clargs.dir}/{d}/{prob}")
+                mkGoStarterFile(f"{clargs.dir}/{d}/{prob}/{prob}.go",clargs.type)
+                Path(f"{clargs.dir}/{d}/{prob}/junk.in").touch()
+        elif clargs.lang == "py" :
+            Path(f"{clargs.dir}/{d}/junk.in").touch()
+            if not os.path.exists(f"{clargs.dir}/{d}/{prob}.py") : 
+                mkPyStarterFile(f"{clargs.dir}/{d}/{prob}.py",clargs.type)
+        elif clargs.lang == "cpp" :
+            Path(f"{clargs.dir}/{d}/junk.in").touch()
+            if not os.path.exists(f"{clargs.dir}/{d}/{prob}.cpp") : 
+                mkCppStarterFile(f"{clargs.dir}/{d}/{prob}.cpp",clargs.type)
+
+
 
