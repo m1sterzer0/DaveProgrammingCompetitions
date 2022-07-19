@@ -13,14 +13,14 @@ const double PI = 4*atan(double(1.0));
 template <class S> struct segtree {
     private:
         ll n, sz, log;
-        ll(*op)(ll,ll);
+        S(*op)(S,S);
         S e;
         std::vector<S> d;
         void update(ll i) { d[i] = op(d[2*i],d[2*i+1]); }
     public:
         segtree() {}
-        segtree(ll nin, ll(*opin)(ll,ll), const S ein) : segtree(vector<S>(nin,ein),opin,ein) {}
-        segtree(const vector<S> &v, ll(*opin)(ll,ll) , const S &ein) {
+        segtree(ll nin, S(*opin)(S,S), const S ein) : segtree(vector<S>(nin,ein),opin,ein) {}
+        segtree(const vector<S> &v, S(*opin)(S,S), const S &ein) {
             n = len(v); sz = 1; log = 0; op = opin; e = ein;
             while (sz < n) { sz <<= 1; log++; }
             d.resize(2*sz,e);
@@ -34,7 +34,7 @@ template <class S> struct segtree {
         S get(ll p) { return d[p+sz]; }
         S prod(ll l, ll r) {
             r++;
-            auto sml = e; auto smr = e; l += sz; r == sz;
+            auto sml = e; auto smr = e; l += sz; r += sz;
             while (l < r) {
                 if (l & 1) { sml = op(sml,d[l]); l++; }
                 if (r & 1) { r-=1; smr = op(d[r],smr); }
@@ -58,10 +58,11 @@ int main (int argc, char **argv) {
         vi S(n);
         FOR(i,n) { S[i] = A[i%m]; A[i%m] = (X*A[i%m]+Y*(i+1)) % Z; }
         // Coordinate compression
-        vi S2(n);
+        vi S2;
         copy(S.begin(),S.end(),back_inserter(S2));
         sort(S2.begin(),S2.end());
-        unique(S2.begin(),S2.end());
+        auto it = unique(S2.begin(),S2.end());
+        S2.resize(distance(S2.begin(),it));
         map<ll,ll> lkup;
         FOR(i,len(S2)) { lkup[S2[i]]=i; }
         vi S3(n); FOR(i,n) { S3[i] = lkup[S[i]]; }
