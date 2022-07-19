@@ -28,6 +28,7 @@ def sieve(N) :
     for i in range(4,N+1,2) : sb[i] = False
     for i in range (3,N+1,2) :
         if i*i > N : break
+        if not sb[i] : continue
         for j in range (i*i,N+1,2*i) : sb[j] = False
     return [i for i in range(N+1) if sb[i] ]
 
