@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+
 ## Input crap
 infile = sys.stdin
 intokens = deque()
@@ -26,8 +27,17 @@ def main() :
     ## PROGRAM STARTS HERE
     T = gi()
     for tt in range(1,T+1) :
-        ans = 0
-        print(f"Case #{tt}: {ans}")
+        N,M,A = gi(),gi(),gi()
+        ## Area of triangle (0,0) (x2,y2) (x3,y3) is 1/2 * abs(x2*y3-y2*x3)
+        ## If A is M*N, then we should just emit 0 0 0 M N 0
+        ## Represent A as M*k+r where r is between 0 and M-1
+        ## Then 0 0 1 M k+1 M-r has area 1/2(M*(k+1)-(M-r)) = 1/2(M*k+M-M+r) = 1/2(M*k+r) = A/2
+        if A > N*M :
+            print(f"Case #{tt}: IMPOSSIBLE")
+        elif A == N*M :
+            print(f"Case #{tt}: 0 0 0 {M} {N} 0")
+        else :  
+            print(f"Case #{tt}: 0 0 1 {M} {A//M+1} {M-A%M}")
 
 if __name__ == "__main__" :
     main()
