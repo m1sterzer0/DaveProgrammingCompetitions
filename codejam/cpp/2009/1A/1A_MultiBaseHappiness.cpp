@@ -9,19 +9,15 @@ const ll INF = 1LL << 62;
 const ll MOD = 1000000007;
 //const ll MOD = 998244353;
 const double PI = 4*atan(double(1.0));
-
 vector<string> splitString(string s) {
     size_t p = 0; auto n = s.size(); vector<string> res; 
     while (p < n) {
-        while (p < n && s[p] == ' ') p++;
-        if (p == n) break;
-        auto st = p;
-        while (p < n && s[p] != ' ') p++;
-        res.push_back(s.substr(st,p));
+        while (p < n && s[p] == ' ') p++; if (p == n) break;
+        auto st = p; while (p < n && s[p] != ' ') p++;
+        res.push_back(s.substr(st,p-st));
     }
     return res;
 }
-
 int main (int argc, char **argv) {
     if (argc > 1) { freopen(argv[1],"r",stdin); }
     ios_base::sync_with_stdio(false);cin.tie(0);
