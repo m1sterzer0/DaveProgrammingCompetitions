@@ -165,6 +165,7 @@ const ll INF = 1LL << 62;
 const ll MOD = 1000000007;
 //const ll MOD = 998244353;
 const double PI = 4*atan(double(1.0));
+vector<vector<ll>> twodi(ll N, ll M, ll v) { vector<vector<ll>> res(N); for (auto &vv : res) vv.resize(M,v); return res; }
 '''
     body = '''int main (int argc, char **argv) {
     if (argc > 1) { freopen(argv[1],"r",stdin); }
