@@ -1,7 +1,8 @@
 package main
+
 import (
-    "bufio"
-    "fmt"
+	"bufio"
+	"fmt"
 	"os"
 	"sort"
 	"strconv"
@@ -49,6 +50,103 @@ func sortUniq(a []int) []int {
     for i:=0;i<n;i++ { if a[i] != a[j] { j++; a[j] = a[i] } }; return a[:j+1]
 }
 
+func padGrid(R,C int, grid []string) []string {
+	res := make([]string,0,R+1); buf := make([]byte,0,C+2)
+	for _,s := range grid {
+		buf = buf[:0]
+		buf = append(buf,'#'); for _,c := range s { buf = append(buf,byte(c)) }; buf = append(buf,'#');
+		res = append(res,string(buf))
+	}
+	buf = buf[:0]; for i:=0;i<C+2;i++ { buf = append(buf,'#') }; res = append(res,string(buf))
+	return res
+}
+
+func fallDist(R,C int, G []string) [][]int {
+	res := make([][]int,R+1); for i:=0;i<R+1;i++ { res[i] = make([]int,C+2) }
+	for j:=0;j<C+2;j++ { res[R][j] = 0 }
+	for i:=R-1;i>=0;i-- { for j:=0;j<C+2;j++ { if G[i+1][j] == '#' { res[i][j] = 0 } else { res[i][j] = 1 + res[i+1][j] } } }
+	return res
+}
+
+type dstate2 struct { i,j,l,r int }
+type dnode2 struct  { d,i,j,l,r int }
+type minheap struct { buf []dnode2; less func(dnode2, dnode2) bool }
+func Newminheap(f func(dnode2, dnode2) bool) *minheap { buf := make([]dnode2, 0); return &minheap{buf, f} }
+func (q *minheap) IsEmpty() bool { return len(q.buf) == 0 }
+func (q *minheap) Clear() { q.buf = q.buf[:0] }
+func (q *minheap) Len() int { return len(q.buf) }
+func (q *minheap) Push(v dnode2) { q.buf = append(q.buf, v); q.siftdown(0, len(q.buf)-1) }
+func (q *minheap) Head() dnode2 { return q.buf[0] }
+func (q *minheap) Pop() dnode2 {
+	v1 := q.buf[0]; l := len(q.buf)
+	if l == 1 { q.buf = q.buf[:0] } else { l--; q.buf[0] = q.buf[l]; q.buf = q.buf[:l]; q.siftup(0) }; return v1
+}
+func (q *minheap) Heapify(pri []dnode2) {
+	q.buf = append(q.buf, pri...); n := len(q.buf); for i := n/2 - 1; i >= 0; i-- { q.siftup(i) }
+}
+func (q *minheap) siftdown(startpos, pos int) {
+	newitem := q.buf[pos]
+	for pos > startpos {
+		ppos := (pos - 1) >> 1; p := q.buf[ppos]; if !q.less(newitem, p) { break }; q.buf[pos], pos = p, ppos
+	}
+	q.buf[pos] = newitem
+}
+func (q *minheap) siftup(pos int) {
+	endpos, startpos, newitem, chpos := len(q.buf), pos, q.buf[pos], 2*pos+1
+	for chpos < endpos {
+		rtpos := chpos + 1; if rtpos < endpos && !q.less(q.buf[chpos], q.buf[rtpos]) { chpos = rtpos }
+		q.buf[pos], pos = q.buf[chpos], chpos; chpos = 2*pos + 1
+	}
+	q.buf[pos] = newitem; q.siftdown(startpos, pos)
+}
+
+func solveLarge(R,C,F int, grid []string) int {
+	G := padGrid(R,C,grid)  // Avoid having to deal with edge conditions
+	fall := fallDist(R,C,G)
+	dmap := make(map[dstate2]bool)
+	mh := Newminheap(func (a,b dnode2) bool { return a.d < b.d })
+	mh.Push(dnode2{0,0,1,-1,-1})
+	for !mh.IsEmpty() {
+		xx := mh.Pop(); d,i,j,lup,rup := xx.d,xx.i,xx.j,xx.l,xx.r
+		if i == R-1 { return d }
+		if dmap[dstate2{i,j,lup,rup}] { continue }
+		dmap[dstate2{i,j,lup,rup}] = true
+		ll := j; for (lup <= ll-1 && ll-1 <= rup || G[i][ll-1] == '.') && G[i+1][ll-1] == '#' { ll-- }
+		rr := j; for (lup <= rr+1 && rr+1 <= rup || G[i][rr+1] == '.') && G[i+1][rr+1] == '#' { rr++ }
+		// Check for just jumping off the natural ends
+		for _,x := range []int{ll-1,rr+1} {
+			if G[i][x] == '#' && (x < lup || x > rup) || G[i+1][x] == '#' { continue }
+			fdist := 1 + fall[i+1][x]
+			if fdist > F { continue }
+			mh.Push(dnode2{d,i+fdist,x,-1,-1})
+		}
+		// Now iterate through all intervals along the island (prob can do better)
+		holes := []int{}
+		if ll == rr { continue } // Nowhere to go
+		for ii:=ll;ii<=rr;ii++ {
+			for jj:=ii;jj<=rr;jj++ {
+				holes = holes[:0]
+				if ii == jj {
+					holes = append(holes,ii)
+				} else {
+					if ii > ll { holes = append(holes,ii) }
+					if jj < rr { holes = append(holes,jj) }
+				}
+				for _,x := range holes {
+					fdist := 1 + fall[i+1][x]
+					if fdist > F { continue }
+					if fdist == 1 { 
+						mh.Push(dnode2{d+jj-ii+1,i+fdist,x,ii,jj})
+					} else if ii == jj { // If we are going to drop multiple levels, dig out one space
+						mh.Push(dnode2{d+jj-ii+1,i+fdist,x,-1,-1})
+					}
+				}
+			}
+		}
+	}
+	return -1
+}
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush(); infn := ""; if len(os.Args) > 1 { infn = os.Args[1] }
@@ -57,7 +155,13 @@ func main() {
 	// PROGRAM STARTS HERE
     T := gi()
     for tt:=1;tt<=T;tt++ {
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		R,C,F := gi(),gi(),gi(); grid := make([]string,R); for i:=0;i<R;i++ { grid[i] = gs() }
+		ans := solveLarge(R,C,F,grid)
+		if ans == -1 {
+			fmt.Printf("Case #%v: No\n",tt)
+		} else {
+			fmt.Printf("Case #%v: Yes %v\n",tt,ans)
+		}
     }
 }
 
