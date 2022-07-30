@@ -36,8 +36,8 @@ def main() :
     for i in range(2,501) :
         for k in range(1,i) :
             if k == 1 : dp[i][k] = 1; continue
-            for l in range(1,k) :
-                dp[i][k] += comb[i-k-1][k-l-1] * dp[k][l]
+            for l in range(1,k) : dp[i][k] += (comb[i-k-1][k-l-1] * dp[k][l]) % MOD
+            dp[i][k] %= MOD
     ansarr = [ sum(dp[i]) % MOD for i in range(501) ]
     ## END PREWORK
 
