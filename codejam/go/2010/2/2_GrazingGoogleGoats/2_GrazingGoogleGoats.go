@@ -52,14 +52,50 @@ func sortUniq(a []int) []int {
 }
 
 func vecfloatstring(a []float64) string { astr := make([]string,len(a)); for i,a := range a { astr[i] = fmt.Sprintf("%.17g",a) }; return strings.Join(astr," ") }
-
-
 func rot2d(x,y,ang float64) (float64,float64) { 
 	return x*math.Cos(ang)-y*math.Sin(ang),x*math.Sin(ang)+y*math.Cos(ang)
 }
-
+func invertPoint(x,y float64) (float64,float64) {
+	return x/(x*x+y*y),y/(x*x+y*y)
+}
+func invertCircleToLine(rx,ry float64) (float64,float64,float64) {
+	l := math.Sqrt(rx*rx+ry*ry)
+	vx,vy := rx/l,ry/l
+	x,y := 2.0*rx,2.0*ry;
+	xi,yi := invertPoint(x,y)
+	A,B := -vy,vx; if B < 0 { A,B = -A,-B }; C := A*xi+B*yi
+	return A,B,C
+}
+func lineSlopeGt(a,b line) bool {
+	if a.b < 1e-12 { return false } // Shouldn't happen
+	if b.b < 1e-12 { return true  } // Shouldn't happen
+	m1 := -a.a/a.b; m2 := -b.a/b.b; return m1 > m2;
+}
+func intersection(l1,l2 line) (float64,float64) {
+	denom := l1.a*l2.b-l1.b*l2.a
+	numx  := l1.c*l2.b-l1.b*l2.c
+	numy  := l1.a*l2.c-l1.c*l2.a
+	return numx/denom,numy/denom
+}
+func circleSegment(l,r float64) float64 {
+	sinhalfang := l/2.0/r;
+	if sinhalfang <= 0.0 { return 0.0 }
+	if sinhalfang >= 1.0 { return 0.5*r*r*math.Pi }
+	halfang := math.Asin(sinhalfang)
+	ang := 2.0 * halfang
+	return r*r*(ang-0.5*math.Sin(ang))
+}
+func polyArea(a []pt) float64 {
+	n := len(a)
+	area := 0.0
+	for i:=0;i<n-1;i++ { area += a[i].x*a[i+1].y-a[i].y*a[i+1].x }
+	area += a[n-1].x*a[0].y-a[n-1].y*a[0].x
+	if area < 0 { area = -area }
+	return 0.5*area
+}
 
 type line struct { a,b,c,r float64; idx int }
+type pt struct { x,y float64 }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush(); infn := ""; if len(os.Args) > 1 { infn = os.Args[1] }
@@ -72,9 +108,9 @@ func main() {
 		N,M := gi(),gi(); PX,PY := fill2(N); QX,QY := fill2(M)
 		ansarr := make([]float64,M)
 		angs := make([]float64,N)
-		RX,RY := make([]float64,N),make([]float64,N)
 		lines := make([]line,N)
 		st := make([]line,0)
+		poly := make([]pt,0)
 
 		for idx:=0;idx<M;idx++ {
 			// Step 1: make sure that the centers are in a 180 degree arc
@@ -88,7 +124,7 @@ func main() {
 			if bestgap <= math.Pi+eps { ansarr[idx] = 0.0; continue }
 			// Step 2: Rotate so the center of the gap is pointing up -- all points are below Q
 			// Step3 : Invert all of the circles into lines of form Ax+By=C
-			rotstart := angs[bestidx] - 0.5 * bestgap; rotend := 0.5 * math.Pi(); rotang := rotend - rotstart;
+			rotstart := angs[bestidx] - 0.5 * bestgap; rotend := 0.5 * math.Pi; rotang := rotend - rotstart;
 			for i:=0;i<N;i++ { 
 				rx,ry := rot2d(float64(PX[i]-QX[idx]),float64(PY[i]-QY[idx]),rotang)
 				a,b,c := invertCircleToLine(rx,ry)
@@ -99,89 +135,25 @@ func main() {
 			st := st[:0]; ls := 0
 			for _,l := range lines { 
 				for ls >= 2 { 
-					x1,y1 := intersection(st[ls-2],st[ls-1])
-					x2,y2 := intersection(st[ls-2],l)
+					x1,_ := intersection(st[ls-2],st[ls-1])
+					x2,_ := intersection(st[ls-2],l)
 					if x2 >= x1 { break } else { ls--; st = st[:ls] }
 				}
 				st = append(st,l)
 			}
-
-
-
-					
-					st = append(st,l); ls++; break }
-
-
-
-
-
-				for {
-					x1,y1 := intersection(st[ls-2],st[ls-1])
-					x2,y2 := intersection(st[ls-1],l)
-					x2,y2 := intersection(st[ls-1],l)
-
-				}
+			// Step 5: Calculate Area
+			lx,ly := 0.0,0.0; poly = poly[:0]; area := 0.00; stn := len(st)
+			for i:=0;i+1<stn;i++ {
+				xx,yy := intersection(st[i],st[i+1])
+				x,y := invertPoint(xx,yy)
+				poly = append(poly,pt{x,y})
+				area += circleSegment(math.Sqrt((x-lx)*(x-lx)+(y-ly)*(y-ly)),st[i].r)
+				lx,ly = x,y
 			}
-
-
-
-			// Step5 : Calculate the area
-			
-
-
-
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
-			qx,qy := QX[idx],QY[idx]
-			// Invert circles to lines
-			for i:=0;i<N;i++ {
-				xc,yc := float64(PX[i]-qx), float64(PY[i]-qy)
-				r2 := xc*xc+yc*yc; r := math.Sqrt(r2)
-				vx,vy := -yc/r,xc/r
-				p1x,p1y,p2x,p2y := xc+r*vx,yc+r*vy,xc-r*vx,yc-r*vy
-				r1s := p1x*p1x+p1y*p1y; r2s := p2x*p2x+p2y*p2y
-				q1x,q1y,q2x,q2y := p1x/r1s,p1y/r1s,p2x/r2s,p2y/r2s
-				A[i] = q1y - q2y; B[i] = q2x - q1x; C[i] = A[i] * q1x + B[i] * q1y
-			}
-
-
-
-			
-
-
-				
-				
-
-
-
-
-
-				r2 := X[i]*X[i]+Y[i]*Y[i]
-				XX[i] = X[i]*(r2/r); YY[i] = Y[i]*(r2/r)
-
-			}
-			// Check angle range, and bail if all lines aren't within 180 degrees
-			// Do the rotation
-			// Sort the lines by slope
-			// Do the lower envelope thing
-			// Invert back
-			// Polygon Area
-			// Circle parts
+			area += circleSegment(math.Sqrt((lx)*(lx)+(ly)*(ly)),st[stn-1].r)  // Last segment
+			area += polyArea(poly)
+			ansarr[idx] = area
 		}
         fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,vecfloatstring(ansarr))
-    }
+	}
 }
-
