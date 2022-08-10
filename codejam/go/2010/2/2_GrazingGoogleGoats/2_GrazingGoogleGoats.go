@@ -60,10 +60,10 @@ func invertPoint(x,y float64) (float64,float64) {
 }
 func invertCircleToLine(rx,ry float64) (float64,float64,float64) {
 	l := math.Sqrt(rx*rx+ry*ry)
-	vx,vy := rx/l,ry/l
+	A,B := rx/l,ry/l
 	x,y := 2.0*rx,2.0*ry;
 	xi,yi := invertPoint(x,y)
-	A,B := -vy,vx; if B < 0 { A,B = -A,-B }; C := A*xi+B*yi
+	if B < 0 { A,B = -A,-B }; C := A*xi+B*yi
 	return A,B,C
 }
 func lineSlopeGt(a,b line) bool {
@@ -77,14 +77,15 @@ func intersection(l1,l2 line) (float64,float64) {
 	numy  := l1.a*l2.c-l1.c*l2.a
 	return numx/denom,numy/denom
 }
-func circleSegment(l,r float64) float64 {
-	sinhalfang := l/2.0/r;
-	if sinhalfang <= 0.0 { return 0.0 }
-	if sinhalfang >= 1.0 { return 0.5*r*r*math.Pi }
-	halfang := math.Asin(sinhalfang)
-	ang := 2.0 * halfang
-	return r*r*(ang-0.5*math.Sin(ang))
+func circleSegment(x1,y1,x2,y2,r float64) float64 {
+	ang1 := math.Atan2(y1,x1)
+	ang2 := math.Atan2(y2,x2)
+	ang := ang2-ang1; for ang < 0 { ang += 2.0 * math.Pi }
+	ans := 0.5*r*r*ang
+	if ang > math.Pi { ans += 0.5*r*r*math.Sin(2.0*math.Pi-ang) } else { ans -= 0.5*r*r*math.Sin(ang) }
+	return ans
 }
+
 func polyArea(a []pt) float64 {
 	n := len(a)
 	area := 0.0
@@ -94,7 +95,7 @@ func polyArea(a []pt) float64 {
 	return 0.5*area
 }
 
-type line struct { a,b,c,r float64; idx int }
+type line struct { a,b,c,cx,cy,r float64 }
 type pt struct { x,y float64 }
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
@@ -128,7 +129,7 @@ func main() {
 			for i:=0;i<N;i++ { 
 				rx,ry := rot2d(float64(PX[i]-QX[idx]),float64(PY[i]-QY[idx]),rotang)
 				a,b,c := invertCircleToLine(rx,ry)
-				lines[i] = line{a,b,c,math.Sqrt(rx*rx+ry*ry),i}
+				lines[i] = line{a,b,c,rx,ry,math.Sqrt(rx*rx+ry*ry)}
 			}
 			// Step4 : Sort lines and do lower envelope stack (alternatively could use point line duality, but this works too)
 			sort.Slice(lines,func(i,j int) bool { return lineSlopeGt(lines[i],lines[j]) } )
@@ -139,21 +140,24 @@ func main() {
 					x2,_ := intersection(st[ls-2],l)
 					if x2 >= x1 { break } else { ls--; st = st[:ls] }
 				}
-				st = append(st,l)
+				st = append(st,l); ls++
 			}
 			// Step 5: Calculate Area
 			lx,ly := 0.0,0.0; poly = poly[:0]; area := 0.00; stn := len(st)
+			poly = append(poly,pt{0.0,0.0})
 			for i:=0;i+1<stn;i++ {
 				xx,yy := intersection(st[i],st[i+1])
 				x,y := invertPoint(xx,yy)
 				poly = append(poly,pt{x,y})
-				area += circleSegment(math.Sqrt((x-lx)*(x-lx)+(y-ly)*(y-ly)),st[i].r)
+				adder := circleSegment(lx-st[i].cx,ly-st[i].cy,x-st[i].cx,y-st[i].cy,st[i].r)
+				area += adder
 				lx,ly = x,y
 			}
-			area += circleSegment(math.Sqrt((lx)*(lx)+(ly)*(ly)),st[stn-1].r)  // Last segment
+			adder := circleSegment(lx-st[stn-1].cx,ly-st[stn-1].cy,0-st[stn-1].cx,0-st[stn-1].cy,st[stn-1].r) 
+			area += adder
 			area += polyArea(poly)
 			ansarr[idx] = area
 		}
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,vecfloatstring(ansarr))
+        fmt.Printf("Case #%v: %v\n",tt,vecfloatstring(ansarr))
 	}
 }
