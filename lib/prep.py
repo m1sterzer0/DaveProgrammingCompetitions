@@ -288,7 +288,7 @@ def parseCLArgs() :
     clargparse = argparse.ArgumentParser()
     clargparse.add_argument( '--lang', required=True, action='store', choices=["go","py","cpp"], help='Language for the prep')
     clargparse.add_argument( '--dir', required=True, action='store', default='', help='Parent Directory for the preparations')
-    clargparse.add_argument( '--type', action='store', choices=["cj","ks","cf","abc","arc","agc"], default='def', help='Contest type for template customization')
+    clargparse.add_argument( '--type', action='store', choices=["cj","ks","hc","cf","abc","arc","agc"], default='def', help='Contest type for template customization')
     clargparse.add_argument( '--cname', required=True, action='store', help='Name of the contest')
     clargparse.add_argument( '--plist', required=True, action='store', help='String with comma separated list of problem names')
     clargs = clargparse.parse_args()
