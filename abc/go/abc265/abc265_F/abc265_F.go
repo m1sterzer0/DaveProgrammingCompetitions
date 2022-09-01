@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"sort"
 	"strconv"
@@ -48,18 +49,47 @@ func sortUniq(a []int) []int {
     n,j := len(a),0; if n == 0 { return a }
     for i:=0;i<n;i++ { if a[i] != a[j] { j++; a[j] = a[i] } }; return a[:j+1]
 }
-
+const MOD = 998244353
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush(); infn := ""; if len(os.Args) > 1 { infn = os.Args[1] }
 	if infn != "" {	f, e := os.Open(infn); if e != nil { panic(e) }; rdr = bufio.NewScanner(f) }
 	rdr.Split(bufio.ScanWords); rdr.Buffer(make([]byte,1024),1000000000)
 	// PROGRAM STARTS HERE
-
-	// Shift p to origin, and make q have all positive coordinates
-	// Naive DP: dp[n][di][dj] = num ways to set first n coordinates such that
-	//                           manhattan dist to origin is di and manhattan distance to q is dj
-	// Naive transition is N*D^3, as for each previous state, we iterate from q[n]-D to D.
-
+	N,D := gi(),gi(); P := gis(N); Q := gis(N)
+	for i:=0;i<N;i++ { P[i],Q[i] = 0,abs(Q[i]-P[i]) }
+	dp := twodi(D+1,D+1,0)
+	ndp1 := twodi(D+1,D+1,0)
+	ndp2 := twodi(D+1,D+1,0)
+	ndp3 := twodi(D+1,D+1,0)
+	work3 := twodi(D+1,D+1,0)
+	dp[0][0] = 1
+	for n:=0;n<N;n++ {
+		qn := Q[n]
+		// Group 1 -- new point is left of 0:         ndp1[i+1][j+qn+1] = ndp1[i,j+qn] + dp[i,j]
+		// Group 2 -- new point is right of Q[n]:     ndp2[i+qn+1][j+1] = npd2[i+qn][j] + dp[i][j]
+		for i:=0;i<=D;i++ { for j:=0;j<=D;j++ { ndp1[i][j] = 0; ndp2[i][j] = 0; ndp3[i][j] = 0 } }
+		for i:=0;i<=D;i++ { for j:=0;j<=D;j++ {
+			if i+1    <= D && j+qn+1 <= D { ndp1[i+1][j+qn+1] = (ndp1[i][j+qn] + dp[i][j]) % MOD }
+			if i+qn+1 <= D && j+1    <= D { ndp2[i+qn+1][j+1] = (ndp2[i+qn][j] + dp[i][j]) % MOD }
+		} }
+		for i:=0;i<=D;i++ { for j:=0;j<=D;j++ {
+			if i==0 || j==D { work3[i][j] = dp[i][j] } else { work3[i][j] = (work3[i-1][j+1] + dp[i][j]) % MOD }
+		} }
+		for i:=0;i<=D;i++ { for j:=0;j<=D;j++ {
+			if i+j < qn { continue }
+			mini := 0; if i > qn { mini = i-qn }
+			minj := 0; if j > qn { minj = j-qn }
+			maxi := i-qn+j-minj
+			maxj := j-qn+i-mini
+			ndp3[i][j] = (work3[maxi][minj]-work3[mini][maxj]+dp[mini][maxj]+MOD) % MOD
+		} }
+		for i:=0;i<=D;i++ { for j:=0;j<=D;j++ {
+			dp[i][j] = (ndp1[i][j] + ndp2[i][j] + ndp3[i][j]) % MOD
+		} }
+	}
+	ans := 0
+	for i:=0;i<=D;i++ { for j:=0;j<=D;j++ { ans += dp[i][j] } }
+	ans %= MOD
+	fmt.Println(ans)
 }
-
