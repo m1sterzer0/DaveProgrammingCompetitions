@@ -1,7 +1,9 @@
 package main
+
 import (
-    "bufio"
-    "fmt"
+	"bufio"
+	"fmt"
+	"math/bits"
 	"os"
 	"sort"
 	"strconv"
@@ -49,6 +51,82 @@ func sortUniq(a []int) []int {
     for i:=0;i<n;i++ { if a[i] != a[j] { j++; a[j] = a[i] } }; return a[:j+1]
 }
 
+var neigh [400][3][8]uint
+func solve(P,W int, U,V []int) (int,int) {
+	gr := make([][]int,P)
+	for i:=0;i<W;i++ { u,v := U[i],V[i]; gr[u] = append(gr[u],v); gr[v] = append(gr[v],u) }
+	inf := 1<<60
+	d0 := iai(P,inf)
+	d1 := iai(P,inf)
+	q := make([]int,0,2*P)
+	bfs := func(src int,darr []int) {
+		darr[src] = 0; q = append(q,src)
+		for len(q)>0 {
+			n := q[0]; q = q[1:]
+			for _,c := range gr[n] {
+				if darr[c] != inf { continue }
+				darr[c] = darr[n]+1; q = append(q,c)
+			}
+		}
+	}
+	bfs(0,d0); bfs(1,d1); lpath := d0[1]
+
+	// Make a bitmask-based datastructure to keep track of neighbors indexed by relative distance from 0 (either -1,0,1)
+	for i:=0;i<P;i++ { for j:=0;j<3;j++ { for k:=0;k<8;k++ { neigh[i][j][k] = 0 } } }
+	addNeigh := func(u,v,idx int) { neigh[u][idx][v>>6] |= 1 << uint(v & 0x3f) }
+	for i:=0;i<W;i++ {
+		u,v := U[i],V[i]; du,dv := d0[u],d0[v]
+		if du < dv {
+			addNeigh(u,v,2); addNeigh(v,u,0) 
+		} else if du == dv {
+			addNeigh(u,v,1); addNeigh(v,u,1) 
+		} else {
+			addNeigh(u,v,0); addNeigh(v,u,2) 
+		}
+	}
+	// Make a list of directional edges that could be on the path, and sort those edges from beginning to end
+	type edge struct {n1,n2 int}
+	edges := make([]edge,0,W)
+	for i:=0;i<W;i++ {
+		u,v := U[i],V[i]; du0,dv0 := d0[u],d0[v]; du1,dv1 := d1[u],d1[v]
+		if (du0+du1 != lpath) || (dv0+dv1 != lpath) { continue }
+		if du0 < dv0 { edges = append(edges,edge{u,v}) } else { edges = append(edges,edge{v,u}) } 
+	}
+	sort.Slice(edges,func(i,j int) bool { return d0[edges[i].n1] < d0[edges[j].n1] } )
+	emap := make(map[edge]int)
+	ans2 := 0
+	calcNeigh := func(u,v,w int) int {
+		res := 0
+		for i:=0;i<8;i++ {
+			m := uint(0)
+			m |= neigh[u][2][i] 
+			m |= neigh[v][1][i] 
+			if w != 1 { m |= neigh[w][0][i] } //Special case to avoid picking up all the neighbors of the last guy
+			res += bits.OnesCount(m) 	
+		}
+		return res
+	}
+	// This is the DP that solves the problem.  Main idea is to track the maximal number of path neighbors for a
+	// path that uses edge (u,v), calculated up through the depth of u.  We then cycle through candidate edges
+	// (v,w) and do a forward DP there.
+	for _,e := range edges {
+		u,v := e.n1,e.n2; curval := emap[e]
+		if v != 1 {
+			for _,w := range gr[v] {
+				if d0[w]+d1[w] != lpath || d0[w]<=d0[v] { continue }
+				e2 := edge{v,w}
+				cand := curval + calcNeigh(u,v,w) - 1
+				emap[e2] = max(emap[e2],cand)
+			}
+		} else {
+			cand := emap[e]
+			for i:=0;i<8;i++ { cand += bits.OnesCount(neigh[u][2][i]) }
+			ans2 = max(ans2,cand)
+		}
+	}
+	return lpath-1,ans2
+}
+
 func main() {
 	//f1, _ := os.Create("cpu.prof"); pprof.StartCPUProfile(f1); defer pprof.StopCPUProfile()
 	defer wrtr.Flush(); infn := ""; if len(os.Args) > 1 { infn = os.Args[1] }
@@ -57,7 +135,10 @@ func main() {
 	// PROGRAM STARTS HERE
     T := gi()
     for tt:=1;tt<=T;tt++ {
-        fmt.Fprintf(wrtr,"Case #%v: %v\n",tt,0)
+		P,W := gi(),gi(); U,V := ia(W),ia(W)
+		for i:=0;i<W;i++ { s := strings.Split(gs(),","); U[i],_ = strconv.Atoi(s[0]); V[i],_ = strconv.Atoi(s[1]) }
+		ans1,ans2 := solve(P,W,U,V)
+        fmt.Fprintf(wrtr,"Case #%v: %v %v\n",tt,ans1,ans2)
     }
 }
 
