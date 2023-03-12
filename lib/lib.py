@@ -1,9 +1,10 @@
-import math
 import collections
-import random
-import heapq
 import functools
+import heapq
+import math
+import random
 import sys
+
 sys.setrecursionlimit(2*10**5+10)
 ## Recall heapq has heappush,heappop,heapify for simple minheaps -- faster than this implementation 
 ## These routines give both min and maxheaps like heapq
@@ -159,6 +160,9 @@ class dsu :
         return x
     def same(self,a,b) :
         return self.leader(a) == self.leader(b)
+    def size(self,a) :
+        l = self.leader(a)
+        return -self.parentOrSize[l]
     def leader(self,a) :
         if self.parentOrSize[a] < 0 : return a
         ans = self.leader(self.parentOrSize[a])
