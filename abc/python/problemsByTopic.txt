@@ -1,0 +1,58 @@
+Dynamic Programming:
+abc289_D
+abc291_D
+abc292_G
+
+Binary Search:
+abc292_F
+abc293_F
+
+DFS:
+abc292_E
+
+BFS:
+
+DSU:
+abc292_D
+abc293_D
+
+Misc Graph:
+
+Ordered Set/Multiset/Map:
+
+Segment Tree:
+
+Lazy Seg Tree:
+
+Fenwick Tree:
+
+Min-Distance:
+abc291_F
+
+Convolution/FFT/NTT:
+abc291_G
+
+Modular Arithmetic:
+abc290_D
+
+Misc Counting/Combinatorics:
+abc290_E
+abc290_F
+
+Combinatorics:
+
+Spanning Tree:
+
+Max Flow:
+
+Min Cost Flow:
+
+Topological Sort:
+abc291_E
+
+Misc Recursion:
+abc293_E
+
+Other:
+abc290_G -- Perfect Trees
+abc293_G -- Mo's Algorithm

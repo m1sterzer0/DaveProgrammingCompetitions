@@ -212,6 +212,7 @@ def mkCppLaunchJson(fn) :
 
 def mkPyStarterFile(fn,type) :
     header = '''import sys
+sys.setrecursionlimit(10000000)
 from collections import deque
 ## Input crap
 infile = sys.stdin
