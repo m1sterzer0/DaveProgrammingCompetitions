@@ -1,6 +1,8 @@
 import sys
+
 sys.setrecursionlimit(10000000)
 from collections import deque
+
 ## Input crap
 infile = sys.stdin
 intokens = deque()
@@ -25,6 +27,10 @@ MOD = 998244353
 def main() :
     if len(sys.argv) > 1 : global infile; infile = open(sys.argv[1],'rt')
     ## PROGRAM STARTS HERE
+    S = gs()
+    ans = "".join(['1' if c == '0' else '0' for c in S])
+    print(ans)
+
 
 if __name__ == "__main__" :
     main()

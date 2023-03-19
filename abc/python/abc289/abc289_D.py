@@ -1,6 +1,8 @@
 import sys
+
 sys.setrecursionlimit(10000000)
 from collections import deque
+
 ## Input crap
 infile = sys.stdin
 intokens = deque()
@@ -25,6 +27,16 @@ MOD = 998244353
 def main() :
     if len(sys.argv) > 1 : global infile; infile = open(sys.argv[1],'rt')
     ## PROGRAM STARTS HERE
+    N = gi(); A = gis(N); M = gi(); B = gis(M); X = gi()
+    dp = [False] * (X+1); dp[0] = True
+    traps = [False] * (X+1)
+    for b in B : traps[b] = True
+    for i in range(0,X) :
+        if not dp[i] : continue
+        for a in A :
+            if i+a <= X and not traps[i+a] : dp[i+a] = True
+    ans = "Yes" if dp[X] else "No"
+    print(ans)
 
 if __name__ == "__main__" :
     main()

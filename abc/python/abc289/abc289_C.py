@@ -1,6 +1,8 @@
 import sys
+
 sys.setrecursionlimit(10000000)
 from collections import deque
+
 ## Input crap
 infile = sys.stdin
 intokens = deque()
@@ -25,6 +27,14 @@ MOD = 998244353
 def main() :
     if len(sys.argv) > 1 : global infile; infile = open(sys.argv[1],'rt')
     ## PROGRAM STARTS HERE
+    N,M = gi(),gi(); S = [0] * (1<<M)
+    for i in range(M): 
+        c = gi(); a = [gi()-1 for _ in range(c)]
+        for aa in a :
+            for s in range(1<<M) :
+                if s & (1<<i) != 0 : S[s] |= (1<<aa)
+    ans = S.count((1<<N)-1)
+    print(ans)
 
 if __name__ == "__main__" :
     main()

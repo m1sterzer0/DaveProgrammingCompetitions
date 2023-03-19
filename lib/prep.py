@@ -214,6 +214,7 @@ def mkPyStarterFile(fn,type) :
     header = '''import sys
 sys.setrecursionlimit(10000000)
 from collections import deque
+from collections import namedtuple
 ## Input crap
 infile = sys.stdin
 intokens = deque()
