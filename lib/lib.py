@@ -1,10 +1,12 @@
-import math
 import collections
-import random
-import heapq
 import functools
+import heapq
+import math
+import random
 import sys
-sys.setrecursionlimit(2*10**5+10)
+from collections import deque
+
+sys.setrecursionlimit(1*10**6)
 ## Recall heapq has heappush,heappop,heapify for simple minheaps -- faster than this implementation 
 ## These routines give both min and maxheaps like heapq
 
@@ -1139,3 +1141,159 @@ def primRoot(p) :
             if pow(res,phi//f,p) == 1 : ok = False; break 
         if ok : return res
     return -1
+
+
+##################################################
+## Least Common Ancestor O(N)/O(1)
+##################################################
+class Lca :
+    def __init__(self,n,u,v,root) :
+        self.n = n
+        self.r = root
+        self.n2et = [-1]*n
+        self._makeGraph(u,v)
+        self._genet()
+        self._genSmallTable()
+        self._genLargeTable()
+
+    def _makeGraph(self,u,v) :
+        gr = [[] for _ in range(self.n)]
+        for i,(a,b) in enumerate(zip(u,v)) : gr[a].append((b,i)); gr[b].append((a,i))
+        self.g = gr
+            
+    def _genet(self) :
+        n = self.n; narr = [0] * (2*n-1); darr = [0] * (2*n-1); earr = [0] * (2*n-2)
+        idx = [0]*n; st = [(self.r,self.r,0,-1)]; eidx = 0; g = self.g
+        while(st) :
+            (nn,p,d,e) = st.pop()
+            narr[eidx] = nn; darr[eidx] = d
+            if e != -1 : earr[eidx-1] = e
+            eidx += 1
+            if idx[nn] < len(g[nn]) and g[nn][idx[nn]][0] == p : idx[nn] += 1
+            if idx[nn] == len(g[nn]) : continue
+            (node,edge) = g[nn][idx[nn]]
+            st.append((nn,p,d,edge)); st.append((node,nn,d+1,edge)); idx[nn] += 1
+        for i,n in enumerate(narr) :
+            if self.n2et[n] == -1 : self.n2et[n] = i
+        self.narr = narr; self.darr=darr; self.earr=earr   
+
+    def _genSmallTable(self) :
+        st = [-1] * (128*8*8)
+        arr = [0] * 8
+        for typ in range(128) :
+            offset = typ<<6
+            for i in range(8) : arr[i] = 0
+            for i in range(7) : arr[i+1] = arr[i]-1 if typ & (1<<i) == 0 else arr[i]+1
+            for i in range(7,-1,-1) :
+                for j in range(i,8) :
+                    if i == j : st[offset | (i<<3) | (j)] = i; continue
+                    idx1 = st[offset | (i<<3)     | (j-1)]
+                    idx2 = st[offset | ((i+1)<<3) | (j) ]
+                    st[offset | (i<<3) | (j) ] = idx2 if arr[idx2] < arr[idx1] else idx1
+        self.st = st
+
+        ## Now we have to do the block type for each block
+        darr = self.darr; last = len(darr)-1; v = 0
+        btype = [0] * ((len(darr) + 7) // 8)
+        for i,d in enumerate(darr) :
+            if i & 7 == 0 : v = 127
+            elif d < darr[i-1] : v = v ^ (1<<((i&7)-1))
+            if i == last or i & 7 == 7 : btype[i>>3] = v
+        self.btype = btype
+
+    def _genLargeTable(self) :
+        darr = self.darr; cur = -1
+        larr = [0] * ((len(darr) + 7) // 8); l = len(larr)
+        for i,d in enumerate(darr) :
+            if i & 7 == 0 : cur = darr[i]; larr[i>>3] = i
+            elif darr[i] < cur : cur = darr[i]; larr[i>>3] = i
+        lst = [larr]
+        for i in range(1,l.bit_length()+1) :
+            ll = [-1] * l; inc = 1<<(i-1); lm1 = lst[i-1]
+            for j in range(l) :
+                if j+inc >= l : ll[j] = lm1[j]; continue
+                idx1,idx2 = lm1[j],lm1[j+inc]
+                d1,d2 = darr[idx1],darr[idx2]
+                ll[j] = idx1 if d1 <= d2 else idx2
+            lst.append(ll)
+        self.lst = lst
+        
+    def getEulerTour(self) : return self.narr[:]
+    def node2EulerTourIdx(self,n) : return self.n2et[n]
+    def depth(self,n) : return self.darr[self.n2et[n]]
+    def lca(self,u,v) :
+        uu,vv = self.n2et[u],self.n2et[v]
+        darr,st,lst,btype = self.darr,self.st,self.lst,self.btype
+        if uu > vv : uu,vv = vv,uu
+        b1,b2 = uu>>3,vv>>3
+        bidx = -1
+        if b1 == b2 : 
+            typ,lidx,ridx = btype[b1],(uu&7),(vv&7)
+            bidx = (b1<<3) + st[(typ<<6) | (lidx<<3) | (ridx) ]
+        else :
+            typ,lidx,ridx = btype[b1],(uu&7),7
+            bidx1 = (b1<<3) + st[(typ<<6) | (lidx<<3) | (ridx) ]
+            cand1 = self.darr[bidx1]
+            typ,lidx,ridx = btype[b2],0,vv&7
+            bidx2 = (b2<<3) + st[(typ<<6) | (lidx<<3) | (ridx) ]
+            cand2 = self.darr[bidx2]
+            (bidx,cand) = (bidx1,cand1) if cand1 <= cand2 else (bidx2,cand2)
+            if b2-b1 > 1 :
+                strow = (b2-b1-1).bit_length()-1
+                seglen = 1<<strow
+                mylst = lst[strow]
+                cidx1 = mylst[b1+1]
+                cidx2 = mylst[b2-1-seglen+1]
+                cand1 = darr[cidx1]
+                cand2 = darr[cidx2]
+                if cand1 < cand : bidx,cand = cidx1,cand1
+                if cand2 < cand : bidx,cand = cidx2,cand2
+        return self.narr[bidx]
+            
+class LcaBinaryLifting :
+    def __init__(self,n,u,v,root) :
+        self.n = n
+        self.r = root
+        self._makeGraph(u,v)
+        self._makeParentArray()
+        self._makeLiftingTable()
+
+    def _makeGraph(self,u,v) :
+        gr = [[] for _ in range(self.n)]
+        for i,(a,b) in enumerate(zip(u,v)) : gr[a].append((b,i)); gr[b].append((a,i))
+        self.g = gr
+
+    def _makeParentArray(self) :
+        par = [-1] * self.n
+        darr = [-1] * self.n
+        q = deque(); q.append((self.r,self.r,0))
+        while q:
+            (p,n,d) = q.popleft()
+            par[n] = p; darr[n] = d
+            for (c,_) in self.g[n] :
+                if c == p : continue
+                q.append((n,c,d+1))
+        self.lt = [par]
+        self.darr = darr
+        
+    def _makeLiftingTable(self) :
+        for i in range(1,20) :
+            aa = [-1]*self.n
+            prevrow = self.lt[i-1]
+            for i in range(self.n) :
+                aa[i] = prevrow[prevrow[i]]
+            self.lt.append(aa)
+
+    def lca(self,u,v) :
+        du,dv = self.darr[u],self.darr[v]
+        if du < dv  : u,du,v,dv = v,dv,u,du
+        if du-dv > 0 :
+            diff = du-dv; a = diff.bit_length()-1
+            for idx in range(a,-1,-1) :
+                if diff & (1<<idx) != 0 : u = self.lt[idx][u]
+        if u == v : return u
+        a = dv.bit_length()-1
+        for idx in range(a,-1,-1) :
+            uu,vv = self.lt[idx][u],self.lt[idx][v]
+            if uu != vv : u,v = uu,vv
+        return self.lt[0][u]
