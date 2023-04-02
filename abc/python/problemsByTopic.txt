@@ -1,3 +1,106 @@
+Topics:
+    * DP = Dynamic Programming
+    * DSU = Discrete Set Unition
+    * SGT = Segment Tree
+    * FWT = Fenwick Tree
+    * LST = Lazy Segemnt Tree
+    * CONV = Convolution
+    * HEAP = MinHeap/MaxHeap
+    * DIJK = Dijkstra
+    * FLOYD = Floyd-Warshall
+    * MAXFLOW = Max Flow/Min Cut
+    * MINCOSTFLOW = Minimum Cost Flow
+    * SSC = Strongly Connected Components
+    * DFS = Depth First Search
+    * BFS = Breadth First Search
+    * MEMO = Recursive Memorization
+    * MOD = Modular Arithmetic/Combinatorics
+    * MOS = Mo's Algorithm
+    * SLW = Sliding Window
+    * 2PO = Two Pointers
+    * LCA = Least Common Ancestor
+    * BIN = Binary Search
+    * 2SAT = Two-sat
+    * LINEHULL = Sorting lines forming a convex hull
+    * CONVEXHULL = Creating a convex hull
+    * MISC = Interesting problem without being a cookie-cutter algorithm problem
+    * BASIC = Easy problem without one of these explicit algorithms
+    * DIGIT = Problems involving "digit" math
+    * EULER = Euler Tour
+    * SORT = Problem that involves clever sorting
+    * PRIME = Involves a prime sieve
+    * FACTOR = Involves generating list of factors in NlogN time
+    * TOPO = Topological sort
+    * GCD = Greatest Common Divisor problem
+    * COORDCOMP = Coordinate Compression
+
+
+Raw Table
+abc287_C: BASIC
+abc287_D: DP
+abc287_E: SORT
+abc287_F: DFS, CONV
+abc287_G: BIN, COORDCOMP, FWT
+abc288_C: DSU
+abc288_D: MISC
+abc288_E: DP
+abc288_F: MOD 
+abc288_G: DP
+abc289_C: BASIC
+abc289_D: DP
+abc289_E: BFS
+abc289_F: MISC
+abc289_G: LINEHULL
+abc290_C: BASIC
+abc290_D: GCD
+abc290_E: MISC
+abc290_F: MOD
+abc290_G: MISC
+abc291_C: BASIC
+abc291_D: DP
+abc291_E: TOPO
+abc291_F: DP
+abc291_G: CONV
+abc292_C: FACTOR
+abc292_D: DSU
+abc292_E: DFS
+abc292_F: BIN
+abc292_G: DP
+abc293_C: BASIC
+abc293_D: DSU
+abc293_E: MISC
+abc293_F: BIN
+abc293_G: MOS
+abc294_C: BASIC
+abc294_D: BASIC
+abc294_E: 2PO
+abc294_F: BIN, SORT, 2PO
+abc294_G: EULER, LCA, FWT
+abc295_C: BASIC
+abc295_D: MISC
+abc295_E: MOD
+abc295_F: DIGIT
+abc295_G: DSU
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Dynamic Programming:
 abc289_D
 abc291_D
